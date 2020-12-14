@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="376" height="169" viewBox="0 0 376 169">
+  <defs>
+    <linearGradient id="linear-gradient" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffc079"/>
+      <stop offset="1" stop-color="#ff6161"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Mask" width="376" height="169" rx="10" transform="translate(0 -0.374)" fill="url(#linear-gradient)"/>
+    </clipPath>
+  </defs>
+  <g id="Image_Banner" data-name="Image Banner" transform="translate(0 0.374)" clip-path="url(#clip-path)">
+    <path id="Triangle" d="M43.695,0,87.389,44.444H0Z" transform="translate(20.778 123.808)" fill="rgba(255,255,255,0.11)"/>
+    <path id="Triangle_Copy_3" data-name="Triangle Copy 3" d="M65.947,0l65.947,82.827H0Z" transform="translate(67.305 85.425)" fill="rgba(255,255,255,0.11)"/>
+    <path id="Triangle_Copy_4" data-name="Triangle Copy 4" d="M61.9,0l61.9,60.942H0Z" transform="translate(137.298 107.31)" fill="rgba(255,255,255,0.11)"/>
+    <path id="Triangle_Copy_5" data-name="Triangle Copy 5" d="M50.775,0,101.55,45.791H0Z" transform="translate(214.572 122.461)" fill="rgba(255,255,255,0.11)"/>
+    <path id="Triangle_Copy_6" data-name="Triangle Copy 6" d="M41.065,0,82.13,37.037H0Z" transform="translate(274.45 132.562)" fill="rgba(255,255,255,0.11)"/>
+    <path id="Triangle_Copy_7" data-name="Triangle Copy 7" d="M31.355,0,62.71,28.282H0Z" transform="translate(322.191 141.316)" fill="rgba(255,255,255,0.11)"/>
+    <path id="Triangle_Copy" data-name="Triangle Copy" d="M23.87,0,47.74,24.242H0Z" transform="translate(0.145 144.01)" fill="rgba(255,255,255,0.11)"/>
+    <path id="Triangle_Copy_2" data-name="Triangle Copy 2" d="M14.565,0,29.13,14.815H0Z" transform="translate(-14.42 153.437)" fill="rgba(255,255,255,0.11)"/>
+  </g>
+</svg>

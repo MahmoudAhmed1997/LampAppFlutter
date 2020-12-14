@@ -1,0 +1,6 @@
+<svg id="Right_Button" data-name="Right Button" xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
+  <g id="Button_Icon" data-name="Button/Icon">
+    <rect id="Background_Color" data-name="Background Color" width="42" height="42" rx="10" fill="#f7f7fc"/>
+    <path id="Shape" d="M1.558,8.2,6.629,3.127,11.7,8.2l1.558-1.569L6.629,0,0,6.629Z" transform="translate(25.599 14.371) rotate(90)" fill="#464451"/>
+  </g>
+</svg>
