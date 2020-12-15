@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+  <g id="cart" transform="translate(-274 -58.5)">
+    <rect id="Mask" width="38" height="38" rx="12" transform="translate(274 58.5)" fill="#049cd2"/>
+    <g id="ic_cart" transform="translate(284 69)">
+      <path id="Path_1358" data-name="Path 1358" d="M.629,12.917h1.8L5,23.162a.642.642,0,0,0,.608.508h7.9a.632.632,0,0,0,.577-.416l2.868-7.285a.765.765,0,0,0-.052-.659A.612.612,0,0,0,16.372,15H7.652a.7.7,0,0,0,0,1.388h7.757l-2.327,5.9h-7L3.514,12.038a.642.642,0,0,0-.608-.508H.629a.7.7,0,0,0,0,1.388Z" transform="translate(0 -11.529)" fill="#fff" stroke="#fff" stroke-width="0.543"/>
+      <path id="Path_1359" data-name="Path 1359" d="M54.162,199.3a1.566,1.566,0,1,0-1.541-1.567A1.554,1.554,0,0,0,54.162,199.3Z" transform="translate(-49.095 -182.296)" fill="#fff"/>
+      <path id="Path_1360" data-name="Path 1360" d="M185.045,199.281h.113a1.595,1.595,0,1,0-.113,0Z" transform="translate(-171.374 -182.281)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

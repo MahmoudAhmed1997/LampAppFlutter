@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lamp/screens/home.dart';
+import 'package:lamp/screens/hoodies_screen.dart';
+import 'package:lamp/widgets/bottomAppBarItems.dart';
 import 'package:lamp/widgets/product_grid.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,6 +13,9 @@ class HomeScreen extends StatelessWidget {
         color: Colors.white,
         debugShowCheckedModeBanner: false,
         home: Scaffold(
+            bottomNavigationBar: BottomAppBarItems(
+              index: 5,
+            ),
             backgroundColor: Color(0xffFFFFFF),
             appBar: AppBar(
               backgroundColor: Colors.white,
@@ -70,6 +76,7 @@ class HomeScreen extends StatelessWidget {
             //   index: 2,
             // ),
             body: DefaultTabController(
+
               length: 3,
               child: Directionality(
                 textDirection: TextDirection.rtl,
@@ -78,6 +85,10 @@ class HomeScreen extends StatelessWidget {
                     color: Color(0xffFFFFFF),
                     constraints: BoxConstraints(maxHeight: 150.0),
                     child: TabBar(
+
+
+
+
                       tabs: [
                         Tab(
                           child: Text(
@@ -90,14 +101,14 @@ class HomeScreen extends StatelessWidget {
                           child: Text(
                             "الهودي(Hoodies)",
                             style: TextStyle(
-                                fontSize: 13, color: Color(0xff383838)),
+                                fontSize: 13, color: Color(0xff7F8FA6)),
                           ),
                         ),
                         Tab(
                           child: Text(
                             "تي شيرت (T Shirt)",
                             style: TextStyle(
-                                fontSize: 13, color: Color(0xff383838)),
+                                fontSize: 13, color: Color(0xff7F8FA6)),
                           ),
                         ),
                       ],
@@ -106,75 +117,11 @@ class HomeScreen extends StatelessWidget {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        Center(
-                          child: ProductsGrid(),
-
-                            // child: Directionality(
-                            //     textDirection: TextDirection.rtl,
-                            //     child: Container(
-                            //       height: 1500,
-                            //       width: 700,
-                            //       child: ListView(
-                            //         children: [
-                            //           Image(
-                            //             image: AssetImage(
-                            //                 "assets/images/sub_bunner.png"),
-                            //           ),
-                            //           Padding(
-                            //             padding: const EdgeInsets.only(
-                            //                 right: 11.0,
-                            //                 left: 8,
-                            //                 top: 23,
-                            //                 bottom: 20),
-                            //             child: Row(
-                            //               mainAxisAlignment:
-                            //                   MainAxisAlignment.spaceBetween,
-                            //               children: [
-                            //                 Text(
-                            //                   "مقترحة لك",
-                            //                   style: TextStyle(
-                            //                       fontSize: 16,
-                            //                       color: Color(0xff18304B)),
-                            //                 ),
-                            //                 RaisedButton(
-                            //                   color: Color(0xffFFFFFF),
-                            //                   shape: RoundedRectangleBorder(
-                            //                     borderRadius:
-                            //                         BorderRadius.circular(50.0),
-                            //                   ),
-                            //                   onPressed: () {
-                            //                     print("lkf");
-                            //                   },
-                            //                   child: Row(
-                            //                     mainAxisAlignment:
-                            //                         MainAxisAlignment
-                            //                             .spaceEvenly,
-                            //                     children: [
-                            //                       Text(
-                            //                         "عرض الكل",
-                            //                         style: TextStyle(
-                            //                             fontSize: 12,
-                            //                             color:
-                            //                                 Color(0xff18304B)),
-                            //                       ),
-                            //                       Icon(
-                            //                         Icons
-                            //                             .arrow_back_ios_rounded,
-                            //                         size: 10,
-                            //                       )
-                            //                     ],
-                            //                   ),
-                            //                 ),
-                            //               ],
-                            //             ),
-                            //           ),
-                            //           Container(
-                            //               height: 1000, child: ProductsGrid()),
-                            //         ],
-                            //       ),
-                            //     ))),
-                        ),Center(
-                          child: Text("Empty"),
+                        Container(
+                          child: Home(),
+                        ),
+                        Container(
+                          child: HoodScreen(),
                         ),
                         Center(
                           child: Text("Empty"),
