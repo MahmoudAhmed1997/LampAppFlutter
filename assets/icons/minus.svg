@@ -1,0 +1,9 @@
+<svg id="Minus" xmlns="http://www.w3.org/2000/svg" width="45" height="40" viewBox="0 0 45 40">
+  <g id="Rectangle_510" data-name="Rectangle 510" fill="#fff" stroke="#f9f9ff" stroke-width="1">
+    <path d="M6,0H45a0,0,0,0,1,0,0V40a0,0,0,0,1,0,0H6a6,6,0,0,1-6-6V6A6,6,0,0,1,6,0Z" stroke="none"/>
+    <path d="M6,.5H44a.5.5,0,0,1,.5.5V39a.5.5,0,0,1-.5.5H6A5.5,5.5,0,0,1,.5,34V6A5.5,5.5,0,0,1,6,.5Z" fill="none"/>
+  </g>
+  <g id="Icon_feather-plus" data-name="Icon feather-plus" transform="translate(18 19.869)" opacity="0.72">
+    <path id="Path_470" data-name="Path 470" d="M7.5,18H20.812" transform="translate(-7.5 -18)" fill="none" stroke="#7f8fa6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+</svg>

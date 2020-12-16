@@ -227,24 +227,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               },
                             ),
                           ),
-                          Container(
-                              child: Center(
-                            child: RichText(
-                              text: TextSpan(
-                                  text: 'تمتلك حساب بالفعل؟',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 14),
-                                  children: <TextSpan>[
-                                    TextSpan(
-                                      text: 'تسجيل الدخول',
-                                      style: TextStyle(
-                                          color: Color(0xff1775BB),
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold),
-                                    )
-                                  ]),
-                            ),
-                          )),
+                          Padding(
+                            padding: const EdgeInsets.only(top:8.0),
+                            child: Container(
+                                child: Center(
+                              child: RichText(
+                                text: TextSpan(
+                                    text: 'تمتلك حساب بالفعل؟',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 14),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                        text: 'تسجيل الدخول',
+                                        style: TextStyle(
+                                            color: Color(0xff1775BB),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ]),
+                              ),
+                            )),
+                          ),
                         ],
                       ),
                     ),
