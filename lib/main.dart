@@ -1,23 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:lamp/screens/addresses_screen.dart';
+import 'package:lamp/screens/agreements_screen.dart';
 import 'package:lamp/screens/cart_screen.dart';
 import 'package:lamp/screens/cart_screen_two.dart';
+import 'package:lamp/screens/contact_us_screen.dart';
 import 'package:lamp/screens/designer_profile.dart';
+import 'package:lamp/screens/edit_profile_screen.dart';
 import 'package:lamp/screens/favourite_screen.dart';
 import 'package:lamp/screens/favourite_screen_two.dart';
 import 'package:lamp/screens/fliters_screen.dart';
 import 'package:lamp/screens/home_screen.dart';
 import 'package:lamp/screens/login_screen.dart';
+import 'package:lamp/screens/new_delivery%20_address.dart';
+import 'package:lamp/screens/new_password_screen.dart';
 import 'package:lamp/screens/new_product_screen.dart';
-import 'package:lamp/screens/orders_screen.dart';
+import 'package:lamp/screens/order_informations.dart';
+import 'package:lamp/screens/orders_list.dart';
+import 'package:lamp/screens/orders_first_screen.dart';
 import 'package:lamp/screens/orders_second_screen.dart';
 import 'package:lamp/screens/orders_third_screen.dart';
 import 'package:lamp/screens/product_detailes.dart';
 import 'package:lamp/screens/reset_screen.dart';
 import 'package:lamp/screens/signup_screen.dart';
 import 'package:lamp/screens/splash_screen.dart';
+import 'package:lamp/screens/success_order_screen.dart';
 import 'package:lamp/widgets/designer_card.dart';
 import 'package:lamp/widgets/prod.dart';
+import 'package:lamp/widgets/rating_order.dart';
 
 void main(){
-  runApp(MaterialApp(debugShowCheckedModeBanner:false ,home:OrdersThirdScreen()));
+  runApp(MaterialApp(debugShowCheckedModeBanner:false ,home:ContactUsScreen()));
 }

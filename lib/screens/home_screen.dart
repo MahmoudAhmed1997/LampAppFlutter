@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/screens/home.dart';
 import 'package:lamp/screens/hoodies_screen.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
-import 'package:lamp/widgets/product_grid.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -27,47 +26,55 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     height: 45,
                     width: 343,
-                    child: TextFormField(
-                      enableInteractiveSelection: false,
-                      style: TextStyle(color: Colors.grey),
-                      key: ValueKey("البحث"),
-                      autocorrect: false,
-                      textCapitalization: TextCapitalization.none,
-                      enableSuggestions: false,
-                      validator: (value) {
-                        if (value.isEmpty) {
-                          return '';
-                        }
-                        return null;
-                      },
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        suffixIcon: Container(
-                          width: 15,
-                          height: 12,
-                          color: Colors.amber,
-                          child: SvgPicture.asset(
-                            "assets/icons/search.svg",
-                            fit: BoxFit.fitWidth,
-                            allowDrawingOutsideViewBox: true,
-                            matchTextDirection: true,
+                    child: Stack(children: [
+                      TextFormField(
+                        textAlign: TextAlign.center,
+                        enableInteractiveSelection: false,
+                        style: TextStyle(color: Colors.grey),
+                        key: ValueKey("البحث"),
+                        autocorrect: false,
+
+                        textCapitalization: TextCapitalization.none,
+                        enableSuggestions: false,
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return '';
+                          }
+                          return null;
+                        },
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Color(0xffFAFAFA),
+                          labelText: "ابحث عن منتج",
+                          alignLabelWithHint: true,
+                          labelStyle: TextStyle(
+                              color: Color(0xffA4B0BE), fontSize: 15),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                              borderSide: BorderSide.none),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                new BorderSide(color: Color(0xff18304B)),
+                            borderRadius: new BorderRadius.circular(12),
                           ),
                         ),
-                        alignLabelWithHint: true,
-                        filled: true,
-                        fillColor: Color(0xffFAFAFA),
-                        labelText: "ابحث عن منتج",
-                        labelStyle:
-                            TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12.0),
-                            borderSide: BorderSide.none),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: new BorderSide(color: Color(0xff18304B)),
-                          borderRadius: new BorderRadius.circular(12),
-                        ),
                       ),
-                    ),
+                      Positioned.fill(
+                        right: 94,
+                        child: Align(
+                           alignment: Alignment.centerRight,
+                          child: UnconstrainedBox(
+                            child: SvgPicture.asset(
+                              "assets/icons/search.svg",
+                              fit: BoxFit.fitWidth,
+                              allowDrawingOutsideViewBox: true,
+                              matchTextDirection: true,
+                            ),
+                          ),
+                        ),
+                      )
+                    ]),
                   ),
                 ],
               ),
@@ -76,7 +83,6 @@ class HomeScreen extends StatelessWidget {
             //   index: 2,
             // ),
             body: DefaultTabController(
-
               length: 3,
               child: Directionality(
                 textDirection: TextDirection.rtl,
@@ -85,10 +91,6 @@ class HomeScreen extends StatelessWidget {
                     color: Color(0xffFFFFFF),
                     constraints: BoxConstraints(maxHeight: 150.0),
                     child: TabBar(
-
-
-
-
                       tabs: [
                         Tab(
                           child: Text(

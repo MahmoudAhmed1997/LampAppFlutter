@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lamp/widgets/designer_card.dart';
 import 'package:lamp/widgets/prod.dart';
-import 'package:lamp/widgets/product_grid.dart';
 
 class Home extends StatefulWidget {
   @override

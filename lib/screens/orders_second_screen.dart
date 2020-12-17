@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lamp/widgets/addrss_card.dart';
-import 'package:lamp/widgets/order_card.dart';
+import 'package:lamp/widgets/product_card.dart';
 
 
 class OrdersSecondScreen extends StatefulWidget {

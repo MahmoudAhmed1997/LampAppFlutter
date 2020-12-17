@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lamp/widgets/appbar_widgets.dart';
-import 'package:lamp/widgets/order_card.dart';
+import 'package:lamp/widgets/product_card.dart';
 import 'package:lamp/widgets/prod.dart';
 
 class OrdersFirstScreen extends StatefulWidget {
@@ -64,9 +64,9 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                       style: TextStyle(fontSize: 15, color: Color(0xff323643)),
                     ),
                   ),
-                  OrderCard(),
-                  OrderCard(),
-                  OrderCard(),
+                  ProductCard(),
+                  ProductCard(),
+                  ProductCard(),
                   Center(
                     child: Container(
                         decoration: BoxDecoration(

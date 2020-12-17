@@ -19,48 +19,50 @@ class AddressCard extends StatelessWidget {
         scrollDirection: Axis.vertical,
 
         itemBuilder: (context,  index){
-          return  Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          return  Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
 
 
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    child: ImageIcon(
-                      AssetImage(
-                          "assets/icons/check_box.png"),
-                      color: Color(0xff00B5F0),
-                    ),
-
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.all(7.0),
-                    child: ImageIcon(
-
-                      AssetImage(
-                          "assets/icons/check.png"),
-                      color: Colors.white,
-                      size: 10,
-
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      child: ImageIcon(
+                        AssetImage(
+                            "assets/icons/check_box.png"),
+                        color: Color(0xff00B5F0),
+                      ),
 
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(width: 10,),
 
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+                    Padding(
+                      padding: const EdgeInsets.all(7.0),
+                      child: ImageIcon(
 
-                children: [
-                  Text("عنوان المنزل",style: TextStyle(fontSize: 16,color: Color(0xff18304B)),),
-                  Text("نانمن, 36221 , الأحساء , المنطقة الشرقي...",style: TextStyle(color: Color(0xff7F8FA6),fontSize: 13),),
-                ],)
-            ],);
+                        AssetImage(
+                            "assets/icons/check.png"),
+                        color: Colors.white,
+                        size: 10,
+
+
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(width: 10,),
+
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+
+                  children: [
+                    Text("عنوان المنزل",style: TextStyle(fontSize: 16,color: Color(0xff18304B)),),
+                    Text("نانمن, 36221 , الأحساء , المنطقة الشرقي...",style: TextStyle(color: Color(0xff7F8FA6),fontSize: 13),),
+                  ],)
+              ],),
+          );
 
         },
 
