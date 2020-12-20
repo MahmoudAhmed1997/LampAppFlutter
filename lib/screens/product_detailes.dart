@@ -5,6 +5,8 @@ import 'package:lamp/widgets/appbar_widgets.dart';
 import 'package:lamp/widgets/prod.dart';
 
 class DetailsProductScreen extends StatefulWidget {
+  static const routeName = '/product_details_screen';
+
   @override
   _DetailsProductScreenState createState() => _DetailsProductScreenState();
 }
@@ -31,8 +33,13 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SvgPicture.asset(
-                            "assets/images/right_button.svg",
+                          InkWell(
+                            onTap: (){
+                              Navigator.pop(context);
+                            },
+                            child: SvgPicture.asset(
+                              "assets/images/right_button.svg",
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 8.0),
@@ -73,84 +80,119 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                         scrollDirection: Axis.horizontal,
                         children: [
                           Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Color(0xffF9F9FF)),
-                            height: 63,
-                            width: 57,
-                            child: Image.asset(
-                              "assets/images/t_shirt.png",
+
+                              height: 78,
+                              width:78,
+
+                              decoration: BoxDecoration(
+                                color: Color(0xffF9F9FF),
+                                borderRadius: BorderRadius.circular(8.0),
+                                border: Border.all(color: Color(0xffF9F9FF)
+                                )),
+                            child:
+                            Center(
+                              child: Image(
+                                height: 61,width: 55,
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                  "assets/images/t_shirt.png",
+                                ),
+                                //color: Colors.grey,
+                              ),
                             ),
+
                           ),
                           SizedBox(
                             width: 12.0,
                           ),
                           Container(
+
+                            height: 78,
+                            width:78,
+
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.white),
-                            height: 63,
-                            width: 57,
-                            child: Image.asset("assets/images/t_shirt.png"),
+                                color: Color(0xffF9F9FF),
+                                borderRadius: BorderRadius.circular(8.0),
+                                border: Border.all(color: Color(0xffF9F9FF)
+                                )),
+                            child:
+                            Center(
+                              child: Image(
+                                height: 61,width: 55,
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                  "assets/images/t_shirt2.png",
+                                ),
+                                //color: Colors.grey,
+                              ),
+                            ),
+
                           ),
+
                         ],
                       ),
                     ),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        "مادة تستخدم كبطانة كلاسيك للحيوانات \nالصغيرة - شيبسي",
-                        style:
-                            TextStyle(fontSize: 18, color: Color(0xff18304B)),
-                        textAlign: TextAlign.start,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        " 500 رس",
-                        style: TextStyle(
-                            fontSize: 19,
-                            color: Color(0xffF45540),
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Container(
-                        width: 143,
-                        height: 40,
-                        child: Row(
-                          children: [
-                            SvgPicture.asset("assets/icons/plus.svg"),
-                            Container(
-                                color: Colors.white,
-                                width: 45,
-                                height: 39,
-                                child: Center(
-                                    child: Text(
-                                  "02",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Color(0xff18304B)),
-                                ))),
-                            SvgPicture.asset("assets/icons/minus.svg"),
-                          ],
+                  Padding(
+                    padding: const EdgeInsets.only(right:18.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          "مادة تستخدم كبطانة كلاسيك للحيوانات \nالصغيرة - شيبسي",
+                          style:
+                              TextStyle(fontSize: 18, color: Color(0xff18304B)),
+                          textAlign: TextAlign.start,
                         ),
-                      )
-                    ],
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right:18.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          " 500 رس",
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Color(0xffF45540),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Container(
+                          width: 143,
+                          height: 40,
+                          child: Row(
+                            children: [
+                              SvgPicture.asset("assets/icons/plus.svg"),
+                              Container(
+                                  color: Colors.white,
+                                  width: 45,
+                                  height: 39,
+                                  child: Center(
+                                      child: Text(
+                                    "02",
+                                    style: TextStyle(
+                                        fontSize: 16, color: Color(0xff18304B)),
+                                  ))),
+                              SvgPicture.asset("assets/icons/minus.svg"),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                   Divider(),
                   Padding(
-                    padding: const EdgeInsets.only(top: 21.0),
+                    padding: const EdgeInsets.only(top: 21.0,right: 18),
                     child: Text(
                       "المقاسات المتاحة (أمريكي)",
                       style: TextStyle(fontSize: 16, color: Color(0xff18304B)),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 8.0, top: 21),
+                    padding: const EdgeInsets.only(right: 18.0, top: 18),
                     child: Container(
                       height: 45,
                       child: ListView(
@@ -341,6 +383,7 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                       Prod(
                         widthCard: 180,
                         widthButton: 167,
+                        index: 1,
                       ),
                       SizedBox(
                         width: 12.0,
@@ -348,6 +391,7 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                       Prod(
                         widthCard: 180,
                         widthButton: 167,
+                        index: 2,
                       ),
                     ],
                   ),
@@ -361,6 +405,7 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                       Prod(
                         widthCard: 180,
                         widthButton: 167,
+                        index: 3,
                       ),
                       SizedBox(
                         width: 12.0,
@@ -368,6 +413,7 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                       Prod(
                         widthCard: 180,
                         widthButton: 167,
+                        index: 4,
                       ),
                     ],
                   ),

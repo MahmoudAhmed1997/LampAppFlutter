@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
 
 class EditProfileScreen extends StatefulWidget {
+  static const routeName = '/edit_profile_screen';
+
   @override
   _EditProfileScreenState createState() => _EditProfileScreenState();
 }

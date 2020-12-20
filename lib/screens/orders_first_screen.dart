@@ -6,6 +6,8 @@ import 'package:lamp/widgets/product_card.dart';
 import 'package:lamp/widgets/prod.dart';
 
 class OrdersFirstScreen extends StatefulWidget {
+  static const routeName = '/order_first_screen';
+
   @override
   _OrdersFirstScreenState createState() => _OrdersFirstScreenState();
 }

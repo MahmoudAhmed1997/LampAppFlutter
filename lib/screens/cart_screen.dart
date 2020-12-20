@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lamp/widgets/appbar_widgets.dart';
+import 'package:lamp/widgets/bottomAppBarItems.dart';
 import 'package:lamp/widgets/prod.dart';
 
+
 class CartsScreen extends StatefulWidget {
+  static const routeName = '/cart_screen';
+
   @override
   _CartsScreenState createState() => _CartsScreenState();
 }
@@ -13,10 +16,10 @@ class _CartsScreenState extends State<CartsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: [
-        Directionality(
-          textDirection: TextDirection.rtl,
-          child: SingleChildScrollView(
+      body: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Stack(children: [
+          SingleChildScrollView(
             child: Column(
               children: [
                 Container(
@@ -33,7 +36,7 @@ class _CartsScreenState extends State<CartsScreen> {
                         Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(top: 8.0),
+                              padding: const EdgeInsets.only(top: 10.0),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -46,9 +49,7 @@ class _CartsScreenState extends State<CartsScreen> {
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              height: 2.0,
-                            ),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -75,14 +76,14 @@ class _CartsScreenState extends State<CartsScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Prod(
-                          widthCard: 180,
+                          widthCard: 165,
                           widthButton: 167,
                         ),
                         SizedBox(
                           width: 12.0,
                         ),
                         Prod(
-                          widthCard: 180,
+                          widthCard: 165,
                           widthButton: 167,
                         ),
                       ],
@@ -90,50 +91,68 @@ class _CartsScreenState extends State<CartsScreen> {
                     SizedBox(
                       height: 33,
                     ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Prod(
-                          widthCard: 180,
-                          widthButton: 167,
-                        ),
-                        SizedBox(
-                          width: 12.0,
-                        ),
-                        Prod(
-                          widthCard: 180,
-                          widthButton: 167,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 33,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Prod(
-                          widthCard: 180,
-                          widthButton: 167,
-                        ),
-                        SizedBox(
-                          width: 12.0,
-                        ),
-                        Prod(
-                          widthCard: 180,
-                          widthButton: 167,
-                        ),
-                      ],
-                    ),
+
                   ]),
                 ),
               ],
             ),
           ),
-        ),
-      ]),
+          Positioned(
+            right: 30,
+            left: 30,
+            bottom: 30,
+            child: Row(
+              children: [
+                Container(
+                  width: 206,
+                  height: 56,
+                  child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0)),
+                    color: Color(0xff7F8FA6),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "الإجمالي",
+                          style: TextStyle(color: Colors.white,fontSize: 16),
+                        ),
+                        Text(
+                          "500 ر.س",
+                          style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+                SizedBox(width: 6,),
+
+                Container(
+                  width: 136,
+                  height: 56,
+                  child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0)),
+                    color: Color(0xff00B5F0),
+                    child: Text(
+                      "إتمام الطلب",
+                      style: TextStyle(color: Colors.white,fontSize: 16),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+
+              ],
+            ),
+          ),
+
+        ]),
+      ),
     );
   }
 }

@@ -7,31 +7,40 @@ class ForgetPasswordCard extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       resizeToAvoidBottomPadding: false,
-
-      body: Stack(
-        children: [
+      body: Stack(children: [
         Directionality(
           textDirection: TextDirection.rtl,
           child: Center(
             child: Container(
-              width: 327,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
 
+              width: 327,
               child: Form(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top:10.0),
+                      padding: const EdgeInsets.only(top: 10.0),
                       child: SvgPicture.asset("assets/images/indicator.svg"),
                     ),
-                    SizedBox(height: 23,),
-
-                    Text("نسيت كلمة المرور؟",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 13,),
-
-                    Text("لا تقلق،أدخل البريد الالكتروني لارسال كود التعيين",style:TextStyle(fontSize: 16,fontWeight: FontWeight.normal)),
-                   SizedBox(height: 42,),
+                    SizedBox(
+                      height: 23,
+                    ),
+                    Text(
+                      "نسيت كلمة المرور؟",
+                      style: TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 13,
+                    ),
+                    Text("لا تقلق،أدخل البريد الالكتروني لارسال كود التعيين",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.normal)),
+                    SizedBox(
+                      height: 42,
+                    ),
                     TextFormField(
                       enableInteractiveSelection: false,
                       style: TextStyle(color: Colors.grey),
@@ -51,19 +60,18 @@ class ForgetPasswordCard extends StatelessWidget {
                         filled: true,
                         fillColor: Color(0xffFAFAFA),
                         labelText: "البريد الالكتروني",
-                        labelStyle: TextStyle(
-                            color: Color(0xffA4B0BE), fontSize: 15),
+                        labelStyle:
+                            TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12.0),
                             borderSide: BorderSide.none),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
-                          new BorderSide(color: Color(0xff18304B)),
+                              new BorderSide(color: Color(0xff18304B)),
                           borderRadius: new BorderRadius.circular(12),
                         ),
                       ),
-                      onSaved: (value) {
-                      },
+                      onSaved: (value) {},
                     ),
                     SizedBox(
                       height: 23.0,
@@ -89,15 +97,15 @@ class ForgetPasswordCard extends StatelessWidget {
               ),
             ),
           ),
-
-
         ),
-          Padding(
-            padding: const EdgeInsets.only(top:20.0,left: 16),
-            child: Container(
-              alignment: Alignment.topLeft,
-              child: SvgPicture.asset("assets/icons/button_cancle.svg"),),
-          )
-     ] ),
-    ); }
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0, left: 16),
+          child: Container(
+            alignment: Alignment.topLeft,
+            child: SvgPicture.asset("assets/icons/button_cancle.svg"),
+          ),
+        )
+      ]),
+    );
+  }
 }

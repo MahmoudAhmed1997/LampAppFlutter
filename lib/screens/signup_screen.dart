@@ -4,12 +4,20 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
 
 class SignUpScreen extends StatefulWidget {
+  static const routeName = '/signup_screen';
+
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
+  bool _obscureText = true;
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
 
   var _isLogin = true;
   var _userEmail = '';
@@ -38,7 +46,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-
                   Center(
                       child: Text(
                     "مستخدم جديد",
@@ -105,34 +112,57 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                           TextFormField(
                             key: ValueKey("كلمة المرور"),
-                            autocorrect: true,
-                            textCapitalization: TextCapitalization.words,
-                            enableSuggestions: false,
                             validator: (value) {
                               if (value.isEmpty || value.length < 4) {
                                 return 'أدخل على الأقل ٤ حروف';
                               }
                               return null;
                             },
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType.visiblePassword,
                             decoration: InputDecoration(
+                              alignLabelWithHint: true,
                               filled: true,
                               fillColor: Color(0xffFAFAFA),
+                              // hintText: "كلمة المرور",
                               labelText: "كلمة المرور",
-                              labelStyle: TextStyle(
-                                  color: Color(0xffA4B0BE), fontSize: 15),
+                              suffixIcon: InkWell(
+                                onTap: (){_toggle();},
+                                child: UnconstrainedBox(
+                                    child: _obscureText
+                                        ?
+                                    ImageIcon(
+                                      AssetImage("assets/icons/eye_hide.png"),
+                                      size: 23,
+                                      color: Colors.grey,
+                                    )
+
+                                        :
+                                    ImageIcon(
+                                      AssetImage("assets/icons/eye.png"),
+                                      size: 23,
+                                      color: Colors.grey,
+                                    )
+                                ),
+                              ),
+                              errorStyle: TextStyle(color: Color(0xffF45540)),
+
+                              hintStyle:
+                              TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
+                              labelStyle:
+                              TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                   borderSide: BorderSide.none),
                               focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    new BorderSide(color: Color(0xff18304B)),
+                                new BorderSide(color: Color(0xff18304B)),
                                 borderRadius: new BorderRadius.circular(12),
                               ),
                             ),
                             onSaved: (value) {
                               _userName = value;
                             },
+                            obscureText: _obscureText,
                           ),
                           SizedBox(
                             height: 15,
@@ -228,7 +258,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top:8.0),
+                            padding: const EdgeInsets.only(top: 8.0),
                             child: Container(
                                 child: Center(
                               child: RichText(
@@ -240,7 +270,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       TextSpan(
                                         text: 'تسجيل الدخول',
                                         style: TextStyle(
-                                            color: Color(0xff1775BB),
+                                            color: Color(0xff00B5F0),
                                             fontSize: 14,
                                             fontWeight: FontWeight.bold),
                                       )
@@ -263,25 +293,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: RichText(
             text: TextSpan(
                 text: 'بالتسجيل فأنت موافق على ',
-                style:
-                TextStyle(color: Colors.black, fontSize: 14),
+                style: TextStyle(color: Colors.black, fontSize: 14),
                 children: <TextSpan>[
                   TextSpan(
                     text: 'الشروط والأحكام',
                     style: TextStyle(
-                        color: Color(0xff1775BB),
+                        color: Color(0xff00B5F0),
                         fontSize: 14,
                         fontWeight: FontWeight.bold),
+
                   )
                 ]),
           ),
         ),
         Container(
           alignment: Alignment.topRight,
-          padding: EdgeInsets.only(top: 35.0,right: 13),
+          padding: EdgeInsets.only(top: 35.0, right: 13),
           child: SvgPicture.asset("assets/images/right_button.svg"),
         ),
-
       ]),
     );
   }

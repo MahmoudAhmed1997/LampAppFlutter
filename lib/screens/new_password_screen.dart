@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
 
 class NewPasswordScreen extends StatefulWidget {
+  static const routeName = '/new_password_screen';
+
   @override
   _NewPasswordScreenState createState() => _NewPasswordScreenState();
 }

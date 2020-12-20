@@ -6,6 +6,8 @@ import 'package:lamp/widgets/pay_card.dart';
 
 
 class OrdersThirdScreen extends StatefulWidget {
+  static const routeName = '/order_third_screen';
+
   @override
   _OrdersThirdScreenState createState() => _OrdersThirdScreenState();
 }

@@ -4,6 +4,8 @@ import 'package:lamp/widgets/order_card.dart';
 
 
 class OrdersListScreen extends StatelessWidget {
+  static const routeName = '/order_list_screen';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

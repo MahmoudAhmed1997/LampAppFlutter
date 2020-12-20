@@ -7,6 +7,8 @@ import 'package:lamp/widgets/product_card.dart';
 
 
 class AddressesScreen extends StatefulWidget {
+  static const routeName = '/addresses_screen';
+
   @override
   _AddressesScreenState createState() => _AddressesScreenState();
 }

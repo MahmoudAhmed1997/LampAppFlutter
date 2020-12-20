@@ -3,18 +3,27 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lamp/screens/home_screen.dart';
 import 'package:lamp/screens/signup_screen.dart';
 import 'package:lamp/widgets/auth_form.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
 import 'package:lamp/widgets/forget_password.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const routeName = '/login_screen';
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
+  bool _obscureText = true;
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
 
   var _isLogin = true;
   var _userEmail = '';
@@ -25,20 +34,23 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: Color(0xffFFFFFF),
       resizeToAvoidBottomPadding: false,
       body: Stack(children: [
         Align(
           alignment: Alignment.bottomCenter,
-          child: Image(image: AssetImage("assets/images/bg.png"),),
+          child: Image(
+            image: AssetImage("assets/images/bg.png"),
+          ),
         ),
         Directionality(
           textDirection: TextDirection.rtl,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: 40,),
+              SizedBox(
+                height: 40,
+              ),
               Center(
                   child: Text(
                 "تسجيل الدخول",
@@ -53,7 +65,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(
                     color: Color(0xff18304B),
                     fontSize: 20,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,
+                  //  fontFamily: "assets/fonts/DINNextLTArabic-Bold"
+                ),
               )),
               SizedBox(
                 height: 41.5,
@@ -85,8 +99,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           filled: true,
                           fillColor: Color(0xffFAFAFA),
                           labelText: "رقم الجوال / البريد الالكتروني",
-                          labelStyle: TextStyle(
-                              color: Color(0xffA4B0BE), fontSize: 15),
+                          labelStyle:
+                              TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12.0),
                               borderSide: BorderSide.none),
@@ -102,22 +116,44 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       TextFormField(
                         key: ValueKey("كلمة المرور"),
-                        autocorrect: true,
-                        textCapitalization: TextCapitalization.words,
-                        enableSuggestions: false,
                         validator: (value) {
                           if (value.isEmpty || value.length < 4) {
                             return 'أدخل على الأقل ٤ حروف';
                           }
                           return null;
                         },
-                        keyboardType: TextInputType.text,
+                        keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
+                           alignLabelWithHint: true,
                           filled: true,
                           fillColor: Color(0xffFAFAFA),
+                         // hintText: "كلمة المرور",
                           labelText: "كلمة المرور",
-                          labelStyle: TextStyle(
-                              color: Color(0xffA4B0BE), fontSize: 15),
+                          suffixIcon: InkWell(
+                            onTap: (){_toggle();},
+                            child: UnconstrainedBox(
+                                child: _obscureText
+                                    ?
+                                     ImageIcon(
+                                          AssetImage("assets/icons/eye_hide.png"),
+                                          size: 23,
+                                       color: Colors.grey,
+                                        )
+
+                                    :
+                                ImageIcon(
+                                  AssetImage("assets/icons/eye.png"),
+                                  size: 23,
+                                  color: Colors.grey,
+                                )
+                                    ),
+                          ),
+                          errorStyle: TextStyle(color: Color(0xffF45540)),
+
+                          hintStyle:
+                          TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
+                          labelStyle:
+                        TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12.0),
                               borderSide: BorderSide.none),
@@ -130,6 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onSaved: (value) {
                           _userName = value;
                         },
+                        obscureText: _obscureText,
                       ),
                       SizedBox(
                         height: 12.0,
@@ -146,7 +183,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: TextStyle(color: Colors.white),
                           ),
                           onPressed: () {
-                            null;
+                            Navigator.of(context)
+                                .pushNamed(HomeScreen.routeName);
                           },
                         ),
                       ),
@@ -158,15 +196,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         onPressed: () {
                           showModalBottomSheet(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(5.0),
+                                    topRight: Radius.circular(5.0)),
+                              ),
                               isScrollControlled: true,
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
                               isDismissible: true,
                               context: context,
-                              builder: (context) =>
-                                  FractionallySizedBox(
+                              builder: (context) => FractionallySizedBox(
                                     heightFactor: 0.88,
                                     child: ForgetPasswordCard(),
                                   ));
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
                         },
                       ),
                       Container(
@@ -174,8 +216,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: RichText(
                           text: TextSpan(
                               text: 'هل أنت مستخدم جديد في ضرار؟',
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 14),
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 14),
                               children: <TextSpan>[
                                 TextSpan(
                                   text: 'أنشئ حسابك',

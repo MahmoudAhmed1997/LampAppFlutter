@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ContactUsScreen extends StatefulWidget {
+  static const routeName = '/contact_us_screen';
+
   @override
   _ContactUsScreenState createState() => _ContactUsScreenState();
 }

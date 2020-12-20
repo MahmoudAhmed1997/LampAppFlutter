@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
 
 class NewDeliveryAddressesScreen extends StatefulWidget {
+  static const routeName = '/new_delivery_address_screen';
+
   @override
   _NewDeliveryAddressesScreenState createState() => _NewDeliveryAddressesScreenState();
 }

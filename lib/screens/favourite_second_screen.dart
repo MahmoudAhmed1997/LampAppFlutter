@@ -5,6 +5,8 @@ import 'package:lamp/widgets/appbar_widgets.dart';
 import 'package:lamp/widgets/prod.dart';
 
 class FavouriteSecondScreen extends StatefulWidget {
+  static const routeName = '/favourite_second_screen';
+
   @override
   _FavouriteSecondScreenState createState() => _FavouriteSecondScreenState();
 }

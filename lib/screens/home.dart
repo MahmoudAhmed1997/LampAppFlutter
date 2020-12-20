@@ -1,30 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:lamp/provider/designers.dart';
+import 'package:lamp/provider/products.dart';
+import 'package:lamp/screens/new_product_screen.dart';
 import 'package:lamp/widgets/designer_card.dart';
 import 'package:lamp/widgets/prod.dart';
 
 class Home extends StatefulWidget {
+  static const routeName = '/home';
+
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+
+  Products pro = Products();
+  Designers des = Designers();
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       body: Directionality(
           textDirection: TextDirection.rtl,
           child: ListView(
             children: [
               Image(
-                height: 130,
-                fit: BoxFit.fitWidth,
+                height: 165,
+                fit: BoxFit.fill,
                 width: double.infinity,
-                image: AssetImage("assets/images/sub_bunner.png"),
+                image: AssetImage("assets/images/bunner_image.png"),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    right: 11.0, left: 8, top: 17, bottom: 18),
+                    right: 11.0, left: 8, top: 10, bottom: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -68,24 +78,18 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Container(
-                height: 287.0,
+                height: 290.0,
                 width: double.infinity,
-                child: Padding(
-                  padding: EdgeInsets.only(right: 15.0),
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Prod(widthCard: 150,widthButton: 134,),
-                      SizedBox(
-                        width: 12.0,
-                      ),
-                      Prod(widthCard: 150,widthButton: 134,),
-                      SizedBox(
-                        width: 12.0,
-                      ),
-                      Prod(widthCard: 150,widthButton: 134,),
-                    ],
-                  ),
+                child: ListView.builder(
+                  itemBuilder: (context, index){
+
+                  return  Prod(widthCard: 150,widthButton: 134,index: index,);
+
+                  },
+                  itemCount:pro.products_list.length ,
+
+                  scrollDirection: Axis.horizontal,
+
                 ),
               ),
               Padding(
@@ -135,22 +139,15 @@ class _HomeState extends State<Home> {
                 child: Container(
                   width: double.infinity,
                   height:148 ,
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 15.0),
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        DesignerCard(),
-                        SizedBox(
-                          width: 13.0,
-                        ),
-                        DesignerCard(),
-                        SizedBox(
-                          width: 13.0,
-                        ),
-                        DesignerCard(),
-                      ],
-                    ),
+                  child: ListView.builder(
+                    itemCount: des.designers_list.length,
+                    itemBuilder: (contect,index){
+                      return  DesignerCard(index: index,);
+
+                    },
+                    scrollDirection: Axis.horizontal,
+
+
                   ),
                 ),
               ),
@@ -172,6 +169,8 @@ class _HomeState extends State<Home> {
 
                           side: BorderSide(color: Color(0xffE6EAFC)),
 
+
+
                       ),
                       child: Row(
 
@@ -192,7 +191,9 @@ class _HomeState extends State<Home> {
                           )
                         ],
                       ),
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewProductsScreen()));
+                      },
                     ),
                   ],
                 ),
@@ -202,19 +203,14 @@ class _HomeState extends State<Home> {
                 width: double.infinity,
                 child: Padding(
                   padding: EdgeInsets.only(right: 15.0),
-                  child: ListView(
+                  child: ListView.builder(
+                    itemCount: pro.products_list.length,
+                    itemBuilder: (context,index){
+                      return  Prod(widthCard: 150,widthButton: 134,index:index );
+
+                    },
                     scrollDirection: Axis.horizontal,
-                    children: [
-                      Prod(widthCard: 150,widthButton: 134,),
-                      SizedBox(
-                        width: 12.0,
-                      ),
-                      Prod(widthCard: 150,widthButton: 134,),
-                      SizedBox(
-                        width: 12.0,
-                      ),
-                      Prod(widthCard: 150,widthButton: 134,),
-                    ],
+
                   ),
                 ),
               ),

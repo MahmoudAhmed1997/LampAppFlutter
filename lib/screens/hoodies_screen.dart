@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:lamp/provider/designers.dart';
 import 'package:lamp/widgets/designer_card.dart';
 import 'package:lamp/widgets/prod.dart';
 
 class HoodScreen extends StatefulWidget {
+  static const routeName = '/hoodies_screen';
+
   @override
   _HoodScreenState createState() => _HoodScreenState();
 }
 
 class _HoodScreenState extends State<HoodScreen> {
+  Designers designers =Designers();
   @override
   Widget build(BuildContext context) {
     return
@@ -20,11 +24,11 @@ class _HoodScreenState extends State<HoodScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Prod(widthCard: 180,widthButton: 167,),
+                Prod(widthCard: 180,widthButton: 167,index: 0,),
                 SizedBox(
                   width: 12.0,
                 ),
-                Prod(widthCard: 180,widthButton: 167,),
+                Prod(widthCard: 180,widthButton: 167,index:1),
               ],
             ),
             Padding(
@@ -67,53 +71,24 @@ class _HoodScreenState extends State<HoodScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(right:15.0),
+            Hero(
+              tag: "card",
               child: Container(
                 width: double.infinity,
                 height:148 ,
-                child: ListView(
+                child: ListView.builder(
+                  itemCount: designers.designers_list.length,
+                  itemBuilder: (contect,index){
+                    return  DesignerCard(index: index,);
+
+                  },
                   scrollDirection: Axis.horizontal,
-                  children: [
-                    DesignerCard(),
-                    SizedBox(
-                      width: 13.0,
-                    ),
-                    DesignerCard(),
-                    SizedBox(
-                      width: 13.0,
-                    ),
-                    DesignerCard(),
-                  ],
+
+
                 ),
               ),
             ),
             SizedBox(height: 33,),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Prod(widthCard: 180,widthButton: 167,),
-                SizedBox(
-                  width: 12.0,
-                ),
-                Prod(widthCard: 180,widthButton: 167,),
-              ],
-            ),
-            SizedBox(height: 33,),
-
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Prod(widthCard: 180,widthButton: 167,),
-                SizedBox(
-                  width: 12.0,
-                ),
-                Prod(widthCard: 180,widthButton: 167,),
-              ],
-            ),
-
 
 
 

@@ -4,12 +4,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
 
 class ResetScreen extends StatefulWidget {
+  static const routeName = '/reset_screen';
+
   @override
   _ResetScreenState createState() => _ResetScreenState();
 }
 
 class _ResetScreenState extends State<ResetScreen> {
   final _formKey = GlobalKey<FormState>();
+  bool _obscureText = true;
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
 
   var _isLogin = true;
   var _userEmail = '';
@@ -117,23 +126,45 @@ class _ResetScreenState extends State<ResetScreen> {
                             height: 15,
                           ),
                           TextFormField(
-                            key: ValueKey("كلمة المرور الجديدة"),
-                            autocorrect: true,
-                            textCapitalization: TextCapitalization.words,
-                            enableSuggestions: false,
+                            key: ValueKey("كلمة المرور"),
                             validator: (value) {
                               if (value.isEmpty || value.length < 4) {
                                 return 'أدخل على الأقل ٤ حروف';
                               }
                               return null;
                             },
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType.visiblePassword,
                             decoration: InputDecoration(
+                              alignLabelWithHint: true,
                               filled: true,
                               fillColor: Color(0xffFAFAFA),
-                              labelText: "كلمة المرور الجديدة",
-                              labelStyle: TextStyle(
-                                  color: Color(0xffA4B0BE), fontSize: 15),
+                              // hintText: "كلمة المرور",
+                              labelText: "كلمة المرور",
+                              suffixIcon: InkWell(
+                                onTap: (){_toggle();},
+                                child: UnconstrainedBox(
+                                    child: _obscureText
+                                        ?
+                                    ImageIcon(
+                                      AssetImage("assets/icons/eye_hide.png"),
+                                      size: 23,
+                                      color: Colors.grey,
+                                    )
+
+                                        :
+                                    ImageIcon(
+                                      AssetImage("assets/icons/eye.png"),
+                                      size: 23,
+                                      color: Colors.grey,
+                                    )
+                                ),
+                              ),
+                              errorStyle: TextStyle(color: Color(0xffF45540)),
+
+                              hintStyle:
+                              TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
+                              labelStyle:
+                              TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                   borderSide: BorderSide.none),
@@ -146,28 +177,51 @@ class _ResetScreenState extends State<ResetScreen> {
                             onSaved: (value) {
                               _userName = value;
                             },
+                            obscureText: _obscureText,
                           ),
                           SizedBox(
                             height: 15,
                           ),
                           TextFormField(
-                            key: ValueKey("تأكيد كلمة المرور"),
-                            autocorrect: true,
-                            textCapitalization: TextCapitalization.words,
-                            enableSuggestions: false,
+                            key: ValueKey("كلمة المرور"),
                             validator: (value) {
                               if (value.isEmpty || value.length < 4) {
                                 return 'أدخل على الأقل ٤ حروف';
                               }
                               return null;
                             },
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType.visiblePassword,
                             decoration: InputDecoration(
+                              alignLabelWithHint: true,
                               filled: true,
                               fillColor: Color(0xffFAFAFA),
-                              labelText: "تأكيد كلمة المرور",
-                              labelStyle: TextStyle(
-                                  color: Color(0xffA4B0BE), fontSize: 15),
+                              // hintText: "كلمة المرور",
+                              labelText: "كلمة المرور",
+                              suffixIcon: InkWell(
+                                onTap: (){_toggle();},
+                                child: UnconstrainedBox(
+                                    child: _obscureText
+                                        ?
+                                    ImageIcon(
+                                      AssetImage("assets/icons/eye_hide.png"),
+                                      size: 23,
+                                      color: Colors.grey,
+                                    )
+
+                                        :
+                                    ImageIcon(
+                                      AssetImage("assets/icons/eye.png"),
+                                      size: 23,
+                                      color: Colors.grey,
+                                    )
+                                ),
+                              ),
+                              errorStyle: TextStyle(color: Color(0xffF45540)),
+
+                              hintStyle:
+                              TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
+                              labelStyle:
+                              TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                   borderSide: BorderSide.none),
@@ -180,6 +234,7 @@ class _ResetScreenState extends State<ResetScreen> {
                             onSaved: (value) {
                               _userName = value;
                             },
+                            obscureText: _obscureText,
                           ),
 
                           SizedBox(

@@ -6,6 +6,8 @@ import 'package:lamp/widgets/product_card.dart';
 
 
 class OrdersSecondScreen extends StatefulWidget {
+  static const routeName = '/order_second_screen';
+
   @override
   _OrdersSecondScreenState createState() => _OrdersSecondScreenState();
 }

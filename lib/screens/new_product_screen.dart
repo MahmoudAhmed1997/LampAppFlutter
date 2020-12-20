@@ -1,15 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lamp/screens/fliters_screen.dart';
 import 'package:lamp/widgets/appbar_widgets.dart';
 import 'package:lamp/widgets/prod.dart';
 
-class AddedProducts extends StatefulWidget {
+class NewProductsScreen extends StatefulWidget {
+  static const routeName = '/new_products_screen';
+
   @override
-  _AddedProductsState createState() => _AddedProductsState();
+  _NewProductsScreenState createState() => _NewProductsScreenState();
 }
 
-class _AddedProductsState extends State<AddedProducts> {
+class _NewProductsScreenState extends State<NewProductsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,18 +24,25 @@ class _AddedProductsState extends State<AddedProducts> {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 152,
+                  height: 156,
                   color: Color(0xff00B5F0),
                   child: Padding(
                     padding: const EdgeInsets.all(18.0),
                     child: Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
+                          padding: const EdgeInsets.only(top: 18.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SvgPicture.asset("assets/icons/button_right.svg"),
+                              InkWell(
+                                  child: SvgPicture.asset(
+                                "assets/icons/button_right.svg",
+                              ),
+                              onTap: (){
+                                    Navigator.pop(context);
+                              },
+                              ),
                               Text(
                                 "أضيف حديثاً",
                                 style: TextStyle(
@@ -67,10 +77,11 @@ class _AddedProductsState extends State<AddedProducts> {
                                 },
                                 keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
-                                  prefixIcon: ImageIcon(
-                                    AssetImage("assets/icons/search.png"),
-                                    size: 5,
-                                    color: Colors.black,
+                                  prefixIcon:UnconstrainedBox(
+                                    child: SvgPicture.asset(
+                                      "assets/icons/search.svg",
+
+                                    ),
                                   ),
                                   alignLabelWithHint: true,
                                   filled: true,
@@ -169,7 +180,7 @@ class _AddedProductsState extends State<AddedProducts> {
             color: Color(0xff18304B),
             margin: EdgeInsets.symmetric(vertical: 10),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(5),
             ),
             child: Container(
               width: 310,
@@ -187,17 +198,38 @@ class _AddedProductsState extends State<AddedProducts> {
                         color: Colors.white,
                       )),
                   Text(
-                    "عرض : الأكثر مبيـــعاً",
+                    " عرض : الأكثر مبيـــعاً",
                     style: TextStyle(color: Colors.white, fontSize: 17),
                   ),
+                  SizedBox(width: 5,),
                   Container(
                       height: 34,
                       width: 40,
-                      child: ImageIcon(
-                        AssetImage(
-                          "assets/icons/icon 3.png",
+                      child: InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(5.0),
+                                    topRight: Radius.circular(5.0)),
+                              ),
+                              isScrollControlled: true,
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              isDismissible: true,
+                              context: context,
+                              builder: (context) => FractionallySizedBox(
+
+                                child: FiltersProducts(),
+                              ));
+                        },
+                        child: ImageIcon(
+                          AssetImage(
+                            "assets/icons/icon 3.png",
+                          ),
+
+                          color: Colors.white,
+
                         ),
-                        color: Colors.white,
                       ))
                 ],
               ),

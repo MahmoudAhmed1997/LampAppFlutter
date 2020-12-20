@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lamp/widgets/order_card.dart';
 
 class AgreementsScreen extends StatelessWidget {
+  static const routeName = '/agreements_screen';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
