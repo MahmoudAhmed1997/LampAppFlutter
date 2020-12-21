@@ -26,36 +26,45 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 80,
+                    height: 98,
                     color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top:8.0,right: 20,left: 25),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SvgPicture.asset(
-                                "assets/images/right_button.svg",
-                              ),
-                              SizedBox(
-                                width: 10.0,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SvgPicture.asset(
+                                    "assets/images/right_button.svg",
+                                  ),
+                                  SizedBox(
+                                    width: 10.0,
+                                  ),
+                                  Text(
+                                    "اتمام الطلب",
+                                    style: TextStyle(
+                                        fontSize: 16, color: Color(0xff464451)),
+                                  ),
+                                ],
                               ),
                               Text(
-                                "اتمام الطلب",
+                                "تفاصيل الطلب",
                                 style: TextStyle(
-                                    fontSize: 16, color: Color(0xff464451)),
+                                    fontSize: 14, color: Color(0xff464451)),
                               ),
                             ],
                           ),
-                          Text(
-                            "تفاصيل الطلب",
-                            style: TextStyle(
-                                fontSize: 12, color: Color(0xff464451)),
-                          ),
-                        ],
-                      ),
+                        ),
+                        SizedBox(height: 15,),
+                        Container(
+                            height:15 ,width: 257,
+
+                            child: SvgPicture.asset("assets/images/progress1.svg"))
+                      ],
                     ),
                   ),
                   Padding(

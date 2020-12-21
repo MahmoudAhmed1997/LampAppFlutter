@@ -12,9 +12,7 @@ class OrderInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
+    return Scaffold(
             appBar: AppBar(
               centerTitle: true,
               backgroundColor: Color(0xff00B5F0),
@@ -46,33 +44,32 @@ class OrderInformation extends StatelessWidget {
                       color: Colors.white,
                       child: TabBar(
                         indicatorColor: Color(0xff4A6FF0),
+                        unselectedLabelColor: Color(0xff7F8FA6),
+                        labelColor: Color(0xff00B5F0),
+                        labelStyle: TextStyle(fontSize: 14),
                         tabs: [
                           Tab(
                             child: Text(
                               "معلومات",
-                              style: TextStyle(
-                                  fontSize: 14, color: Color(0xff00B5F0)),
+
                             ),
                           ),
                           Tab(
                             child: Text(
                               "المنتجات",
-                              style: TextStyle(
-                                  fontSize: 14, color: Color(0xff383838)),
+
                             ),
                           ),
                           Tab(
                             child: Text(
                               "العنوان",
-                              style: TextStyle(
-                                  fontSize: 14, color: Color(0xff383838)),
+
                             ),
                           ),
                           Tab(
                             child: Text(
                               "ايصال الطلب",
-                              style: TextStyle(
-                                  fontSize: 14, color: Color(0xff383838)),
+
                             ),
                           ),
                         ],
@@ -115,6 +112,6 @@ class OrderInformation extends StatelessWidget {
                   ),
                 ]),
               ),
-            )));
+            ));
   }
 }

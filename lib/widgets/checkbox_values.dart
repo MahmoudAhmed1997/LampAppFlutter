@@ -8,7 +8,11 @@ class GetCheckValue extends StatefulWidget {
 }
 
 class GetCheckValueState extends State<GetCheckValue> {
-  bool _isChecked = true;
+  bool _isChecked1 = true;
+  bool _isChecked2 = true;
+  bool _isChecked3 = true;
+  bool _isChecked4 = true;
+  bool _isChecked5 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +27,8 @@ class GetCheckValueState extends State<GetCheckValue> {
             "عرض حسب",
             style: TextStyle(fontSize: 15, color: Color(0xff18304B)),
           )),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                _isChecked = !_isChecked;
-              });
-            },
-            child: Row(
+
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
@@ -38,7 +37,7 @@ class GetCheckValueState extends State<GetCheckValue> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: (!_isChecked)
+                      color: !_isChecked1
                           ? Color(0xffF9F9FF)
                           : Color(0xff00B5F0),
                       borderRadius: BorderRadius.all(
@@ -46,33 +45,32 @@ class GetCheckValueState extends State<GetCheckValue> {
                       )),
                   width: 24,
                   height: 24,
-                  child: Theme(
-                    data: ThemeData(
-                      unselectedWidgetColor: Colors.transparent,
-                    ),
-                    child: InkWell(
-                      onTap: (){
-                        setState(() {
-                          _isChecked=!_isChecked;
-                        });
-                      },
-                      child: Checkbox(
-                        activeColor: Colors.transparent,
-                        checkColor: Colors.white,
-                        value: _isChecked,
-                        tristate: false,
-                        onChanged: (bool isChecked) {
-                          setState(() {
-                            _isChecked = !isChecked;
-                          });
-                        },
+                      child:Theme(
+                        data: ThemeData(
+
+                          unselectedWidgetColor: Colors.transparent, // Your color
+                        ),
+                        child: Checkbox(
+
+
+
+                          activeColor: Colors.transparent,
+                          autofocus: false,
+                          // checkColor: Colors.white,
+                          value: _isChecked1,
+                        //  tristate: false,
+                          onChanged: (bool isChecked) {
+                            setState(() {
+                              _isChecked1 = !_isChecked1;
+                            });
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ],
+
+    ],
             ),
-          ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -82,25 +80,31 @@ class GetCheckValueState extends State<GetCheckValue> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    color:
-                        (!_isChecked) ? Color(0xffF9F9FF) : Color(0xff00B5F0),
+                    color: !_isChecked2
+                        ? Color(0xffF9F9FF)
+                        : Color(0xff00B5F0),
                     borderRadius: BorderRadius.all(
                       Radius.circular(4),
                     )),
                 width: 24,
                 height: 24,
-                child: Theme(
+                child:Theme(
                   data: ThemeData(
-                    unselectedWidgetColor: Colors.transparent,
+
+                    unselectedWidgetColor: Colors.transparent, // Your color
                   ),
                   child: Checkbox(
+
+
+
                     activeColor: Colors.transparent,
-                    checkColor: Colors.white,
-                    value: _isChecked,
-                    tristate: false,
+                    autofocus: false,
+                    // checkColor: Colors.white,
+                    value: _isChecked2,
+                    //  tristate: false,
                     onChanged: (bool isChecked) {
                       setState(() {
-                        _isChecked = !isChecked;
+                        _isChecked2 = !_isChecked2;
                       });
                     },
                   ),
@@ -117,25 +121,31 @@ class GetCheckValueState extends State<GetCheckValue> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    color:
-                        (!_isChecked) ? Color(0xffF9F9FF) : Color(0xff00B5F0),
+                    color: !_isChecked3
+                        ? Color(0xffF9F9FF)
+                        : Color(0xff00B5F0),
                     borderRadius: BorderRadius.all(
                       Radius.circular(4),
                     )),
                 width: 24,
                 height: 24,
-                child: Theme(
+                child:Theme(
                   data: ThemeData(
-                    unselectedWidgetColor: Colors.transparent,
+
+                    unselectedWidgetColor: Colors.transparent, // Your color
                   ),
                   child: Checkbox(
+
+
+
                     activeColor: Colors.transparent,
-                    checkColor: Colors.white,
-                    value: _isChecked,
-                    tristate: false,
+                    autofocus: false,
+                    // checkColor: Colors.white,
+                    value: _isChecked3,
+                    //  tristate: false,
                     onChanged: (bool isChecked) {
                       setState(() {
-                        _isChecked = !isChecked;
+                        _isChecked3 = !_isChecked3;
                       });
                     },
                   ),
@@ -152,25 +162,31 @@ class GetCheckValueState extends State<GetCheckValue> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    color:
-                        (!_isChecked) ? Color(0xffF9F9FF) : Color(0xff00B5F0),
+                    color: !_isChecked4
+                        ? Color(0xffF9F9FF)
+                        : Color(0xff00B5F0),
                     borderRadius: BorderRadius.all(
                       Radius.circular(4),
                     )),
                 width: 24,
                 height: 24,
-                child: Theme(
+                child:Theme(
                   data: ThemeData(
-                    unselectedWidgetColor: Colors.transparent,
+
+                    unselectedWidgetColor: Colors.transparent, // Your color
                   ),
                   child: Checkbox(
+
+
+
                     activeColor: Colors.transparent,
-                    checkColor: Colors.white,
-                    value: _isChecked,
-                    tristate: false,
+                    autofocus: false,
+                    // checkColor: Colors.white,
+                    value: _isChecked4,
+                    //  tristate: false,
                     onChanged: (bool isChecked) {
                       setState(() {
-                        _isChecked = !isChecked;
+                        _isChecked4 = !_isChecked4;
                       });
                     },
                   ),
@@ -187,25 +203,31 @@ class GetCheckValueState extends State<GetCheckValue> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    color:
-                        (!_isChecked) ? Color(0xffF9F9FF) : Color(0xff00B5F0),
+                    color: !_isChecked5
+                        ? Color(0xffF9F9FF)
+                        : Color(0xff00B5F0),
                     borderRadius: BorderRadius.all(
                       Radius.circular(4),
                     )),
                 width: 24,
                 height: 24,
-                child: Theme(
+                child:Theme(
                   data: ThemeData(
-                    unselectedWidgetColor: Colors.transparent,
+
+                    unselectedWidgetColor: Colors.transparent, // Your color
                   ),
                   child: Checkbox(
+
+
+
                     activeColor: Colors.transparent,
-                    checkColor: Colors.white,
-                    value: _isChecked,
-                    tristate: false,
+                    autofocus: false,
+                    // checkColor: Colors.white,
+                    value: _isChecked5,
+                    //  tristate: false,
                     onChanged: (bool isChecked) {
                       setState(() {
-                        _isChecked = !isChecked;
+                        _isChecked5 = !_isChecked5;
                       });
                     },
                   ),

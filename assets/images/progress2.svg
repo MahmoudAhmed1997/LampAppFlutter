@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256.871" height="15" viewBox="0 0 256.871 15">
+  <g id="progress2" transform="translate(-12.814)">
+    <line id="Line_31" data-name="Line 31" x2="245.242" transform="translate(17.314 8)" fill="none" stroke="#a4b0be" stroke-width="2" stroke-dasharray="4"/>
+    <line id="Line_398" data-name="Line 398" x2="116.871" transform="translate(145.686 8)" fill="none" stroke="#00b5f0" stroke-width="2" stroke-dasharray="4"/>
+    <g id="order_check_ic" transform="translate(269.686) rotate(90)">
+      <circle id="Ellipse_889" data-name="Ellipse 889" cx="7.5" cy="7.5" r="7.5" transform="translate(0 15) rotate(-90)" fill="#00b5f0" opacity="0.45"/>
+      <circle id="Ellipse_890" data-name="Ellipse 890" cx="4.5" cy="4.5" r="4.5" transform="translate(3 3)" fill="#fff"/>
+      <path id="tick" d="M5.5,0A5.5,5.5,0,1,0,11,5.5,5.5,5.5,0,0,0,5.5,0ZM4.491,8.325,2.069,5.9,2.876,5.1,4.491,6.711,8.124,3.078l.807.807Z" transform="translate(1.999 13) rotate(-90)" fill="#00b5f0"/>
+    </g>
+    <g id="order_check_ic-2" data-name="order_check_ic" transform="translate(147.119) rotate(90)">
+      <circle id="Ellipse_889-2" data-name="Ellipse 889" cx="7.5" cy="7.5" r="7.5" transform="translate(0 15) rotate(-90)" fill="#00b5f0" opacity="0.45"/>
+      <circle id="Ellipse_890-2" data-name="Ellipse 890" cx="4.5" cy="4.5" r="4.5" transform="translate(3 3)" fill="#fff"/>
+      <path id="tick-2" data-name="tick" d="M5.5,0A5.5,5.5,0,1,0,11,5.5,5.5,5.5,0,0,0,5.5,0ZM4.491,8.325,2.069,5.9,2.876,5.1,4.491,6.711,8.124,3.078l.807.807Z" transform="translate(1.999 13) rotate(-90)" fill="#00b5f0"/>
+    </g>
+    <g id="order_check_ic-3" data-name="order_check_ic" transform="translate(27.814) rotate(90)">
+      <circle id="Ellipse_889-3" data-name="Ellipse 889" cx="7.5" cy="7.5" r="7.5" transform="translate(0 15) rotate(-90)" fill="#a4b0be" opacity="0.45"/>
+      <circle id="Ellipse_890-3" data-name="Ellipse 890" cx="4.5" cy="4.5" r="4.5" transform="translate(3 3)" fill="#fff"/>
+      <path id="tick-3" data-name="tick" d="M5.5,0A5.5,5.5,0,1,0,11,5.5,5.5,5.5,0,0,0,5.5,0ZM4.491,8.325,2.069,5.9,2.876,5.1,4.491,6.711,8.124,3.078l.807.807Z" transform="translate(1.999 13) rotate(-90)" fill="#a4b0be"/>
+    </g>
+  </g>
+</svg>

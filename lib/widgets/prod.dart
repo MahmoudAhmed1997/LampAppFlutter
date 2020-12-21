@@ -34,7 +34,8 @@ class Prod extends StatelessWidget {
               width: double.infinity,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailsProductScreen()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DetailsProductScreen()));
                 },
                 child: Container(
                   color: Color(0xffF9F9FF),
@@ -61,10 +62,18 @@ class Prod extends StatelessWidget {
                     child: Center(
                         child: Text(
                       "Hoodies",
-                      style: TextStyle(fontSize: 13.0),
+
+                      style: TextStyle(fontSize: 13.0,
+                      ),
                     )),
                   ),
-                  Text("تصميم عصري شباب مفعم بالقوة والحيوية"),
+                  Text(
+                    "تصميم عصري شباب مفعم بالقوة والحيوية",
+                    style: TextStyle(
+                      // fontFamily: "assets/fonts/ArbFONTS-DINNextLTArabic-Regular-2.ttf",
+                        fontSize: 13,
+                        color: Color(0xff464451)),
+                  ),
                   Row(
                     children: [
                       Text(
@@ -116,7 +125,6 @@ class Prod extends StatelessWidget {
                 ],
               ),
             ),
-
           ],
         ),
       ),

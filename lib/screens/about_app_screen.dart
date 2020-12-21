@@ -1,3 +1,4 @@
+import 'package:expand_widget/expand_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -36,12 +37,16 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
         textDirection: TextDirection.rtl,
         child: ListView(
           children: [
-            SizedBox(height: 31.0,),
+            SizedBox(
+              height: 31.0,
+            ),
             Container(
-                height: 253,
-                width: 335,
-                decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/contain.png"))),
-             ),
+              height: 253,
+              width: 335,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/contain.png"))),
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 30, right: 15, left: 19),
               child: Column(
@@ -144,7 +149,6 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
               ),
             ),
             SizedBox(height: 11),
-
             Center(
               child: Container(
                 width: 345,
@@ -163,7 +167,7 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
                       Text(
                         "السؤال الشائع الأول و الإجابة عليه  ",
                         style:
-                        TextStyle(fontSize: 16, color: Color(0xff18304B)),
+                            TextStyle(fontSize: 16, color: Color(0xff18304B)),
                       ),
                       FlatButton(
                         child: SvgPicture.asset("assets/icons/plus_icon.svg"),
@@ -175,63 +179,81 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
               ),
             ),
             SizedBox(height: 11),
-
+            Stack(children: [
             Center(
               child: Container(
-                width: 345,
-                height: 53,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Color(0xffF4F4F4),
-                    ),
-                    borderRadius: BorderRadius.circular(15)),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 18.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "السؤال الشائع الأول و الإجابة عليه  ",
-                        style:
-                        TextStyle(fontSize: 16, color: Color(0xff18304B)),
+                  width: 345,
+                  height: 56,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Color(0xffF4F4F4),
                       ),
-                      FlatButton(
-                        child: SvgPicture.asset("assets/icons/plus_icon.svg"),
-                        onPressed: () {},
-                      )
-                    ],
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 18.0),
+                    child: Text(
+                      "السؤال الشائع الأول و الإجابة عليه  ",
+                      style: TextStyle(
+                          fontSize: 16, color: Color(0xff18304B)),
+                    ),
                   ),
                 ),
-              ),
             ),
-            SizedBox(height: 11),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    child: ExpandChild(
+                       // arrowPadding: EdgeInsets.only(left: 5),
+                        icon: Icons.add,
+                        arrowColor: Color(0xff18304B),
+                        arrowSize: 20,
+                        hideArrowOnExpanded: false,
+                        child: Column(
+                          crossAxisAlignment:
+                          CrossAxisAlignment.end,
+                          children: [
+                            Container(
+                              width: 311,
+                              child: Text(
+                                "\nهذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف",style: TextStyle(color: Color(0xff18304B),fontSize: 14,fontWeight: FontWeight.normal),),
+                            ),
+                          ],
+                        )),
+                  ),
+                ],
+              ),
 
-            Center(
-              child: Container(
-                width: 345,
-                height: 53,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Color(0xffF4F4F4),
-                    ),
-                    borderRadius: BorderRadius.circular(15)),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 18.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "السؤال الشائع الأول و الإجابة عليه  ",
-                        style:
-                        TextStyle(fontSize: 16, color: Color(0xff18304B)),
+            ]),
+            Expanded(child: SizedBox(height: 11)),
+            Expanded(
+              child: Center(
+                child: Container(
+                  width: 345,
+                  height: 53,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Color(0xffF4F4F4),
                       ),
-                      FlatButton(
-                        child: SvgPicture.asset("assets/icons/plus_icon.svg"),
-                        onPressed: () {},
-                      )
-                    ],
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 18.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "السؤال الشائع الأول و الإجابة عليه  ",
+                          style:
+                              TextStyle(fontSize: 16, color: Color(0xff18304B)),
+                        ),
+                        FlatButton(
+                          child: SvgPicture.asset("assets/icons/plus_icon.svg"),
+                          onPressed: () {},
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

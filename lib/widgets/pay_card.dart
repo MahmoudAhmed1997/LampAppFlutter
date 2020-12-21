@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:lamp/provider/payments.dart';
 
-class PayCard extends StatelessWidget {
+class PayCard extends StatefulWidget {
+
+
+  @override
+  _PayCardState createState() => _PayCardState();
+}
+
+class _PayCardState extends State<PayCard> {
+
+  Payments payments =Payments();
   @override
   Widget build(BuildContext context) {
+
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
@@ -26,7 +37,7 @@ class PayCard extends StatelessWidget {
             ],
           );
         },
-        itemCount: 6,
+        itemCount: payments.payments_list.length,
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
           return Row(
@@ -37,23 +48,37 @@ class PayCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Stack(
-                    children: [
-                      Container(
-                        child: ImageIcon(
-                          AssetImage("assets/icons/check_box.png"),
-                          color: Color(0xff00B5F0),
-                        ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: !payments.payments_list[index].isChecked
+                            ? Color(0xffF9F9FF)
+                            : Color(0xff00B5F0),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(4),
+                        )),
+                    width: 27,
+                    height: 27,
+                    child:Theme(
+                      data: ThemeData(
+
+                        unselectedWidgetColor: Colors.transparent, // Your color
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(7.0),
-                        child: ImageIcon(
-                          AssetImage("assets/icons/check.png"),
-                          color: Colors.white,
-                          size: 10,
-                        ),
+                      child: Checkbox(
+
+
+
+                        activeColor: Colors.transparent,
+                        autofocus: false,
+                        // checkColor: Colors.white,
+                        value: payments.payments_list[index].isChecked,
+                        //  tristate: false,
+                        onChanged: (bool isChecked1) {
+                          setState(() {
+                            payments.payments_list[index].isChecked = !payments.payments_list[index].isChecked;
+                          });
+                        },
                       ),
-                    ],
+                    ),
                   ),
                   SizedBox(
                     width: 10,
@@ -63,12 +88,12 @@ class PayCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "الدفع عبر فيزا كارد",
+                        payments.payments_list[index].nameVisa,
                         style:
                             TextStyle(fontSize: 16, color: Color(0xff18304B)),
                       ),
                       Text(
-                        "نانمن, 36221 , الأحساء , المنطقة الشرقي...",
+                        payments.payments_list[index].detailes,
                         style:
                             TextStyle(color: Color(0xff7F8FA6), fontSize: 13),
                       ),
@@ -77,9 +102,10 @@ class PayCard extends StatelessWidget {
                 ],
               ),
               Container(
-                  height: 20,
+                  height: 51,
                   width: 20,
-                  child: Image(image: AssetImage("assets/icons/visa.png")))
+                  child: Image(image: AssetImage( payments.payments_list[index].image,
+                  )))
             ],
           );
         },

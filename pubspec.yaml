@@ -30,6 +30,9 @@ dependencies:
   cupertino_icons: ^1.0.1
   flutter_svg: 0.18.0
   smooth_star_rating: ^1.1.1
+  flutter_range_slider: ^1.5.0
+  expand_widget: ^1.1.0
+
 
 
 
@@ -126,6 +129,10 @@ flutter:
     - assets/icons/eye.svg
     - assets/icons/eye.png
     - assets/images/price.svg
+    - assets/images/progress1.svg
+    - assets/images/progress2.svg
+    - assets/images/progress3.svg
+    - assets/images/preparing.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -139,12 +146,19 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: DIN_Next
+    - family: DINNextLTArabic
       fonts:
-         - asset: assets/fonts/DINNextLTArabic-Bold.ttf
-         - asset: assets/fonts/DINNextLTArabic-Medium.ttf
-         - asset: assets/fonts/DINNextLTArabic-Regular.ttf
-           style: italic
+        - asset: assets/fonts/DINNextLTArabic-Black.ttf
+        - asset: assets/fonts/DINNextLTArabic-Bold.ttf
+        - asset: assets/fonts/DINNextLTArabic-Heavy.ttf
+        - asset: assets/fonts/DINNextLTArabic-Light.ttf
+        - asset: assets/fonts/DINNextLTArabic-Medium.ttf
+        - asset: assets/fonts/DINNextLTArabic-Regular.ttf
+        - asset: assets/fonts/DINNextLTArabic-UltraLight.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+
 
   #
   # For details regarding fonts from package dependencies,

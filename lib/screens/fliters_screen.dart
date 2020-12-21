@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/widgets/checkbox_values.dart';
 import 'package:lamp/widgets/rang_slider.dart';
+import 'package:flutter_range_slider/flutter_range_slider.dart';
 
 class FiltersProducts extends StatelessWidget {
   static const routeName = '/filters_products';
-  double _lowerValue = 0;
-  double _upperValue = 100;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +127,7 @@ class FiltersProducts extends StatelessWidget {
 
                   SvgPicture.asset(
                     'assets/images/price.svg',
-                  )
+                  ),
                 ],
               ),
             ),

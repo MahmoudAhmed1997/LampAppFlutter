@@ -36,13 +36,15 @@ import 'package:lamp/screens/user_profile_screen.dart';
 import 'package:lamp/widgets/designer_card.dart';
 import 'package:lamp/widgets/prod.dart';
 import 'package:lamp/widgets/rating_order.dart';
+import 'package:lamp/widgets/sliderrr.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(
+      MaterialApp(
+        theme: ThemeData(fontFamily: 'DINNextLTArabic'),
 
-    //theme: ThemeData(fontFamily: 'DIN_Next'),
 
-    debugShowCheckedModeBanner: false, home: DesignerProfile(),
+    debugShowCheckedModeBanner: false, home:HomeScreen(),
     routes: {
         EditProfileScreen.routeName: (ctx) => EditProfileScreen(),
       CartsScreen.routeName:(ctx) =>CartsScreen(),

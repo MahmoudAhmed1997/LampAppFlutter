@@ -68,31 +68,36 @@ class _CartsScreenState extends State<CartsScreen> {
                     ),
                   ),
                 ),
-                Container(
-                  height: 1000,
-                  child: ListView(scrollDirection: Axis.vertical, children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Prod(
-                          widthCard: 165,
-                          widthButton: 167,
-                        ),
-                        SizedBox(
-                          width: 12.0,
-                        ),
-                        Prod(
-                          widthCard: 165,
-                          widthButton: 167,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 33,
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(top:12.0),
+                  child: Container(
+                    height: 1000,
+                    child: ListView(scrollDirection: Axis.vertical, children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Prod(
+                            widthCard: 165,
+                            widthButton: 167,
+                            index: 1,
+                          ),
+                          SizedBox(
+                            width: 12.0,
+                          ),
+                          Prod(
+                            widthCard: 165,
+                            widthButton: 167,
+                            index: 2,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 33,
+                      ),
 
-                  ]),
+                    ]),
+                  ),
                 ),
               ],
             ),

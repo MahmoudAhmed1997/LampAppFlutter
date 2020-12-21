@@ -8,15 +8,14 @@ class OrdersListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
+    return  Scaffold(
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               backgroundColor: Color(0xff00B5F0),
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('قائمة الطلبات'),
+                  Text('قائمة الطلبات',style: TextStyle(fontSize: 17),),
                 ],
               ),
             ),
@@ -29,20 +28,21 @@ class OrdersListScreen extends StatelessWidget {
                   child: Material(
                     color: Colors.white,
                     child: TabBar(
+                      labelColor: Color(0xff00B5F0),
                       indicatorColor: Color(0xff00B5F0),
+
+                      unselectedLabelColor: Color(0xff7F8FA6),
                       tabs: [
                         Tab(
                           child: Text(
-                            "الطلبات المكتملة",
-                            style: TextStyle(
-                                fontSize: 16, color: Color(0xff4349B5)),
+                            "الطلبات السابقة",
                           ),
                         ),
                         Tab(
                           child: Text(
                             "الطلبات الحالية",
-                            style: TextStyle(
-                                fontSize: 16, color: Color(0xff383838)),
+
+
                           ),
                         )
                       ],
@@ -90,6 +90,6 @@ class OrdersListScreen extends StatelessWidget {
                   ),
                 ),
               ]),
-            )));
+            ));
   }
 }

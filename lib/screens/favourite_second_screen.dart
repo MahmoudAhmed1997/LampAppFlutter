@@ -24,27 +24,19 @@ class _FavouriteSecondScreenState extends State<FavouriteSecondScreen> {
                 Container(
 
                   width: double.infinity,
-                  height: 152,
+                  height: 125,
                   color: Colors.white,
                   child: Padding(
-                    padding: const EdgeInsets.all(18.0),
+                    padding: const EdgeInsets.only(top:25.0,),
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "المفضلة",
-                                style: TextStyle(
-                                    fontSize: 17, color: Color(0xff18304B)),
-                              ),
-                            ],
-                          ),
+                        Text(
+                          "المفضلة",
+                          style: TextStyle(
+                              fontSize: 17, color: Color(0xff18304B)),
                         ),
                         SizedBox(
-                          height: 17.0,
+                          height: 10.0,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -53,44 +45,61 @@ class _FavouriteSecondScreenState extends State<FavouriteSecondScreen> {
                             Container(
                               height: 45,
                               width: 343,
-                              child: TextFormField(
-                                enableInteractiveSelection: false,
-                                style: TextStyle(color: Colors.grey),
-                                key: ValueKey("البحث"),
-                                autocorrect: false,
-                                textCapitalization: TextCapitalization.none,
-                                enableSuggestions: false,
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return '';
-                                  }
-                                  return null;
-                                },
-                                keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
-                                  prefixIcon: ImageIcon(
-                                    AssetImage("assets/icons/search.png"),
-                                    size: 5,
-                                    color: Colors.black,
-                                  ),
-                                  alignLabelWithHint: true,
-                                  filled: true,
-                                  fillColor: Color(0xffEBEBEB),
-                                  labelText: "ما الذي تبحث عنه؟",
-                                  labelStyle: TextStyle(
-                                      color: Color(0xffA4B0BE), fontSize: 15),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                      borderSide: BorderSide.none),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: new BorderSide(
-                                        color: Color(0xff18304B)),
-                                    borderRadius: new BorderRadius.circular(12),
+                              child: Stack(children: [
+                                TextFormField(
+
+                                  textAlign: TextAlign.center,
+                                  enableInteractiveSelection: false,
+                                  style: TextStyle(color: Colors.grey),
+                                  key: ValueKey("البحث"),
+                                  autocorrect: false,
+
+                                  validator: (value) {
+                                    if (value.isEmpty) {
+                                      return '';
+                                    }
+                                    return null;
+                                  },
+                                  keyboardType: TextInputType.text,
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.all(9.0),
+
+                                    filled: true,
+                                    fillColor: Color(0xffFAFAFA),
+                                    hintText: "ما الذي تبحث عنه؟",
+                                    alignLabelWithHint: true,
+                                    hintStyle: TextStyle(
+                                        color: Color(0xff425154), fontSize: 15),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(6.0),
+                                        borderSide: BorderSide.none),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide:
+                                      new BorderSide(color: Color(0xff18304B)),
+                                      borderRadius: new BorderRadius.circular(6),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                Positioned.fill(
+                                  right: 94,
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: UnconstrainedBox(
+                                      child: SvgPicture.asset(
+                                        "assets/icons/search.svg",
+                                        fit: BoxFit.fitWidth,
+                                        allowDrawingOutsideViewBox: true,
+                                        matchTextDirection: true,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ]),
                             ),
                           ],
+                        ),
+                        SizedBox(
+                          height: 10.0,
                         ),
                       ],
                     ),
@@ -106,6 +115,7 @@ class _FavouriteSecondScreenState extends State<FavouriteSecondScreen> {
                         Prod(
                           widthCard: 180,
                           widthButton: 167,
+                          index: 1,
                         ),
                         SizedBox(
                           width: 12.0,
@@ -113,6 +123,7 @@ class _FavouriteSecondScreenState extends State<FavouriteSecondScreen> {
                         Prod(
                           widthCard: 180,
                           widthButton: 167,
+                          index: 1,
                         ),
                       ],
                     ),
@@ -126,6 +137,7 @@ class _FavouriteSecondScreenState extends State<FavouriteSecondScreen> {
                         Prod(
                           widthCard: 180,
                           widthButton: 167,
+                          index: 2,
                         ),
                         SizedBox(
                           width: 12.0,
@@ -133,28 +145,12 @@ class _FavouriteSecondScreenState extends State<FavouriteSecondScreen> {
                         Prod(
                           widthCard: 180,
                           widthButton: 167,
+                          index: 2,
                         ),
                       ],
                     ),
                     SizedBox(
                       height: 33,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Prod(
-                          widthCard: 180,
-                          widthButton: 167,
-                        ),
-                        SizedBox(
-                          width: 12.0,
-                        ),
-                        Prod(
-                          widthCard: 180,
-                          widthButton: 167,
-                        ),
-                      ],
                     ),
                   ]),
                 ),

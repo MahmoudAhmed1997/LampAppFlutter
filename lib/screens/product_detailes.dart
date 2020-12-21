@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lamp/provider/products.dart';
 import 'package:lamp/widgets/appbar_widgets.dart';
 import 'package:lamp/widgets/prod.dart';
 
@@ -12,6 +13,11 @@ class DetailsProductScreen extends StatefulWidget {
 }
 
 class _DetailsProductScreenState extends State<DetailsProductScreen> {
+  List _selectedIndexs=[];
+  Products products =Products();
+  int id;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -195,140 +201,44 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                     padding: const EdgeInsets.only(right: 18.0, top: 18),
                     child: Container(
                       height: 45,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
+                      width: double.infinity,
+                      child: ListView.builder(
 
-                                //  color: Colors.red,
-                                border: Border.all(color: Color(0xff00B5F0))),
-                            height: 43,
-                            width: 68,
-                            child: RaisedButton(
-                              color: Colors.white,
-                              child: Text("L"),
-                              onPressed: () {
-                                print("c");
+                        itemCount: 6,
+
+                        itemBuilder: (context,i){
+                          final _isSelected=_selectedIndexs.contains(i);
+
+                          return Padding(
+                            padding: const EdgeInsets.only(left:8.0),
+                            child: GestureDetector(
+                              onTap:(){
+                                setState((){
+                                  if(_isSelected){
+                                    _selectedIndexs.remove(i);
+
+                                  }else{
+                                    _selectedIndexs.add(i);
+                                  }
+                                });
                               },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(color: _isSelected?Color(0xff00B5F0):Color(0xffE8E8E8))),
+                                height: 43,
+                                width: 68,
+                                child: Center(child: Text(products.products_list[i].size)),
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xffE8E8E8))),
-                            height: 43,
-                            width: 68,
-                            child: RaisedButton(
-                              color: Colors.white,
-                              child: Text("XL"),
-                              onPressed: () {
-                                print("c");
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xffE8E8E8))),
-                            height: 43,
-                            width: 68,
-                            child: RaisedButton(
-                              color: Colors.white,
-                              child: Text("XL"),
-                              onPressed: () {
-                                print("c");
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xffE8E8E8))),
-                            height: 43,
-                            width: 68,
-                            child: RaisedButton(
-                              color: Colors.white,
-                              child: Text("XL"),
-                              onPressed: () {
-                                print("c");
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xffE8E8E8))),
-                            height: 43,
-                            width: 68,
-                            child: RaisedButton(
-                              color: Colors.white,
-                              child: Text("XL"),
-                              onPressed: () {
-                                print("c");
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xffE8E8E8))),
-                            height: 43,
-                            width: 68,
-                            child: RaisedButton(
-                              color: Colors.white,
-                              child: Text("XL"),
-                              onPressed: () {
-                                print("c");
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xffE8E8E8))),
-                            height: 43,
-                            width: 68,
-                            child: RaisedButton(
-                              color: Colors.white,
-                              child: Text("XL"),
-                              onPressed: () {
-                                print("c");
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xffE8E8E8))),
-                            height: 43,
-                            width: 68,
-                            child: RaisedButton(
-                              color: Colors.white,
-                              child: Text("XL"),
-                              onPressed: () {
-                                print("c");
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                        ],
+                          );
+
+                      },
+
+                      scrollDirection: Axis.horizontal,
+
+
+
                       ),
                     ),
                   ),

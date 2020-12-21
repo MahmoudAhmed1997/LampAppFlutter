@@ -60,45 +60,59 @@ class _NewProductsScreenState extends State<NewProductsScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              height: 45,
+                              height: 40,
                               width: 343,
-                              child: TextFormField(
-                                enableInteractiveSelection: false,
-                                style: TextStyle(color: Colors.grey),
-                                key: ValueKey("البحث"),
-                                autocorrect: false,
-                                textCapitalization: TextCapitalization.none,
-                                enableSuggestions: false,
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return '';
-                                  }
-                                  return null;
-                                },
-                                keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
-                                  prefixIcon:UnconstrainedBox(
-                                    child: SvgPicture.asset(
-                                      "assets/icons/search.svg",
+                              child: Stack(children: [
+                                TextFormField(
 
+                                  textAlign: TextAlign.center,
+                                  enableInteractiveSelection: false,
+                                  style: TextStyle(color: Colors.grey),
+                                  key: ValueKey("البحث"),
+                                  autocorrect: false,
+
+                                  validator: (value) {
+                                    if (value.isEmpty) {
+                                      return '';
+                                    }
+                                    return null;
+                                  },
+                                  keyboardType: TextInputType.text,
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.all(9.0),
+
+                                    filled: true,
+                                    fillColor: Color(0xffFAFAFA),
+                                    hintText: "ابحث عن منتج",
+                                    alignLabelWithHint: true,
+                                    hintStyle: TextStyle(
+                                        color: Color(0xff425154), fontSize: 15),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(6.0),
+                                        borderSide: BorderSide.none),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide:
+                                      new BorderSide(color: Color(0xff18304B)),
+                                      borderRadius: new BorderRadius.circular(6),
                                     ),
                                   ),
-                                  alignLabelWithHint: true,
-                                  filled: true,
-                                  fillColor: Color(0xffFAFAFA),
-                                  labelText: "ابحث عن منتج",
-                                  labelStyle: TextStyle(
-                                      color: Color(0xffA4B0BE), fontSize: 15),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                      borderSide: BorderSide.none),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: new BorderSide(
-                                        color: Color(0xff18304B)),
-                                    borderRadius: new BorderRadius.circular(12),
-                                  ),
                                 ),
-                              ),
+                                Positioned.fill(
+                                  right: 94,
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: UnconstrainedBox(
+                                      child: SvgPicture.asset(
+                                        "assets/icons/search.svg",
+                                        fit: BoxFit.fitWidth,
+                                        color: Colors.red,
+                                        allowDrawingOutsideViewBox: true,
+                                        matchTextDirection: true,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ]),
                             ),
                           ],
                         ),

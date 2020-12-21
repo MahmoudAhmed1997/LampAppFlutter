@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="471" height="188" viewBox="0 0 471 188">
+  <defs>
+    <filter id="Rectangle" x="0" y="0" width="471" height="188" filterUnits="userSpaceOnUse">
+      <feOffset dy="20" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feFlood flood-color="#03004d" flood-opacity="0.039"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_54995" data-name="Group 54995" transform="translate(60 -44)">
+    <g transform="matrix(1, 0, 0, 1, -60, 44)" filter="url(#Rectangle)">
+      <rect id="Rectangle-2" data-name="Rectangle" width="351" height="68" rx="5" transform="translate(60 40)" fill="#fff"/>
+    </g>
+    <text id="جاري_التجهيز" data-name="جاري التجهيز" transform="translate(260.63 95.704)" fill="#323643" font-size="15" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="-0.006em"><tspan x="-73.285" y="16">جاري التجهيز</tspan></text>
+    <line id="Line_333" data-name="Line 333" x1="317" transform="translate(16.5 131.5)" fill="none" stroke="rgba(191,191,191,0.27)" stroke-linecap="round" stroke-width="5"/>
+    <line id="Line_334" data-name="Line 334" x1="102" transform="translate(231.5 131.5)" fill="none" stroke="#00b5f0" stroke-linecap="round" stroke-width="5"/>
+    <g id="Ellipse_910" data-name="Ellipse 910" transform="translate(329 126)" fill="#00b5f0" stroke="#fff" stroke-width="2">
+      <circle cx="5.5" cy="5.5" r="5.5" stroke="none"/>
+      <circle cx="5.5" cy="5.5" r="6.5" fill="none"/>
+    </g>
+    <g id="Ellipse_912" data-name="Ellipse 912" transform="translate(119 126)" fill="#7f8fa6" stroke="#fff" stroke-width="2">
+      <circle cx="5.5" cy="5.5" r="5.5" stroke="none"/>
+      <circle cx="5.5" cy="5.5" r="6.5" fill="none"/>
+    </g>
+    <g id="Ellipse_911" data-name="Ellipse 911" transform="translate(224 126)" fill="#00b5f0" stroke="#fff" stroke-width="2">
+      <circle cx="5.5" cy="5.5" r="5.5" stroke="none"/>
+      <circle cx="5.5" cy="5.5" r="6.5" fill="none"/>
+    </g>
+    <g id="Ellipse_913" data-name="Ellipse 913" transform="translate(14 126)" fill="#7f8fa6" stroke="#fff" stroke-width="2">
+      <circle cx="5.5" cy="5.5" r="5.5" stroke="none"/>
+      <circle cx="5.5" cy="5.5" r="6.5" fill="none"/>
+    </g>
+  </g>
+</svg>

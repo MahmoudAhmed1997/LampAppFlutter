@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OrderInformationScreen extends StatelessWidget {
@@ -5,227 +6,247 @@ class OrderInformationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.white),
-          height: 404,
-          width: 355,
-          child: Column(
-            mainAxisAlignment:
-            MainAxisAlignment.spaceAround,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
+    return Stack(children: [
+     Center(
+       child: Column(
+          children: [
+            // Center(
+            //   child: Container(
+            //       height: 68,
+            //       width: 800,
+            //       child: Image(image: AssetImage("assets/images/preparing.png"),fit: BoxFit.fitWidth,)),
+            // ),
 
-                child: Row(
-                  children: [
-                    Container(
-                        width: 190,
-                        child: Text(
-                          "المنتجات",
-                          style: TextStyle(
-                              color:
-                              Color(0xff18304B),
-                              fontSize: 15),
-                        )),
-                    Container(
-                      width:130,
 
-                      child: Text(
-                        "13",
-                        style: TextStyle(
-                            color: Color(0xff7F8FA6),
-                            fontSize: 15),
-                        textDirection:
-                        TextDirection.rtl,
-                      ),
+            Container(
+              alignment: AlignmentDirectional.center,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.white),
+              height: 404,
+              width: 355,
+              child: Column(
+                mainAxisAlignment:
+                MainAxisAlignment.spaceAround,
+                children: [
+
+                  Padding(
+                    padding: EdgeInsets.only(right: 20,top: 5),
+
+                    child: Row(
+                      children: [
+                        Container(
+                            width: 190,
+                            child: Text(
+                              "المنتجات",
+                              style: TextStyle(
+                                  color:
+                                  Color(0xff18304B),
+                                  fontSize: 15),
+                            )),
+                        Container(
+                          width:130,
+
+                          child: Text(
+                            "13",
+                            style: TextStyle(
+                                color: Color(0xff7F8FA6),
+                                fontSize: 15),
+                            textDirection:
+                            TextDirection.rtl,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              Divider(),
-              Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
-                child: Row(
-                  children: [
-                    Container(
-                        width: 190,
-                        child: Text(
-                          "السعر الاجمالي",
-                          style: TextStyle(
-                              color:
-                              Color(0xff18304B),
-                              fontSize: 15),
-                        )),
-                    Container(
-                      width:130,
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20,top: 5),
+                    child: Row(
+                      children: [
+                        Container(
+                            width: 190,
+                            child: Text(
+                              "السعر الاجمالي",
+                              style: TextStyle(
+                                  color:
+                                  Color(0xff18304B),
+                                  fontSize: 15),
+                            )),
+                        Container(
+                          width:130,
 
-                      child: Text(
-                        "500 رس",
-                        style: TextStyle(
-                            color: Color(0xff7F8FA6),
-                            fontSize: 15),
-                        textDirection:
-                        TextDirection.rtl,
-                      ),
+                          child: Text(
+                            "500 رس",
+                            style: TextStyle(
+                                color: Color(0xff7F8FA6),
+                                fontSize: 15),
+                            textDirection:
+                            TextDirection.rtl,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
+                  ),
 
-              Divider(),
-              Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
-                child: Row(
-                  children: [
-                    Container(
-                        width: 190,
-                        child: Text(
-                          "طريقة الدفع",
-                          style: TextStyle(
-                              color:
-                              Color(0xff18304B),
-                              fontSize: 15),
-                        )),
-                    Container(
-                      width:130,
+                  Divider(),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20,top: 5),
+                    child: Row(
+                      children: [
+                        Container(
+                            width: 190,
+                            child: Text(
+                              "طريقة الدفع",
+                              style: TextStyle(
+                                  color:
+                                  Color(0xff18304B),
+                                  fontSize: 15),
+                            )),
+                        Container(
+                          width:130,
 
-                      child: Text(
-                        "بطاقة مدى",
-                        style: TextStyle(
-                            color: Color(0xff7F8FA6),
-                            fontSize: 15),
-                        textDirection:
-                        TextDirection.rtl,
-                      ),
+                          child: Text(
+                            "بطاقة مدى",
+                            style: TextStyle(
+                                color: Color(0xff7F8FA6),
+                                fontSize: 15),
+                            textDirection:
+                            TextDirection.rtl,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              Divider(),
-              Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
-                child: Row(
-                  children: [
-                    Container(
-                        width: 190,
-                        child: Text(
-                          "تاريخ الطلب",
-                          style: TextStyle(
-                              color:
-                              Color(0xff18304B),
-                              fontSize: 15),
-                        )),
-                    Container(
-                      width:130,
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20,top: 5),
+                    child: Row(
+                      children: [
+                        Container(
+                            width: 190,
+                            child: Text(
+                              "تاريخ الطلب",
+                              style: TextStyle(
+                                  color:
+                                  Color(0xff18304B),
+                                  fontSize: 15),
+                            )),
+                        Container(
+                          width:130,
 
-                      child: Text(
-                        "20.09.2020, 18:30",
-                        style: TextStyle(
-                            color: Color(0xff7F8FA6),
-                            fontSize: 15),
-                        textDirection:
-                        TextDirection.rtl,
-                      ),
+                          child: Text(
+                            "20.09.2020, 18:30",
+                            style: TextStyle(
+                                color: Color(0xff7F8FA6),
+                                fontSize: 15),
+                            textDirection:
+                            TextDirection.rtl,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
+                  ),
 
-              Divider(),
-              Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
-                child: Row(
-                  children: [
-                    Container(
-                        width: 190,
-                        child: Text(
-                          "تاريخ التوصيل",
-                          style: TextStyle(
-                              color:
-                              Color(0xff18304B),
-                              fontSize: 15),
-                        )),
-                    Container(
-                      width:130,
+                  Divider(),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20,top: 5),
+                    child: Row(
+                      children: [
+                        Container(
+                            width: 190,
+                            child: Text(
+                              "تاريخ التوصيل",
+                              style: TextStyle(
+                                  color:
+                                  Color(0xff18304B),
+                                  fontSize: 15),
+                            )),
+                        Container(
+                          width:130,
 
-                      child: Text(
-                        "20.09.2020, 18:30",
-                        style: TextStyle(
-                            color: Color(0xff7F8FA6),
-                            fontSize: 15),
-                        textDirection:
-                        TextDirection.rtl,
-                      ),
+                          child: Text(
+                            "20.09.2020, 18:30",
+                            style: TextStyle(
+                                color: Color(0xff7F8FA6),
+                                fontSize: 15),
+                            textDirection:
+                            TextDirection.rtl,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              Divider(),
-              Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
-                child: Row(
-                  children: [
-                    Container(
-                        width: 190,
-                        child: Text(
-                          "المدينة",
-                          style: TextStyle(
-                              color:
-                              Color(0xff18304B),
-                              fontSize: 15),
-                        )),
-                    Container(
-                      width:130,
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20,top: 5),
+                    child: Row(
+                      children: [
+                        Container(
+                            width: 190,
+                            child: Text(
+                              "المدينة",
+                              style: TextStyle(
+                                  color:
+                                  Color(0xff18304B),
+                                  fontSize: 15),
+                            )),
+                        Container(
+                          width:130,
 
-                      child: Text(
-                        "الرياض",
-                        style: TextStyle(
-                            color: Color(0xff7F8FA6),
-                            fontSize: 15),
-                        textDirection:
-                        TextDirection.rtl,
-                      ),
+                          child: Text(
+                            "الرياض",
+                            style: TextStyle(
+                                color: Color(0xff7F8FA6),
+                                fontSize: 15),
+                            textDirection:
+                            TextDirection.rtl,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              Divider(),
-              Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
-                child: Row(
-                  children: [
-                    Container(
-                        width: 190,
-                        child: Text(
-                          "الدولة",
-                          style: TextStyle(
-                              color:
-                              Color(0xff18304B),
-                              fontSize: 15),
-                        )),
-                    Container(
-                      width:130,
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20,top: 5),
+                    child: Row(
+                      children: [
+                        Container(
+                            width: 190,
+                            child: Text(
+                              "الدولة",
+                              style: TextStyle(
+                                  color:
+                                  Color(0xff18304B),
+                                  fontSize: 15),
+                            )),
+                        Container(
+                          width:130,
 
-                      child: Text(
-                        "السعودية",
-                        style: TextStyle(
-                            color: Color(0xff7F8FA6),
-                            fontSize: 15),
-                        textDirection:
-                        TextDirection.rtl,
-                      ),
+                          child: Text(
+                            "السعودية",
+                            style: TextStyle(
+                                color: Color(0xff7F8FA6),
+                                fontSize: 15),
+                            textDirection:
+                            TextDirection.rtl,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: 5,)
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        Padding(
+     ),
+      Positioned(
+        bottom: 30,
+        right: 33,
+        left: 33,
+        child: Padding(
           padding: const EdgeInsets.only(top: 70.0),
           child: Row(
             mainAxisAlignment:
@@ -270,7 +291,8 @@ class OrderInformationScreen extends StatelessWidget {
             ],
           ),
         ),
-      ],
-    );
+      ),
+
+    ]);
   }
 }

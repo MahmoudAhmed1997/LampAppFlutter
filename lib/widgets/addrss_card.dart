@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:lamp/provider/addresses.dart';
 
 
-class AddressCard extends StatelessWidget {
+class AddressCard extends StatefulWidget {
+  @override
+  _AddressCardState createState() => _AddressCardState();
+}
+
+class _AddressCardState extends State<AddressCard> {
+  Addresses addresses  =Addresses();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -11,47 +19,56 @@ class AddressCard extends StatelessWidget {
       height: 275,
       width: 337,
       child: ListView.separated(
+
         separatorBuilder: (BuildContext context, int index) {
 
           return Divider();
         },
-        itemCount: 3,
+        itemCount:addresses.addresses_list.length,
         scrollDirection: Axis.vertical,
 
         itemBuilder: (context,  index){
-          return  Container(
+          return  Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
 
 
               children: [
-                Stack(
-                  children: [
-                    Container(
-                      child: ImageIcon(
-                        AssetImage(
-                            "assets/icons/check_box.png"),
-                        color: Color(0xff00B5F0),
-                      ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: !addresses.addresses_list[index].isChecked
+                          ? Color(0xffF9F9FF)
+                          : Color(0xff00B5F0),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(4),
+                      )),
+                  width: 27,
+                  height: 27,
+                  child:Theme(
+                    data: ThemeData(
 
+                      unselectedWidgetColor: Colors.transparent, // Your color
                     ),
-
-                    Padding(
-                      padding: const EdgeInsets.all(7.0),
-                      child: ImageIcon(
-
-                        AssetImage(
-                            "assets/icons/check.png"),
-                        color: Colors.white,
-                        size: 10,
+                    child: Checkbox(
 
 
-                      ),
+
+                      activeColor: Colors.transparent,
+                      autofocus: false,
+                      // checkColor: Colors.white,
+                      value: addresses.addresses_list[index].isChecked,
+                      //  tristate: false,
+                      onChanged: (bool isChecked1) {
+                        setState(() {
+                          addresses.addresses_list[index].isChecked = !addresses.addresses_list[index].isChecked;
+                        });
+                      },
                     ),
-                  ],
+                  ),
                 ),
-                SizedBox(width: 10,),
+                SizedBox(width: 15,),
 
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
