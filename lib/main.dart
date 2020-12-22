@@ -44,7 +44,7 @@ void main() {
         theme: ThemeData(fontFamily: 'DINNextLTArabic'),
 
 
-    debugShowCheckedModeBanner: false, home:HomeScreen(),
+    debugShowCheckedModeBanner: false, home:SplashScreen(),
     routes: {
         EditProfileScreen.routeName: (ctx) => EditProfileScreen(),
       CartsScreen.routeName:(ctx) =>CartsScreen(),

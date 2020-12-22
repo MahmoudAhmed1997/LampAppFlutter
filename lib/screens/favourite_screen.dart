@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lamp/widgets/appbar_widgets.dart';
 import 'package:lamp/widgets/prod.dart';
+import 'login_screen.dart';
 
 class FavouriteScreen extends StatefulWidget {
   static const routeName = '/favourite_screen';
@@ -24,7 +25,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
               height: 125,
               color: Colors.white,
               child: Padding(
-                padding: const EdgeInsets.only(top:25.0,),
+                padding: const EdgeInsets.only(top:28.0,),
                 child: Column(
                   children: [
                     Text(
@@ -111,7 +112,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
               ),
             ),
             Text("يجب تسجيل الدخول أولاً",style: TextStyle(color: Color(0xff18304B),fontSize: 22,fontWeight: FontWeight.bold),)
-            ,Text("لاستعراض المفضلة، قم بتسجيل الدخول ",style: TextStyle(color: Color(0xff18304B),fontSize: 13,fontWeight: FontWeight.bold),)
+            ,Text("لاستعراض المفضلة، قم بتسجيل الدخول ",style: TextStyle(color: Color(0xff18304B),fontSize: 15,fontWeight: FontWeight.normal),)
            , Padding(
              padding: const EdgeInsets.only(top:33.0),
              child: Container(
@@ -125,7 +126,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                     "تسجيل الدخول",
                     style: TextStyle(color: Colors.white,fontSize: 16),
                   ),
-                  onPressed: () { },
+                  onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginScreen()));},
                 ),
               ),
            ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lamp/screens/orders_second_screen.dart';
 import 'package:lamp/widgets/appbar_widgets.dart';
 import 'package:lamp/widgets/product_card.dart';
 import 'package:lamp/widgets/prod.dart';
@@ -38,8 +39,12 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  SvgPicture.asset(
-                                    "assets/images/right_button.svg",
+                                  InkWell(
+                                    onTap:(){Navigator.of(context).pop();},
+
+                                    child: SvgPicture.asset(
+                                      "assets/images/right_button.svg",
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 10.0,
@@ -51,10 +56,13 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                                   ),
                                 ],
                               ),
-                              Text(
-                                "تفاصيل الطلب",
-                                style: TextStyle(
-                                    fontSize: 14, color: Color(0xff464451)),
+                              Padding(
+                                padding: const EdgeInsets.only(left:18.0),
+                                child: Text(
+                                  "تفاصيل الطلب",
+                                  style: TextStyle(
+                                      fontSize: 14, color: Color(0xff464451)),
+                                ),
                               ),
                             ],
                           ),
@@ -69,7 +77,7 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 18, right: 18, top: 18),
+                        const EdgeInsets.only(left: 18, right: 18, top: 18,bottom: 18),
                     child: Text(
                       "قائمة المشتريات",
                       style: TextStyle(fontSize: 15, color: Color(0xff323643)),
@@ -101,7 +109,7 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                                 )),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(top: 35.0),
+                                padding: const EdgeInsets.only(top: 18.0),
                                 child: Center(
                                     child: Text(
                                   "ان كنت بحاجة لتنبيه المتجر الى أمر ما في الطلب",
@@ -158,9 +166,7 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                               ),
                             ])),
                   ),
-                  SizedBox(
-                    height: 18,
-                  ),
+
                   Center(
                     child: Container(
                         decoration: BoxDecoration(
@@ -349,13 +355,13 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                color: Color(0xff00B5F0),
-                margin: EdgeInsets.symmetric(vertical: 10),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
+              InkWell(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrdersSecondScreen()));
+                },
                 child: Container(
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),                color: Color(0xff00B5F0),
+                  ),
                   width: 330,
                   height: 54,
                   child: Row(

@@ -15,12 +15,16 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Color(0xff00B5F0),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('عن التطبيق'),
+            Text(
+              'عن التطبيق',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
+            ),
           ],
         ),
         actions: [
@@ -29,7 +33,10 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
             child: Container(
                 height: 38,
                 width: 38,
-                child: SvgPicture.asset("assets/icons/button_right.svg")),
+                child: InkWell(
+                  onTap:(){
+                    Navigator.pop(context);},
+                    child: SvgPicture.asset("assets/icons/button_right.svg"))),
           )
         ],
       ),
@@ -180,8 +187,8 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
             ),
             SizedBox(height: 11),
             Stack(children: [
-            Center(
-              child: Container(
+              Center(
+                child: Container(
                   width: 345,
                   height: 56,
                   decoration: BoxDecoration(
@@ -194,37 +201,39 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
                     padding: const EdgeInsets.only(right: 18.0),
                     child: Text(
                       "السؤال الشائع الأول و الإجابة عليه  ",
-                      style: TextStyle(
-                          fontSize: 16, color: Color(0xff18304B)),
+                      style: TextStyle(fontSize: 16, color: Color(0xff18304B)),
                     ),
                   ),
                 ),
-            ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
                     child: ExpandChild(
-                       // arrowPadding: EdgeInsets.only(left: 5),
+                        // arrowPadding: EdgeInsets.only(left: 5),
                         icon: Icons.add,
                         arrowColor: Color(0xff18304B),
                         arrowSize: 20,
                         hideArrowOnExpanded: false,
                         child: Column(
-                          crossAxisAlignment:
-                          CrossAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Container(
                               width: 311,
                               child: Text(
-                                "\nهذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف",style: TextStyle(color: Color(0xff18304B),fontSize: 14,fontWeight: FontWeight.normal),),
+                                "\nهذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف",
+                                style: TextStyle(
+                                    color: Color(0xff18304B),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal),
+                              ),
                             ),
                           ],
                         )),
                   ),
                 ],
               ),
-
             ]),
             Expanded(child: SizedBox(height: 11)),
             Expanded(

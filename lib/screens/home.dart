@@ -24,63 +24,61 @@ class _HomeState extends State<Home> {
     return Scaffold(
         backgroundColor: Color(0xffFFFFFF),
         appBar: AppBar(
+          centerTitle: true,
           backgroundColor: Colors.white,
           elevation: 0.0,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                height: 40,
-                width: 343,
-                child: Stack(children: [
-                  TextFormField(
-                    textAlign: TextAlign.center,
-                    enableInteractiveSelection: false,
-                    style: TextStyle(color: Colors.grey),
-                    key: ValueKey("البحث"),
-                    autocorrect: false,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return '';
-                      }
-                      return null;
-                    },
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(9.0),
-                      filled: true,
-                      fillColor: Color(0xffFAFAFA),
-                      hintText: "ابحث عن منتج",
-                      alignLabelWithHint: true,
-                      hintStyle:
-                          TextStyle(color: Color(0xff425154), fontSize: 15),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(6.0),
-                          borderSide: BorderSide.none),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: new BorderSide(color: Color(0xff18304B)),
-                        borderRadius: new BorderRadius.circular(6),
+          title: Center(
+            child: Container(
+              height: 45,
+              width: 343,
+              child: Stack(
+                  children: [
+                TextFormField(
+                  textAlign: TextAlign.center,
+                  enableInteractiveSelection: false,
+                  style: TextStyle(color: Colors.grey),
+                  key: ValueKey("البحث"),
+                  autocorrect: false,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return '';
+                    }
+                    return null;
+                  },
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(9.0),
+                    filled: true,
+                    fillColor: Color(0xffFAFAFA),
+                    hintText: "ابحث عن منتج",
+                    alignLabelWithHint: true,
+                    hintStyle:
+                        TextStyle(color: Color(0xff425154), fontSize: 15),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(6.0),
+                        borderSide: BorderSide.none),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: new BorderSide(color: Color(0xff18304B)),
+                      borderRadius: new BorderRadius.circular(6),
+                    ),
+                  ),
+                ),
+                Positioned.fill(
+                  right: 94,
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: UnconstrainedBox(
+                      child: SvgPicture.asset(
+                        "assets/icons/search.svg",
+                        fit: BoxFit.fitWidth,
+                        allowDrawingOutsideViewBox: true,
+                        matchTextDirection: true,
                       ),
                     ),
                   ),
-                  Positioned.fill(
-                    right: 94,
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: UnconstrainedBox(
-                        child: SvgPicture.asset(
-                          "assets/icons/search.svg",
-                          fit: BoxFit.fitWidth,
-                          allowDrawingOutsideViewBox: true,
-                          matchTextDirection: true,
-                        ),
-                      ),
-                    ),
-                  )
-                ]),
-              ),
-            ],
+                )
+              ]),
+            ),
           ),
         ),
          body: DefaultTabController(
@@ -92,26 +90,26 @@ class _HomeState extends State<Home> {
             color: Color(0xffFFFFFF),
             constraints: BoxConstraints(maxHeight: 150.0),
             child: TabBar(
+              labelStyle: TextStyle(fontSize: 13),
+             labelColor:  Color(0xff00B5F0),
+             unselectedLabelColor: Color(0xff7F8FA6),
+              indicatorColor:  Color(0xff00B5F0),
               tabs: [
                 Tab(
                   child: Text(
                     "الرئيسية",
-                    style:
-                    TextStyle(fontSize: 13, color: Color(0xff4349B5)),
                   ),
                 ),
                 Tab(
                   child: Text(
                     "الهودي(Hoodies)",
-                    style:
-                    TextStyle(fontSize: 13, color: Color(0xff7F8FA6)),
+
                   ),
                 ),
                 Tab(
                   child: Text(
                     "تي شيرت (T Shirt)",
-                    style:
-                    TextStyle(fontSize: 13, color: Color(0xff7F8FA6)),
+
                   ),
                 ),
               ],
@@ -315,6 +313,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
+                  SizedBox(height: 35,)
 
               ],
             )),

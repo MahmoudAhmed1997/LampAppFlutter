@@ -23,12 +23,13 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Color(0xff00B5F0),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('تغيير كلمة المرور'),
+            Text('تغيير كلمة المرور',style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
           ],
         ),
         actions: [
@@ -37,7 +38,12 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
             child: Container(
                 height: 38,
                 width: 38,
-                child: SvgPicture.asset("assets/icons/button_right.svg")),
+                child: InkWell(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+
+                    child: SvgPicture.asset("assets/icons/button_right.svg"))),
           )
         ],
       ),

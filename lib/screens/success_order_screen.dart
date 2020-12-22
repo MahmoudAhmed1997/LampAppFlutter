@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lamp/screens/home_screen.dart';
 import 'package:lamp/screens/order_information_screen.dart';
 
 import 'order_informations.dart';
@@ -109,7 +110,10 @@ class SuccessOrderScreen extends StatelessWidget {
                   color: Color(0xff00B5F0),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeScreen()));
+
+                  },
                 ),
               ),
               SizedBox(

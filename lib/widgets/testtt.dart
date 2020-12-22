@@ -11,39 +11,39 @@ class _HomePageDesignerState extends State<HomePageDesigner> {
   Products products =Products();
   @override
   Widget build(BuildContext context) {
-    return   Container(
-      height: 1000,
+    return Container(
+      height: 1500,
       child: ListView.builder(
-        itemCount: 2,
-        itemBuilder: (context,index){
-          return Padding(
-            padding: const EdgeInsets.only(bottom:12.0,left: 8),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Prod(
-                  widthCard: 180,
-                  widthButton: 167,
-                  index: index,
-                ),
-                SizedBox(
-                  width: 12.0,
-                ),
-                Prod(
-                  widthCard: 180,
-                  widthButton: 167,
-                  index: index,
-                ),
-              ],
-            ),
-          );
+          itemCount: 5,
+          itemBuilder: (context,index){
+            return Padding(
+              padding: const EdgeInsets.only(bottom:12.0,left: 8),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Prod(
+                    widthCard: 180,
+                    widthButton: 167,
+                    index: index,
+                  ),
+                  SizedBox(
+                    width: 12.0,
+                  ),
+                  Prod(
+                    widthCard: 180,
+                    widthButton: 167,
+                    index: index,
+                  ),
+                ],
+              ),
+            );
 
-        },
+          },
 
-        scrollDirection: Axis.vertical,
+          scrollDirection: Axis.vertical,
 
-      ),
+        ),
     );
 
   }

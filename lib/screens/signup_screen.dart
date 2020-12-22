@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'login_screen.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
+import 'agreements_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   static const routeName = '/signup_screen';
@@ -27,6 +29,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    void navigateToLogInScreen() {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginScreen()));
+    }
+    void navigateToAgreements() {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AgreementsScreen()));
+    }
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       resizeToAvoidBottomPadding: false,
@@ -75,7 +84,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         children: [
                           TextFormField(
                             enableInteractiveSelection: false,
-                            style: TextStyle(color: Colors.grey),
                             key: ValueKey("الاسم كاملا"),
                             autocorrect: false,
                             textCapitalization: TextCapitalization.none,
@@ -91,9 +99,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               alignLabelWithHint: true,
                               filled: true,
                               fillColor: Color(0xffFAFAFA),
-                              labelText: "الاسم كاملا",
+                              hintText: "الاسم كاملا",
                               labelStyle: TextStyle(
-                                  color: Color(0xffA4B0BE), fontSize: 15),
+                                  color: Color(0xff000000), fontSize: 15),
+                              hintStyle: TextStyle(
+                                color: Color(0xffA4B0BE), fontSize: 15),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                   borderSide: BorderSide.none),
@@ -108,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             },
                           ),
                           SizedBox(
-                            height: 15,
+                            height: 10,
                           ),
                           TextFormField(
                             key: ValueKey("كلمة المرور"),
@@ -123,8 +133,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               alignLabelWithHint: true,
                               filled: true,
                               fillColor: Color(0xffFAFAFA),
-                              // hintText: "كلمة المرور",
-                              labelText: "كلمة المرور",
+                               hintText: "كلمة المرور",
+                             // labelText: "كلمة المرور",
                               suffixIcon: InkWell(
                                 onTap: (){_toggle();},
                                 child: UnconstrainedBox(
@@ -149,7 +159,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               hintStyle:
                               TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
                               labelStyle:
-                              TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
+                              TextStyle(color: Color(0xff000000), fontSize: 15),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                   borderSide: BorderSide.none),
@@ -165,11 +175,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             obscureText: _obscureText,
                           ),
                           SizedBox(
-                            height: 15,
+                            height: 10,
                           ),
                           TextFormField(
                             enableInteractiveSelection: false,
-                            style: TextStyle(color: Colors.grey),
                             key: ValueKey("رقم الهاتف"),
                             autocorrect: false,
                             textCapitalization: TextCapitalization.none,
@@ -185,9 +194,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               alignLabelWithHint: true,
                               filled: true,
                               fillColor: Color(0xffFAFAFA),
-                              labelText: "رقم الهاتف",
+                              hintText: "رقم الهاتف",
                               labelStyle: TextStyle(
-                                  color: Color(0xffA4B0BE), fontSize: 15),
+                                  color: Color(0xff000000), fontSize: 15),
+                              hintStyle: TextStyle(
+                                color: Color(0xffA4B0BE), fontSize: 15),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                   borderSide: BorderSide.none),
@@ -202,12 +213,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             },
                           ),
                           SizedBox(
-                            height: 15,
+                            height: 10,
                           ),
                           TextFormField(
                             enableInteractiveSelection: false,
-                            style: TextStyle(color: Colors.grey),
-                            key: ValueKey("رقم الجوال/البريد الالكتروني"),
+                            key: ValueKey("البريد الالكتروني"),
                             autocorrect: false,
                             textCapitalization: TextCapitalization.none,
                             enableSuggestions: false,
@@ -222,9 +232,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               alignLabelWithHint: true,
                               filled: true,
                               fillColor: Color(0xffFAFAFA),
-                              labelText: "رقم الجوال / البريد الالكتروني",
+                              hintText: "البريد الالكتروني",
                               labelStyle: TextStyle(
-                                  color: Color(0xffA4B0BE), fontSize: 15),
+                                  color: Color(0xff000000), fontSize: 15),
+                              hintStyle: TextStyle(
+                                color: Color(0xffA4B0BE), fontSize: 15),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                   borderSide: BorderSide.none),
@@ -261,55 +273,69 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Container(
                                 child: Center(
-                              child: RichText(
-                                text: TextSpan(
-                                    text: 'تمتلك حساب بالفعل؟',
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 14),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: 'تسجيل الدخول',
-                                        style: TextStyle(
-                                            color: Color(0xff00B5F0),
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold),
-                                      )
-                                    ]),
-                              ),
-                            )),
+                                  child: InkWell(
+                                    onTap: navigateToLogInScreen,
+                                    child: RichText(
+                                      text: TextSpan(
+                                          text: 'تمتلك حساب بالفعل؟',
+                                          style: TextStyle(
+                                              color: Colors.black, fontSize: 14),
+                                          children: <TextSpan>[
+                                            TextSpan(
+                                              text: 'تسجيل الدخول',
+                                              style: TextStyle(
+                                                  color: Color(0xff00B5F0),
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold),
+                                            )
+                                          ]),
+                                    ),
+                                  ),
+                                )),
                           ),
+
                         ],
                       ),
                     ),
                   ),
+
                 ],
+
               ),
             ),
           ),
         ),
+
         Container(
           alignment: Alignment.bottomCenter,
           padding: EdgeInsets.only(bottom: 33.0),
-          child: RichText(
-            text: TextSpan(
-                text: 'بالتسجيل فأنت موافق على ',
-                style: TextStyle(color: Colors.black, fontSize: 14),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: 'الشروط والأحكام',
-                    style: TextStyle(
-                        color: Color(0xff00B5F0),
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold),
+          child: InkWell(
+            onTap: navigateToAgreements,
+            child: RichText(
+              text: TextSpan(
+                  text: 'بالتسجيل فأنت موافق على ',
+                  style: TextStyle(color: Colors.black, fontSize: 14),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'الشروط و الأحكام',
+                      style: TextStyle(
+                          color: Color(0xff00B5F0),
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
 
-                  )
-                ]),
+                    )  ,
+                  ]),
+            ),
           ),
         ),
         Container(
           alignment: Alignment.topRight,
           padding: EdgeInsets.only(top: 35.0, right: 13),
-          child: SvgPicture.asset("assets/images/right_button.svg"),
+          child: InkWell(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: SvgPicture.asset("assets/images/right_button.svg")),
         ),
       ]),
     );

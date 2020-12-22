@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:lamp/screens/reset_screen.dart';
 class ForgetPasswordCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class ForgetPasswordCard extends StatelessWidget {
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
+                      padding: const EdgeInsets.only(top:18.0),
                       child: SvgPicture.asset("assets/images/indicator.svg"),
                     ),
                     SizedBox(
@@ -43,7 +43,6 @@ class ForgetPasswordCard extends StatelessWidget {
                     ),
                     TextFormField(
                       enableInteractiveSelection: false,
-                      style: TextStyle(color: Colors.grey),
                       key: ValueKey("البريد الالكتروني"),
                       autocorrect: false,
                       textCapitalization: TextCapitalization.none,
@@ -59,9 +58,11 @@ class ForgetPasswordCard extends StatelessWidget {
                         alignLabelWithHint: true,
                         filled: true,
                         fillColor: Color(0xffFAFAFA),
-                        labelText: "البريد الالكتروني",
+                        hintText: "البريد الالكتروني",
                         labelStyle:
-                            TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
+                        TextStyle(color: Color(0xff000000), fontSize: 15),
+                        hintStyle:
+                      TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12.0),
                             borderSide: BorderSide.none),
@@ -88,7 +89,7 @@ class ForgetPasswordCard extends StatelessWidget {
                           style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () {
-                          null;
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ResetScreen()));
                         },
                       ),
                     ),
@@ -102,7 +103,11 @@ class ForgetPasswordCard extends StatelessWidget {
           padding: const EdgeInsets.only(top: 20.0, left: 16),
           child: Container(
             alignment: Alignment.topLeft,
-            child: SvgPicture.asset("assets/icons/button_cancle.svg"),
+            child: InkWell(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                child: SvgPicture.asset("assets/icons/button_cancle.svg")),
           ),
         )
       ]),

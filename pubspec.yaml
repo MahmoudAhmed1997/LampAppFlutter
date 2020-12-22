@@ -32,6 +32,9 @@ dependencies:
   smooth_star_rating: ^1.1.1
   flutter_range_slider: ^1.5.0
   expand_widget: ^1.1.0
+  country_pickers: ^1.3.0
+  flutter_switch: ^0.2.0
+
 
 
 
@@ -127,6 +130,8 @@ flutter:
     - assets/icons/setting_icon.svg
     - assets/icons/ic.svg
     - assets/icons/eye.svg
+    - assets/icons/fav.svg
+    - assets/icons/favourite.svg
     - assets/icons/eye.png
     - assets/images/price.svg
     - assets/images/progress1.svg

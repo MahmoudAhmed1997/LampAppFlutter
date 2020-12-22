@@ -41,8 +41,12 @@ class _OrdersThirdScreenState extends State<OrdersThirdScreen> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  SvgPicture.asset(
-                                    "assets/images/right_button.svg",
+                                  InkWell(
+                                    onTap:(){Navigator.of(context).pop();},
+
+                                    child: SvgPicture.asset(
+                                      "assets/images/right_button.svg",
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 10.0,
@@ -54,10 +58,13 @@ class _OrdersThirdScreenState extends State<OrdersThirdScreen> {
                                   ),
                                 ],
                               ),
-                              Text(
-                                "الشحن والدفع",
-                                style: TextStyle(
-                                    fontSize: 14, color: Color(0xff464451)),
+                              Padding(
+                                padding: const EdgeInsets.only(left:18.0),
+                                child: Text(
+                                  "الشحن والدفع",
+                                  style: TextStyle(
+                                      fontSize: 14, color: Color(0xff464451)),
+                                ),
                               ),
                             ],
                           ),

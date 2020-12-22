@@ -12,21 +12,27 @@ class AgreementsScreen extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               centerTitle: true,
               backgroundColor: Color(0xff00B5F0),
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('الشروط و الأحكام'),
+                  Text('الشروط و الأحكام',style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18),),
                 ],
               ),
               actions: [
                 Padding(
                   padding: const EdgeInsets.only(right: 16.0),
-                  child: Container(
-                      height: 38,
-                      width: 38,
-                      child: SvgPicture.asset("assets/icons/button_right.svg")),
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                        height: 38,
+                        width: 38,
+                        child: SvgPicture.asset("assets/icons/button_right.svg")),
+                  ),
                 )
               ],
             ),

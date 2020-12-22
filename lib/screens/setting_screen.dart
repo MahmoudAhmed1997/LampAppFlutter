@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_switch/flutter_switch.dart';
+import 'package:lamp/screens/about_app_screen.dart';
+import 'package:lamp/screens/agreements_screen.dart';
+import 'package:lamp/screens/contact_us_screen.dart';
+import 'package:lamp/screens/new_password_screen.dart';
+import 'package:lamp/screens/new_product_screen.dart';
+import 'package:lamp/screens/reset_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   static const routeName = '/setting_screen';
@@ -9,17 +16,20 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+
+  bool isToggle = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffFDFDFF),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Color(0xff00B5F0),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('الاعدادات العامة'),
+            Text('الاعدادات العامة',style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
           ],
         ),
         actions: [
@@ -28,7 +38,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Container(
                 height: 38,
                 width: 38,
-                child: SvgPicture.asset("assets/icons/button_right.svg")),
+                child: InkWell(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                    child: SvgPicture.asset("assets/icons/button_right.svg"))),
           )
         ],
       ),
@@ -52,7 +66,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       Text("تغيير كلمة المرور",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
                       SvgPicture.asset("assets/icons/arrow_right.svg")
                     ],),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewPasswordScreen()));
+
+                  },
                 ),
               ),
               SizedBox(height: 10.0,),
@@ -68,7 +85,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("تفعيل استقبال الاشعارات",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
-                      SvgPicture.asset("assets/icons/arrow_right.svg")
+                      FlutterSwitch(
+                        height: 25.0,
+                        width: 45.0,
+
+                        inactiveColor: Colors.grey,
+                        toggleSize: 20.0,
+                        borderRadius: 25.0,
+
+                        activeColor: Color(0xff00B5F0),
+                        value: isToggle,
+                        onToggle: (value) {
+                          setState(() {
+                            isToggle = value;
+                          });
+                        },
+                      ),
                     ],),
                   onPressed: (){},
                 ),
@@ -89,7 +121,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       Text("سياسة الاستخدام",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
                       SvgPicture.asset("assets/icons/arrow_right.svg")
                     ],),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AgreementsScreen()));
+
+                  },
                 ),
               ),
               SizedBox(height: 10.0,),
@@ -107,7 +142,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       Text("تواصل معنا",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
                       SvgPicture.asset("assets/icons/arrow_right.svg")
                     ],),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ContactUsScreen()));
+
+                  },
                 ),
               ),
               SizedBox(height: 10.0,),
@@ -125,7 +163,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       Text("الشروط و الأحكام",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
                       SvgPicture.asset("assets/icons/arrow_right.svg")
                     ],),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AgreementsScreen()));
+
+                  },
                 ),
               ),
               SizedBox(height: 10.0,),
@@ -143,7 +184,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       Text("عن التطبيق",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
                       SvgPicture.asset("assets/icons/arrow_right.svg")
                     ],),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutAppScreen()));
+
+                  },
                 ),
               ),
               SizedBox(height: 10.0,),

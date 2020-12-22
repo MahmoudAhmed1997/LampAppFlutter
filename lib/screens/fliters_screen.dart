@@ -27,7 +27,7 @@ class FiltersProducts extends StatelessWidget {
                 children: [
                   Center(
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
+                      padding: const EdgeInsets.only(top: 18.0),
                       child: SvgPicture.asset("assets/images/indicator.svg"),
                     ),
                   ),
@@ -39,10 +39,13 @@ class FiltersProducts extends StatelessWidget {
                     "الأحدث، الأكثر طلبا",
                     style: TextStyle(fontSize: 15, color: Color(0xff7F8FA6)),
                   ),
+                  SizedBox(height: 30,),
                   Text(
                     "حسب اللون",
                     style: TextStyle(fontSize: 15, color: Color(0xff18304B)),
                   ),
+                  SizedBox(height: 10,),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -119,9 +122,12 @@ class FiltersProducts extends StatelessWidget {
                   ),
                   Divider(),
                   Container(child: GetCheckValue()),
-                  Divider(),
                   SizedBox(
                     height: 22,
+                  ),
+                  Divider(),
+                  SizedBox(
+                    height: 18,
                   ),
 
 
@@ -158,7 +164,11 @@ class FiltersProducts extends StatelessWidget {
           padding: const EdgeInsets.only(top: 20.0, left: 16),
           child: Container(
             alignment: Alignment.topLeft,
-            child: SvgPicture.asset("assets/icons/button_cancle.svg"),
+            child: InkWell(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                child: SvgPicture.asset("assets/icons/button_cancle.svg")),
           ),
         )
       ]),

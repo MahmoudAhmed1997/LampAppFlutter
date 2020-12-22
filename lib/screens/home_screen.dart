@@ -46,15 +46,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      body: SafeArea(
-        child: PageStorage(
-          child: TabBarView(
-            controller: tabController,
-            physics: NeverScrollableScrollPhysics(),
-            children: mainScreens,
-          ),
-          bucket: bucket,
+      body: PageStorage(
+
+        child: TabBarView(
+          controller: tabController,
+          physics: NeverScrollableScrollPhysics(),
+          children: mainScreens,
         ),
+        bucket: bucket,
       ),
 
         bottomNavigationBar: SafeArea(
@@ -74,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               ? Color(0xff00B5F0)
                               : Color(0xff7F8FA6)),
                       text: 'الرئيسية',
+
                     ),
                     Tab(
                       icon: SvgPicture.asset(

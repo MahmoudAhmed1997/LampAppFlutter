@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lamp/screens/favourite_screen.dart';
+import 'package:lamp/widgets/rating_order.dart';
 
 class OrderInformationScreen extends StatelessWidget {
   static const routeName = '/order_information_screen';
@@ -244,8 +246,8 @@ class OrderInformationScreen extends StatelessWidget {
      ),
       Positioned(
         bottom: 30,
-        right: 33,
-        left: 33,
+        right: 30,
+        left: 30,
         child: Padding(
           padding: const EdgeInsets.only(top: 70.0),
           child: Row(
@@ -267,7 +269,24 @@ class OrderInformationScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius:
                       BorderRadius.circular(12)),
-                  onPressed: () {},
+                  onPressed: () {
+
+                      showModalBottomSheet(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(5.0),
+                                topRight: Radius.circular(5.0)),
+                          ),
+                          isScrollControlled: true,
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          isDismissible: true,
+                          context: context,
+                          builder: (context) => FractionallySizedBox(
+                            heightFactor: 0.88,
+                            child: RatingOrder(),
+                          ));
+                    },
+
                 ),
               ),
               Container(

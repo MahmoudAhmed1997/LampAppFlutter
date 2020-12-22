@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
+import 'login_screen.dart';
 
 class ResetScreen extends StatefulWidget {
   static const routeName = '/reset_screen';
@@ -84,7 +85,6 @@ class _ResetScreenState extends State<ResetScreen> {
                     height: 432,
                     width: 327,
                     child: Form(
-                      key: _formKey,
                       child: Column(
                         //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -126,7 +126,6 @@ class _ResetScreenState extends State<ResetScreen> {
                             height: 15,
                           ),
                           TextFormField(
-                            key: ValueKey("كلمة المرور"),
                             validator: (value) {
                               if (value.isEmpty || value.length < 4) {
                                 return 'أدخل على الأقل ٤ حروف';
@@ -249,10 +248,10 @@ class _ResetScreenState extends State<ResetScreen> {
                               color: Color(0xff00B5F0),
                               child: Text(
                                 "حفظ",
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.white,fontSize: 16),
                               ),
                               onPressed: () {
-                                null;
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginScreen()));
                               },
                             ),
                           ),
@@ -268,7 +267,11 @@ class _ResetScreenState extends State<ResetScreen> {
         Container(
           alignment: Alignment.topRight,
           padding: EdgeInsets.only(top: 35.0,right: 13),
-          child: SvgPicture.asset("assets/images/right_button.svg"),
+          child: InkWell(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: SvgPicture.asset("assets/images/right_button.svg")),
         ),
 
       ]),

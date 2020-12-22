@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lamp/screens/orders_first_screen.dart';
+import 'package:lamp/screens/orders_list.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
 import 'package:lamp/widgets/prod.dart';
 
@@ -24,7 +26,7 @@ class _CartsScreenState extends State<CartsScreen> {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 109,
+                  height: 100,
                   color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(18.0),
@@ -68,36 +70,33 @@ class _CartsScreenState extends State<CartsScreen> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top:12.0),
-                  child: Container(
-                    height: 1000,
-                    child: ListView(scrollDirection: Axis.vertical, children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Prod(
-                            widthCard: 165,
-                            widthButton: 167,
-                            index: 1,
-                          ),
-                          SizedBox(
-                            width: 12.0,
-                          ),
-                          Prod(
-                            widthCard: 165,
-                            widthButton: 167,
-                            index: 2,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 33,
-                      ),
+                Container(
+                  height: 1000,
+                  child: ListView(scrollDirection: Axis.vertical, children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Prod(
+                          widthCard: 165,
+                          widthButton: 167,
+                          index: 1,
+                        ),
+                        SizedBox(
+                          width: 12.0,
+                        ),
+                        Prod(
+                          widthCard: 165,
+                          widthButton: 167,
+                          index: 2,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 33,
+                    ),
 
-                    ]),
-                  ),
+                  ]),
                 ),
               ],
             ),
@@ -105,32 +104,26 @@ class _CartsScreenState extends State<CartsScreen> {
           Positioned(
             right: 30,
             left: 30,
-            bottom: 30,
+            bottom: 15,
             child: Row(
               children: [
                 Container(
                   width: 206,
                   height: 56,
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0)),
-                    color: Color(0xff7F8FA6),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "الإجمالي",
-                          style: TextStyle(color: Colors.white,fontSize: 16),
-                        ),
-                        Text(
-                          "500 ر.س",
-                          style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),                    color: Color(0xff7F8FA6),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        "الإجمالي",
+                        style: TextStyle(color: Colors.white,fontSize: 17),
+                      ),
+                      Text(
+                        "500 ر.س",
+                        style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(width: 6,),
@@ -147,7 +140,7 @@ class _CartsScreenState extends State<CartsScreen> {
                       style: TextStyle(color: Colors.white,fontSize: 16),
                     ),
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrdersFirstScreen()));
                     },
                   ),
                 ),

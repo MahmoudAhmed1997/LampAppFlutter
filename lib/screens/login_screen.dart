@@ -31,8 +31,14 @@ class _LoginScreenState extends State<LoginScreen> {
   var _userPassword = '';
   var _userPhone = '';
 
+
+
   @override
   Widget build(BuildContext context) {
+    void navigate() {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignUpScreen()));
+    }
+
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       resizeToAvoidBottomPadding: false,
@@ -63,9 +69,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                 "هلا فيك في متجر لامب!",
                 style: TextStyle(
-                    color: Color(0xff18304B),
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                  color: Color(0xff18304B),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                   //  fontFamily: "assets/fonts/DINNextLTArabic-Bold"
                 ),
               )),
@@ -82,7 +88,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       TextFormField(
                         enableInteractiveSelection: false,
-                        style: TextStyle(color: Colors.grey),
                         key: ValueKey("رقم الجوال/البريد الالكتروني"),
                         autocorrect: false,
                         textCapitalization: TextCapitalization.none,
@@ -98,9 +103,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           alignLabelWithHint: true,
                           filled: true,
                           fillColor: Color(0xffFAFAFA),
-                          labelText: "رقم الجوال / البريد الالكتروني",
-                          labelStyle:
+                          hintText: "رقم الجوال / البريد الالكتروني",
+                          hintStyle:
                               TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
+                          labelStyle:
+                              TextStyle(color: Color(0xff000000), fontSize: 15),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12.0),
                               borderSide: BorderSide.none),
@@ -124,36 +131,34 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
-                           alignLabelWithHint: true,
+                          alignLabelWithHint: true,
                           filled: true,
                           fillColor: Color(0xffFAFAFA),
-                         // hintText: "كلمة المرور",
-                          labelText: "كلمة المرور",
+                          hintText: "كلمة المرور",
+                          // labelText: "كلمة المرور",
                           suffixIcon: InkWell(
-                            onTap: (){_toggle();},
+                            onTap: () {
+                              _toggle();
+                            },
                             child: UnconstrainedBox(
                                 child: _obscureText
-                                    ?
-                                     ImageIcon(
-                                          AssetImage("assets/icons/eye_hide.png"),
-                                          size: 23,
-                                       color: Colors.grey,
-                                        )
-
-                                    :
-                                ImageIcon(
-                                  AssetImage("assets/icons/eye.png"),
-                                  size: 23,
-                                  color: Colors.grey,
-                                )
-                                    ),
+                                    ? ImageIcon(
+                                        AssetImage("assets/icons/eye_hide.png"),
+                                        size: 23,
+                                        color: Colors.grey,
+                                      )
+                                    : ImageIcon(
+                                        AssetImage("assets/icons/eye.png"),
+                                        size: 23,
+                                        color: Colors.grey,
+                                      )),
                           ),
                           errorStyle: TextStyle(color: Color(0xffF45540)),
 
                           hintStyle:
-                          TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
+                              TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
                           labelStyle:
-                        TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
+                              TextStyle(color: Color(0xff000000), fontSize: 15),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12.0),
                               borderSide: BorderSide.none),
@@ -180,11 +185,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Color(0xff00B5F0),
                           child: Text(
                             "تسجيل الدخول",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
                           onPressed: () {
-                            Navigator.of(context)
-                                .pushNamed(HomeScreen.routeName);
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => HomeScreen()));
                           },
                         ),
                       ),
@@ -211,28 +216,34 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ));
                         },
                       ),
-                      Container(
-                          child: Center(
-                        child: RichText(
-                          text: TextSpan(
-                              text: 'هل أنت مستخدم جديد في ضرار؟',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 14),
-                              children: <TextSpan>[
-                                TextSpan(
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                  child: Center(
+                    child: InkWell(
+                      onTap:navigate ,
+                      child: RichText(
+                        text: TextSpan(
+                            text: 'هل أنت مستخدم جديد في ضرار؟',
+                            style:
+                            TextStyle(color: Colors.black, fontSize: 14),
+                            children: <TextSpan>[
+                              TextSpan(
                                   text: 'أنشئ حسابك',
                                   style: TextStyle(
                                       color: Color(0xff1775BB),
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold),
-                                )
-                              ]),
-                        ),
-                      ))
-                    ],
-                  ),
-                ),
-              ),
+
+
+                                    )
+                            ]),
+                      ),
+                    ),
+                  )),
+
             ],
           ),
         ),

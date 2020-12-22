@@ -88,7 +88,8 @@ class _HoodScreenState extends State<HoodScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 33,),
+            SizedBox(height: 30,),
+
 
 
 

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lamp/screens/order_adress_screen.dart';
 import 'package:lamp/screens/order_information_screen.dart';
+import 'package:lamp/screens/orders_list.dart';
 import 'package:lamp/screens/receipt_order.dart';
 import 'package:lamp/widgets/order_card.dart';
 import 'package:lamp/widgets/product_card_order.dart';
@@ -29,7 +30,11 @@ class OrderInformation extends StatelessWidget {
                   child: Container(
                       height: 38,
                       width: 38,
-                      child: SvgPicture.asset("assets/icons/button_right.svg")),
+                      child: InkWell(
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrdersListScreen()));
+                          },
+                          child: SvgPicture.asset("assets/icons/button_right.svg"))),
                 )
               ],
             ),
