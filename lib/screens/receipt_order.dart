@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class OrderReceiptScreen extends StatelessWidget {
   static const routeName = '/receipt_order_screen';
@@ -16,14 +17,14 @@ class OrderReceiptScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Padding(
-                padding: EdgeInsets.only(right: 20, top: 5),
+                padding: EdgeInsets.only(right: 15, top: 5,left: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                         width: 130,
                         child: Text(
-                          "الطلب",
+                          getTranslated(context, "order_a"),
                           style:
                               TextStyle(color: Color(0xff464451), fontSize: 15),
                         )),
@@ -41,14 +42,14 @@ class OrderReceiptScreen extends StatelessWidget {
               ),
               Divider(),
               Padding(
-                padding: EdgeInsets.only(right: 20, top: 5),
+                padding: EdgeInsets.only(right: 15, top: 5,left: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                         width: 130,
                         child: Text(
-                          "خدمة التوصيل",
+                          getTranslated(context, "delivery_ser"),
                           style:
                               TextStyle(color: Color(0xff464451), fontSize: 15),
                         )),
@@ -66,14 +67,14 @@ class OrderReceiptScreen extends StatelessWidget {
               ),
               Divider(),
               Padding(
-                padding: EdgeInsets.only(right: 20, top: 5),
+                padding: EdgeInsets.only(right: 15, top: 5,left: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                         width: 130,
                         child: Text(
-                          "ض.ق.م",
+                          getTranslated(context, "q_m"),
                           style:
                               TextStyle(color: Color(0xff464451), fontSize: 15),
                         )),
@@ -91,14 +92,14 @@ class OrderReceiptScreen extends StatelessWidget {
               ),
               Divider(),
               Padding(
-                padding: EdgeInsets.only(right: 20, top: 5),
+                padding: EdgeInsets.only(right: 15, top: 5,left: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                         width: 130,
                         child: Text(
-                          "كوبون الخصم",
+                          getTranslated(context, "discount_coupon"),
                           style:
                               TextStyle(color: Color(0xff464451), fontSize: 15),
                         )),
@@ -116,14 +117,14 @@ class OrderReceiptScreen extends StatelessWidget {
               ),
               Divider(),
               Padding(
-                padding: EdgeInsets.only(right: 20, top: 5),
+                padding: EdgeInsets.only(right: 15, top: 5,left: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                         width: 130,
                         child: Text(
-                          "الاجمالي",
+                          getTranslated(context, "total"),
                           style:
                               TextStyle(color: Color(0xff00B5F0), fontSize: 15),
                         )),

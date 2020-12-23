@@ -7,7 +7,7 @@ import 'package:lamp/screens/orders_first_screen.dart';
 import 'package:lamp/screens/test.dart';
 import 'package:lamp/screens/user_profile_screen.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
-
+import 'package:lamp/localization/language_constants.dart';
 import 'cart_screen.dart';
 import 'favourite_screen.dart';
 import 'orders_list.dart';
@@ -60,68 +60,67 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           child: Material(
             color: Colors.white,
             elevation: 10,
-            child: Directionality(
-              textDirection: TextDirection.rtl,
-              child: BottomAppBar(
-                child: TabBar(
-                  physics: NeverScrollableScrollPhysics(),
-                  controller: tabController,
-                  tabs: [
-                    Tab(
-                      icon: SvgPicture.asset("assets/icons/home.svg",
-                          color: tabController.index == 0
-                              ? Color(0xff00B5F0)
-                              : Color(0xff7F8FA6)),
-                      text: 'الرئيسية',
+            child: BottomAppBar(
+              child: TabBar(
+                physics: NeverScrollableScrollPhysics(),
+                controller: tabController,
+                tabs: [
+                  Tab(
+                    icon: SvgPicture.asset("assets/icons/home.svg",
+                        color: tabController.index == 0
+                            ? Color(0xff00B5F0)
+                            : Color(0xff7F8FA6)),
+                    text: getTranslated(context, "home"),
 
-                    ),
-                    Tab(
-                      icon: SvgPicture.asset(
-                        "assets/icons/i_categories.svg",
-                        color: tabController.index == 1
-                            ? Color(0xff00B5F0)
-                            : Color(0xff7F8FA6),
-                      ),
-                      text: 'الطلبات',
-                    ),
-                    Tab(
-                      icon: SvgPicture.asset(
-                        "assets/icons/icon_shop.svg",
-                        color: tabController.index == 2
-                            ? Color(0xff00B5F0)
-                            : Color(0xff7F8FA6),
-                      ),
-                      text: 'سلة الشراء',
-                    ),
-                    Tab(
-                      icon: SvgPicture.asset(
-                        "assets/icons/favourite.svg",
-                        color: tabController.index == 3
-                            ? Color(0xff00B5F0)
-                            : Color(0xff7F8FA6),
-                      ),
-                      text: 'المفضلة',
-                    ),
-                    Tab(
-                      icon: SvgPicture.asset(
-                        "assets/icons/user_icon.svg",
-                        color: tabController.index == 4
-                            ? Color(0xff00B5F0)
-                            : Color(0xff7F8FA6),
-                      ),
-                      text: 'الحساب',
-                    ),
-                  ],
-                  labelStyle: TextStyle(fontSize: 11),
-                  labelColor: Color(0xff00B5F0),
-                  unselectedLabelColor: Color(0xff7F8FA6),
-                  isScrollable: false,
-                  indicatorSize: TabBarIndicatorSize.tab,
-                  indicatorColor: Theme.of(context).primaryColor,
-                  indicator: UnderlineTabIndicator(
-                    insets: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 72.0),
-                    borderSide: BorderSide(color: Color(0xff00B5F0), width: 3),
+
                   ),
+                  Tab(
+                    icon: SvgPicture.asset(
+                      "assets/icons/i_categories.svg",
+                      color: tabController.index == 1
+                          ? Color(0xff00B5F0)
+                          : Color(0xff7F8FA6),
+                    ),
+                    text:  getTranslated(context, "orders"),
+
+                  ),
+                  Tab(
+                    icon: SvgPicture.asset(
+                      "assets/icons/icon_shop.svg",
+                      color: tabController.index == 2
+                          ? Color(0xff00B5F0)
+                          : Color(0xff7F8FA6),
+                    ),
+                    text:  getTranslated(context, "shopping_cart"),
+                  ),
+                  Tab(
+                    icon: SvgPicture.asset(
+                      "assets/icons/favourite.svg",
+                      color: tabController.index == 3
+                          ? Color(0xff00B5F0)
+                          : Color(0xff7F8FA6),
+                    ),
+                    text:  getTranslated(context, "favourite"),
+                  ),
+                  Tab(
+                    icon: SvgPicture.asset(
+                      "assets/icons/user_icon.svg",
+                      color: tabController.index == 4
+                          ? Color(0xff00B5F0)
+                          : Color(0xff7F8FA6),
+                    ),
+                    text:  getTranslated(context, "profile"),
+                  ),
+                ],
+                labelStyle: TextStyle(fontSize: 11),
+                labelColor: Color(0xff00B5F0),
+                unselectedLabelColor: Color(0xff7F8FA6),
+                isScrollable: false,
+                indicatorSize: TabBarIndicatorSize.tab,
+                indicatorColor: Theme.of(context).primaryColor,
+                indicator: UnderlineTabIndicator(
+                  insets: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 72.0),
+                  borderSide: BorderSide(color: Color(0xff00B5F0), width: 3),
                 ),
               ),
             ),

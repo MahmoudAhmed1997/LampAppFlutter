@@ -6,6 +6,7 @@ import 'package:lamp/screens/test.dart';
 import 'package:lamp/widgets/appbar_widgets.dart';
 import 'package:lamp/widgets/prod.dart';
 import 'package:lamp/widgets/testtt.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class DesignerProfile extends StatefulWidget {
   static const routeName = '/designer_profile';
@@ -71,13 +72,17 @@ class _DesignerProfileState extends State<DesignerProfile>
                                     SizedBox(
                                       height: 3,
                                     ),
-                                    Text(
-                                      "250 Product , 152 Order",
-                                      style: TextStyle(
-                                          fontSize: 12,
-                                          color: Colors.white,
-                                          fontFamily:
-                                              "assets/fonts/Poppins-Regular.ttf"),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "${"250 "+getTranslated(context, "product")+"152"+ getTranslated(context, "order")}",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.white,
+                                              fontFamily:
+                                                  "assets/fonts/Poppins-Regular.ttf"),
+                                        ),
+                                      ],
                                     )
                                   ],
                                 ),
@@ -136,7 +141,8 @@ class _DesignerProfileState extends State<DesignerProfile>
                                   contentPadding: EdgeInsets.all(9.0),
                                   filled: true,
                                   fillColor: Color(0xffFAFAFA),
-                                  hintText: "ابحث عن منتج",
+                                  hintText: getTranslated(context, "search_product"),
+
                                   alignLabelWithHint: true,
                                   hintStyle: TextStyle(
                                       color: Color(0xff425154), fontSize: 15),
@@ -151,7 +157,7 @@ class _DesignerProfileState extends State<DesignerProfile>
                                 ),
                               ),
                               Positioned.fill(
-                                right: 94,
+                                right: 77,
                                 child: Align(
                                   alignment: Alignment.centerRight,
                                   child: UnconstrainedBox(

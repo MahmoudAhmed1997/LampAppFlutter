@@ -1,4 +1,5 @@
 import 'package:expand_widget/expand_widget.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -155,118 +156,121 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
                     fontWeight: FontWeight.normal),
               ),
             ),
-            SizedBox(height: 11),
-            Center(
-              child: Container(
-                width: 345,
-                height: 53,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Color(0xffF4F4F4),
-                    ),
-                    borderRadius: BorderRadius.circular(15)),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 18.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "السؤال الشائع الأول و الإجابة عليه  ",
-                        style:
-                            TextStyle(fontSize: 16, color: Color(0xff18304B)),
-                      ),
-                      FlatButton(
-                        child: SvgPicture.asset("assets/icons/plus_icon.svg"),
-                        onPressed: () {},
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 11),
-            Stack(children: [
-              Center(
-                child: Container(
-                  width: 345,
-                  height: 56,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Color(0xffF4F4F4),
-                      ),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 18.0),
-                    child: Text(
-                      "السؤال الشائع الأول و الإجابة عليه  ",
-                      style: TextStyle(fontSize: 16, color: Color(0xff18304B)),
-                    ),
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    child: ExpandChild(
-                        // arrowPadding: EdgeInsets.only(left: 5),
-                        icon: Icons.add,
-                        arrowColor: Color(0xff18304B),
-                        arrowSize: 20,
-                        hideArrowOnExpanded: false,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Container(
-                              width: 311,
-                              child: Text(
-                                "\nهذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف",
-                                style: TextStyle(
-                                    color: Color(0xff18304B),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal),
-                              ),
-                            ),
-                          ],
-                        )),
-                  ),
-                ],
-              ),
-            ]),
-            Expanded(child: SizedBox(height: 11)),
-            Expanded(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Center(
                 child: Container(
                   width: 345,
-                  height: 53,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Color(0xffF4F4F4),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),
+                      color: Colors.white,border: Border.all(color: Color(0xffF4F4F4))
+                  ),
+                  child: ExpandablePanel(
+
+                    header: Padding(
+                      padding: const EdgeInsets.only(top:10.0,left: 15,right: 15,bottom: 15),
+                      child: Text( "السؤال الشائع الأول و الإجابة عليه",
+                        maxLines: 3,
+                        style:
+                        TextStyle(fontSize: 16, color: Color(0xff18304B)),
+                        textAlign: TextAlign.right,
                       ),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 18.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "السؤال الشائع الأول و الإجابة عليه  ",
-                          style:
-                              TextStyle(fontSize: 16, color: Color(0xff18304B)),
-                        ),
-                        FlatButton(
-                          child: SvgPicture.asset("assets/icons/plus_icon.svg"),
-                          onPressed: () {},
-                        )
-                      ],
                     ),
+                    expanded: Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: Text(
+                            "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف",
+                            style: TextStyle(fontSize: 14,color: Color(0xff18304B)),
+
+                            softWrap: true,
+                            textDirection: TextDirection.rtl,
+                          ),
+                        )),
+                    tapHeaderToExpand: true,
+                    hasIcon: true,
                   ),
                 ),
               ),
             ),
+
+            SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Container(
+                  width: 345,
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),
+                    color: Colors.white,border: Border.all(color: Color(0xffF4F4F4))
+                  ),
+                  child: ExpandablePanel(
+
+                    header: Padding(
+                      padding: const EdgeInsets.only(top:10.0,left: 15,right: 15,bottom: 15),
+                      child: Text( "السؤال الشائع الأول و الإجابة عليه",
+                        maxLines: 3,
+                        style:
+                        TextStyle(fontSize: 16, color: Color(0xff18304B)),
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                    expanded: Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: Text(
+                            "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف",
+                            style: TextStyle(fontSize: 14,color: Color(0xff18304B)),
+
+                            softWrap: true,
+                            textDirection: TextDirection.rtl,
+                          ),
+                        )),
+                    tapHeaderToExpand: true,
+                    hasIcon: true,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Container(
+                  width: 345,
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),
+                      color: Colors.white,border: Border.all(color: Color(0xffF4F4F4))
+                  ),
+                  child: ExpandablePanel(
+
+                    header: Padding(
+                      padding: const EdgeInsets.only(top:10.0,left: 15,right: 15,bottom: 15),
+                      child: Text( "السؤال الشائع الأول و الإجابة عليه",
+                        maxLines: 3,
+                        style:
+                        TextStyle(fontSize: 16, color: Color(0xff18304B)),
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                    expanded: Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: Text(
+                            "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف",
+                            style: TextStyle(fontSize: 14,color: Color(0xff18304B)),
+
+                            softWrap: true,
+                            textDirection: TextDirection.rtl,
+                          ),
+                        )),
+                    tapHeaderToExpand: true,
+                    hasIcon: true,
+                  ),
+                ),
+              ),
+            ),
+
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class OrderAddressScreen extends StatelessWidget {
   static const routeName = '/order_address_screen';
@@ -18,14 +19,14 @@ class OrderAddressScreen extends StatelessWidget {
             MainAxisAlignment.spaceAround,
             children: [
               Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
+                padding: EdgeInsets.only(right: 10,top: 5,left: 10),
 
                 child: Row(
                   children: [
                     Container(
                         width: 130,
                         child: Text(
-                          "الاسم كاملاً",
+                          getTranslated(context, "full_name"),
                           style: TextStyle(
                               color:
                               Color(0xff464451),
@@ -48,14 +49,14 @@ class OrderAddressScreen extends StatelessWidget {
               ),
               Divider(),
               Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
+                padding: EdgeInsets.only(right: 10,top: 5,left: 10),
 
                 child: Row(
                   children: [
                     Container(
                         width: 130,
                         child:Text(
-                          "العنوان",
+                          getTranslated(context, "address"),
                           style: TextStyle(
                               color:
                               Color(0xff464451),
@@ -81,14 +82,14 @@ class OrderAddressScreen extends StatelessWidget {
 
               Divider(),
               Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
+                padding: EdgeInsets.only(right: 10,top: 5,left: 10),
 
                 child: Row(
                   children: [
                     Container(
                         width: 130,
                         child: Text(
-                          "المنطقة",
+                          getTranslated(context, "region"),
                           style: TextStyle(
                               color:
                               Color(0xff464451),
@@ -113,14 +114,14 @@ class OrderAddressScreen extends StatelessWidget {
               ),
               Divider(),
               Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
+                padding: EdgeInsets.only(right: 10,top: 5,left: 10),
 
                 child: Row(
                   children: [
                     Container(
                         width: 130,
                         child: Text(
-                          "رقم الهاتف",
+                          getTranslated(context, "phone_number"),
                           style: TextStyle(
                               color:
                               Color(0xff464451),
@@ -144,14 +145,14 @@ class OrderAddressScreen extends StatelessWidget {
 
               Divider(),
               Padding(
-                padding: EdgeInsets.only(right: 20,top: 5),
+                padding: EdgeInsets.only(right: 10,top: 5,left: 10),
 
                 child: Row(
                   children: [
                     Container(
                         width: 130,
                         child: Text(
-                          "البريد الالكتروني",
+                          getTranslated(context, "email"),
                           style: TextStyle(
                               color:
                               Color(0xff464451),

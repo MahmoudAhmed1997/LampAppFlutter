@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/provider/product.dart';
 import 'package:lamp/provider/products.dart';
 import 'package:lamp/screens/product_detailes.dart';
+import 'package:lamp/localization/language_constants.dart';
+import 'package:lamp/router/route_constants.dart';
 
 class Prod extends StatelessWidget {
   final double widthCard;
@@ -62,15 +64,15 @@ class Prod extends StatelessWidget {
                     child: Center(
                         child: Text(
                       "Hoodies",
-
-                      style: TextStyle(fontSize: 13.0,
+                      style: TextStyle(
+                        fontSize: 13.0,
                       ),
                     )),
                   ),
                   Text(
-                    "تصميم عصري شباب مفعم بالقوة والحيوية",
+                    getTranslated(context, "description_prod"),
                     style: TextStyle(
-                      // fontFamily: "assets/fonts/ArbFONTS-DINNextLTArabic-Regular-2.ttf",
+                        // fontFamily: "assets/fonts/ArbFONTS-DINNextLTArabic-Regular-2.ttf",
                         fontSize: 13,
                         color: Color(0xff464451)),
                   ),
@@ -98,7 +100,7 @@ class Prod extends StatelessWidget {
                           borderRadius: BorderRadius.circular(5),
                         ),
                         width: widthButton,
-                        height: 33.5,
+                        height: 42.5,
                         child: RaisedButton(
                           color: Color(0xffF9F9FF),
                           elevation: 0.0,
@@ -110,7 +112,7 @@ class Prod extends StatelessWidget {
                                 color: Color(0xff18304B),
                               ),
                               Text(
-                                "أضف السلة",
+                                getTranslated(context, "add_to_cart"),
                                 style: TextStyle(
                                     fontSize: 12, color: Color(0xff18304B)),
                               ),
@@ -118,7 +120,8 @@ class Prod extends StatelessWidget {
                           ),
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => DetailsProductScreen()));
+                                builder: (context) =>
+                                    DetailsProductScreen()));
                           },
                         )),
                   ),

@@ -29,7 +29,10 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('تواصل معنا',style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
+            Text(
+              'تواصل معنا',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
+            ),
           ],
         ),
         actions: [
@@ -39,7 +42,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                 height: 38,
                 width: 38,
                 child: InkWell(
-                    onTap: (){
+                    onTap: () {
                       Navigator.pop(context);
                     },
                     child: SvgPicture.asset("assets/icons/button_right.svg"))),
@@ -203,9 +206,13 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                             height: 13,
                           ),
                           Container(
-                              height: 100,
-                              child: DropdownCountries()),
-                          //  Stack(children: [
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                  color: Color(0xffF9F9FF),
+                                  // border: Border.all(color: Color(0xff18304B))
+                              ),
+                              height: 60,
+                              child: DropdownCountries()), //  Stack(children: [
                           //
                           //   TextFormField(
                           //      textAlign: TextAlign.center,
@@ -263,9 +270,14 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                             },
                             keyboardType: TextInputType.text,
                             decoration: InputDecoration(
+                              suffixIcon: Icon(
+                                Icons.keyboard_arrow_down,
+                                color: Color(0xff0C244A),
+                                size: 26,
+                              ),
                               filled: true,
                               fillColor: Color(0xffF9F9FF),
-                              hintText: "طبيعة الرسالة",
+                              hintText: "             طبيعة الرسالة",
                               hintStyle: TextStyle(
                                   color: Color(0xff7F8FA6), fontSize: 15),
                               border: OutlineInputBorder(

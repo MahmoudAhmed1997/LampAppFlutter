@@ -33,13 +33,21 @@ class _DropdownCountriesState extends State<DropdownCountries> {
     double dropdownItemWidth = dropdownButtonWidth - 30;
     double dropdownSelectedItemWidth = dropdownButtonWidth - 30;
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Expanded(
           child: TextField(
             decoration: InputDecoration(
-              labelText: "Phone",
+
               isDense: true,
-              contentPadding: EdgeInsets.zero,
+              hintText: "رقم الهاتف",
+              hintStyle: TextStyle(
+                  color: Color(0xff7F8FA6), fontSize: 15),
+              contentPadding: EdgeInsets.only(right: 110),
+              border: new OutlineInputBorder(
+                  borderSide:BorderSide.none
+
+              ),
             ),
             keyboardType: TextInputType.number,
           ),
@@ -47,7 +55,7 @@ class _DropdownCountriesState extends State<DropdownCountries> {
 
 
         SizedBox(
-          width: dropdownButtonWidth,
+          width: 92,
           child: CountryPickerDropdown(
             onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
             itemHeight: null,
@@ -85,13 +93,14 @@ class _DropdownCountriesState extends State<DropdownCountries> {
 
   Widget _buildDropdownItem(Country country, double dropdownItemWidth) =>
       SizedBox(
-        width: dropdownItemWidth,
+        width: 65,
         child: Row(
           children: <Widget>[
 
-            Expanded(child: Text("+${country.phoneCode}")),
+            Text("+${country.phoneCode}"),
 
             CountryPickerUtils.getDefaultFlagImage(country),
+
 
           ],
         ),
@@ -106,9 +115,7 @@ class _DropdownCountriesState extends State<DropdownCountries> {
           child: Row(
             children: <Widget>[
               CountryPickerUtils.getDefaultFlagImage(country),
-              SizedBox(
-                width: 8.0,
-              ),
+
               Expanded(child: Text("${country.name}")),
             ],
           ),
@@ -124,9 +131,7 @@ class _DropdownCountriesState extends State<DropdownCountries> {
               child: Row(
                 children: <Widget>[
                   CountryPickerUtils.getDefaultFlagImage(country),
-                  SizedBox(
-                    width: 8.0,
-                  ),
+
                   Expanded(
                       child: Text(
                     '${country.name}',

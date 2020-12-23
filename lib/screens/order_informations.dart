@@ -7,6 +7,7 @@ import 'package:lamp/screens/orders_list.dart';
 import 'package:lamp/screens/receipt_order.dart';
 import 'package:lamp/widgets/order_card.dart';
 import 'package:lamp/widgets/product_card_order.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class OrderInformation extends StatelessWidget {
   static const routeName = '/order_informations';
@@ -16,12 +17,13 @@ class OrderInformation extends StatelessWidget {
     return Scaffold(
             appBar: AppBar(
               centerTitle: true,
+              automaticallyImplyLeading: false,
               backgroundColor: Color(0xff00B5F0),
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('51523# '),
-                  Text(':طلب'),
+                  Text( getTranslated(context, "order"), ),
                 ],
               ),
               actions: [
@@ -38,85 +40,78 @@ class OrderInformation extends StatelessWidget {
                 )
               ],
             ),
-            body: Directionality(
-              textDirection: TextDirection.rtl,
-              child: DefaultTabController(
-                length: 4,
-                child: Column(children: <Widget>[
-                  Container(
-                    constraints: BoxConstraints(maxHeight: 150.0),
-                    child: Material(
-                      color: Colors.white,
-                      child: TabBar(
-                        indicatorColor: Color(0xff4A6FF0),
-                        unselectedLabelColor: Color(0xff7F8FA6),
-                        labelColor: Color(0xff00B5F0),
-                        labelStyle: TextStyle(fontSize: 14),
-                        tabs: [
-                          Tab(
-                            child: Text(
-                              "معلومات",
-
-                            ),
+            body: DefaultTabController(
+              length: 4,
+              child: Column(children: <Widget>[
+                Container(
+                  constraints: BoxConstraints(maxHeight: 150.0),
+                  child: Material(
+                    color: Colors.white,
+                    child: TabBar(
+                      indicatorColor: Color(0xff4A6FF0),
+                      unselectedLabelColor: Color(0xff7F8FA6),
+                      labelColor: Color(0xff00B5F0),
+                      labelStyle: TextStyle(fontSize: 13),
+                      tabs: [
+                        Tab(
+                          child: Text(
+                            getTranslated(context, "information"),
                           ),
-                          Tab(
-                            child: Text(
-                              "المنتجات",
-
-                            ),
+                        ),
+                        Tab(
+                          child: Text(
+                            getTranslated(context, "products"),
                           ),
-                          Tab(
-                            child: Text(
-                              "العنوان",
-
-                            ),
+                        ),
+                        Tab(
+                          child: Text(
+                            getTranslated(context, "address"),
                           ),
-                          Tab(
-                            child: Text(
-                              "ايصال الطلب",
-
-                            ),
+                        ),
+                        Tab(
+                          child: Text(
+                            getTranslated(context, "rec_order"),
                           ),
-                        ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top:12.0),
+                        child: OrderInformationScreen()
                       ),
-                    ),
-                  ),
-                  Expanded(
-                    child: TabBarView(
-                      children: [
-                        Padding(
+                      Hero(
+                        tag: "ordercard",
+                        child: Center(
+                            child: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: Container(
+                                  color: Color(0xffFDFDFF),
+                                  height: 1000,
+                                  width: 370,
+                                  child: ListView.builder(
+                                    itemCount: 30,
+                                    itemBuilder: (context, index) {
+                                      return ProductCardOrder();
+                                    },
+                                  ),
+                                ))),
+                      ),
+                      Padding(
                           padding: const EdgeInsets.only(top:12.0),
-                          child: OrderInformationScreen()
-                        ),
-                        Hero(
-                          tag: "ordercard",
-                          child: Center(
-                              child: Directionality(
-                                  textDirection: TextDirection.rtl,
-                                  child: Container(
-                                    color: Color(0xffFDFDFF),
-                                    height: 1000,
-                                    width: 370,
-                                    child: ListView.builder(
-                                      itemCount: 30,
-                                      itemBuilder: (context, index) {
-                                        return ProductCardOrder();
-                                      },
-                                    ),
-                                  ))),
-                        ),
-                        Padding(
-                            padding: const EdgeInsets.only(top:12.0),
-                            child: OrderAddressScreen()
-                        ),
-                        Padding(
-                            padding: const EdgeInsets.only(top:12.0),
-                            child: OrderReceiptScreen()
-                        ),                       ],
-                    ),
+                          child: OrderAddressScreen()
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.only(top:12.0),
+                          child: OrderReceiptScreen()
+                      ),                       ],
                   ),
-                ]),
-              ),
+                ),
+              ]),
             ));
   }
 }

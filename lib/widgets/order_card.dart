@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lamp/provider/orders.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class OrderCard extends StatefulWidget {
-  final String text;
+   String text;
   var colorBt;
   var colorTextBt;
 
@@ -40,14 +41,14 @@ class _OrderCardState extends State<OrderCard> {
                         Row(
                           children: [
                             Text(
-                              "طلب:",
+                                getTranslated(context, "order")   ,
                               style: TextStyle(
                                   color: Color(0xff18304B),
                                   fontSize: 17,
                                   fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              "12321",
+                              ":12321",
                               style: TextStyle(
                                   color: Color(0xff18304B),
                                   fontSize: 17,
@@ -64,8 +65,7 @@ class _OrderCardState extends State<OrderCard> {
                                 borderRadius: BorderRadius.circular(16)),
                             color: Color(widget.colorBt),
                             child: Text(
-                              widget.text,
-                              style: TextStyle(
+                                widget.text      ,                        style: TextStyle(
                                   fontSize: 12, color: Color(widget.colorTextBt)),
                             ),
                             onPressed: () {},
@@ -91,7 +91,7 @@ class _OrderCardState extends State<OrderCard> {
               child: Row(
                 children: [
                   Text(
-                    "المنتجات ",
+                  getTranslated(context, "products"),
                     style: TextStyle(fontSize: 15, color: Color(0xff18304B)),
                   ),
                   SizedBox(
@@ -110,8 +110,7 @@ class _OrderCardState extends State<OrderCard> {
               child: Row(
                 children: [
                   Text(
-                    "السعر الاجمالي ",
-                    style: TextStyle(fontSize: 15, color: Color(0xff18304B)),
+                  getTranslated(context, "total_price") ,                   style: TextStyle(fontSize: 15, color: Color(0xff18304B)),
                   ),
                   SizedBox(
                     width: 85,

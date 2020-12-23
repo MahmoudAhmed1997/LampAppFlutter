@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lamp/classes/language.dart';
 import 'package:lamp/provider/designers.dart';
 import 'package:lamp/provider/products.dart';
 import 'package:lamp/screens/new_product_screen.dart';
 import 'package:lamp/widgets/designer_card.dart';
+import 'package:lamp/localization/language_constants.dart';
 import 'package:lamp/widgets/prod.dart';
+import 'package:lamp/localization/language_constants.dart';
 
+import '../main.dart';
 import 'hoodies_screen.dart';
 
 class Home extends StatefulWidget {
@@ -19,6 +23,15 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   Products pro = Products();
   Designers des = Designers();
+  void _changeLanguage(Language language) async {
+    Locale _locale = await setLocale(language.languageCode);
+    MyApp.setLocale(context, _locale);
+  }
+
+  void _showSuccessDialog() {
+    showTimePicker(context: context, initialTime: TimeOfDay.now());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +44,7 @@ class _HomeState extends State<Home> {
             child: Container(
               height: 45,
               width: 343,
-              child: Stack(
-                  children: [
+              child: Stack(children: [
                 TextFormField(
                   textAlign: TextAlign.center,
                   enableInteractiveSelection: false,
@@ -80,257 +92,286 @@ class _HomeState extends State<Home> {
               ]),
             ),
           ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButton<Language>(
+                underline: SizedBox(),
+                icon: Icon(
+                  Icons.language,
+                  color: Colors.black,
+                ),
+                onChanged: (Language language) {
+                  _changeLanguage(language);
+                },
+                items: Language.languageList()
+                    .map<DropdownMenuItem<Language>>(
+                      (e) => DropdownMenuItem<Language>(
+                        value: e,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[
+                            Text(
+                              e.flag,
+                              style: TextStyle(fontSize: 30),
+                            ),
+                            Text(e.name)
+                          ],
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+            ),
+          ],
         ),
-         body: DefaultTabController(
-      length: 3,
-      child: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Column(children: <Widget>[
-          Container(
-            color: Color(0xffFFFFFF),
-            constraints: BoxConstraints(maxHeight: 150.0),
-            child: TabBar(
-              labelStyle: TextStyle(fontSize: 13),
-             labelColor:  Color(0xff00B5F0),
-             unselectedLabelColor: Color(0xff7F8FA6),
-              indicatorColor:  Color(0xff00B5F0),
-              tabs: [
-                Tab(
-                  child: Text(
-                    "الرئيسية",
-                  ),
-                ),
-                Tab(
-                  child: Text(
-                    "الهودي(Hoodies)",
+        body: DefaultTabController(
+          length: 3,
+          child: Column(children: <Widget>[
+            Container(
+              color: Color(0xffFFFFFF),
+              constraints: BoxConstraints(maxHeight: 150.0),
+              child: TabBar(
+                labelStyle: TextStyle(fontSize: 13),
+                labelColor: Color(0xff00B5F0),
+                unselectedLabelColor: Color(0xff7F8FA6),
+                indicatorColor: Color(0xff00B5F0),
+                tabs: [
+                  Tab(
+                    child: Text(
 
+                        getTranslated(context, "home")
+                    ),
                   ),
-                ),
-                Tab(
-                  child: Text(
-                    "تي شيرت (T Shirt)",
-
+                  Tab(
+                    child: Text(
+                      "الهودي(Hoodies)",
+                    ),
                   ),
-                ),
-              ],
+                  Tab(
+                    child: Text(
+                      "تي شيرت (T Shirt)",
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: TabBarView(
-              children: [
-                Container(
-                 child: ListView(
+            Expanded(
+              child: TabBarView(
                 children: [
-                Image(
-                height: 165,
-                  fit: BoxFit.fill,
-                  width: double.infinity,
-                  image: AssetImage("assets/images/bunner_image.png"),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      right: 11.0, left: 8, top: 10, bottom: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Container(
+                      child: ListView(
                     children: [
-                      Text(
-                        "مقترحة لك",
-                        style: TextStyle(fontSize: 16, color: Color(0xff18304B)
-                          ,fontFamily: "assets/fonts/DIN Next LT Arabic Light.ttf",
-
-
-                        ),
+                      Image(
+                        height: 165,
+                        fit: BoxFit.fill,
+                        width: double.infinity,
+                        image: AssetImage("assets/images/bunner_image.png"),
                       ),
-                      RaisedButton(
-                        color: Color(0xffFFFFFF),
-                        elevation: 0.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50.0),
-
-                            side: BorderSide(color: Color(0xffE6EAFC))
-                        ),
-                        onPressed: () {
-                          print("lkf");
-                        },
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            right: 11.0, left: 8, top: 10, bottom: 10),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "عرض الكل",
+                              getTranslated(context, "suggested"),
                               style: TextStyle(
-                                  fontSize: 12, color: Color(0xff18304B)),
-                            ),
-                            SizedBox(
-                              width: 6,
-                            ),
-                            Container(
-                              height: 7,width: 11,
-                              child: ImageIcon(
-                                AssetImage("assets/icons/shape.png"),
+                                fontSize: 16,
                                 color: Color(0xff18304B),
+                                fontFamily:
+                                    "assets/fonts/DIN Next LT Arabic Light.ttf",
                               ),
-                            )
+                            ),
+                            RaisedButton(
+                              color: Color(0xffFFFFFF),
+                              elevation: 0.0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50.0),
+                                  side: BorderSide(color: Color(0xffE6EAFC))),
+                              onPressed: () {
+                                print("lkf");
+                              },
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    getTranslated(context, "show_all"),
+                                    style: TextStyle(
+                                        fontSize: 12, color: Color(0xff18304B)),
+                                  ),
+                                  SizedBox(
+                                    width: 6,
+                                  ),
+                                  Container(
+                                    height: 7,
+                                    width: 11,
+                                    child: ImageIcon(
+                                      AssetImage("assets/icons/shape.png"),
+                                      color: Color(0xff18304B),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 290.0,
-                  width: double.infinity,
-                  child: ListView.builder(
-                    itemBuilder: (context, index){
-
-                      return  Prod(widthCard: 150,widthButton: 134,index: index,);
-
-                    },
-                    itemCount:pro.products_list.length ,
-
-                    scrollDirection: Axis.horizontal,
-
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      right: 15.0, left: 9, top: 17, bottom: 16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "تسوق حسب المصممين",
-                        style: TextStyle(fontSize: 16, color: Color(0xff18304B)),
-                      ),
-                      RaisedButton(
-                        color: Color(0xffFFFFFF),
-                        elevation: 0.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50.0),
-
-                            side: BorderSide(color: Color(0xffE6EAFC))
+                      Container(
+                        height: 300.0,
+                        width: double.infinity,
+                        child: ListView.builder(
+                          itemBuilder: (context, index) {
+                            return Prod(
+                              widthCard: 150,
+                              widthButton: 134,
+                              index: index,
+                            );
+                          },
+                          itemCount: pro.products_list.length,
+                          scrollDirection: Axis.horizontal,
                         ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            right: 15.0, left: 9, top: 17, bottom: 16),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "عرض الكل",
+                              getTranslated(context,
+                              "shop_by_designers",),
                               style: TextStyle(
-                                  fontSize: 12, color: Color(0xff18304B)),
+                                  fontSize: 16, color: Color(0xff18304B)),
                             ),
-                            SizedBox(width: 6,),
-                            Container(
-                              height: 7,width: 11,
-                              child: ImageIcon(
-                                AssetImage("assets/icons/shape.png"),
-                                color: Color(0xff18304B),
+                            RaisedButton(
+                              color: Color(0xffFFFFFF),
+                              elevation: 0.0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50.0),
+                                  side: BorderSide(color: Color(0xffE6EAFC))),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    getTranslated(context,
+                                      "show_all",),                                    style: TextStyle(
+                                        fontSize: 12, color: Color(0xff18304B)),
+                                  ),
+                                  SizedBox(
+                                    width: 6,
+                                  ),
+                                  Container(
+                                    height: 7,
+                                    width: 11,
+                                    child: ImageIcon(
+                                      AssetImage("assets/icons/shape.png"),
+                                      color: Color(0xff18304B),
+                                    ),
+                                  )
+                                ],
                               ),
-                            )
+                              onPressed: () {},
+                            ),
                           ],
                         ),
-                        onPressed: (){},
-
                       ),
-                    ],
-                  ),
-                ),
-                Hero(
-                  tag: "card",
-                  child: Container(
-                    width: double.infinity,
-                    height:148 ,
-                    child: ListView.builder(
-                      itemCount: des.designers_list.length,
-                      itemBuilder: (contect,index){
-                        return  DesignerCard(index: index,);
-
-                      },
-                      scrollDirection: Axis.horizontal,
-
-
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      right: 11.0, left: 8, top: 17, bottom: 18),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "أضيف حديثا",
-                        style: TextStyle(fontSize: 16, color: Color(0xff18304B)),
-                      ),
-                      RaisedButton(
-                        color: Color(0xffFFFFFF),
-                        elevation: 0.0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50.0),
-
-                          side: BorderSide(color: Color(0xffE6EAFC)),
-
-
-
+                      Hero(
+                        tag: "card",
+                        child: Container(
+                          width: double.infinity,
+                          height: 148,
+                          child: ListView.builder(
+                            itemCount: des.designers_list.length,
+                            itemBuilder: (contect, index) {
+                              return DesignerCard(
+                                index: index,
+                              );
+                            },
+                            scrollDirection: Axis.horizontal,
+                          ),
                         ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            right: 11.0, left: 8, top: 17, bottom: 18),
                         child: Row(
-
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "المزيد",
-                              style: TextStyle(
-                                  fontSize: 13, color: Color(0xff18304B)),
+                              getTranslated(context,
+                                "new_added",),                              style: TextStyle(
+                                  fontSize: 16, color: Color(0xff18304B)),
                             ),
-                            SizedBox(width: 17,),
-
-                            Container(
-                              height: 7,width: 11,
-                              child: ImageIcon(
-                                AssetImage("assets/icons/shape.png"),
-                                color: Color(0xff18304B),
+                            RaisedButton(
+                              color: Color(0xffFFFFFF),
+                              elevation: 0.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50.0),
+                                side: BorderSide(color: Color(0xffE6EAFC)),
                               ),
-                            )
+                              child: Row(
+                                children: [
+                                  Text(
+                                    getTranslated(context,
+                                      "more",),                                    style: TextStyle(
+                                        fontSize: 13, color: Color(0xff18304B)),
+                                  ),
+                                  SizedBox(
+                                    width: 17,
+                                  ),
+                                  Container(
+                                    height: 7,
+                                    width: 11,
+                                    child: ImageIcon(
+                                      AssetImage("assets/icons/shape.png"),
+                                      color: Color(0xff18304B),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => NewProductsScreen()));
+                              },
+                            ),
                           ],
                         ),
-                        onPressed: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewProductsScreen()));
-                        },
                       ),
+                      Container(
+                        height: 300.0,
+                        width: double.infinity,
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 15.0),
+                          child: ListView.builder(
+                            itemCount: pro.products_list.length,
+                            itemBuilder: (context, index) {
+                              return Prod(
+                                  widthCard: 150,
+                                  widthButton: 134,
+                                  index: index);
+                            },
+                            scrollDirection: Axis.horizontal,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 35,
+                      )
                     ],
+                  )),
+                  Container(
+                    child: HoodScreen(),
                   ),
-                ),
-                Container(
-                  height: 287.0,
-                  width: double.infinity,
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 15.0),
-                    child: ListView.builder(
-                      itemCount: pro.products_list.length,
-                      itemBuilder: (context,index){
-                        return  Prod(widthCard: 150,widthButton: 134,index:index );
-
-                      },
-                      scrollDirection: Axis.horizontal,
-
-                    ),
+                  Center(
+                    child: Text("Empty"),
                   ),
-                ),
-                  SizedBox(height: 35,)
-
-              ],
-            )),
-
-                Container(
-                  child: HoodScreen(),
-                ),
-                Center(
-                  child: Text("Empty"),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ]),
-      ),
-    )
-
-        );
+          ]),
+        ));
   }
 }

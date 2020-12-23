@@ -7,6 +7,7 @@ import 'package:lamp/screens/contact_us_screen.dart';
 import 'package:lamp/screens/new_password_screen.dart';
 import 'package:lamp/screens/new_product_screen.dart';
 import 'package:lamp/screens/reset_screen.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class SettingsScreen extends StatefulWidget {
   static const routeName = '/setting_screen';
@@ -29,7 +30,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('الاعدادات العامة',style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
+            Text(
+              getTranslated(context, "general_setting"),
+              style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
           ],
         ),
         actions: [
@@ -46,172 +49,184 @@ class _SettingsScreenState extends State<SettingsScreen> {
           )
         ],
       ),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
 
-                width: 349,
-                height: 63,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
-                child: RaisedButton(
-                  elevation: 0.0,
-                  color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("تغيير كلمة المرور",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
-                      SvgPicture.asset("assets/icons/arrow_right.svg")
-                    ],),
-                  onPressed: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewPasswordScreen()));
+              width: 349,
+              height: 63,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              child: RaisedButton(
+                elevation: 0.0,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                    getTranslated(context, "change_pass")
+                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                    SvgPicture.asset("assets/icons/arrow_right.svg")
+                  ],),
+                onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewPasswordScreen()));
 
-                  },
-                ),
+                },
               ),
-              SizedBox(height: 10.0,),
-              Container(
+            ),
+            SizedBox(height: 10.0,),
+            Container(
 
-                width: 349,
-                height: 63,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
-                child: RaisedButton(
-                  elevation: 0.0,
-                  color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("تفعيل استقبال الاشعارات",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
-                      FlutterSwitch(
-                        height: 25.0,
-                        width: 45.0,
+              width: 349,
+              height: 63,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              child: RaisedButton(
+                elevation: 0.0,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      getTranslated(context, "active_notify"),
+                      style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                    FlutterSwitch(
+                      height: 25.0,
+                      width: 45.0,
 
-                        inactiveColor: Colors.grey,
-                        toggleSize: 20.0,
-                        borderRadius: 25.0,
+                      inactiveColor: Colors.grey,
+                      toggleSize: 20.0,
+                      borderRadius: 25.0,
 
-                        activeColor: Color(0xff00B5F0),
-                        value: isToggle,
-                        onToggle: (value) {
-                          setState(() {
-                            isToggle = value;
-                          });
-                        },
-                      ),
-                    ],),
-                  onPressed: (){},
-                ),
+                      activeColor: Color(0xff00B5F0),
+                      value: isToggle,
+                      onToggle: (value) {
+                        setState(() {
+                          isToggle = value;
+                        });
+                      },
+                    ),
+                  ],),
+                onPressed: (){},
               ),
-              SizedBox(height: 10.0,),
+            ),
+            SizedBox(height: 10.0,),
 
-              Container(
+            Container(
 
-                width: 349,
-                height: 63,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
-                child: RaisedButton(
-                  elevation: 0.0,
-                  color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("سياسة الاستخدام",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
-                      SvgPicture.asset("assets/icons/arrow_right.svg")
-                    ],),
-                  onPressed: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AgreementsScreen()));
+              width: 349,
+              height: 63,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              child: RaisedButton(
+                elevation: 0.0,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
 
-                  },
-                ),
+                    Text(
+                      getTranslated(context, "policy"),
+                      style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                    SvgPicture.asset("assets/icons/arrow_right.svg")
+                  ],),
+                onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AgreementsScreen()));
+
+                },
               ),
-              SizedBox(height: 10.0,),
-              Container(
+            ),
+            SizedBox(height: 10.0,),
+            Container(
 
-                width: 349,
-                height: 63,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
-                child: RaisedButton(
-                  elevation: 0.0,
-                  color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("تواصل معنا",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
-                      SvgPicture.asset("assets/icons/arrow_right.svg")
-                    ],),
-                  onPressed: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ContactUsScreen()));
+              width: 349,
+              height: 63,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              child: RaisedButton(
+                elevation: 0.0,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                    getTranslated(context, "contact_us")
+                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                    SvgPicture.asset("assets/icons/arrow_right.svg")
+                  ],),
+                onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ContactUsScreen()));
 
-                  },
-                ),
+                },
               ),
-              SizedBox(height: 10.0,),
-              Container(
+            ),
+            SizedBox(height: 10.0,),
+            Container(
 
-                width: 349,
-                height: 63,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
-                child: RaisedButton(
-                  elevation: 0.0,
-                  color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("الشروط و الأحكام",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
-                      SvgPicture.asset("assets/icons/arrow_right.svg")
-                    ],),
-                  onPressed: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AgreementsScreen()));
+              width: 349,
+              height: 63,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              child: RaisedButton(
+                elevation: 0.0,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                    getTranslated(context, "agreements")
+                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                    SvgPicture.asset("assets/icons/arrow_right.svg")
+                  ],),
+                onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AgreementsScreen()));
 
-                  },
-                ),
+                },
               ),
-              SizedBox(height: 10.0,),
-              Container(
+            ),
+            SizedBox(height: 10.0,),
+            Container(
 
-                width: 349,
-                height: 63,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
-                child: RaisedButton(
-                  elevation: 0.0,
-                  color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("عن التطبيق",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
-                      SvgPicture.asset("assets/icons/arrow_right.svg")
-                    ],),
-                  onPressed: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutAppScreen()));
+              width: 349,
+              height: 63,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              child: RaisedButton(
+                elevation: 0.0,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                    getTranslated(context, "about_app")
+                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                    SvgPicture.asset("assets/icons/arrow_right.svg")
+                  ],),
+                onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutAppScreen()));
 
-                  },
-                ),
+                },
               ),
-              SizedBox(height: 10.0,),
-              Container(
+            ),
+            SizedBox(height: 10.0,),
+            Container(
 
-                width: 349,
-                height: 63,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
-                child: RaisedButton(
-                  elevation: 0.0,
-                  color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("البحث عن التحديات",style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
-                      SvgPicture.asset("assets/icons/arrow_right.svg")
-                    ],),
-                  onPressed: (){},
-                ),
+              width: 349,
+              height: 63,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              child: RaisedButton(
+                elevation: 0.0,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                    getTranslated(context, "challenge"),
+                      style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                    SvgPicture.asset("assets/icons/arrow_right.svg")
+                  ],),
+                onPressed: (){},
               ),
-              SizedBox(height: 10.0,),
+            ),
+            SizedBox(height: 10.0,),
 
-            ],
-          ),
+          ],
         ),
       ),
     );

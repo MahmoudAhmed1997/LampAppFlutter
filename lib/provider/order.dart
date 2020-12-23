@@ -1,5 +1,5 @@
 class Order{
- final String status;
+  String status;
  var colorBt;
  var colorTextBt;
 

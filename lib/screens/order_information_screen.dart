@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lamp/screens/favourite_screen.dart';
 import 'package:lamp/widgets/rating_order.dart';
-
+import 'package:lamp/localization/language_constants.dart';
 class OrderInformationScreen extends StatelessWidget {
   static const routeName = '/order_information_screen';
 
@@ -33,14 +33,14 @@ class OrderInformationScreen extends StatelessWidget {
                 children: [
 
                   Padding(
-                    padding: EdgeInsets.only(right: 20,top: 5),
+                    padding: EdgeInsets.only(right: 10,top: 5,left: 10),
 
                     child: Row(
                       children: [
                         Container(
-                            width: 190,
+                            width: 170,
                             child: Text(
-                              "المنتجات",
+                              getTranslated(context, "products"),
                               style: TextStyle(
                                   color:
                                   Color(0xff18304B),
@@ -63,13 +63,13 @@ class OrderInformationScreen extends StatelessWidget {
                   ),
                   Divider(),
                   Padding(
-                    padding: EdgeInsets.only(right: 20,top: 5),
+                    padding: EdgeInsets.only(right: 10,top: 5,left: 10),
                     child: Row(
                       children: [
                         Container(
-                            width: 190,
+                            width: 170,
                             child: Text(
-                              "السعر الاجمالي",
+                              getTranslated(context, "total_price"),
                               style: TextStyle(
                                   color:
                                   Color(0xff18304B),
@@ -93,13 +93,13 @@ class OrderInformationScreen extends StatelessWidget {
 
                   Divider(),
                   Padding(
-                    padding: EdgeInsets.only(right: 20,top: 5),
+                    padding: EdgeInsets.only(right: 10,top: 5,left: 10),
                     child: Row(
                       children: [
                         Container(
-                            width: 190,
+                            width: 170,
                             child: Text(
-                              "طريقة الدفع",
+                              getTranslated(context, "pay_method"),
                               style: TextStyle(
                                   color:
                                   Color(0xff18304B),
@@ -122,13 +122,13 @@ class OrderInformationScreen extends StatelessWidget {
                   ),
                   Divider(),
                   Padding(
-                    padding: EdgeInsets.only(right: 20,top: 5),
+                    padding: EdgeInsets.only(right: 10,top: 5,left: 10),
                     child: Row(
                       children: [
                         Container(
-                            width: 190,
+                            width: 170,
                             child: Text(
-                              "تاريخ الطلب",
+                              getTranslated(context, "order_time"),
                               style: TextStyle(
                                   color:
                                   Color(0xff18304B),
@@ -152,13 +152,13 @@ class OrderInformationScreen extends StatelessWidget {
 
                   Divider(),
                   Padding(
-                    padding: EdgeInsets.only(right: 20,top: 5),
+                    padding: EdgeInsets.only(right: 10,top: 5,left: 10),
                     child: Row(
                       children: [
                         Container(
-                            width: 190,
+                            width: 170,
                             child: Text(
-                              "تاريخ التوصيل",
+                              getTranslated(context, "delivery_time"),
                               style: TextStyle(
                                   color:
                                   Color(0xff18304B),
@@ -181,13 +181,13 @@ class OrderInformationScreen extends StatelessWidget {
                   ),
                   Divider(),
                   Padding(
-                    padding: EdgeInsets.only(right: 20,top: 5),
+                    padding: EdgeInsets.only(right: 10,top: 5,left: 10),
                     child: Row(
                       children: [
                         Container(
-                            width: 190,
+                            width: 170,
                             child: Text(
-                              "المدينة",
+                              getTranslated(context, "city"),
                               style: TextStyle(
                                   color:
                                   Color(0xff18304B),
@@ -210,13 +210,13 @@ class OrderInformationScreen extends StatelessWidget {
                   ),
                   Divider(),
                   Padding(
-                    padding: EdgeInsets.only(right: 20,top: 5),
+                    padding: EdgeInsets.only(right: 10,top: 5,left: 10),
                     child: Row(
                       children: [
                         Container(
-                            width: 190,
+                            width: 170,
                             child: Text(
-                              "الدولة",
+                              getTranslated(context, "country"),
                               style: TextStyle(
                                   color:
                                   Color(0xff18304B),

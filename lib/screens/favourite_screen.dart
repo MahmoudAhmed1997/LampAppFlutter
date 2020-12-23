@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lamp/widgets/appbar_widgets.dart';
 import 'package:lamp/widgets/prod.dart';
 import 'login_screen.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class FavouriteScreen extends StatefulWidget {
   static const routeName = '/favourite_screen';
@@ -29,7 +30,8 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                 child: Column(
                   children: [
                     Text(
-                    "المفضلة",
+                    getTranslated(context, "favourite"),
+
                       style: TextStyle(
                           fontSize: 17, color: Color(0xff18304B)),
                     ),
@@ -64,7 +66,8 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
 
                                 filled: true,
                                 fillColor: Color(0xffFAFAFA),
-                                hintText: "ما الذي تبحث عنه؟",
+                                hintText:
+                                getTranslated(context, "looking_for"),
                                 alignLabelWithHint: true,
                                 hintStyle: TextStyle(
                                     color: Color(0xff425154), fontSize: 15),
@@ -79,7 +82,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                               ),
                             ),
                             Positioned.fill(
-                              right: 94,
+                              right: 68,
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: UnconstrainedBox(
@@ -111,8 +114,13 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                 child: SvgPicture.asset("assets/images/artwork.svg")
               ),
             ),
-            Text("يجب تسجيل الدخول أولاً",style: TextStyle(color: Color(0xff18304B),fontSize: 22,fontWeight: FontWeight.bold),)
-            ,Text("لاستعراض المفضلة، قم بتسجيل الدخول ",style: TextStyle(color: Color(0xff18304B),fontSize: 15,fontWeight: FontWeight.normal),)
+            Text(
+                getTranslated(context, "must_log_in")
+
+              ,style: TextStyle(color: Color(0xff18304B),fontSize: 22,fontWeight: FontWeight.bold),)
+            ,Text(
+              getTranslated(context, "to_show_favourite"),
+              style: TextStyle(color: Color(0xff18304B),fontSize: 15,fontWeight: FontWeight.normal),)
            , Padding(
              padding: const EdgeInsets.only(top:33.0),
              child: Container(
@@ -123,7 +131,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                       borderRadius: BorderRadius.circular(12.0)),
                   color: Color(0xff00B5F0),
                   child: Text(
-                    "تسجيل الدخول",
+                    getTranslated(context, "log_in"),
                     style: TextStyle(color: Colors.white,fontSize: 16),
                   ),
                   onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginScreen()));},
