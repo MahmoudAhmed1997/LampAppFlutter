@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lamp/localization/language_constants.dart';
 import 'package:lamp/widgets/order_card.dart';
 
 class AgreementsScreen extends StatelessWidget {
@@ -18,7 +19,8 @@ class AgreementsScreen extends StatelessWidget {
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('الشروط و الأحكام',style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18),),
+                  Text(
+                  getTranslated(context, "agreements")  ,                  style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18),),
                 ],
               ),
               actions: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lamp/provider/addresses.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 
 class AddressCard extends StatefulWidget {
@@ -75,7 +76,9 @@ class _AddressCardState extends State<AddressCard> {
                   mainAxisAlignment: MainAxisAlignment.start,
 
                   children: [
-                    Text("عنوان المنزل",style: TextStyle(fontSize: 16,color: Color(0xff18304B)),),
+                    Text(
+          getTranslated(context, "home_address")         ,
+                      style: TextStyle(fontSize: 16,color: Color(0xff18304B)),),
                     Text("نانمن, 36221 , الأحساء , المنطقة الشرقي...",style: TextStyle(color: Color(0xff7F8FA6),fontSize: 13),),
                   ],)
               ],),

@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/widgets/checkbox_values.dart';
 import 'package:lamp/widgets/rang_slider.dart';
 import 'package:flutter_range_slider/flutter_range_slider.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class FiltersProducts extends StatelessWidget {
   static const routeName = '/filters_products';
@@ -32,16 +33,16 @@ class FiltersProducts extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "فلترة المنتجات",
+                    getTranslated(context, "filter_products"),
                     style: TextStyle(fontSize: 20, color: Color(0xff18304B)),
                   ),
                   Text(
-                    "الأحدث، الأكثر طلبا",
+                    getTranslated(context, "most_recent_wanted"),
                     style: TextStyle(fontSize: 15, color: Color(0xff7F8FA6)),
                   ),
                   SizedBox(height: 30,),
                   Text(
-                    "حسب اللون",
+                    getTranslated(context, "by_color"),
                     style: TextStyle(fontSize: 15, color: Color(0xff18304B)),
                   ),
                   SizedBox(height: 10,),
@@ -151,7 +152,7 @@ class FiltersProducts extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12.0)),
               color: Color(0xff00B5F0),
               child: Text(
-                "عرض النتائج",
+                getTranslated(context, "view_results"),
                 style: TextStyle(color: Colors.white,fontSize: 16),
               ),
               onPressed: () {

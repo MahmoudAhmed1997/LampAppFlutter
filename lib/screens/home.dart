@@ -23,107 +23,63 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   Products pro = Products();
   Designers des = Designers();
-  void _changeLanguage(Language language) async {
-    Locale _locale = await setLocale(language.languageCode);
-    MyApp.setLocale(context, _locale);
-  }
-
-  void _showSuccessDialog() {
-    showTimePicker(context: context, initialTime: TimeOfDay.now());
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xffFFFFFF),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           centerTitle: true,
           backgroundColor: Colors.white,
           elevation: 0.0,
-          title: Center(
-            child: Container(
-              height: 45,
-              width: 343,
-              child: Stack(children: [
-                TextFormField(
-                  textAlign: TextAlign.center,
-                  enableInteractiveSelection: false,
-                  style: TextStyle(color: Colors.grey),
-                  key: ValueKey("البحث"),
-                  autocorrect: false,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return '';
-                    }
-                    return null;
-                  },
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(9.0),
-                    filled: true,
-                    fillColor: Color(0xffFAFAFA),
-                    hintText: "ابحث عن منتج",
-                    alignLabelWithHint: true,
-                    hintStyle:
-                        TextStyle(color: Color(0xff425154), fontSize: 15),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(6.0),
-                        borderSide: BorderSide.none),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: new BorderSide(color: Color(0xff18304B)),
-                      borderRadius: new BorderRadius.circular(6),
-                    ),
-                  ),
-                ),
-                Positioned.fill(
-                  right: 94,
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: UnconstrainedBox(
-                      child: SvgPicture.asset(
-                        "assets/icons/search.svg",
-                        fit: BoxFit.fitWidth,
-                        allowDrawingOutsideViewBox: true,
-                        matchTextDirection: true,
-                      ),
-                    ),
-                  ),
-                )
-              ]),
-            ),
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: DropdownButton<Language>(
-                underline: SizedBox(),
-                icon: Icon(
-                  Icons.language,
-                  color: Colors.black,
-                ),
-                onChanged: (Language language) {
-                  _changeLanguage(language);
+          title: Container(
+            height: 45,
+            width: 343,
+            alignment: Alignment.center,
+            child: Stack(children: [
+              TextFormField(
+                textAlign: TextAlign.center,
+                enableInteractiveSelection: false,
+                style: TextStyle(color: Colors.grey),
+                key: ValueKey("البحث"),
+                autocorrect: false,
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return '';
+                  }
+                  return null;
                 },
-                items: Language.languageList()
-                    .map<DropdownMenuItem<Language>>(
-                      (e) => DropdownMenuItem<Language>(
-                        value: e,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: <Widget>[
-                            Text(
-                              e.flag,
-                              style: TextStyle(fontSize: 30),
-                            ),
-                            Text(e.name)
-                          ],
-                        ),
-                      ),
-                    )
-                    .toList(),
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(9.0),
+                  filled: true,
+                  fillColor: Color(0xffFAFAFA),
+                  hintText: getTranslated(context, "search_product"),
+                  alignLabelWithHint: true,
+                  hintStyle: TextStyle(color: Color(0xff425154), fontSize: 15),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(6.0),
+                      borderSide: BorderSide.none),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: new BorderSide(color: Color(0xff18304B)),
+                    borderRadius: new BorderRadius.circular(6),
+                  ),
+                ),
               ),
-            ),
-          ],
+              Positioned.fill(
+                right: 77,
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: UnconstrainedBox(
+                    child: SvgPicture.asset(
+                      "assets/icons/search.svg",
+                    ),
+                  ),
+                ),
+              )
+            ]),
+          ),
         ),
         body: DefaultTabController(
           length: 3,
@@ -138,10 +94,7 @@ class _HomeState extends State<Home> {
                 indicatorColor: Color(0xff00B5F0),
                 tabs: [
                   Tab(
-                    child: Text(
-
-                        getTranslated(context, "home")
-                    ),
+                    child: Text(getTranslated(context, "home")),
                   ),
                   Tab(
                     child: Text(
@@ -219,14 +172,16 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       Container(
-                        height: 300.0,
+                        height: 310.0,
                         width: double.infinity,
                         child: ListView.builder(
                           itemBuilder: (context, index) {
-                            return Prod(
-                              widthCard: 150,
-                              widthButton: 134,
-                              index: index,
+                            return Expanded(
+                              child: Prod(
+                                widthCard: 150,
+                                widthButton: 134,
+                                index: index,
+                              ),
                             );
                           },
                           itemCount: pro.products_list.length,
@@ -240,8 +195,10 @@ class _HomeState extends State<Home> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              getTranslated(context,
-                              "shop_by_designers",),
+                              getTranslated(
+                                context,
+                                "shop_by_designers",
+                              ),
                               style: TextStyle(
                                   fontSize: 16, color: Color(0xff18304B)),
                             ),
@@ -256,8 +213,11 @@ class _HomeState extends State<Home> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
-                                    getTranslated(context,
-                                      "show_all",),                                    style: TextStyle(
+                                    getTranslated(
+                                      context,
+                                      "show_all",
+                                    ),
+                                    style: TextStyle(
                                         fontSize: 12, color: Color(0xff18304B)),
                                   ),
                                   SizedBox(
@@ -301,8 +261,11 @@ class _HomeState extends State<Home> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              getTranslated(context,
-                                "new_added",),                              style: TextStyle(
+                              getTranslated(
+                                context,
+                                "new_added",
+                              ),
+                              style: TextStyle(
                                   fontSize: 16, color: Color(0xff18304B)),
                             ),
                             RaisedButton(
@@ -315,8 +278,11 @@ class _HomeState extends State<Home> {
                               child: Row(
                                 children: [
                                   Text(
-                                    getTranslated(context,
-                                      "more",),                                    style: TextStyle(
+                                    getTranslated(
+                                      context,
+                                      "more",
+                                    ),
+                                    style: TextStyle(
                                         fontSize: 13, color: Color(0xff18304B)),
                                   ),
                                   SizedBox(
@@ -341,17 +307,17 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       Container(
-                        height: 300.0,
-                        width: double.infinity,
                         child: Padding(
                           padding: EdgeInsets.only(right: 15.0),
                           child: ListView.builder(
                             itemCount: pro.products_list.length,
                             itemBuilder: (context, index) {
-                              return Prod(
-                                  widthCard: 150,
-                                  widthButton: 134,
-                                  index: index);
+                              return Expanded(
+                                child: Prod(
+                                    widthCard: 150,
+                                    widthButton: 134,
+                                    index: index),
+                              );
                             },
                             scrollDirection: Axis.horizontal,
                           ),

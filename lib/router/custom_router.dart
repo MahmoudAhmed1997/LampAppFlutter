@@ -11,10 +11,12 @@ class CustomRouter {
   static Route<dynamic> generatedRoute(RouteSettings settings) {
     switch (settings.name) {
       case homeRoute:
-        return MaterialPageRoute(builder: (_) => Home())
+        return MaterialPageRoute(builder: (_) => HomeScreen())
         ;
-        case splashRoute:
-      return MaterialPageRoute(builder: (_) => SplashScreen())
+      // case splashRoute:
+      //   return MaterialPageRoute(builder: (_) => SplashScreen())  ;
+    case loginRoute:
+      return MaterialPageRoute(builder: (_) => LoginScreen())
       ;
       default:
         return MaterialPageRoute(builder: (_) => HomeScreen());

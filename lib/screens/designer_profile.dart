@@ -17,7 +17,6 @@ class DesignerProfile extends StatefulWidget {
 
 class _DesignerProfileState extends State<DesignerProfile>
     with SingleTickerProviderStateMixin {
-
   double screenSize;
   double screenRatio;
   AppBar appBar;
@@ -39,165 +38,154 @@ class _DesignerProfileState extends State<DesignerProfile>
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Column(
-          children: [
-            Directionality(
-              textDirection: TextDirection.ltr,
-              child: Container(
-                width: double.infinity,
-                height: 165,
-                color: Color(0xff00B5F0),
-                child: Padding(
-                  padding: const EdgeInsets.only(left:18,right: 18,top: 18),
-                  child: Column(
+      body: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            height: 165,
+            color: Color(0xff00B5F0),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 18, right: 18, top: 35),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SvgPicture.asset("assets/icons/cart.svg"),
-                            Row(
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      "محمد الخالدي",
-                                      style: TextStyle(
-                                          fontSize: 18, color: Colors.white),
-                                    ),
-                                    SizedBox(
-                                      height: 3,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "${"250 "+getTranslated(context, "product")+"152"+ getTranslated(context, "order")}",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.white,
-                                              fontFamily:
-                                                  "assets/fonts/Poppins-Regular.ttf"),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 13.0,
-                                ),
-                                CircleAvatar(
-                                  radius: 28,
-                                  backgroundColor: Color(0xffFFFFFF),
-                                  child: CircleAvatar(
-                                    radius: 27,
-                                    backgroundColor: Color(0xff00B5F0),
-                                    child: CircleAvatar(
-                                      radius: 26,
-                                      backgroundImage:
-                                          AssetImage("assets/images/face.png"),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            InkWell(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: SvgPicture.asset(
-                                    "assets/icons/button_right.svg")),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 17.0,
-                      ),
+                      SvgPicture.asset("assets/icons/cart.svg"),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
-                            height: 40,
-                            width: 343,
-                            child: Stack(children: [
-                              TextFormField(
-                                textAlign: TextAlign.center,
-                                enableInteractiveSelection: false,
-                                style: TextStyle(color: Colors.grey),
-                                key: ValueKey("البحث"),
-                                autocorrect: false,
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return '';
-                                  }
-                                  return null;
-                                },
-                                keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.all(9.0),
-                                  filled: true,
-                                  fillColor: Color(0xffFAFAFA),
-                                  hintText: getTranslated(context, "search_product"),
-
-                                  alignLabelWithHint: true,
-                                  hintStyle: TextStyle(
-                                      color: Color(0xff425154), fontSize: 15),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(6.0),
-                                      borderSide: BorderSide.none),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        new BorderSide(color: Color(0xff18304B)),
-                                    borderRadius: new BorderRadius.circular(6),
-                                  ),
-                                ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                "محمد الخالدي",
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.white),
                               ),
-                              Positioned.fill(
-                                right: 77,
-                                child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: UnconstrainedBox(
-                                    child: SvgPicture.asset(
-                                      "assets/icons/search.svg",
-                                      fit: BoxFit.fitWidth,
-                                      allowDrawingOutsideViewBox: true,
-                                      matchTextDirection: true,
-                                    ),
+                              SizedBox(
+                                height: 3,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "${"250 " + getTranslated(context, "product") + "152" + getTranslated(context, "order")}",
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.white,
+                                        fontFamily:
+                                            "assets/fonts/Poppins-Regular.ttf"),
                                   ),
-                                ),
+                                ],
                               )
-                            ]),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 13.0,
+                          ),
+                          CircleAvatar(
+                            radius: 28,
+                            backgroundColor: Color(0xffFFFFFF),
+                            child: CircleAvatar(
+                              radius: 27,
+                              backgroundColor: Color(0xff00B5F0),
+                              child: CircleAvatar(
+                                radius: 26,
+                                backgroundImage:
+                                    AssetImage("assets/images/face.png"),
+                              ),
+                            ),
                           ),
                         ],
                       ),
+                      InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: SvgPicture.asset(
+                              "assets/icons/button_right.svg")),
                     ],
                   ),
-                ),
+                  SizedBox(
+                    height: 17.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 40,
+                        width: 343,
+                        child: Stack(children: [
+                          TextFormField(
+                            textAlign: TextAlign.center,
+                            enableInteractiveSelection: false,
+                            style: TextStyle(color: Colors.grey),
+                            key: ValueKey("البحث"),
+                            autocorrect: false,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return '';
+                              }
+                              return null;
+                            },
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.all(9.0),
+                              filled: true,
+                              fillColor: Color(0xffFAFAFA),
+                              hintText:
+                                  getTranslated(context, "search_product"),
+                              alignLabelWithHint: true,
+                              hintStyle: TextStyle(
+                                  color: Color(0xff425154), fontSize: 15),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(6.0),
+                                  borderSide: BorderSide.none),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    new BorderSide(color: Color(0xff18304B)),
+                                borderRadius: new BorderRadius.circular(6),
+                              ),
+                            ),
+                          ),
+                          Positioned.fill(
+                            right: 77,
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: UnconstrainedBox(
+                                child: SvgPicture.asset(
+                                  "assets/icons/search.svg",
+                                ),
+                              ),
+                            ),
+                          )
+                        ]),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              decoration: new BoxDecoration(color: Colors.white),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 18.0),
-                    child: SvgPicture.asset(
-                      "assets/icons/filter_black.svg",
-                    ),
+          ),
+          Container(
+            width: double.infinity,
+            decoration: new BoxDecoration(color: Colors.white),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 18.0, left: 18),
+                  child: SvgPicture.asset(
+                    "assets/icons/filter_black.svg",
                   ),
-                  Expanded(
-                      child: Container(
-                    height: 50,
-                    child: VerticalDivider(
-                      color: Color(0xff707070),
-                    ),
-                  )),
-                  new TabBar(
+                ),
+                Container(
+                  height: 50,
+                  child: VerticalDivider(
+                    color: Color(0xff707070),
+                  ),
+                ),
+                Expanded(
+                  child: TabBar(
                       indicatorColor: Color(0xff00B5F0),
                       isScrollable: true,
                       controller: _tabController,
@@ -208,7 +196,7 @@ class _DesignerProfileState extends State<DesignerProfile>
                       tabs: [
                         Tab(
                           child: Text(
-                            "الرئيسية",
+                            getTranslated(context, "home"),
                             style: TextStyle(
                               fontSize: 15,
                             ),
@@ -231,21 +219,21 @@ class _DesignerProfileState extends State<DesignerProfile>
                           ),
                         ),
                       ]),
-                ],
-              ),
+                ),
+              ],
             ),
-            Expanded(
-              child: Container(
-                height:1000,
-                child: TabBarView(controller: _tabController, children: [
-                  HomePageDesigner(),
-                  HomePageDesigner(),
-                  HomePageDesigner(),
-                ]),
-              ),
+          ),
+          Expanded(
+            child: Container(
+              height: 1000,
+              child: TabBarView(controller: _tabController, children: [
+                HomePageDesigner(),
+                HomePageDesigner(),
+                HomePageDesigner(),
+              ]),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

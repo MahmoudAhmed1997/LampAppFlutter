@@ -57,8 +57,8 @@ class _OrderCardState extends State<OrderCard> {
                           ],
                         ),
                         Container(
-                          height: 31,
-                          width: 95,
+                          height: 33,
+                          width: 110,
                           child: RaisedButton(
                             elevation: 0.0,
                             shape: RoundedRectangleBorder(

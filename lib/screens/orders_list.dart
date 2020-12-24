@@ -73,19 +73,17 @@ class OrdersListScreen extends StatelessWidget {
                       Hero(
                         tag: "ordercard",
                         child: Center(
-                            child: Directionality(
-                                textDirection: TextDirection.rtl,
-                                child: Container(
-                                  height: 1000,
-                                  width: 370,
-                                  child: ListView.builder(
-                                    itemCount: orders.order_previos.length,
-                                    itemBuilder: (context,index){
-                                      return OrderCard(text: orders.order_previos[index].status,colorBt: orders.order_previos[index].colorBt,colorTextBt: orders.order_previos[index].colorTextBt,);
-                                    },
+                            child: Container(
+                              height: 1000,
+                              width: 370,
+                              child: ListView.builder(
+                                itemCount: orders.order_previos.length,
+                                itemBuilder: (context,index){
+                                  return OrderCard(text: orders.order_previos[index].status,colorBt: orders.order_previos[index].colorBt,colorTextBt: orders.order_previos[index].colorTextBt,);
+                                },
 
-                                  ),
-                                ))),
+                              ),
+                            )),
                       ),
                       // Hero(
                       //   tag: "ordercard",

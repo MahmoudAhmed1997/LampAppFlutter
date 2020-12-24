@@ -2,6 +2,7 @@ import 'package:country_pickers/country.dart';
 import 'package:country_pickers/country_picker_dropdown.dart';
 import 'package:country_pickers/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class DropdownCountries extends StatefulWidget {
   @override
@@ -40,7 +41,8 @@ class _DropdownCountriesState extends State<DropdownCountries> {
             decoration: InputDecoration(
 
               isDense: true,
-              hintText: "رقم الهاتف",
+              hintText:getTranslated(context, "phone_number"),
+
               hintStyle: TextStyle(
                   color: Color(0xff7F8FA6), fontSize: 15),
               contentPadding: EdgeInsets.only(right: 110),

@@ -143,15 +143,14 @@ class _CartsScreenState extends State<CartsScreen> {
               Container(
                 width: 140,
                 height: 56,
+
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0)),
                   color: Color(0xff00B5F0),
-                  child: Expanded(
-                    child: Text(
-                      getTranslated(context, "complete_order"),
-                      style: TextStyle(color: Colors.white, fontSize: 14),
-                    ),
+                  child: Text(
+                    getTranslated(context, "complete_order"),
+                    style: TextStyle(color: Colors.white, fontSize: 14),
                   ),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/screens/home_screen.dart';
 import 'package:lamp/screens/order_information_screen.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 import 'order_informations.dart';
 
@@ -22,7 +23,7 @@ class SuccessOrderScreen extends StatelessWidget {
             child: SvgPicture.asset("assets/images/success.svg"),
           ),
           Text(
-            "تم الطلب بنجاح!",
+              getTranslated(context, "request_successful"),
             style: TextStyle(
                 color: Color(0xff464451),
                 fontSize: 32,
@@ -41,7 +42,7 @@ class SuccessOrderScreen extends StatelessWidget {
                         fontWeight: FontWeight.normal),
                   ),
                   Text(
-                    ":رقم الطلب",
+                    getTranslated(context, "order_number"),
                     style: TextStyle(
                         color: Color(0xff8F92A1),
                         fontSize: 17,
@@ -50,7 +51,7 @@ class SuccessOrderScreen extends StatelessWidget {
                 ],
               ),
               Text(
-                "شكراً لاختيارك منتجاتنا ",
+                getTranslated(context, "thank_choosing_products"),
                 style: TextStyle(
                   color: Color(0xff8F92A1),
                   fontSize: 17,
@@ -61,7 +62,7 @@ class SuccessOrderScreen extends StatelessWidget {
           Column(
             children: [
               Text(
-                " يمكنك متابعة طلبك من خلال رقم الطلب",
+                getTranslated(context, "can_track_order"),
                 style: TextStyle(color: Color(0xff464451), fontSize: 15),
               ),
               Text(
@@ -73,7 +74,7 @@ class SuccessOrderScreen extends StatelessWidget {
           Column(
             children: [
               Text(
-                "تاريخ الاستلام المتوقع",
+                getTranslated(context, "expecte_date_receipt"),
                 style: TextStyle(color: Color(0xff464451), fontSize: 15),
               ),
               Row(
@@ -87,7 +88,7 @@ class SuccessOrderScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "|الخميس ",
+                    getTranslated(context, "thursday"),
                     style: TextStyle(color: Color(0xff464451), fontSize: 15),
                   ),
                 ],
@@ -101,7 +102,7 @@ class SuccessOrderScreen extends StatelessWidget {
                 height: 51,
                 child: RaisedButton(
                   child: Text(
-                    "استمرار التسوق",
+                      getTranslated(context, "continuing_shopping")   ,
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.normal,
@@ -124,7 +125,7 @@ class SuccessOrderScreen extends StatelessWidget {
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrderInformation()));
                 },
                 child: Text(
-                  "فحص حالة الطلب",
+                    getTranslated(context, "status_request")      ,
                   style: TextStyle(
                       color: Color(0xff18304B),
                       fontSize: 15,

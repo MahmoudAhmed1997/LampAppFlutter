@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lamp/widgets/dropdown_countries.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class ContactUsScreen extends StatefulWidget {
   static const routeName = '/contact_us_screen';
@@ -30,7 +31,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'تواصل معنا',
+            getTranslated(context, "connect_us"),
+
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
             ),
           ],
@@ -59,14 +61,16 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "معلومات التوصيل",
+                  getTranslated(context, "delivery_info"),
+
                     style: TextStyle(
                         color: Color(0xff18304B),
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "نسعد بتواصلكم معنا في أي وقت",
+                      getTranslated(context, "happy_contact"),
+
                     style: TextStyle(
                       color: Color(0xff18304B),
                       fontSize: 14,
@@ -158,8 +162,9 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
             Divider(),
             Center(
                 child: Text(
-              "بامكانك ارسـال رسالة مباشرة للدعم الفني",
+                  getTranslated(context, "send_direct_message"),
               style: TextStyle(fontSize: 17, color: Color(0xff18304B)),
+                  textAlign: TextAlign.center,
             )),
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
@@ -188,7 +193,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                             decoration: InputDecoration(
                               filled: true,
                               fillColor: Color(0xffF9F9FF),
-                              hintText: "الاسم كـــاملاً",
+                              hintText: getTranslated(context, "full_name"),
+
                               hintStyle: TextStyle(
                                   color: Color(0xff7F8FA6), fontSize: 15),
                               border: OutlineInputBorder(
@@ -211,8 +217,9 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                   color: Color(0xffF9F9FF),
                                   // border: Border.all(color: Color(0xff18304B))
                               ),
-                              height: 60,
-                              child: DropdownCountries()), //  Stack(children: [
+                              height: 65,
+                              child: DropdownCountries()),
+                          //  Stack(children: [
                           //
                           //   TextFormField(
                           //      textAlign: TextAlign.center,
@@ -277,7 +284,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                               ),
                               filled: true,
                               fillColor: Color(0xffF9F9FF),
-                              hintText: "             طبيعة الرسالة",
+                              hintText:                             getTranslated(context, "nature_of_message"),
+
                               hintStyle: TextStyle(
                                   color: Color(0xff7F8FA6), fontSize: 15),
                               border: OutlineInputBorder(
@@ -312,7 +320,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                             decoration: InputDecoration(
                               filled: true,
                               fillColor: Color(0xffF9F9FF),
-                              hintText: "اكتب النص هناً",
+                              hintText:getTranslated(context, "write_text"),
                               hintStyle: TextStyle(
                                   color: Color(0xff7F8FA6), fontSize: 15),
                               border: OutlineInputBorder(
@@ -337,7 +345,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                   borderRadius: BorderRadius.circular(12.0)),
                               color: Color(0xff00B5F0),
                               child: Text(
-                                "ارسال الرسالة",
+                                getTranslated(context, "send_message"),
                                 style: TextStyle(color: Colors.white),
                               ),
                               onPressed: () {

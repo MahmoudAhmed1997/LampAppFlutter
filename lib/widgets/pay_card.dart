@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lamp/provider/payments.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class PayCard extends StatefulWidget {
 
@@ -88,7 +89,7 @@ class _PayCardState extends State<PayCard> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        payments.payments_list[index].nameVisa,
+                        getTranslated(context, "pay_visa_card"),
                         style:
                             TextStyle(fontSize: 16, color: Color(0xff18304B)),
                       ),

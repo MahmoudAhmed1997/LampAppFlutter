@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lamp/widgets/addrss_card.dart';
 import 'package:lamp/widgets/address_card_delivery.dart';
 import 'package:lamp/widgets/product_card.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 
 class AddressesScreen extends StatefulWidget {
@@ -18,12 +19,14 @@ class _AddressesScreenState extends State<AddressesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Color(0xff00B5F0),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('عناوين التوصيل'),
+            Text(getTranslated(context, "delivery_addresses"),
+            ),
           ],
         ),
         actions: [
@@ -38,27 +41,24 @@ class _AddressesScreenState extends State<AddressesScreen> {
       ),
 
       body: Stack(overflow: Overflow.visible, fit: StackFit.expand, children: [
-        Directionality(
-          textDirection: TextDirection.rtl,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+        SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
 
 
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                    child: AddressCardDelivery(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: AddressCardDelivery(),
 
 
-                  ),
                 ),
+              ),
 
 
-              ],
+            ],
 
-            ),
           ),
         ),
         Positioned(
@@ -82,7 +82,7 @@ class _AddressesScreenState extends State<AddressesScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
-                          "عنوان توصيل جديد",
+                      getTranslated(context, "new_delivery_address"),
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ],

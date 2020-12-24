@@ -127,6 +127,9 @@ flutter:
     - assets/icons/order_icon.svg
     - assets/icons/arrow_right.svg
     - assets/images/line.png
+    - assets/images/tsh1.png
+    - assets/images/tsh2.png
+    - assets/images/tsh3.png
     - assets/images/success.svg
     - assets/images/contain.png
     - assets/icons/edit_profile.svg

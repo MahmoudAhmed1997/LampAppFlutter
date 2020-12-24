@@ -35,19 +35,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
               style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
           ],
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: Container(
-                height: 38,
-                width: 38,
-                child: InkWell(
+        leading:Padding(
+          padding: const EdgeInsets.only(right: 16.0),
+          child: Container(
+              height: 38,
+              width: 38,
+              child: InkWell(
                   onTap: (){
                     Navigator.pop(context);
                   },
-                    child: SvgPicture.asset("assets/icons/button_right.svg"))),
-          )
-        ],
+                  child: SvgPicture.asset("assets/icons/button_right.svg"))),
+        )
+        ,
       ),
       body: Center(
         child: Column(

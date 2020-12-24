@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lamp/provider/designers.dart';
 import 'package:lamp/widgets/designer_card.dart';
 import 'package:lamp/widgets/prod.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class HoodScreen extends StatefulWidget {
   static const routeName = '/hoodies_screen';
@@ -38,7 +39,10 @@ class _HoodScreenState extends State<HoodScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "تسوق حسب المصممين",
+                    getTranslated(
+                      context,
+                      "shop_by_designers",
+                    ),
                     style: TextStyle(fontSize: 16, color: Color(0xff18304B)),
                   ),
                   RaisedButton(
@@ -53,7 +57,10 @@ class _HoodScreenState extends State<HoodScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          "عرض الكل",
+                          getTranslated(
+                            context,
+                            "show_all",
+                          ),
                           style: TextStyle(
                               fontSize: 12, color: Color(0xff18304B)),
                         ),

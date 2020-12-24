@@ -18,7 +18,7 @@ class Prod extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 8.0),
+      padding: const EdgeInsets.only(right: 8.0,left: 8),
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5.0),
@@ -27,6 +27,9 @@ class Prod extends StatelessWidget {
         width: widthCard,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+
           children: [
             Container(
               decoration: BoxDecoration(
@@ -53,6 +56,7 @@ class Prod extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(

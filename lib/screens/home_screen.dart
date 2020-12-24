@@ -47,7 +47,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: PageStorage(
-
         child: TabBarView(
           controller: tabController,
           physics: NeverScrollableScrollPhysics(),
@@ -56,80 +55,129 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         bucket: bucket,
       ),
 
-        bottomNavigationBar: SafeArea(
-          child: Material(
-            color: Colors.white,
-            elevation: 10,
-            child: BottomAppBar(
-              child: TabBar(
-                physics: NeverScrollableScrollPhysics(),
-                controller: tabController,
-                tabs: [
-                  Tab(
-                    icon: SvgPicture.asset("assets/icons/home.svg",
-                        color: tabController.index == 0
-                            ? Color(0xff00B5F0)
-                            : Color(0xff7F8FA6)),
-                    text: getTranslated(context, "home"),
-
-
-                  ),
-                  Tab(
-                    icon: SvgPicture.asset(
-                      "assets/icons/i_categories.svg",
-                      color: tabController.index == 1
+      bottomNavigationBar: SafeArea(
+        child: Material(
+          color: Colors.white,
+          elevation: 10,
+          child: BottomAppBar(
+            child: TabBar(
+              physics: NeverScrollableScrollPhysics(),
+              controller: tabController,
+              tabs: [
+                Tab(
+                  icon: SvgPicture.asset("assets/icons/home.svg",
+                      color: tabController.index == 0
                           ? Color(0xff00B5F0)
-                          : Color(0xff7F8FA6),
-                    ),
-                    text:  getTranslated(context, "orders"),
-
+                          : Color(0xff7F8FA6)),
+                  text: getTranslated(context, "home"),
+                ),
+                Tab(
+                  icon: SvgPicture.asset(
+                    "assets/icons/i_categories.svg",
+                    color: tabController.index == 1
+                        ? Color(0xff00B5F0)
+                        : Color(0xff7F8FA6),
                   ),
-                  Tab(
-                    icon: SvgPicture.asset(
+                  text: getTranslated(context, "orders"),
+                ),
+                Tab(
+                  icon: Stack(overflow: Overflow.visible, children: [
+                    SvgPicture.asset(
                       "assets/icons/icon_shop.svg",
                       color: tabController.index == 2
                           ? Color(0xff00B5F0)
                           : Color(0xff7F8FA6),
                     ),
-                    text:  getTranslated(context, "shopping_cart"),
-                  ),
-                  Tab(
-                    icon: SvgPicture.asset(
+                    Positioned(
+                      top: -6,
+                      left: -5,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Color(0xffF45540)),
+                              width: 14,
+                              height: 14,
+                              child: Center(
+                                child: Text(
+                                  "3",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 8),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          ]),
+                    )
+                  ]),
+                  text: getTranslated(context, "shopping_cart"),
+                ),
+                Tab(
+                  icon: Stack(overflow: Overflow.visible, children: [
+                    SvgPicture.asset(
                       "assets/icons/favourite.svg",
                       color: tabController.index == 3
                           ? Color(0xff00B5F0)
                           : Color(0xff7F8FA6),
                     ),
-                    text:  getTranslated(context, "favourite"),
-                  ),
-                  Tab(
-                    icon: SvgPicture.asset(
-                      "assets/icons/user_icon.svg",
-                      color: tabController.index == 4
-                          ? Color(0xff00B5F0)
-                          : Color(0xff7F8FA6),
-                    ),
-                    text:  getTranslated(context, "profile"),
-                  ),
-                ],
-                labelStyle: TextStyle(fontSize: 11),
-                labelColor: Color(0xff00B5F0),
-                unselectedLabelColor: Color(0xff7F8FA6),
-                isScrollable: false,
-                indicatorSize: TabBarIndicatorSize.tab,
-                indicatorColor: Theme.of(context).primaryColor,
-                indicator: UnderlineTabIndicator(
-                  insets: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 72.0),
-                  borderSide: BorderSide(color: Color(0xff00B5F0), width: 3),
+                    Positioned(
+                      top: -6,
+                      left: -5,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Color(0xffF45540)),
+                              width: 14,
+                              height: 14,
+                              child: Center(
+                                child: Text(
+                                  "3",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 8),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          ]),
+                    )
+                  ]),
+                  text: getTranslated(context, "favourite"),
                 ),
+                Tab(
+                  icon: SvgPicture.asset(
+                    "assets/icons/user_icon.svg",
+                    color: tabController.index == 4
+                        ? Color(0xff00B5F0)
+                        : Color(0xff7F8FA6),
+                  ),
+                  text: getTranslated(context, "profile"),
+                ),
+              ],
+              labelStyle: TextStyle(fontSize: 11),
+              labelColor: Color(0xff00B5F0),
+              unselectedLabelColor: Color(0xff7F8FA6),
+              isScrollable: false,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorColor: Theme.of(context).primaryColor,
+              indicator: UnderlineTabIndicator(
+                insets: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 72.0),
+                borderSide: BorderSide(color: Color(0xff00B5F0), width: 3),
               ),
             ),
           ),
         ),
+      ),
 
-        // bottomNavigationBar: BottomAppBarItems(
-        //   index: 2,
-        // ),
+      // bottomNavigationBar: BottomAppBarItems(
+      //   index: 2,
+      // ),
     );
   }
 }

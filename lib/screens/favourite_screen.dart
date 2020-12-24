@@ -25,85 +25,85 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
               width: double.infinity,
               height: 125,
               color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.only(top:28.0,),
-                child: Column(
-                  children: [
-                    Text(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top:38.0),
+                    child: Text(
                     getTranslated(context, "favourite"),
 
                       style: TextStyle(
                           fontSize: 17, color: Color(0xff18304B)),
                     ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 45,
-                          width: 343,
-                          child: Stack(children: [
-                            TextFormField(
+                  ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 45,
+                        width: 343,
+                        child: Stack(children: [
+                          TextFormField(
 
-                              textAlign: TextAlign.center,
-                              enableInteractiveSelection: false,
-                              style: TextStyle(color: Colors.grey),
-                              key: ValueKey("البحث"),
-                              autocorrect: false,
+                            textAlign: TextAlign.center,
+                            enableInteractiveSelection: false,
+                            style: TextStyle(color: Colors.grey),
+                            key: ValueKey("البحث"),
+                            autocorrect: false,
 
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return '';
-                                }
-                                return null;
-                              },
-                              keyboardType: TextInputType.text,
-                              decoration: InputDecoration(
-                                contentPadding: EdgeInsets.all(9.0),
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return '';
+                              }
+                              return null;
+                            },
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.all(9.0),
 
-                                filled: true,
-                                fillColor: Color(0xffFAFAFA),
-                                hintText:
-                                getTranslated(context, "looking_for"),
-                                alignLabelWithHint: true,
-                                hintStyle: TextStyle(
-                                    color: Color(0xff425154), fontSize: 15),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(6.0),
-                                    borderSide: BorderSide.none),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide:
-                                  new BorderSide(color: Color(0xff18304B)),
-                                  borderRadius: new BorderRadius.circular(6),
+                              filled: true,
+                              fillColor: Color(0xffFAFAFA),
+                              hintText:
+                              getTranslated(context, "looking_for"),
+                              alignLabelWithHint: true,
+                              hintStyle: TextStyle(
+                                  color: Color(0xff425154), fontSize: 15),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(6.0),
+                                  borderSide: BorderSide.none),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                new BorderSide(color: Color(0xff18304B)),
+                                borderRadius: new BorderRadius.circular(6),
+                              ),
+                            ),
+                          ),
+                          Positioned.fill(
+                            right: 68,
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: UnconstrainedBox(
+                                child: SvgPicture.asset(
+                                  "assets/icons/search.svg",
+                                  fit: BoxFit.fitWidth,
+                                  allowDrawingOutsideViewBox: true,
+                                  matchTextDirection: true,
                                 ),
                               ),
                             ),
-                            Positioned.fill(
-                              right: 68,
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                child: UnconstrainedBox(
-                                  child: SvgPicture.asset(
-                                    "assets/icons/search.svg",
-                                    fit: BoxFit.fitWidth,
-                                    allowDrawingOutsideViewBox: true,
-                                    matchTextDirection: true,
-                                  ),
-                                ),
-                              ),
-                            )
-                          ]),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                  ],
-                ),
+                          )
+                        ]),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                ],
               ),
             ),
             Padding(

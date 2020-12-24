@@ -67,14 +67,16 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                 ),
                 Center(
                   child: Container(
+
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
+                      color: Color(0xffF9F9FF)
                     ),
                     height: 225,
                     width: 352,
                     child: Image.asset(
-                      "assets/images/Big Image.png",
-                      fit: BoxFit.fill,
+                      "assets/images/tsh1.png",
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -101,7 +103,7 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                               height: 61,width: 55,
                               fit: BoxFit.cover,
                               image: AssetImage(
-                                "assets/images/t_shirt.png",
+                                "assets/images/tsh2.png",
                               ),
                               //color: Colors.grey,
                             ),
@@ -127,7 +129,7 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                               height: 61,width: 55,
                               fit: BoxFit.cover,
                               image: AssetImage(
-                                "assets/images/t_shirt2.png",
+                                "assets/images/tsh3.png",
                               ),
                               //color: Colors.grey,
                             ),

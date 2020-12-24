@@ -25,6 +25,7 @@ import 'package:lamp/screens/notifications_screen.dart';
 import 'package:lamp/screens/order_adress_screen.dart';
 import 'package:lamp/screens/order_information_screen.dart';
 import 'package:lamp/screens/order_informations.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lamp/screens/orders_list.dart';
 import 'package:lamp/screens/orders_first_screen.dart';
 import 'package:lamp/screens/orders_second_screen.dart';
@@ -43,21 +44,20 @@ import 'package:lamp/widgets/prod.dart';
 import 'package:lamp/widgets/rating_order.dart';
 import 'package:lamp/widgets/sliderrr.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp( SplashScreenH());
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key key}) : super(key: key);
+class SplashScreenH extends StatefulWidget {
+  SplashScreenH({Key key}) : super(key: key);
   static void setLocale(BuildContext context, Locale newLocale) {
-    _MyAppState state = context.findAncestorStateOfType<_MyAppState>();
+    _SplashScreenHState state = context.findAncestorStateOfType<_SplashScreenHState>();
     state.setLocale(newLocale);
-
   }
 
   @override
-  _MyAppState createState() => _MyAppState();
+  _SplashScreenHState createState() => _SplashScreenHState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _SplashScreenHState extends State<SplashScreenH> {
   Locale _locale;
   setLocale(Locale locale) {
     setState(() {
@@ -78,24 +78,22 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     if (this._locale == null) {
-      return Container(
+      return  Container(
         child: Center(
-          child: CircularProgressIndicator(
+          child:
+          CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(Colors.blue[800])),
         ),
       );
     } else {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: "Flutter Localization Demo",
         theme: ThemeData(
             primarySwatch: Colors.blue, fontFamily: 'DINNextLTArabic'),
         locale: _locale,
         supportedLocales: [
           Locale("en", "US"),
-          Locale("fa", "IR"),
           Locale("ar", "SA"),
-          Locale("hi", "IN")
         ],
         localizationsDelegates: [
           DemoLocalization.delegate,
@@ -113,7 +111,7 @@ class _MyAppState extends State<MyApp> {
           return supportedLocales.first;
         },
         onGenerateRoute: CustomRouter.generatedRoute,
-        initialRoute: splashRoute,
+        initialRoute: loginRoute,
       );
     }
   }

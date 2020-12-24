@@ -17,7 +17,7 @@ class _HomePageDesignerState extends State<HomePageDesigner> {
           itemCount: 5,
           itemBuilder: (context,index){
             return Padding(
-              padding: const EdgeInsets.only(bottom:12.0,left: 8),
+              padding: const EdgeInsets.only(bottom:12.0,),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -80,12 +80,78 @@
     "order_time":"تاريخ الطلب",
     "delivery_time":"تاريخ التوصيل",
     "country":"الدولة",
-    "rating_order":"تقييم الطلب",
     "re_order":"إعادة الطلب",
     "region":"المنطقة",
     "order_a":"الطلب",
     "delivery_ser":"خدمة التوصيل",
     "discount_coupon":"كوبون الخصم",
-    "q_m":"ض.ق.م"
+    "q_m":"ض.ق.م",
+    "details_order_text":"تفاصيل الطلب",
+    "notice_for_order":"ملاحظات على الطلب(اختياري)",
+    "need_notify":"اذا كنت بحاجة لتنبيه المتجر الى أمر ما في الطلب",
+    "write_notice":"اكتب الملاحظة هنا",
+    "list_of_purchases":"قائمة المشتريات",
+    "coupons_and_discounts":"الكوبونات والخصومات",
+    "do_you_have_coupon":"هل تمتلك كوبون خصم؟",
+    "enter_coupon_number":"أدخل رقم الكوبون",
+    "coupon_check":"فحص الكوبون",
+    "order_summary":"ملخص الطلبية",
+    "cost_purchases":"تكلفة المشتريات",
+    "delivery_address":"عنوان التوصيل",
+    "delivery_addresses":"عناوين التوصيل",
+    "select_delivery_address":"اختر عنوان التوصيل",
+    "home_address":"عنوان المنزل",
+    "new_delivery_address":"عنوان توصيل جديد",
+    "shipping_and_payment":"الشحن والدفع",
+    "choose_payment_method":"اختر طريقة الدفع",
+    "request_successful":"تم الطلب بنجاح",
+    "order_number":"رقم الطلب",
+    "thank_choosing_products":"شكرا لاختيارك منتجاتنا",
+    "can_track_order":"يمكنك متابعة طلبك من خلال رقم الطلب",
+    "expecte_date_receipt":"تاريخ الاستلام المتوقع",
+    "thursday":"الخميس",
+    "continuing_shopping":"استمرار التسوق",
+    "status_request":"فحص حالة الطلب",
+
+    "rating_order":"تقييم الطلب",
+    "add_rating":"أضف تقييم للطلب",
+    "rating_help_us":"التقييم يساعدنا على تطوير الخدمات المقدمة",
+    "add_description_rating":"أضف وصف للتقييم",
+    "added_rating":"إضافة تقييم",
+
+    "connect_us":"تواصل معنا",
+    "delivery_info":"معلومات التواصل",
+    "send_direct_message":"بإمكانك ارسال رسالة مباشرة للدعم الفني",
+    "nature_of_message":"طبيعة الرسالة",
+    "write_text":"اكتب النص هنا",
+    "send_message":"ارسال الرسالة",
+    "happy_contact":"نسعد بتواصلكم معنا في أي وقت",
+
+    "best_online":"أفضل وسيلة شراء عبر الانترنت",
+    "whatsApp":"لا تتردد بمحادثتنا عبر خدمة الدعم الفني على الواتس اب",
+    "talk_us_now":"تحدث معنا الأن",
+    "common_questions":"الأسئلة الشائعة",
+    "dont_find_answer":"بامكانك التواصل معنا في حال لم تجد اجابتك",
+    "first_question":"السؤال الشائع الأول والإجابة عليه",
+    "best_seller":"عرض :الأكثر مبيعا",
+
+    "pay_visa_card":"الدفع عبر فيزا كارد",
+
+
+    "filter_products":"فلترة المنتجات",
+    "most_recent_wanted":"الأحدث , الأكثر طلباً",
+
+    "most_recent":"الأحدث",
+    "most_wanted":"الأكثر طلباً",
+    "least_expensive":"الاقل سعراً",
+    "alph_order":"ترتيب أبجدي(أ-ي)",
+    "recommended":"الأكثر ترشيحاً",
+    "view_results":"عرض النتائج",
+    "by_color":"حسب اللون",
+    "view_by":"عرض حسب"
+
+
+
+
 
 }
