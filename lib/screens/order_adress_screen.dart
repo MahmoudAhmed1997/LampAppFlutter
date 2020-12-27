@@ -6,68 +6,37 @@ class OrderAddressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.white),
-          height: 340,
-          width: 355,
-          child: Column(
-            mainAxisAlignment:
-            MainAxisAlignment.spaceAround,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(right: 10,top: 5,left: 10),
+    return  Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.white),
+            height: 340,
+            width: 355,
+            child: Column(
+              mainAxisAlignment:
+              MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(right: 10,top: 5,left: 10),
 
-                child: Row(
-                  children: [
-                    Container(
-                        width: 130,
-                        child: Text(
-                          getTranslated(context, "full_name"),
-                          style: TextStyle(
-                              color:
-                              Color(0xff464451),
-                              fontSize: 15),
-                        )),
-                    Container(
-                      width:130,
-
-                      child: Text(
-                        "عبد الله بركات",
-                        style: TextStyle(
-                            color: Color(0xff7F8FA6),
-                            fontSize: 15),
-                        textDirection:
-                        TextDirection.rtl,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(),
-              Padding(
-                padding: EdgeInsets.only(right: 10,top: 5,left: 10),
-
-                child: Row(
-                  children: [
-                    Container(
-                        width: 130,
-                        child:Text(
-                          getTranslated(context, "address"),
-                          style: TextStyle(
-                              color:
-                              Color(0xff464451),
-                              fontSize: 15),
-                        )),
-                    Expanded(
-                      child: Container(
+                  child: Row(
+                    children: [
+                      Container(
+                          width: 130,
+                          child: Text(
+                            getTranslated(context, "full_name"),
+                            style: TextStyle(
+                                color:
+                                Color(0xff464451),
+                                fontSize: 15),
+                          )),
+                      Container(
                         width:130,
 
                         child: Text(
-                          "نانمن, 36221 , الأحساء , المنطقة الشرقية, قصب",
+                          "عبد الله بركات",
                           style: TextStyle(
                               color: Color(0xff7F8FA6),
                               fontSize: 15),
@@ -75,32 +44,94 @@ class OrderAddressScreen extends StatelessWidget {
                           TextDirection.rtl,
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
+                Divider(),
+                Padding(
+                  padding: EdgeInsets.only(right: 10,top: 5,left: 10),
 
-              Divider(),
-              Padding(
-                padding: EdgeInsets.only(right: 10,top: 5,left: 10),
+                  child: Row(
+                    children: [
+                      Container(
+                          width: 130,
+                          child:Text(
+                            getTranslated(context, "address"),
+                            style: TextStyle(
+                                color:
+                                Color(0xff464451),
+                                fontSize: 15),
+                          )),
+                      Expanded(
+                        child: Container(
+                          width:130,
 
-                child: Row(
-                  children: [
-                    Container(
-                        width: 130,
-                        child: Text(
-                          getTranslated(context, "region"),
-                          style: TextStyle(
-                              color:
-                              Color(0xff464451),
-                              fontSize: 15),
-                        )),
-                    Expanded(
-                      child: Container(
+                          child: Text(
+                            "نانمن, 36221 , الأحساء , المنطقة الشرقية, قصب",
+                            style: TextStyle(
+                                color: Color(0xff7F8FA6),
+                                fontSize: 15),
+                            textDirection:
+                            TextDirection.rtl,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Divider(),
+                Padding(
+                  padding: EdgeInsets.only(right: 10,top: 5,left: 10),
+
+                  child: Row(
+                    children: [
+                      Container(
+                          width: 130,
+                          child: Text(
+                            getTranslated(context, "region"),
+                            style: TextStyle(
+                                color:
+                                Color(0xff464451),
+                                fontSize: 15),
+                          )),
+                      Expanded(
+                        child: Container(
+                          width:130,
+
+                          child: Text(
+                            "الرياض, المنطقة الصناعية",
+                            style: TextStyle(
+                                color: Color(0xff7F8FA6),
+                                fontSize: 15),
+                            textDirection:
+                            TextDirection.rtl,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Divider(),
+                Padding(
+                  padding: EdgeInsets.only(right: 10,top: 5,left: 10),
+
+                  child: Row(
+                    children: [
+                      Container(
+                          width: 130,
+                          child: Text(
+                            getTranslated(context, "phone_number"),
+                            style: TextStyle(
+                                color:
+                                Color(0xff464451),
+                                fontSize: 15),
+                          )),
+                      Container(
                         width:130,
 
                         child: Text(
-                          "الرياض, المنطقة الصناعية",
+                          "+96652014520",
                           style: TextStyle(
                               color: Color(0xff7F8FA6),
                               fontSize: 15),
@@ -108,78 +139,47 @@ class OrderAddressScreen extends StatelessWidget {
                           TextDirection.rtl,
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Divider(),
-              Padding(
-                padding: EdgeInsets.only(right: 10,top: 5,left: 10),
 
-                child: Row(
-                  children: [
-                    Container(
-                        width: 130,
+                Divider(),
+                Padding(
+                  padding: EdgeInsets.only(right: 10,top: 5,left: 10),
+
+                  child: Row(
+                    children: [
+                      Container(
+                          width: 130,
+                          child: Text(
+                            getTranslated(context, "email"),
+                            style: TextStyle(
+                                color:
+                                Color(0xff464451),
+                                fontSize: 15),
+                          )),
+                      Container(
+                        width:130,
+
                         child: Text(
-                          getTranslated(context, "phone_number"),
+                          "name@email.com",
                           style: TextStyle(
-                              color:
-                              Color(0xff464451),
+                              color: Color(0xff7F8FA6),
                               fontSize: 15),
-                        )),
-                    Container(
-                      width:130,
-
-                      child: Text(
-                        "+96652014520",
-                        style: TextStyle(
-                            color: Color(0xff7F8FA6),
-                            fontSize: 15),
-                        textDirection:
-                        TextDirection.rtl,
+                          textDirection:
+                          TextDirection.rtl,
+                        ),
                       ),
-                    ),
-                  ],
+
+                    ],
+                  ),
                 ),
-              ),
+                SizedBox(height: 5,)
 
-              Divider(),
-              Padding(
-                padding: EdgeInsets.only(right: 10,top: 5,left: 10),
-
-                child: Row(
-                  children: [
-                    Container(
-                        width: 130,
-                        child: Text(
-                          getTranslated(context, "email"),
-                          style: TextStyle(
-                              color:
-                              Color(0xff464451),
-                              fontSize: 15),
-                        )),
-                    Container(
-                      width:130,
-
-                      child: Text(
-                        "name@email.com",
-                        style: TextStyle(
-                            color: Color(0xff7F8FA6),
-                            fontSize: 15),
-                        textDirection:
-                        TextDirection.rtl,
-                      ),
-                    ),
-
-                  ],
-                ),
-              ),
-              SizedBox(height: 5,)
-
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
-    );
+        ],
+      );
   }
 }

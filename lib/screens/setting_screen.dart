@@ -8,6 +8,7 @@ import 'package:lamp/screens/new_password_screen.dart';
 import 'package:lamp/screens/new_product_screen.dart';
 import 'package:lamp/screens/reset_screen.dart';
 import 'package:lamp/localization/language_constants.dart';
+import 'package:lamp/screens/notifications_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   static const routeName = '/setting_screen';
@@ -42,7 +43,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               width: 38,
               child: InkWell(
                   onTap: (){
-                    Navigator.pop(context);
+                    Navigator.of(context).pop();
                   },
                   child: SvgPicture.asset("assets/icons/button_right.svg"))),
         )
@@ -64,8 +65,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                    getTranslated(context, "change_pass")
-                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                    getTranslated(context, "change_pass"),
+                  style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight:FontWeight.normal),
+                    ),
                     SvgPicture.asset("assets/icons/arrow_right.svg")
                   ],),
                 onPressed: (){
@@ -88,7 +90,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
                     Text(
                       getTranslated(context, "active_notify"),
-                      style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                      style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight:FontWeight.normal),
+                    ),
                     FlutterSwitch(
                       height: 25.0,
                       width: 45.0,
@@ -125,7 +128,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                     Text(
                       getTranslated(context, "policy"),
-                      style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                     style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight:FontWeight.normal),),
                     SvgPicture.asset("assets/icons/arrow_right.svg")
                   ],),
                 onPressed: (){
@@ -148,7 +151,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
                     Text(
                     getTranslated(context, "contact_us")
-                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight: FontWeight.normal),),
                     SvgPicture.asset("assets/icons/arrow_right.svg")
                   ],),
                 onPressed: (){
@@ -171,7 +174,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
                     Text(
                     getTranslated(context, "agreements")
-                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight: FontWeight.normal),),
                     SvgPicture.asset("assets/icons/arrow_right.svg")
                   ],),
                 onPressed: (){
@@ -194,7 +197,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
                     Text(
                     getTranslated(context, "about_app")
-                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight: FontWeight.normal),),
                     SvgPicture.asset("assets/icons/arrow_right.svg")
                   ],),
                 onPressed: (){
@@ -217,7 +220,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
                     Text(
                     getTranslated(context, "challenge"),
-                      style: TextStyle(color: Color(0xff18304B),fontSize: 16),),
+                      style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight: FontWeight.normal),),
                     SvgPicture.asset("assets/icons/arrow_right.svg")
                   ],),
                 onPressed: (){},

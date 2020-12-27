@@ -5,6 +5,7 @@ import 'package:lamp/widgets/appbar_widgets.dart';
 import 'package:lamp/widgets/prod.dart';
 import 'login_screen.dart';
 import 'package:lamp/localization/language_constants.dart';
+import 'package:lamp/screens/favourite_second_screen.dart';
 
 class FavouriteScreen extends StatefulWidget {
   static const routeName = '/favourite_screen';
@@ -83,15 +84,15 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                             ),
                           ),
                           Positioned.fill(
-                            right: 68,
+                            right: 77,
                             child: Align(
                               alignment: Alignment.centerRight,
                               child: UnconstrainedBox(
                                 child: SvgPicture.asset(
                                   "assets/icons/search.svg",
                                   fit: BoxFit.fitWidth,
-                                  allowDrawingOutsideViewBox: true,
-                                  matchTextDirection: true,
+                                  // allowDrawingOutsideViewBox: true,
+                                  // matchTextDirection: true,
                                 ),
                               ),
                             ),
@@ -132,7 +133,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                   color: Color(0xff00B5F0),
                   child: Text(
                     getTranslated(context, "log_in"),
-                    style: TextStyle(color: Colors.white,fontSize: 16),
+                    style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.normal),
                   ),
                   onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginScreen()));},
                 ),

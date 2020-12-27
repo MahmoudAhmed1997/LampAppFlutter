@@ -214,53 +214,60 @@ class OrderInformationScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                width: 158,
-                height: 50,
-                child: RaisedButton(
-                  child: Text(
-                    getTranslated(context, "rating_order"),
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.white),
+              Expanded(
+                child: Container(
+                  width: 158,
+                  height: 50,
+                  child: RaisedButton(
+                    child: Text(
+                      getTranslated(context, "rating_order"),
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white),
+                    ),
+                    color: Color(0xffEC3942),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    onPressed: () {
+                      showModalBottomSheet(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(5.0),
+                                topRight: Radius.circular(5.0)),
+                          ),
+                          isScrollControlled: true,
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          isDismissible: true,
+                          context: context,
+                          builder: (context) => FractionallySizedBox(
+                                heightFactor: 0.88,
+                                child: RatingOrder(),
+                              ));
+                    },
                   ),
-                  color: Color(0xffEC3942),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12)),
-                  onPressed: () {
-                    showModalBottomSheet(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(5.0),
-                              topRight: Radius.circular(5.0)),
-                        ),
-                        isScrollControlled: true,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        isDismissible: true,
-                        context: context,
-                        builder: (context) => FractionallySizedBox(
-                              heightFactor: 0.88,
-                              child: RatingOrder(),
-                            ));
-                  },
                 ),
               ),
-              Container(
-                width: 158,
-                height: 50,
-                child: RaisedButton(
-                  child: Text(
-                    getTranslated(context, "re_order"),
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.white),
+              SizedBox(
+                width: 10.0,
+              ),
+              Expanded(
+                child: Container(
+                  width: 158,
+                  height: 50,
+                  child: RaisedButton(
+                    child: Text(
+                      getTranslated(context, "re_order"),
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white),
+                    ),
+                    color: Color(0xff00B5F0),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    onPressed: () {},
                   ),
-                  color: Color(0xff00B5F0),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12)),
-                  onPressed: () {},
                 ),
               ),
             ],

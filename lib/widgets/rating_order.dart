@@ -31,7 +31,7 @@ class RatingOrder extends StatelessWidget {
                   Text(
                     getTranslated(context, "rating_order"),
                     style: TextStyle(fontSize: 17,color: Color(0xff18304B)),)
-                 , SizedBox(height: 23,),
+                 , SizedBox(height: 13,),
 
                   Text(
                     getTranslated(context, "add_rating"),
@@ -41,7 +41,7 @@ class RatingOrder extends StatelessWidget {
                   Text(
                       getTranslated(context, "rating_help_us"),
                     style:TextStyle(fontSize: 14,fontWeight: FontWeight.normal),textAlign: TextAlign.center,),
-                 SizedBox(height: 42,),
+                 SizedBox(height: 30,),
                   Directionality(
                     textDirection: TextDirection.rtl,
                     child: SmoothStarRating(

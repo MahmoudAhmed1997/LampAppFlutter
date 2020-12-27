@@ -22,11 +22,12 @@ class OrderInformation extends StatelessWidget {
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('51523# '),
                   Text( getTranslated(context, "order"), ),
+
+                  Text('51523# '),
                 ],
               ),
-              actions: [
+             leading:
                 Padding(
                   padding: const EdgeInsets.only(right: 16.0),
                   child: Container(
@@ -38,7 +39,7 @@ class OrderInformation extends StatelessWidget {
                           },
                           child: SvgPicture.asset("assets/icons/button_right.svg"))),
                 )
-              ],
+
             ),
             body: DefaultTabController(
               length: 4,
@@ -51,7 +52,7 @@ class OrderInformation extends StatelessWidget {
                       indicatorColor: Color(0xff4A6FF0),
                       unselectedLabelColor: Color(0xff7F8FA6),
                       labelColor: Color(0xff00B5F0),
-                      labelStyle: TextStyle(fontSize: 13),
+                      labelStyle: TextStyle(fontSize: 12),
                       tabs: [
                         Tab(
                           child: Text(
@@ -79,6 +80,7 @@ class OrderInformation extends StatelessWidget {
                 ),
                 Expanded(
                   child: TabBarView(
+
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top:12.0),

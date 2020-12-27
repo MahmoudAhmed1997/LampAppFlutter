@@ -29,8 +29,8 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
             ),
           ],
         ),
-        actions: [
-          Padding(
+        leading:
+        Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: Container(
                 height: 38,
@@ -41,7 +41,7 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
                     },
                     child: SvgPicture.asset("assets/icons/button_right.svg"))),
           )
-        ],
+
       ),
       body: ListView(
         children: [

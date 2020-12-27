@@ -37,7 +37,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
             ),
           ],
         ),
-        actions: [
+        leading:
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: Container(
@@ -49,8 +49,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                     },
                     child: SvgPicture.asset("assets/icons/button_right.svg"))),
           )
-        ],
-      ),
+              ),
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: ListView(

@@ -34,18 +34,19 @@ class SuccessOrderScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "15210 ",
-                    style: TextStyle(
-                        color: Color(0xff8F92A1),
-                        fontSize: 15,
-                        fontWeight: FontWeight.normal),
-                  ),
+
                   Text(
                     getTranslated(context, "order_number"),
                     style: TextStyle(
                         color: Color(0xff8F92A1),
                         fontSize: 17,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  Text(
+                    " 15210 ",
+                    style: TextStyle(
+                        color: Color(0xff8F92A1),
+                        fontSize: 15,
                         fontWeight: FontWeight.normal),
                   ),
                 ],
@@ -80,16 +81,17 @@ class SuccessOrderScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+
                   Text(
-                    "20/5/2020 ",
+                    getTranslated(context, "thursday"),
+                    style: TextStyle(color: Color(0xff464451), fontSize: 15),
+                  ),
+                  Text(
+                    " 20/5/2020 ",
                     style: TextStyle(
                       color: Color(0xff464451),
                       fontSize: 15,
                     ),
-                  ),
-                  Text(
-                    getTranslated(context, "thursday"),
-                    style: TextStyle(color: Color(0xff464451), fontSize: 15),
                   ),
                 ],
               ),

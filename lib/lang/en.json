@@ -57,7 +57,9 @@
     "password": "Password",
     "forget_pass": "forget password?",
     "looking_for":"what are you looking for?",
-    "are_you_new_user": "are you a new user in Dirar?",
+    "create_now_account": "Create your account",
+
+    "are_you_new_user": "are you a new user in Lamb?",
     "new_user": "New User",
     "create_account_lamp": "Create account in lamp store",
     "phone_number": "phone Number",
@@ -67,6 +69,8 @@
     "forget_password": "Forget Password",
     "dont_worry_message": "Don't worry, enter the email to send the appointment code",
     "next": "next",
+    "send_email": "Enter the email to send the appointment code",
+
     "designation_code":"designation code",
     "set_password":"Set password",
     "enter_the_sent_code":"Enter the sent code",

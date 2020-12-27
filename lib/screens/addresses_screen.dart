@@ -5,7 +5,8 @@ import 'package:lamp/widgets/addrss_card.dart';
 import 'package:lamp/widgets/address_card_delivery.dart';
 import 'package:lamp/widgets/product_card.dart';
 import 'package:lamp/localization/language_constants.dart';
-
+import 'package:lamp/screens/order_adress_screen.dart';
+import 'new_delivery _address.dart';
 
 class AddressesScreen extends StatefulWidget {
   static const routeName = '/addresses_screen';
@@ -29,7 +30,7 @@ class _AddressesScreenState extends State<AddressesScreen> {
             ),
           ],
         ),
-        actions: [
+        leading:
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: Container(
@@ -37,7 +38,7 @@ class _AddressesScreenState extends State<AddressesScreen> {
                 width: 38,
                 child: SvgPicture.asset("assets/icons/button_right.svg")),
           )
-        ],
+
       ),
 
       body: Stack(overflow: Overflow.visible, fit: StackFit.expand, children: [
@@ -63,33 +64,39 @@ class _AddressesScreenState extends State<AddressesScreen> {
         ),
         Positioned(
           bottom: 30,right: 20,left: 20,
-          child: Container(
-            alignment: Alignment.bottomCenter,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Card(
-                  color: Color(0xff00B5F0),
-                  margin: EdgeInsets.symmetric(vertical: 10),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Container(
+          child: InkWell(
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewDeliveryAddressesScreen()));
 
-                    width: 330,
-                    height: 54,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                      getTranslated(context, "new_delivery_address"),
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        ),
-                      ],
+            },
+            child: Container(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Card(
+                    color: Color(0xff00B5F0),
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Container(
+
+                      width: 330,
+                      height: 54,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                        getTranslated(context, "new_delivery_address"),
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

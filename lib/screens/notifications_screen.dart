@@ -14,6 +14,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
     return Scaffold(
       backgroundColor: Color(0xffFDFDFF),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Color(0xff00B5F0),
         title: Row(
@@ -22,15 +23,19 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
             Text('الاشعارات'),
           ],
         ),
-        actions: [
+        leading:
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: Container(
                 height: 38,
                 width: 38,
-                child: SvgPicture.asset("assets/icons/button_right.svg")),
+                child: InkWell(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: SvgPicture.asset("assets/icons/button_right.svg"))),
           )
-        ],
+
       ),
       body: Directionality(
         textDirection: TextDirection.rtl,

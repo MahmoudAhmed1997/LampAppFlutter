@@ -32,7 +32,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
             Text('تغيير كلمة المرور',style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
           ],
         ),
-        actions: [
+        leading:
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: Container(
@@ -45,7 +45,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
 
                     child: SvgPicture.asset("assets/icons/button_right.svg"))),
           )
-        ],
+
       ),
 
 

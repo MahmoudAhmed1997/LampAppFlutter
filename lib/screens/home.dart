@@ -28,6 +28,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xffFFFFFF),
+        resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           centerTitle: true,
@@ -88,7 +89,7 @@ class _HomeState extends State<Home> {
               color: Color(0xffFFFFFF),
               constraints: BoxConstraints(maxHeight: 150.0),
               child: TabBar(
-                labelStyle: TextStyle(fontSize: 13),
+                labelStyle: TextStyle(fontSize: 12),
                 labelColor: Color(0xff00B5F0),
                 unselectedLabelColor: Color(0xff7F8FA6),
                 indicatorColor: Color(0xff00B5F0),
@@ -152,7 +153,7 @@ class _HomeState extends State<Home> {
                                   Text(
                                     getTranslated(context, "show_all"),
                                     style: TextStyle(
-                                        fontSize: 12, color: Color(0xff18304B)),
+                                        fontSize: 12, color: Color(0xff18304B),fontWeight: FontWeight.normal),
                                   ),
                                   SizedBox(
                                     width: 6,
@@ -176,12 +177,10 @@ class _HomeState extends State<Home> {
                         width: double.infinity,
                         child: ListView.builder(
                           itemBuilder: (context, index) {
-                            return Expanded(
-                              child: Prod(
-                                widthCard: 150,
-                                widthButton: 134,
-                                index: index,
-                              ),
+                            return Prod(
+                              widthCard: 150,
+                              widthButton: 134,
+                              index: index,
                             );
                           },
                           itemCount: pro.products_list.length,
@@ -218,7 +217,7 @@ class _HomeState extends State<Home> {
                                       "show_all",
                                     ),
                                     style: TextStyle(
-                                        fontSize: 12, color: Color(0xff18304B)),
+                                        fontSize: 12, color: Color(0xff18304B),fontWeight: FontWeight.normal),
                                   ),
                                   SizedBox(
                                     width: 6,
@@ -283,7 +282,7 @@ class _HomeState extends State<Home> {
                                       "more",
                                     ),
                                     style: TextStyle(
-                                        fontSize: 13, color: Color(0xff18304B)),
+                                        fontSize: 13, color: Color(0xff18304B),fontWeight: FontWeight.normal),
                                   ),
                                   SizedBox(
                                     width: 17,
@@ -307,20 +306,18 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       Container(
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 15.0),
-                          child: ListView.builder(
-                            itemCount: pro.products_list.length,
-                            itemBuilder: (context, index) {
-                              return Expanded(
-                                child: Prod(
-                                    widthCard: 150,
-                                    widthButton: 134,
-                                    index: index),
-                              );
-                            },
-                            scrollDirection: Axis.horizontal,
-                          ),
+                        height: 310.0,
+                        width: double.infinity,
+                        child: ListView.builder(
+                          itemBuilder: (context, index) {
+                             return Prod(
+                               widthCard: 150,
+                               widthButton: 134,
+                               index: index,
+                             );
+                          },
+                          itemCount: pro.products_list.length,
+                          scrollDirection: Axis.horizontal,
                         ),
                       ),
                       SizedBox(

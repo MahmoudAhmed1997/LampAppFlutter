@@ -81,15 +81,14 @@ class _FavouriteSecondScreenState extends State<FavouriteSecondScreen> {
                                   ),
                                 ),
                                 Positioned.fill(
-                                  right: 94,
+                                  right: 77,
                                   child: Align(
                                     alignment: Alignment.centerRight,
                                     child: UnconstrainedBox(
                                       child: SvgPicture.asset(
                                         "assets/icons/search.svg",
                                         fit: BoxFit.fitWidth,
-                                        allowDrawingOutsideViewBox: true,
-                                        matchTextDirection: true,
+
                                       ),
                                     ),
                                   ),
@@ -108,46 +107,52 @@ class _FavouriteSecondScreenState extends State<FavouriteSecondScreen> {
                 Container(
                   height: 1000,
                   child: ListView(scrollDirection: Axis.vertical, children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Prod(
-                          widthCard: 180,
-                          widthButton: 167,
-                          index: 1,
-                        ),
-                        SizedBox(
-                          width: 12.0,
-                        ),
-                        Prod(
-                          widthCard: 180,
-                          widthButton: 167,
-                          index: 1,
-                        ),
-                      ],
+                    Container(
+                      height:310,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Prod(
+                            widthCard: 180,
+                            widthButton: 167,
+                            index: 1,
+                          ),
+                          SizedBox(
+                            width: 12.0,
+                          ),
+                          Prod(
+                            widthCard: 180,
+                            widthButton: 167,
+                            index: 1,
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 33,
                     ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Prod(
-                          widthCard: 180,
-                          widthButton: 167,
-                          index: 2,
-                        ),
-                        SizedBox(
-                          width: 12.0,
-                        ),
-                        Prod(
-                          widthCard: 180,
-                          widthButton: 167,
-                          index: 2,
-                        ),
-                      ],
+                    Container(
+                      height: 310,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Prod(
+                            widthCard: 180,
+                            widthButton: 167,
+                            index: 2,
+                          ),
+                          SizedBox(
+                            width: 12.0,
+                          ),
+                          Prod(
+                            widthCard: 180,
+                            widthButton: 167,
+                            index: 2,
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 33,

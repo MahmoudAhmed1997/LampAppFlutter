@@ -156,7 +156,7 @@ class OrderReceiptScreen extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text("الرقم الضريبي vat",style: TextStyle(fontSize: 15,color: Colors.white),),Text("31030733230000003",style: TextStyle(fontSize: 15,color: Colors.white),)],
+              children: [Text("الرقم الضريبي VAT",style: TextStyle(fontSize: 15,color: Colors.white),),Text("31030733230000003",style: TextStyle(fontSize: 15,color: Colors.white),)],
             ),
           ),
         )

@@ -198,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(
                         getTranslated(context, "forget_pass"),
                         style:
-                            TextStyle(color: Color(0xff282F39), fontSize: 15),
+                            TextStyle(color: Color(0xff282F39), fontSize: 15,fontWeight: FontWeight.normal),
                       ),
                       onPressed: () {
                         showModalBottomSheet(
@@ -233,7 +233,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           TextStyle(color: Colors.black, fontSize: 14),
                           children: <TextSpan>[
                             TextSpan(
-                                text:getTranslated(context, "create_account"),
+                                text:getTranslated(context, "create_now_account"),
 
                                 style: TextStyle(
                                     color: Color(0xff1775BB),

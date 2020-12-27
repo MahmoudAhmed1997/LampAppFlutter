@@ -18,7 +18,7 @@ class OrdersListScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text( getTranslated(context, "orders_list"),
-                style: TextStyle(fontSize: 17),),
+                style: TextStyle(fontSize: 17,fontWeight: FontWeight.normal),),
                 ],
               ),
             ),
@@ -37,17 +37,17 @@ class OrdersListScreen extends StatelessWidget {
                       unselectedLabelColor: Color(0xff7F8FA6),
                       tabs: [
                         Tab(
+                          child: Text(
+                              getTranslated(context, "current_orders")
+
+                          ),
+                        ),
+                        Tab(
                           child:
                           Text(
                             getTranslated(context, "previous_orders"),
                           ),
                         ),
-                        Tab(
-                          child: Text(
-                              getTranslated(context, "current_orders")
-
-                          ),
-                        )
                       ],
                     ),
                   ),
@@ -62,14 +62,15 @@ class OrdersListScreen extends StatelessWidget {
                               height: 1000,
                               width: 370,
                               child: ListView.builder(
-                                itemCount: orders.orders_now.length,
+                                itemCount: orders.order_previos.length,
                                 itemBuilder: (context,index){
-                                  return OrderCard(text: orders.orders_now[index].status,colorBt: orders.orders_now[index].colorBt,colorTextBt: orders.orders_now[index].colorTextBt,);
+                                  return OrderCard(text: orders.order_previos[index].status,colorBt: orders.order_previos[index].colorBt,colorTextBt: orders.order_previos[index].colorTextBt,);
                                 },
 
                               ),
                             )),
                       ),
+
                       Hero(
                         tag: "ordercard",
                         child: Center(
@@ -77,9 +78,9 @@ class OrdersListScreen extends StatelessWidget {
                               height: 1000,
                               width: 370,
                               child: ListView.builder(
-                                itemCount: orders.order_previos.length,
+                                itemCount: orders.orders_now.length,
                                 itemBuilder: (context,index){
-                                  return OrderCard(text: orders.order_previos[index].status,colorBt: orders.order_previos[index].colorBt,colorTextBt: orders.order_previos[index].colorTextBt,);
+                                  return OrderCard(text: orders.orders_now[index].status,colorBt: orders.orders_now[index].colorBt,colorTextBt: orders.orders_now[index].colorTextBt,);
                                 },
 
                               ),

@@ -18,7 +18,7 @@ class Prod extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 8.0,left: 8),
+      padding: const EdgeInsets.only(right: 8.0, left: 8),
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5.0),
@@ -27,8 +27,7 @@ class Prod extends StatelessWidget {
         width: widthCard,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
           children: [
             Container(
@@ -53,83 +52,87 @@ class Prod extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 21,
-                    width: 52,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Color(0xffF4F4F4)),
-                    child: Center(
-                        child: Text(
-                      "Hoodies",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                      ),
-                    )),
-                  ),
-                  Text(
-                    getTranslated(context, "description_prod"),
-                    style: TextStyle(
-                        // fontFamily: "assets/fonts/ArbFONTS-DINNextLTArabic-Regular-2.ttf",
-                        fontSize: 13,
-                        color: Color(0xff464451)),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        " 500 ر.س",
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 21,
+                      width: 52,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Color(0xffF4F4F4)),
+                      child: Center(
+                          child: Text(
+                        "Hoodies",
                         style: TextStyle(
+                          fontSize: 13.0,
+                        ),
+                      )),
+                    ),
+                    Text(
+                      getTranslated(context, "description_prod"),
+                      style: TextStyle(
+                          // fontFamily: "assets/fonts/ArbFONTS-DINNextLTArabic-Regular-2.ttf",
+                          fontSize: 13,
+                          color: Color(0xff464451)),
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          " 500 ر.س",
+                          style: TextStyle(
                             fontSize: 12,
                             color: Color(0xffF45540),
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        " 750 ر.س",
-                        style: TextStyle(
-                            fontSize: 10,
-                            color: Color(0xff888888),
-                            decoration: TextDecoration.lineThrough),
-                      ),
-                    ],
-                  ),
-                  Center(
-                    child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        width: widthButton,
-                        height: 42.5,
-                        child: RaisedButton(
-                          color: Color(0xffF9F9FF),
-                          elevation: 0.0,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              SvgPicture.asset(
-                                "assets/icons/shopping_cart.svg",
-                                color: Color(0xff18304B),
-                              ),
-                              Text(
-                                getTranslated(context, "add_to_cart"),
-                                style: TextStyle(
-                                    fontSize: 12, color: Color(0xff18304B)),
-                              ),
-                            ],
                           ),
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    DetailsProductScreen()));
-                          },
-                        )),
-                  ),
-                ],
+                        ),
+                        Text(
+                          " 750 ر.س",
+                          style: TextStyle(
+                              fontSize: 10,
+                              color: Color(0xff888888),
+                              decoration: TextDecoration.lineThrough),
+                        ),
+                      ],
+                    ),
+                    Center(
+                      child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          width: widthButton,
+                          height: 42.5,
+                          child: RaisedButton(
+                            color: Color(0xffF9F9FF),
+                            elevation: 0.0,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                SvgPicture.asset(
+                                  "assets/icons/shopping_cart.svg",
+                                  color: Color(0xff18304B),
+                                ),
+                                Text(
+                                  getTranslated(context, "add_to_cart"),
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      color: Color(0xff18304B),
+                                      fontWeight: FontWeight.normal),
+                                ),
+                              ],
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      DetailsProductScreen()));
+                            },
+                          )),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

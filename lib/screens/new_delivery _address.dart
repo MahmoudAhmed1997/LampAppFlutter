@@ -31,7 +31,7 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
             Text('عنوان توصيل جديد'),
           ],
         ),
-        actions: [
+        leading:
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: Container(
@@ -39,7 +39,7 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                 width: 38,
                 child: SvgPicture.asset("assets/icons/button_right.svg")),
           )
-        ],
+
       ),
 
 
@@ -71,7 +71,7 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                       height: 460,
                       width: 327,
                       child: Form(
-                        key: _formKey,
+
                         child: Column(
                           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -115,7 +115,7 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                               height: 13,
                             ),
                             TextFormField(
-                              key: ValueKey("البريد الالكتروني"),
+
                               autocorrect: true,
 
                               textCapitalization: TextCapitalization.words,
@@ -222,7 +222,7 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                               height: 13,
                             ),
                             TextFormField(
-                              key: ValueKey(""),
+
                               autocorrect: true,
 
                               textCapitalization: TextCapitalization.words,

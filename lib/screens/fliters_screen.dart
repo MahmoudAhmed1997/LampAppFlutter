@@ -153,7 +153,7 @@ class FiltersProducts extends StatelessWidget {
               color: Color(0xff00B5F0),
               child: Text(
                 getTranslated(context, "view_results"),
-                style: TextStyle(color: Colors.white,fontSize: 16),
+                style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.normal),
               ),
               onPressed: () {
                 Navigator.pop(context);

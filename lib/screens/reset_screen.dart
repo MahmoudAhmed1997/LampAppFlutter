@@ -139,7 +139,7 @@ class _ResetScreenState extends State<ResetScreen> {
                             alignLabelWithHint: true,
                             filled: true,
                             fillColor: Color(0xffFAFAFA),
-                            hintText: getTranslated(context, "password"),
+                            hintText: getTranslated(context, "new_password"),
                             suffixIcon: InkWell(
                               onTap: (){_toggle();},
                               child: UnconstrainedBox(
@@ -195,7 +195,7 @@ class _ResetScreenState extends State<ResetScreen> {
                             alignLabelWithHint: true,
                             filled: true,
                             fillColor: Color(0xffFAFAFA),
-                            hintText: getTranslated(context, "new_password"),
+                            hintText: getTranslated(context, "confirm_password"),
                             suffixIcon: InkWell(
                               onTap: (){_toggle();},
                               child: UnconstrainedBox(

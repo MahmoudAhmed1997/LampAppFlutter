@@ -51,7 +51,13 @@ class _DesignerProfileState extends State<DesignerProfile>
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SvgPicture.asset("assets/icons/cart.svg"),
+                      InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: SvgPicture.asset(
+                              "assets/icons/button_right.svg")),
+
                       Row(
                         children: [
                           Column(
@@ -97,12 +103,8 @@ class _DesignerProfileState extends State<DesignerProfile>
                           ),
                         ],
                       ),
-                      InkWell(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: SvgPicture.asset(
-                              "assets/icons/button_right.svg")),
+                      SvgPicture.asset("assets/icons/cart.svg"),
+
                     ],
                   ),
                   SizedBox(

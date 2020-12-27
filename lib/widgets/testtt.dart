@@ -18,24 +18,27 @@ class _HomePageDesignerState extends State<HomePageDesigner> {
           itemBuilder: (context,index){
             return Padding(
               padding: const EdgeInsets.only(bottom:12.0,),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Prod(
-                    widthCard: 180,
-                    widthButton: 167,
-                    index: index,
-                  ),
-                  SizedBox(
-                    width: 12.0,
-                  ),
-                  Prod(
-                    widthCard: 180,
-                    widthButton: 167,
-                    index: index,
-                  ),
-                ],
+              child: Container(
+                height: 310,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Prod(
+                      widthCard: 180,
+                      widthButton: 167,
+                      index: index,
+                    ),
+                    SizedBox(
+                      width: 12.0,
+                    ),
+                    Prod(
+                      widthCard: 180,
+                      widthButton: 167,
+                      index: index,
+                    ),
+                  ],
+                ),
               ),
             );
 

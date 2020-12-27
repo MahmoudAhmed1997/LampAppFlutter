@@ -1,12 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lamp/screens/notifications_screen.dart';
 
 class NotificationIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(overflow: Overflow.visible, children: [
-      Container(child: SvgPicture.asset("assets/icons/ic.svg")),
+      InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NotificationsScreen()));
+
+          },
+          child: Container(child: SvgPicture.asset("assets/icons/ic.svg"))),
       Positioned(
         top: -6,
         left: -5,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/screens/reset_screen.dart';
 import 'package:lamp/localization/language_constants.dart';
+
 class ForgetPasswordCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,6 @@ class ForgetPasswordCard extends StatelessWidget {
         Center(
           child: Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
-
             width: 327,
             child: Form(
               child: Column(
@@ -20,7 +20,7 @@ class ForgetPasswordCard extends StatelessWidget {
                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top:18.0),
+                    padding: const EdgeInsets.only(top: 18.0),
                     child: SvgPicture.asset("assets/images/indicator.svg"),
                   ),
                   SizedBox(
@@ -28,17 +28,19 @@ class ForgetPasswordCard extends StatelessWidget {
                   ),
                   Text(
                     getTranslated(context, "forget_password"),
-                    style: TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     height: 13,
                   ),
                   Text(
-                      getTranslated(context, "dont_worry_message"),                        style: TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.normal),textAlign: TextAlign.center,),
+                    getTranslated(context, "send_email"),
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+                    textAlign: TextAlign.center,
+                  ),
                   SizedBox(
-                    height: 42,
+                    height:30,
                   ),
                   TextFormField(
                     enableInteractiveSelection: false,
@@ -57,17 +59,16 @@ class ForgetPasswordCard extends StatelessWidget {
                       alignLabelWithHint: true,
                       filled: true,
                       fillColor: Color(0xffFAFAFA),
-                      hintText:getTranslated(context, "email"),
+                      hintText: getTranslated(context, "email"),
                       labelStyle:
-                      TextStyle(color: Color(0xff000000), fontSize: 15),
+                          TextStyle(color: Color(0xff000000), fontSize: 15),
                       hintStyle:
-                    TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
+                          TextStyle(color: Color(0xffA4B0BE), fontSize: 15),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12.0),
                           borderSide: BorderSide.none),
                       focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            new BorderSide(color: Color(0xff18304B)),
+                        borderSide: new BorderSide(color: Color(0xff18304B)),
                         borderRadius: new BorderRadius.circular(12),
                       ),
                     ),
@@ -84,10 +85,12 @@ class ForgetPasswordCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12.0)),
                       color: Color(0xff00B5F0),
                       child: Text(
-                        getTranslated(context, "next"),                          style: TextStyle(color: Colors.white),
+                        getTranslated(context, "next"),
+                        style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ResetScreen()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ResetScreen()));
                       },
                     ),
                   ),
@@ -101,7 +104,7 @@ class ForgetPasswordCard extends StatelessWidget {
           child: Container(
             alignment: Alignment.topLeft,
             child: InkWell(
-                onTap: (){
+                onTap: () {
                   Navigator.pop(context);
                 },
                 child: SvgPicture.asset("assets/icons/button_cancle.svg")),

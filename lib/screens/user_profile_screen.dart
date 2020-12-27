@@ -85,7 +85,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(right: 45.0, left: 45),
+              padding: const EdgeInsets.only(right: 48.0, left: 45),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

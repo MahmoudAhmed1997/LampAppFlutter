@@ -48,6 +48,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       resizeToAvoidBottomInset: true,
       body: PageStorage(
         child: TabBarView(
+
+
           controller: tabController,
           physics: NeverScrollableScrollPhysics(),
           children: mainScreens,
@@ -62,14 +64,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           child: BottomAppBar(
             child: TabBar(
               physics: NeverScrollableScrollPhysics(),
+
               controller: tabController,
               tabs: [
                 Tab(
+
                   icon: SvgPicture.asset("assets/icons/home.svg",
                       color: tabController.index == 0
                           ? Color(0xff00B5F0)
                           : Color(0xff7F8FA6)),
-                  text: getTranslated(context, "home"),
+                  text: getTranslated(context, "home",),
                 ),
                 Tab(
                   icon: SvgPicture.asset(
@@ -160,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   text: getTranslated(context, "profile"),
                 ),
               ],
-              labelStyle: TextStyle(fontSize: 11),
+              labelStyle: TextStyle(fontSize: 10),
               labelColor: Color(0xff00B5F0),
               unselectedLabelColor: Color(0xff7F8FA6),
               isScrollable: false,
