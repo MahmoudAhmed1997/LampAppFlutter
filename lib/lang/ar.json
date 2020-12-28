@@ -1,8 +1,8 @@
 {
     "home_page": "الصفحة الرئيسية",
     "home": "الرئيسية",
-    "hoody": "الهودي(hoodies)",
-    "tshirt": "(t shirt)تي شيرت",
+    "hoody": "الهودي",
+    "tshirt": "تي شيرت",
     "show_all": "عرض الكل",
     "suggested": "مقترحة لك",
     "description_prod": "تصميم عصري شباب مفعم بالقوة والحيوية",
@@ -141,6 +141,9 @@
     "best_seller":"عرض :الأكثر مبيعا",
 
     "pay_visa_card":"الدفع عبر فيزا كارد",
+    "price_avg":"متوسط السعر",
+    "rs":"رس",
+
 
 
     "filter_products":"فلترة المنتجات",

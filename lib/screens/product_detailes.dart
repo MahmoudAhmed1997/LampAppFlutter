@@ -7,60 +7,79 @@ import 'package:lamp/widgets/prod.dart';
 import 'package:lamp/localization/language_constants.dart';
 import 'package:lamp/classes/language.dart';
 import 'package:lamp/main.dart';
+import 'package:lamp/localization/demo_localization.dart';
+import 'package:lamp/classes/language.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
+
+import 'package:lamp/classes/language.dart';
+
 class DetailsProductScreen extends StatefulWidget {
   static const routeName = '/product_details_screen';
+
 
   @override
   _DetailsProductScreenState createState() => _DetailsProductScreenState();
 }
 
 class _DetailsProductScreenState extends State<DetailsProductScreen> {
+   Locale local;
+ // DemoLocalization demoLocalization =DemoLocalization();
   List _selectedIndexs=[];
   Products products =Products();
-  int id;
+  int id ;
 
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(children: [
         ListView(children: [
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: double.infinity,
-                height: 80,
-                color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                        onTap: (){
-                          Navigator.pop(context);
-                        },
-                        child: SvgPicture.asset(
-                          "assets/images/right_button.svg",
+              Padding(
+                padding: const EdgeInsets.only(right:8.0,left: 8.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 80,
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: (){
+                            Navigator.pop(context);
+                          },
+                          child:myLocale.languageCode=="ar"? SvgPicture.asset(
+                            "assets/images/right_button.svg",
+                          ):SvgPicture.asset(
+                            "assets/images/btn_left.svg",
+                          )
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              getTranslated(context,
-                                "details_product_text",),                                  style: TextStyle(
-                                  fontSize: 18, color: Color(0xff464451)),
-                            ),
-                          ],
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                getTranslated(context,
+                                  "details_product_text",),                                  style: TextStyle(
+                                    fontSize: 18, color: Color(0xff464451)),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      SvgPicture.asset("assets/icons/share_icon.svg"),
-                    ],
+                        SvgPicture.asset("assets/icons/share_icon.svg"),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -150,17 +169,29 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                   textAlign: TextAlign.start,
                 ),
               ),
-              Padding(
+             myLocale.languageCode=="ar"? Padding(
                 padding: const EdgeInsets.only(right:18.0,left: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      " 500 رس",
-                      style: TextStyle(
-                          fontSize: 19,
-                          color: Color(0xffF45540),
-                          fontWeight: FontWeight.bold),
+                    Row(
+                      children: [
+                        Text(
+                          "500 ",
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Color(0xffF45540),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          getTranslated(context,
+                            "rs",),
+                          style: TextStyle(
+                              fontSize: 19,
+                              color: Color(0xffF45540),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                     Container(
                       width: 143,
@@ -184,7 +215,55 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                     )
                   ],
                 ),
-              ),
+              ):Padding(
+               padding: const EdgeInsets.only(right:18.0,left: 16),
+               child: Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                 children: [
+                   Container(
+                     width: 143,
+                     height: 40,
+                     child: Row(
+                       children: [
+                         SvgPicture.asset("assets/icons/minus.svg"),
+                         Container(
+                             color: Colors.white,
+                             width: 45,
+                             height: 39,
+                             child: Center(
+                                 child: Text(
+                                   "02",
+                                   style: TextStyle(
+                                       fontSize: 16, color: Color(0xff18304B)),
+                                 ))),
+
+                         SvgPicture.asset("assets/icons/plus.svg"),
+                       ],
+                     ),
+                   ),
+
+                   Row(
+                     children: [
+                       Text(
+                         "500 ",
+                         style: TextStyle(
+                             fontSize: 19,
+                             color: Color(0xffF45540),
+                             fontWeight: FontWeight.bold),
+                       ),
+                       Text(
+                         getTranslated(context,
+                           "rs",),
+                         style: TextStyle(
+                             fontSize: 19,
+                             color: Color(0xffF45540),
+                             fontWeight: FontWeight.bold),
+                       ),
+                     ],
+                   ),
+                 ],
+               ),
+             ),
               Divider(),
               Padding(
                 padding: const EdgeInsets.only(top: 21.0,right: 18,left: 18),

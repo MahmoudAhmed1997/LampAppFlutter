@@ -22,6 +22,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -36,19 +38,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
           ],
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: Container(
-                height: 38,
-                width: 38,
-                child: InkWell(
-                    onTap: (){
-                      Navigator.of(context).pop();
-                    },
-                    child: SvgPicture.asset("assets/icons/button_right.svg"))),
-          )
-        ],
+        leading:
+        Padding(
+          padding: const EdgeInsets.only(right:16.0),
+          child: Container(
+            height: 38,
+            width: 38,
+            child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: myLocale.languageCode == "ar"
+                    ? SvgPicture.asset("assets/icons/button_right.svg")
+                    : SvgPicture.asset("assets/icons/button_left.svg")),
+          ),
+        )
+
       ),
 
 

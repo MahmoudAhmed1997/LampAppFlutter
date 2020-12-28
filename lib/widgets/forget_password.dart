@@ -6,6 +6,7 @@ import 'package:lamp/localization/language_constants.dart';
 class ForgetPasswordCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       resizeToAvoidBottomPadding: false,
@@ -34,7 +35,7 @@ class ForgetPasswordCard extends StatelessWidget {
                     height: 13,
                   ),
                   Text(
-                    getTranslated(context, "send_email"),
+                    getTranslated(context, "dont_worry_message"),
                     style:
                         TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
                     textAlign: TextAlign.center,

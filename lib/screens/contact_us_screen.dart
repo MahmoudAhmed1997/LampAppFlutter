@@ -21,6 +21,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
   var _userPhone = '';
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -38,18 +40,22 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
           ],
         ),
         leading:
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: Container(
-                height: 38,
-                width: 38,
-                child: InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: SvgPicture.asset("assets/icons/button_right.svg"))),
-          )
-              ),
+        Padding(
+          padding: const EdgeInsets.only(right:8.0),
+          child: Container(
+            height: 38,
+            width: 38,
+            child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: myLocale.languageCode == "ar"
+                    ? SvgPicture.asset("assets/icons/button_right.svg")
+                    : SvgPicture.asset("assets/icons/button_left.svg")),
+          ),
+        )
+
+      ),
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: ListView(

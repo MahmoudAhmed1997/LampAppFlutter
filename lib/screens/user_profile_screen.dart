@@ -33,6 +33,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       backgroundColor: Color(0xffFDFDFF),
@@ -179,10 +181,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 ),
                               ],
                             ),
-                            SvgPicture.asset(
-                              "assets/icons/arrow_right.svg",
-                              color: Color(0xff464451),
-                            ),
+                            myLocale.languageCode=="ar"?
+                            SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg")
                           ],
                         ),
                       ),
@@ -247,10 +247,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             ),
                             DropdownButton<Language>(
                               underline: SizedBox(),
-                              icon: SvgPicture.asset(
-                                "assets/icons/arrow_right.svg",
-                                color: Color(0xff18304B),
-                              ),
+                              icon:
+                              myLocale.languageCode=="ar"?
+                              SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg"),
                               onChanged: (Language language) {
                                 _changeLanguage(language);
                               },
@@ -322,10 +321,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 ),
                               ],
                             ),
-                            SvgPicture.asset(
-                              "assets/icons/arrow_right.svg",
-                              color: Color(0xff464451),
-                            ),
+                            myLocale.languageCode=="ar"?
+                            SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg")
                           ],
                         ),
                       ),
@@ -375,10 +372,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 ),
                               ],
                             ),
-                            SvgPicture.asset(
-                              "assets/icons/arrow_right.svg",
-                              color: Color(0xff464451),
-                            ),
+                            myLocale.languageCode=="ar"?
+                            SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg")
                           ],
                         ),
                       ),
@@ -429,10 +424,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 ),
                               ],
                             ),
-                            SvgPicture.asset(
-                              "assets/icons/arrow_right.svg",
-                              color: Color(0xff464451),
-                            ),
+                            myLocale.languageCode=="ar"?
+                            SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg"),
                           ],
                         ),
                       ),

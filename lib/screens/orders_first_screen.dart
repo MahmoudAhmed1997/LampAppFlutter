@@ -17,6 +17,8 @@ class OrdersFirstScreen extends StatefulWidget {
 class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       body: Stack(overflow: Overflow.visible, fit: StackFit.expand, children: [
         ListView(children: [
@@ -42,9 +44,13 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                                 onTap: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: SvgPicture.asset(
+                                child:myLocale.languageCode=="ar"?
+                                SvgPicture.asset(
                                   "assets/images/right_button.svg",
-                                ),
+                                ):
+                                SvgPicture.asset(
+                                  "assets/images/btn_left.svg",
+                                )
                               ),
                               SizedBox(
                                 width: 10.0,
@@ -74,7 +80,10 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                         height: 15,
                         width: 257,
                         child:
-                            SvgPicture.asset("assets/images/progress1.svg"))
+                           myLocale.languageCode=="ar"?
+                           SvgPicture.asset("assets/images/progress1.svg"):
+                           SvgPicture.asset("assets/images/progress1_en.svg")
+                    )
                   ],
                 ),
               ),

@@ -26,6 +26,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
         backgroundColor: Color(0xffFFFFFF),
         resizeToAvoidBottomPadding: false,
@@ -68,7 +70,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              Positioned.fill(
+            Positioned.fill(
                 right: 77,
                 child: Align(
                   alignment: Alignment.centerRight,
@@ -156,7 +158,7 @@ class _HomeState extends State<Home> {
                                   SizedBox(
                                     width: 6,
                                   ),
-                                  Container(
+                                 myLocale.languageCode=="ar"?Container(
                                     height: 7,
                                     width: 11,
                                     child: ImageIcon(
@@ -164,6 +166,14 @@ class _HomeState extends State<Home> {
                                       color: Color(0xff18304B),
                                     ),
                                   )
+                                     :Container(
+                                   height: 7,
+                                   width: 11,
+                                   child: ImageIcon(
+                                     AssetImage("assets/icons/arrow.png"),
+                                     color: Color(0xff18304B),
+                                   ),
+                                 )
                                 ],
                               ),
                             ),
@@ -220,7 +230,7 @@ class _HomeState extends State<Home> {
                                   SizedBox(
                                     width: 6,
                                   ),
-                                  Container(
+                                  myLocale.languageCode=="ar"?Container(
                                     height: 7,
                                     width: 11,
                                     child: ImageIcon(
@@ -228,7 +238,14 @@ class _HomeState extends State<Home> {
                                       color: Color(0xff18304B),
                                     ),
                                   )
-                                ],
+                                      :Container(
+                                    height: 7,
+                                    width: 11,
+                                    child: ImageIcon(
+                                      AssetImage("assets/icons/arrow.png"),
+                                      color: Color(0xff18304B),
+                                    ),
+                                  )                                ],
                               ),
                               onPressed: () {},
                             ),
@@ -285,7 +302,7 @@ class _HomeState extends State<Home> {
                                   SizedBox(
                                     width: 17,
                                   ),
-                                  Container(
+                                  myLocale.languageCode=="ar"?Container(
                                     height: 7,
                                     width: 11,
                                     child: ImageIcon(
@@ -293,7 +310,14 @@ class _HomeState extends State<Home> {
                                       color: Color(0xff18304B),
                                     ),
                                   )
-                                ],
+                                      :Container(
+                                    height: 7,
+                                    width: 11,
+                                    child: ImageIcon(
+                                      AssetImage("assets/icons/arrow.png"),
+                                      color: Color(0xff18304B),
+                                    ),
+                                  )                                ],
                               ),
                               onPressed: () {
                                 Navigator.of(context).push(MaterialPageRoute(

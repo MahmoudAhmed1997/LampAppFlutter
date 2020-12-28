@@ -18,10 +18,11 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-
   bool isToggle = false;
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       backgroundColor: Color(0xffFDFDFF),
       appBar: AppBar(
@@ -33,31 +34,35 @@ class _SettingsScreenState extends State<SettingsScreen> {
           children: [
             Text(
               getTranslated(context, "general_setting"),
-              style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
+            ),
           ],
         ),
-        leading:Padding(
+        leading: Padding(
           padding: const EdgeInsets.only(right: 16.0),
           child: Container(
-              height: 38,
-              width: 38,
-              child: InkWell(
-                  onTap: (){
-                    Navigator.of(context).pop();
-                  },
-                  child: SvgPicture.asset("assets/icons/button_right.svg"))),
-        )
-        ,
+            height: 38,
+            width: 38,
+            child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: myLocale.languageCode == "ar"
+                    ? SvgPicture.asset("assets/icons/button_right.svg")
+                    : SvgPicture.asset("assets/icons/button_left.svg")),
+          ),
+        ),
       ),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-
               width: 349,
               height: 63,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffFFFFFF)),
               child: RaisedButton(
                 elevation: 0.0,
                 color: Colors.white,
@@ -65,23 +70,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                    getTranslated(context, "change_pass"),
-                  style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight:FontWeight.normal),
+                      getTranslated(context, "change_pass"),
+                      style: TextStyle(
+                          color: Color(0xff18304B),
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
                     ),
-                    SvgPicture.asset("assets/icons/arrow_right.svg")
-                  ],),
-                onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewPasswordScreen()));
-
+                    myLocale.languageCode == "ar"
+                        ? SvgPicture.asset("assets/icons/arrow_right.svg")
+                        : SvgPicture.asset("assets/icons/ic_arrow_right.svg")
+                  ],
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => NewPasswordScreen()));
                 },
               ),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(
+              height: 10.0,
+            ),
             Container(
-
               width: 349,
               height: 63,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffFFFFFF)),
               child: RaisedButton(
                 elevation: 0.0,
                 color: Colors.white,
@@ -90,16 +104,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
                     Text(
                       getTranslated(context, "active_notify"),
-                      style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight:FontWeight.normal),
+                      style: TextStyle(
+                          color: Color(0xff18304B),
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
                     ),
                     FlutterSwitch(
                       height: 25.0,
                       width: 45.0,
-
                       inactiveColor: Colors.grey,
                       toggleSize: 20.0,
                       borderRadius: 25.0,
-
                       activeColor: Color(0xff00B5F0),
                       value: isToggle,
                       onToggle: (value) {
@@ -108,41 +123,52 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         });
                       },
                     ),
-                  ],),
-                onPressed: (){},
+                  ],
+                ),
+                onPressed: () {},
               ),
             ),
-            SizedBox(height: 10.0,),
-
+            SizedBox(
+              height: 10.0,
+            ),
             Container(
-
               width: 349,
               height: 63,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffFFFFFF)),
               child: RaisedButton(
                 elevation: 0.0,
                 color: Colors.white,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-
                     Text(
                       getTranslated(context, "policy"),
-                     style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight:FontWeight.normal),),
-                    SvgPicture.asset("assets/icons/arrow_right.svg")
-                  ],),
-                onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AgreementsScreen()));
-
+                      style: TextStyle(
+                          color: Color(0xff18304B),
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
+                    ),
+                    myLocale.languageCode=="ar"?
+                    SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg")
+                  ],
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => AgreementsScreen()));
                 },
               ),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(
+              height: 10.0,
+            ),
             Container(
-
               width: 349,
               height: 63,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffFFFFFF)),
               child: RaisedButton(
                 elevation: 0.0,
                 color: Colors.white,
@@ -150,22 +176,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                    getTranslated(context, "contact_us")
-                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight: FontWeight.normal),),
-                    SvgPicture.asset("assets/icons/arrow_right.svg")
-                  ],),
-                onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ContactUsScreen()));
-
+                      getTranslated(context, "contact_us"),
+                      style: TextStyle(
+                          color: Color(0xff18304B),
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
+                    ),
+                    myLocale.languageCode=="ar"?
+                    SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg")                  ],
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ContactUsScreen()));
                 },
               ),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(
+              height: 10.0,
+            ),
             Container(
-
               width: 349,
               height: 63,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffFFFFFF)),
               child: RaisedButton(
                 elevation: 0.0,
                 color: Colors.white,
@@ -173,22 +207,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                    getTranslated(context, "agreements")
-                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight: FontWeight.normal),),
-                    SvgPicture.asset("assets/icons/arrow_right.svg")
-                  ],),
-                onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AgreementsScreen()));
-
+                      getTranslated(context, "agreements"),
+                      style: TextStyle(
+                          color: Color(0xff18304B),
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
+                    ),
+                    myLocale.languageCode=="ar"?
+                    SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg")                  ],
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => AgreementsScreen()));
                 },
               ),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(
+              height: 10.0,
+            ),
             Container(
-
               width: 349,
               height: 63,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffFFFFFF)),
               child: RaisedButton(
                 elevation: 0.0,
                 color: Colors.white,
@@ -196,22 +238,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                    getTranslated(context, "about_app")
-                      ,style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight: FontWeight.normal),),
-                    SvgPicture.asset("assets/icons/arrow_right.svg")
-                  ],),
-                onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutAppScreen()));
-
+                      getTranslated(context, "about_app"),
+                      style: TextStyle(
+                          color: Color(0xff18304B),
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
+                    ),
+                    myLocale.languageCode=="ar"?
+                    SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg")                  ],
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => AboutAppScreen()));
                 },
               ),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(
+              height: 10.0,
+            ),
             Container(
-
               width: 349,
               height: 63,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xffFFFFFF)),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffFFFFFF)),
               child: RaisedButton(
                 elevation: 0.0,
                 color: Colors.white,
@@ -219,15 +269,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                    getTranslated(context, "challenge"),
-                      style: TextStyle(color: Color(0xff18304B),fontSize: 16,fontWeight: FontWeight.normal),),
-                    SvgPicture.asset("assets/icons/arrow_right.svg")
-                  ],),
-                onPressed: (){},
+                      getTranslated(context, "challenge"),
+                      style: TextStyle(
+                          color: Color(0xff18304B),
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
+                    ),
+                    myLocale.languageCode=="ar"?
+                    SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg")                  ],
+                ),
+                onPressed: () {},
               ),
             ),
-            SizedBox(height: 10.0,),
-
+            SizedBox(
+              height: 10.0,
+            ),
           ],
         ),
       ),

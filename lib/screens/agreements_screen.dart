@@ -9,6 +9,8 @@ class AgreementsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
@@ -23,20 +25,22 @@ class AgreementsScreen extends StatelessWidget {
                   getTranslated(context, "agreements")  ,                  style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18),),
                 ],
               ),
-              actions: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 16.0),
+              leading:
+              Padding(
+                padding: const EdgeInsets.only(right:16.0),
+                child: Container(
+                  height: 38,
+                  width: 38,
                   child: InkWell(
-                    onTap: (){
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                        height: 38,
-                        width: 38,
-                        child: SvgPicture.asset("assets/icons/button_right.svg")),
-                  ),
-                )
-              ],
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: myLocale.languageCode == "ar"
+                          ? SvgPicture.asset("assets/icons/button_right.svg")
+                          : SvgPicture.asset("assets/icons/button_left.svg")),
+                ),
+              )
+
             ),
             body: Directionality(
                 textDirection: TextDirection.rtl,

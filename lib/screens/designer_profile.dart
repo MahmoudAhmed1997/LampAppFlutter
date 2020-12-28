@@ -20,6 +20,8 @@ class _DesignerProfileState extends State<DesignerProfile>
   double screenSize;
   double screenRatio;
   AppBar appBar;
+  bool tapscroll = false;
+
   TabController _tabController;
   @override
   void initState() {
@@ -33,9 +35,13 @@ class _DesignerProfileState extends State<DesignerProfile>
     super.dispose();
   }
 
+
+
   Products products = Products();
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       body: Column(
@@ -55,8 +61,13 @@ class _DesignerProfileState extends State<DesignerProfile>
                           onTap: () {
                             Navigator.pop(context);
                           },
-                          child: SvgPicture.asset(
-                              "assets/icons/button_right.svg")),
+                          child:
+                          myLocale.languageCode=="ar"?SvgPicture.asset(
+                              "assets/icons/button_right.svg"):SvgPicture.asset(
+                              "assets/icons/button_left.svg")
+
+                      ),
+                      myLocale.languageCode=="ar"?
                       Row(
                         children: [
                           Column(
@@ -99,6 +110,51 @@ class _DesignerProfileState extends State<DesignerProfile>
                                     AssetImage("assets/images/face.png"),
                               ),
                             ),
+                          ),
+                        ],
+                      ):Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 28,
+                            backgroundColor: Color(0xffFFFFFF),
+                            child: CircleAvatar(
+                              radius: 27,
+                              backgroundColor: Color(0xff00B5F0),
+                              child: CircleAvatar(
+                                radius: 26,
+                                backgroundImage:
+                                AssetImage("assets/images/face.png"),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 13.0,
+                          ),
+
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                "محمد الخالدي",
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.white),
+                              ),
+                              SizedBox(
+                                height: 3,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "${"250 " + getTranslated(context, "product") + "152" + getTranslated(context, "order")}",
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.white,
+                                        fontFamily:
+                                        "assets/fonts/Poppins-Regular.ttf"),
+                                  ),
+                                ],
+                              )
+                            ],
                           ),
                         ],
                       ),
@@ -188,7 +244,7 @@ class _DesignerProfileState extends State<DesignerProfile>
                 Expanded(
                   child: TabBar(
                       indicatorColor: Color(0xff00B5F0),
-                      isScrollable: true,
+                      isScrollable: tapscroll,
                       controller: _tabController,
                       indicatorSize: TabBarIndicatorSize.tab,
                       labelColor: Color(0xff00B5F0),

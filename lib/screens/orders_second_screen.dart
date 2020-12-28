@@ -16,6 +16,8 @@ class OrdersSecondScreen extends StatefulWidget {
 class _OrdersSecondScreenState extends State<OrdersSecondScreen> {
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(overflow: Overflow.visible, fit: StackFit.expand, children: [
@@ -41,12 +43,16 @@ class _OrdersSecondScreenState extends State<OrdersSecondScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 InkWell(
-                                  onTap: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: SvgPicture.asset(
-                                    "assets/images/right_button.svg",
-                                  ),
+                                    onTap: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child:myLocale.languageCode=="ar"?
+                                    SvgPicture.asset(
+                                      "assets/images/right_button.svg",
+                                    ):
+                                    SvgPicture.asset(
+                                      "assets/images/btn_left.svg",
+                                    )
                                 ),
                                 SizedBox(
                                   width: 10.0,
@@ -76,7 +82,10 @@ class _OrdersSecondScreenState extends State<OrdersSecondScreen> {
                           height: 15,
                           width: 257,
                           child:
-                              SvgPicture.asset("assets/images/progress2.svg"))
+                          myLocale.languageCode=="ar"?
+                          SvgPicture.asset("assets/images/progress2.svg"):
+                          SvgPicture.asset("assets/images/progress2_en.svg")
+                      )
                     ],
                   ),
                 ),
@@ -116,7 +125,7 @@ class _OrdersSecondScreenState extends State<OrdersSecondScreen> {
                                 color: Color(0xff464451), fontSize: 16),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 18.0),
+                            padding: const EdgeInsets.only(left: 18.0,right: 18),
                             child: Stack(
                               children: [
                                 Container(
@@ -129,11 +138,17 @@ class _OrdersSecondScreenState extends State<OrdersSecondScreen> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(14.0),
-                                  child: ImageIcon(
+                                  child:
+                                  myLocale.languageCode=="ar"?
+                                  ImageIcon(
                                     AssetImage("assets/icons/left_arrow.png"),
                                     color: Color(0xff464451),
                                     size: 10,
-                                  ),
+                                  ):   ImageIcon(
+                                    AssetImage("assets/icons/arrow.png"),
+                                    color: Color(0xff464451),
+                                    size: 10,
+                                  )
                                 ),
                               ],
                             ),

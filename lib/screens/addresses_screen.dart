@@ -18,56 +18,59 @@ class AddressesScreen extends StatefulWidget {
 class _AddressesScreenState extends State<AddressesScreen> {
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        backgroundColor: Color(0xff00B5F0),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(getTranslated(context, "delivery_addresses"),
-            ),
-          ],
-        ),
-        leading:
+          automaticallyImplyLeading: false,
+          centerTitle: true,
+          backgroundColor: Color(0xff00B5F0),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                getTranslated(context, "delivery_addresses"),
+              ),
+            ],
+          ),
+          leading:
           Padding(
-            padding: const EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right:16.0),
             child: Container(
-                height: 38,
-                width: 38,
-                child: SvgPicture.asset("assets/icons/button_right.svg")),
+              height: 38,
+              width: 38,
+              child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: myLocale.languageCode == "ar"
+                      ? SvgPicture.asset("assets/icons/button_right.svg")
+                      : SvgPicture.asset("assets/icons/button_left.svg")),
+            ),
           )
-
       ),
-
       body: Stack(overflow: Overflow.visible, fit: StackFit.expand, children: [
         SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
                   child: AddressCardDelivery(),
-
-
                 ),
               ),
-
-
             ],
-
           ),
         ),
         Positioned(
-          bottom: 30,right: 20,left: 20,
+          bottom: 30,
+          right: 20,
+          left: 20,
           child: InkWell(
-            onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewDeliveryAddressesScreen()));
-
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => NewDeliveryAddressesScreen()));
             },
             child: Container(
               alignment: Alignment.bottomCenter,
@@ -81,14 +84,13 @@ class _AddressesScreenState extends State<AddressesScreen> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Container(
-
                       width: 330,
                       height: 54,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Text(
-                        getTranslated(context, "new_delivery_address"),
+                            getTranslated(context, "new_delivery_address"),
                             style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
                         ],
@@ -100,7 +102,6 @@ class _AddressesScreenState extends State<AddressesScreen> {
             ),
           ),
         ),
-
       ]),
     );
   }

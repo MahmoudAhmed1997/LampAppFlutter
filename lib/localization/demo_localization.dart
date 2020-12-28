@@ -7,6 +7,7 @@ class DemoLocalization {
   DemoLocalization(this.locale);
 
   final Locale locale;
+
   static DemoLocalization of(BuildContext context) {
     return Localizations.of<DemoLocalization>(context, DemoLocalization);
   }

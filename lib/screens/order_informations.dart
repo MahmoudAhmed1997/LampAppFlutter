@@ -14,7 +14,10 @@ class OrderInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
+
             appBar: AppBar(
               centerTitle: true,
               automaticallyImplyLeading: false,
@@ -24,7 +27,8 @@ class OrderInformation extends StatelessWidget {
                 children: [
                   Text( getTranslated(context, "order"), ),
 
-                  Text('51523# '),
+                 myLocale.languageCode=="ar"? Text('51523# '):Text(' #51523')
+                  ,
                 ],
               ),
              leading:
@@ -33,11 +37,19 @@ class OrderInformation extends StatelessWidget {
                   child: Container(
                       height: 38,
                       width: 38,
-                      child: InkWell(
-                          onTap: (){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrdersListScreen()));
+                      child:
+                      InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
                           },
-                          child: SvgPicture.asset("assets/icons/button_right.svg"))),
+                          child:
+                          myLocale.languageCode=="ar"?SvgPicture.asset(
+                              "assets/icons/button_right.svg"):SvgPicture.asset(
+                              "assets/icons/button_left.svg")
+
+                      ),
+
+                  ),
                 )
 
             ),

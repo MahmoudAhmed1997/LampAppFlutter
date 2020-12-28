@@ -74,7 +74,11 @@ flutter:
     - assets/images/right_button.png
     - assets/images/right_button.svg
     - assets/icons/button_cancle.svg
+    - assets/images/btn_left.svg
     - assets/icons/user_icon.svg
+    - assets/icons/arrow.png
+    - assets/icons/Filter.png
+    - assets/icons/line_6.png
     - assets/icons/home.svg
     - assets/icons/search.svg
     - assets/icons/search.png
@@ -107,6 +111,7 @@ flutter:
     - assets/icons/button_right.svg
     - assets/icons/filter.svg
     - assets/icons/icon_phone.svg
+    - assets/icons/button_left.svg
     - assets/icons/icon_map.svg
     - assets/icons/icon_email.svg
     - assets/images/location.svg
@@ -142,10 +147,13 @@ flutter:
     - assets/icons/fav.svg
     - assets/icons/favourite.svg
     - assets/icons/eye.png
+    - assets/icons/ic_arrow_right.svg
     - assets/images/price.svg
     - assets/images/progress1.svg
     - assets/images/progress2.svg
     - assets/images/progress3.svg
+    - assets/images/progress1_en.svg
+    - assets/images/progress2_en.svg
     - assets/images/preparing.png
     - lib/lang/en.json
     - lib/lang/ar.json

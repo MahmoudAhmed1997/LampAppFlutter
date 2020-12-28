@@ -17,126 +17,124 @@ class FiltersProducts extends StatelessWidget {
       backgroundColor: Color(0xffFFFFFF),
       resizeToAvoidBottomPadding: false,
       body: Stack(children: [
-        Directionality(
-          textDirection: TextDirection.rtl,
-          child: Center(
-            child: Container(
-              width: 327,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 18.0),
-                      child: SvgPicture.asset("assets/images/indicator.svg"),
+        Center(
+          child: Container(
+            width: 327,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 38.0),
+                    child: SvgPicture.asset("assets/images/indicator.svg"),
+                  ),
+                ),
+                SizedBox(height: 10,),
+                Text(
+                  getTranslated(context, "filter_products"),
+                  style: TextStyle(fontSize: 20, color: Color(0xff18304B)),
+                ),
+                Text(
+                  getTranslated(context, "most_recent_wanted"),
+                  style: TextStyle(fontSize: 15, color: Color(0xff7F8FA6)),
+                ),
+                SizedBox(height: 30,),
+                Text(
+                  getTranslated(context, "by_color"),
+                  style: TextStyle(fontSize: 15, color: Color(0xff18304B)),
+                ),
+                SizedBox(height: 10,),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                        width: 27,
+                        height: 27,
+                        child: RaisedButton(
+                          color: Colors.red,
+                          onPressed: () {},
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                        )),
+                    SizedBox(
+                      width: 13,
                     ),
-                  ),
-                  Text(
-                    getTranslated(context, "filter_products"),
-                    style: TextStyle(fontSize: 20, color: Color(0xff18304B)),
-                  ),
-                  Text(
-                    getTranslated(context, "most_recent_wanted"),
-                    style: TextStyle(fontSize: 15, color: Color(0xff7F8FA6)),
-                  ),
-                  SizedBox(height: 30,),
-                  Text(
-                    getTranslated(context, "by_color"),
-                    style: TextStyle(fontSize: 15, color: Color(0xff18304B)),
-                  ),
-                  SizedBox(height: 10,),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                          width: 27,
-                          height: 27,
-                          child: RaisedButton(
-                            color: Colors.red,
-                            onPressed: () {},
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                          )),
-                      SizedBox(
-                        width: 13,
-                      ),
-                      Container(
-                          width: 27,
-                          height: 27,
-                          child: RaisedButton(
-                            color: Color(0xff18304B),
-                            onPressed: () {},
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                          )),
-                      SizedBox(
-                        width: 13,
-                      ),
-                      Container(
-                          width: 27,
-                          height: 27,
-                          child: RaisedButton(
-                            color: Color(0xff991FD5),
-                            onPressed: () {},
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                          )),
-                      SizedBox(
-                        width: 13,
-                      ),
-                      Container(
-                          width: 27,
-                          height: 27,
-                          child: RaisedButton(
-                            color: Color(0xff84D467),
-                            onPressed: () {},
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                          )),
-                      SizedBox(
-                        width: 13,
-                      ),
-                      Container(
-                          width: 27,
-                          height: 27,
-                          child: RaisedButton(
-                            color: Color(0xffF45540),
-                            onPressed: () {},
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                          )),
-                      SizedBox(
-                        width: 13,
-                      ),
-                      Container(
-                          width: 27,
-                          height: 27,
-                          child: RaisedButton(
-                            color: Color(0xff00B5F0),
-                            onPressed: () {},
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                          )),
-                    ],
-                  ),
-                  Divider(),
-                  Container(child: GetCheckValue()),
-                  SizedBox(
-                    height: 22,
-                  ),
-                  Divider(),
-                  SizedBox(
-                    height: 18,
-                  ),
+                    Container(
+                        width: 27,
+                        height: 27,
+                        child: RaisedButton(
+                          color: Color(0xff18304B),
+                          onPressed: () {},
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                        )),
+                    SizedBox(
+                      width: 13,
+                    ),
+                    Container(
+                        width: 27,
+                        height: 27,
+                        child: RaisedButton(
+                          color: Color(0xff991FD5),
+                          onPressed: () {},
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                        )),
+                    SizedBox(
+                      width: 13,
+                    ),
+                    Container(
+                        width: 27,
+                        height: 27,
+                        child: RaisedButton(
+                          color: Color(0xff84D467),
+                          onPressed: () {},
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                        )),
+                    SizedBox(
+                      width: 13,
+                    ),
+                    Container(
+                        width: 27,
+                        height: 27,
+                        child: RaisedButton(
+                          color: Color(0xffF45540),
+                          onPressed: () {},
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                        )),
+                    SizedBox(
+                      width: 13,
+                    ),
+                    Container(
+                        width: 27,
+                        height: 27,
+                        child: RaisedButton(
+                          color: Color(0xff00B5F0),
+                          onPressed: () {},
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                        )),
+                  ],
+                ),
+                Divider(),
+                Container(child: GetCheckValue()),
+                SizedBox(
+                  height: 22,
+                ),
+                Divider(),
+                SizedBox(
+                  height: 18,
+                ),
 
 
-                  SvgPicture.asset(
-                    'assets/images/price.svg',
-                  ),
-                ],
-              ),
+                SvgPicture.asset(
+                  'assets/images/price.svg',
+                ),
+              ],
             ),
           ),
         ),

@@ -7,6 +7,8 @@ class RatingOrder extends StatelessWidget {
   var rating = 3.3;
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       resizeToAvoidBottomPadding: false,

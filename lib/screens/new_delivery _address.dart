@@ -1,16 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lamp/localization/language_constants.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
 
 class NewDeliveryAddressesScreen extends StatefulWidget {
   static const routeName = '/new_delivery_address_screen';
 
   @override
-  _NewDeliveryAddressesScreenState createState() => _NewDeliveryAddressesScreenState();
+  _NewDeliveryAddressesScreenState createState() =>
+      _NewDeliveryAddressesScreenState();
 }
 
-class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen> {
+class _NewDeliveryAddressesScreenState
+    extends State<NewDeliveryAddressesScreen> {
   final _formKey = GlobalKey<FormState>();
 
   var _isLogin = true;
@@ -21,6 +24,8 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -28,28 +33,29 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('عنوان توصيل جديد'),
-          ],
-        ),
-        leading:
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: Container(
-                height: 38,
-                width: 38,
-                child: SvgPicture.asset("assets/icons/button_right.svg")),
-          )
-
+            Text(                            getTranslated(context, "new_delivery_address"),
       ),
 
+          ],
+        ),
+        leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child:Padding(
+              padding: const EdgeInsets.only(right:16.0),
+              child: Container(
+                  height:38,width:38,child:
+              myLocale.languageCode=="ar"?SvgPicture.asset(
+                  "assets/icons/button_right.svg"):SvgPicture.asset(
+                  "assets/icons/button_left.svg")
 
+              ),
+            )),
+      ),
       backgroundColor: Color(0xffFFFFFF),
       resizeToAvoidBottomPadding: false,
-      body:
-      Stack(
-
-          overflow: Overflow.visible, children: [
-
+      body: Stack(overflow: Overflow.visible, children: [
         Directionality(
           textDirection: TextDirection.rtl,
           child: Container(
@@ -58,11 +64,9 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-
                   SizedBox(
                     height: 14,
                   ),
-
                   SizedBox(
                     height: 22.5,
                   ),
@@ -71,16 +75,13 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                       height: 460,
                       width: 327,
                       child: Form(
-
                         child: Column(
                           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             TextFormField(
                               textAlign: TextAlign.right,
-
                               key: ValueKey("الاسم كاملا"),
                               autocorrect: true,
-
                               textCapitalization: TextCapitalization.words,
                               enableSuggestions: false,
                               validator: (value) {
@@ -94,7 +95,6 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                                 filled: true,
                                 fillColor: Color(0xffFAFAFA),
                                 hintText: "رقم الجوال*",
-
                                 hintStyle: TextStyle(
                                     color: Color(0xff7F8FA6), fontSize: 15),
                                 border: OutlineInputBorder(
@@ -102,7 +102,7 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide:
-                                  new BorderSide(color: Color(0xff18304B)),
+                                      new BorderSide(color: Color(0xff18304B)),
                                   borderRadius: new BorderRadius.circular(12),
                                 ),
                               ),
@@ -110,14 +110,11 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                                 _userName = value;
                               },
                             ),
-
                             SizedBox(
                               height: 13,
                             ),
                             TextFormField(
-
                               autocorrect: true,
-
                               textCapitalization: TextCapitalization.words,
                               enableSuggestions: false,
                               validator: (value) {
@@ -138,7 +135,7 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide:
-                                  new BorderSide(color: Color(0xff18304B)),
+                                      new BorderSide(color: Color(0xff18304B)),
                                   borderRadius: new BorderRadius.circular(12),
                                 ),
                               ),
@@ -152,7 +149,6 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                             TextFormField(
                               key: ValueKey("المدينة"),
                               autocorrect: true,
-
                               textCapitalization: TextCapitalization.words,
                               enableSuggestions: false,
                               validator: (value) {
@@ -174,7 +170,7 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide:
-                                  new BorderSide(color: Color(0xff18304B)),
+                                      new BorderSide(color: Color(0xff18304B)),
                                   borderRadius: new BorderRadius.circular(12),
                                 ),
                               ),
@@ -188,7 +184,6 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                             TextFormField(
                               key: ValueKey(""),
                               autocorrect: true,
-
                               textCapitalization: TextCapitalization.words,
                               enableSuggestions: false,
                               validator: (value) {
@@ -210,7 +205,7 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide:
-                                  new BorderSide(color: Color(0xff18304B)),
+                                      new BorderSide(color: Color(0xff18304B)),
                                   borderRadius: new BorderRadius.circular(12),
                                 ),
                               ),
@@ -222,9 +217,7 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                               height: 13,
                             ),
                             TextFormField(
-
                               autocorrect: true,
-
                               textCapitalization: TextCapitalization.words,
                               enableSuggestions: false,
                               validator: (value) {
@@ -246,7 +239,7 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide:
-                                  new BorderSide(color: Color(0xff18304B)),
+                                      new BorderSide(color: Color(0xff18304B)),
                                   borderRadius: new BorderRadius.circular(12),
                                 ),
                               ),
@@ -254,8 +247,6 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
                                 _userName = value;
                               },
                             ),
-
-
                             SizedBox(
                               height: 21.0,
                             ),
@@ -285,7 +276,6 @@ class _NewDeliveryAddressesScreenState extends State<NewDeliveryAddressesScreen>
             ),
           ),
         ),
-
       ]),
     );
   }

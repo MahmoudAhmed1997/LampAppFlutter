@@ -15,6 +15,8 @@ class AboutAppScreen extends StatefulWidget {
 class _AboutAppScreenState extends State<AboutAppScreen> {
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -31,16 +33,19 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
         ),
         leading:
         Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: Container(
-                height: 38,
-                width: 38,
-                child: InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: SvgPicture.asset("assets/icons/button_right.svg"))),
-          )
+          padding: const EdgeInsets.only(right:8.0),
+          child: Container(
+            height: 38,
+            width: 38,
+            child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: myLocale.languageCode == "ar"
+                    ? SvgPicture.asset("assets/icons/button_right.svg")
+                    : SvgPicture.asset("assets/icons/button_left.svg")),
+          ),
+        )
 
       ),
       body: ListView(
@@ -139,7 +144,7 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
                           getTranslated(context, "common_questions"),
                           style: TextStyle(
                               color: Color(0xff18304B),
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.bold),
                           textAlign: TextAlign.center,
 

@@ -1,0 +1,4 @@
+<svg id="ic_arrow_right" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <rect id="bound" width="16" height="16" fill="#18304b" opacity="0"/>
+  <path id="Fill" d="M.237,1.338A.767.767,0,0,1,.237.23a.827.827,0,0,1,1.144,0L6.763,5.446a.767.767,0,0,1,0,1.109L1.381,11.77a.827.827,0,0,1-1.144,0,.767.767,0,0,1,0-1.109L5.047,6Z" transform="translate(5 2)" fill="#18304b"/>
+</svg>

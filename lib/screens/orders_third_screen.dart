@@ -17,6 +17,8 @@ class OrdersThirdScreen extends StatefulWidget {
 class _OrdersThirdScreenState extends State<OrdersThirdScreen> {
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(overflow: Overflow.visible, fit: StackFit.expand, children: [
@@ -41,11 +43,16 @@ class _OrdersThirdScreenState extends State<OrdersThirdScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 InkWell(
-                                  onTap:(){Navigator.of(context).pop();},
-
-                                  child: SvgPicture.asset(
-                                    "assets/images/right_button.svg",
-                                  ),
+                                    onTap: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child:myLocale.languageCode=="ar"?
+                                    SvgPicture.asset(
+                                      "assets/images/right_button.svg",
+                                    ):
+                                    SvgPicture.asset(
+                                      "assets/images/btn_left.svg",
+                                    )
                                 ),
                                 SizedBox(
                                   width: 10.0,
@@ -69,9 +76,12 @@ class _OrdersThirdScreenState extends State<OrdersThirdScreen> {
                       ),
                       SizedBox(height: 15,),
                       Container(
-                          height:15 ,width: 257,
+                          height: 15,
+                          width: 257,
+                          child:
 
-                          child: SvgPicture.asset("assets/images/progress3.svg"))
+                          SvgPicture.asset("assets/images/progress3.svg")
+                      )
                     ],
                   ),
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lamp/localization/language_constants.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
 
 class NewPasswordScreen extends StatefulWidget {
@@ -21,6 +22,8 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -29,23 +32,26 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('تغيير كلمة المرور',style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
+            Text(
+              getTranslated(context, "change_pass")
+              ,style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
           ],
         ),
         leading:
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: Container(
-                height: 38,
-                width: 38,
-                child: InkWell(
-                    onTap: (){
-                      Navigator.pop(context);
-                    },
-
-                    child: SvgPicture.asset("assets/icons/button_right.svg"))),
-          )
-
+        Padding(
+          padding: const EdgeInsets.only(right:16.0),
+          child: Container(
+            height: 38,
+            width: 38,
+            child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: myLocale.languageCode == "ar"
+                    ? SvgPicture.asset("assets/icons/button_right.svg")
+                    : SvgPicture.asset("assets/icons/button_left.svg")),
+          ),
+        )
       ),
 
 
@@ -211,7 +217,8 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                                   borderRadius: BorderRadius.circular(12.0)),
                               color: Color(0xff00B5F0),
                               child: Text(
-                                "حفظ",
+                                getTranslated(context, "save")
+                                ,
                                 style: TextStyle(color: Colors.white),
                               ),
                               onPressed: () {
