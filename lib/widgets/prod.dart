@@ -89,6 +89,7 @@ class Prod extends StatelessWidget {
                             color: Color(0xffF45540),
                           ),
                         ),
+                        SizedBox(width:3),
                         Text(
                           " 750 ر.س",
                           style: TextStyle(

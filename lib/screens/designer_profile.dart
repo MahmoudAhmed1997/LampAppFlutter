@@ -57,7 +57,6 @@ class _DesignerProfileState extends State<DesignerProfile>
                           },
                           child: SvgPicture.asset(
                               "assets/icons/button_right.svg")),
-
                       Row(
                         children: [
                           Column(
@@ -104,7 +103,6 @@ class _DesignerProfileState extends State<DesignerProfile>
                         ],
                       ),
                       SvgPicture.asset("assets/icons/cart.svg"),
-
                     ],
                   ),
                   SizedBox(
@@ -182,6 +180,7 @@ class _DesignerProfileState extends State<DesignerProfile>
                 ),
                 Container(
                   height: 50,
+                  //  width: double.infinity,
                   child: VerticalDivider(
                     color: Color(0xff707070),
                   ),
@@ -206,7 +205,7 @@ class _DesignerProfileState extends State<DesignerProfile>
                         ),
                         Tab(
                           child: Text(
-                            "الهودي(Hoodies)",
+                            getTranslated(context, "hoody"),
                             style: TextStyle(
                               fontSize: 15,
                             ),
@@ -214,7 +213,7 @@ class _DesignerProfileState extends State<DesignerProfile>
                         ),
                         Tab(
                           child: Text(
-                            "تي شيرت (T Shirt)",
+                            getTranslated(context, "tshirt"),
                             style: TextStyle(
                               fontSize: 15,
                             ),

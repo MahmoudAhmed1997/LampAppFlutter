@@ -98,14 +98,12 @@ class _HomeState extends State<Home> {
                     child: Text(getTranslated(context, "home")),
                   ),
                   Tab(
-                    child: Text(
-                      "الهودي(Hoodies)",
-                    ),
+                    child: Text(getTranslated(context, "hoody")),
+
                   ),
                   Tab(
-                    child: Text(
-                      "تي شيرت (T Shirt)",
-                    ),
+                    child: Text(getTranslated(context, "tshirt")),
+
                   ),
                 ],
               ),
