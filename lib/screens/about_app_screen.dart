@@ -26,14 +26,29 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              getTranslated(context, "about_app"),
+              getTranslated(context, "about_app_al"),
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
             ),
           ],
         ),
         leading:
+        myLocale.languageCode == "ar"?Padding(
+          padding: const EdgeInsets.only(right:16.0),
+          child: Container(
+            height: 38,
+            width: 38,
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child:
+              SvgPicture.asset("assets/icons/button_right.svg"),
+
+            ),
+          ),
+        ):
         Padding(
-          padding: const EdgeInsets.only(right:8.0),
+          padding: const EdgeInsets.only(left:16.0),
           child: Container(
             height: 38,
             width: 38,
@@ -41,9 +56,9 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: myLocale.languageCode == "ar"
-                    ? SvgPicture.asset("assets/icons/button_right.svg")
-                    : SvgPicture.asset("assets/icons/button_left.svg")),
+                child:
+                SvgPicture.asset("assets/icons/button_left.svg")
+            ),
           ),
         )
 
@@ -186,9 +201,9 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
                         top: 10.0, left: 15, right: 15, bottom: 15),
                     child: Text(
                       getTranslated(context, "first_question"),
-                      maxLines: 3,
+                      maxLines: 2,
                       style: TextStyle(fontSize: 16, color: Color(0xff18304B)),
-                      textAlign: TextAlign.right,
+
                     ),
                   ),
                   expanded: Align(
@@ -227,7 +242,6 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
                       getTranslated(context, "first_question"),
                       maxLines: 3,
                       style: TextStyle(fontSize: 16, color: Color(0xff18304B)),
-                      textAlign: TextAlign.right,
                     ),
                   ),
                   expanded: Align(
@@ -259,6 +273,7 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
                     color: Colors.white,
                     border: Border.all(color: Color(0xffF4F4F4))),
                 child: ExpandablePanel(
+
                   header: Padding(
                     padding: const EdgeInsets.only(
                         top: 10.0, left: 15, right: 15, bottom: 15),
@@ -266,7 +281,6 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
                       getTranslated(context, "first_question"),
                       maxLines: 3,
                       style: TextStyle(fontSize: 16, color: Color(0xff18304B)),
-                      textAlign: TextAlign.right,
                     ),
                   ),
                   expanded: Align(

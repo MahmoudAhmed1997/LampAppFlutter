@@ -72,14 +72,25 @@ class _HomeState extends State<Home> {
               ),
             Positioned.fill(
                 right: 77,
-                child: Align(
+                child: myLocale.languageCode=="ar"?Align(
                   alignment: Alignment.centerRight,
                   child: UnconstrainedBox(
                     child: SvgPicture.asset(
                       "assets/icons/search.svg",
                     ),
                   ),
-                ),
+                ):
+                Padding(
+                  padding: const EdgeInsets.only(left:68.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: UnconstrainedBox(
+                      child: SvgPicture.asset(
+                        "assets/icons/search.svg",
+                      ),
+                    ),
+                  ),
+                )
               )
             ]),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lamp/localization/language_constants.dart';
 
 class ProductCard extends StatelessWidget {
   @override
@@ -21,7 +22,13 @@ class ProductCard extends StatelessWidget {
             children: [
             Text("اناء طعام للهامستر ماركة بيرزيني",style: TextStyle(fontSize: 14,color: Color(0xff464451)),),
             Text("x3",style: TextStyle(fontSize: 14,color: Color(0xff464451)),),
-            Text("500 رس",style: TextStyle(fontSize: 14,color: Color(0xffF45540),fontWeight: FontWeight.bold),),
+            Row(
+              children: [
+                Text("500 ",style: TextStyle(fontSize: 14,color: Color(0xffF45540),fontWeight: FontWeight.bold),),
+                Text( getTranslated(context,
+                  "rs",),   style: TextStyle(fontSize: 14,color: Color(0xffF45540),fontWeight: FontWeight.bold))
+              ],
+            ),
 
           ],),
 

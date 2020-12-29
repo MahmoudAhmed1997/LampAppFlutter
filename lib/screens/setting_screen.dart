@@ -38,8 +38,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ],
         ),
-        leading: Padding(
-          padding: const EdgeInsets.only(right: 16.0),
+        leading:
+        myLocale.languageCode == "ar"?Padding(
+          padding: const EdgeInsets.only(right:16.0),
+          child: Container(
+            height: 38,
+            width: 38,
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child:
+              SvgPicture.asset("assets/icons/button_right.svg"),
+
+            ),
+          ),
+        ):
+        Padding(
+          padding: const EdgeInsets.only(left:16.0),
           child: Container(
             height: 38,
             width: 38,
@@ -47,11 +63,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: myLocale.languageCode == "ar"
-                    ? SvgPicture.asset("assets/icons/button_right.svg")
-                    : SvgPicture.asset("assets/icons/button_left.svg")),
+                child:
+                SvgPicture.asset("assets/icons/button_left.svg")
+            ),
           ),
-        ),
+        )
       ),
       body: Center(
         child: Column(
@@ -238,7 +254,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      getTranslated(context, "about_app"),
+                      getTranslated(context, "about_app_al"),
                       style: TextStyle(
                           color: Color(0xff18304B),
                           fontSize: 16,

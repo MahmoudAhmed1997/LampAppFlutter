@@ -6,6 +6,8 @@ class OrderReceiptScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Column(
       children: [
         Container(
@@ -29,12 +31,23 @@ class OrderReceiptScreen extends StatelessWidget {
                               TextStyle(color: Color(0xff464451), fontSize: 15),
                         )),
                     Container(
-                      width: 80,
-                      child: Text(
-                        "500 رس",
-                        style:
+                      width: 65,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "500",
+                            style:
                             TextStyle(color: Color(0xff7F8FA6), fontSize: 15),
-                        textDirection: TextDirection.rtl,
+                            textDirection: TextDirection.rtl,
+                          ),
+                          Text(
+                            getTranslated(context, "rs"),
+                            style:
+                            TextStyle(color: Color(0xff7F8FA6), fontSize: 15),
+                            textDirection: TextDirection.rtl,
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -54,12 +67,23 @@ class OrderReceiptScreen extends StatelessWidget {
                               TextStyle(color: Color(0xff464451), fontSize: 15),
                         )),
                     Container(
-                      width: 80,
-                      child: Text(
-                        "500 رس",
-                        style:
+                      width: 65,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "500",
+                            style:
                             TextStyle(color: Color(0xff7F8FA6), fontSize: 15),
-                        textDirection: TextDirection.rtl,
+                            textDirection: TextDirection.rtl,
+                          ),
+                          Text(
+                            getTranslated(context, "rs"),
+                            style:
+                            TextStyle(color: Color(0xff7F8FA6), fontSize: 15),
+                            textDirection: TextDirection.rtl,
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -79,12 +103,23 @@ class OrderReceiptScreen extends StatelessWidget {
                               TextStyle(color: Color(0xff464451), fontSize: 15),
                         )),
                     Container(
-                      width: 80,
-                      child: Text(
-                        "500 رس",
-                        style:
+                      width: 65,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "500",
+                            style:
                             TextStyle(color: Color(0xff7F8FA6), fontSize: 15),
-                        textDirection: TextDirection.rtl,
+                            textDirection: TextDirection.rtl,
+                          ),
+                          Text(
+                            getTranslated(context, "rs"),
+                            style:
+                            TextStyle(color: Color(0xff7F8FA6), fontSize: 15),
+                            textDirection: TextDirection.rtl,
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -104,12 +139,23 @@ class OrderReceiptScreen extends StatelessWidget {
                               TextStyle(color: Color(0xff464451), fontSize: 15),
                         )),
                     Container(
-                      width: 80,
-                      child: Text(
-                        "500 رس",
-                        style:
+                      width: 65,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "500",
+                            style:
                             TextStyle(color: Color(0xff7F8FA6), fontSize: 15),
-                        textDirection: TextDirection.rtl,
+                            textDirection: TextDirection.rtl,
+                          ),
+                          Text(
+                            getTranslated(context, "rs"),
+                            style:
+                            TextStyle(color: Color(0xff7F8FA6), fontSize: 15),
+                            textDirection: TextDirection.rtl,
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -129,12 +175,23 @@ class OrderReceiptScreen extends StatelessWidget {
                               TextStyle(color: Color(0xff00B5F0), fontSize: 15),
                         )),
                     Container(
-                      width: 80,
-                      child: Text(
-                        "500 رس",
-                        style:
-                            TextStyle(color: Color(0xff00B5F0), fontSize: 15),
-                        textDirection: TextDirection.rtl,
+                      width: 65,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "500",
+                            style:
+                            TextStyle(color: Color(0xff7F8FA6), fontSize: 15),
+                            textDirection: TextDirection.rtl,
+                          ),
+                          Text(
+                            getTranslated(context, "rs"),
+                            style:
+                            TextStyle(color: Color(0xff7F8FA6), fontSize: 15),
+                            textDirection: TextDirection.rtl,
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -156,7 +213,9 @@ class OrderReceiptScreen extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text("الرقم الضريبي VAT",style: TextStyle(fontSize: 15,color: Colors.white),),Text("31030733230000003",style: TextStyle(fontSize: 15,color: Colors.white),)],
+              children: [
+                myLocale.languageCode=="ar"?
+                Text("الرقم الضريبي VAT",style: TextStyle(fontSize: 15,color: Colors.white),):Text("VAT number ",style: TextStyle(fontSize: 15,color: Colors.white)),Text("31030733230000003",style: TextStyle(fontSize: 15,color: Colors.white),)],
             ),
           ),
         )

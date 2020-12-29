@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
      Future.delayed(
-        Duration(seconds: 5),
+        Duration(seconds: 3),
             () => Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => LoginScreen()),
@@ -42,51 +42,55 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return
-      Scaffold(
-        backgroundColor: Color(0xffFFFFFF),
-        body: Container(
-          child: Stack(
-            children: [
-              Container(
-                alignment: Alignment.topLeft,
-                height: 457,
-                width: 347,
-                child: Image(
-                  image: AssetImage("assets/images/shadow 1.png"),
-                  color: Color(0xffFDFDFF),
-                ),
-              ),
-              Image(
-                image: AssetImage("assets/images/shadow 2.png"),
-                color: Color(0xffF9F9FF),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Container(
-                    alignment: Alignment.centerRight,
-                    child: Image(
-                        image: AssetImage(
-                          "assets/images/points.png",
-                        ),
-                        height: 188,
-                        width: 24)),
-              ),
-              Center(
-                child: Container(
-                  width: 90, height: 159,
-                  child: SvgPicture.asset("assets/images/logo.svg"),
-                  // child: Image(image: AssetImage("assets/images/logo.png"),color: Color(0xff00B5F0),)),
-                ),
-              ),
-              Container(
-                  alignment: Alignment.bottomRight,
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Scaffold(
+          backgroundColor: Color(0xffFFFFFF),
+          body:
+          Container(
+            child: Stack(
+              children: [
+                Container(
+                  alignment: Alignment.topLeft,
+                  height: 457,
+                  width: 347,
                   child: Image(
-                    image: AssetImage("assets/images/lines.png"),
-                    color: Color(0xff00B5F0),
-                    width: 199,
-                    height: 195,
-                  )),
-            ],
+                    image: AssetImage("assets/images/shadow 1.png"),
+                    color: Color(0xffFDFDFF),
+                  ),
+                ),
+                Image(
+                  image: AssetImage("assets/images/shadow 2.png"),
+                  color: Color(0xffF9F9FF),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Container(
+                      alignment: Alignment.centerRight,
+                      child: Image(
+                          image: AssetImage(
+                            "assets/images/points.png",
+                          ),
+                          height: 188,
+                          width: 24)),
+                ),
+                Center(
+                  child: Container(
+                    width: 90, height: 159,
+                    child: SvgPicture.asset("assets/images/logo.svg"),
+                    // child: Image(image: AssetImage("assets/images/logo.png"),color: Color(0xff00B5F0),)),
+                  ),
+                ),
+                Container(
+                    alignment: Alignment.bottomRight,
+                    child: Image(
+                      image: AssetImage("assets/images/lines.png"),
+                      color: Color(0xff00B5F0),
+                      width: 199,
+                      height: 195,
+                    )),
+              ],
+            ),
           ),
         ),
       );

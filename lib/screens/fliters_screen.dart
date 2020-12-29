@@ -13,6 +13,8 @@ class FiltersProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       resizeToAvoidBottomPadding: false,
@@ -159,12 +161,23 @@ class FiltersProducts extends StatelessWidget {
             ),
           ),
         ),
+        myLocale.languageCode=="en"?
         Padding(
-          padding: const EdgeInsets.only(top: 20.0, left: 16),
+          padding: const EdgeInsets.only(top: 25.0, right: 16),
+          child: Container(
+            alignment: Alignment.topRight,
+            child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: SvgPicture.asset("assets/icons/button_cancle.svg")),
+          ),
+        ):Padding(
+          padding: const EdgeInsets.only(top: 25.0, left: 16),
           child: Container(
             alignment: Alignment.topLeft,
             child: InkWell(
-                onTap: (){
+                onTap: () {
                   Navigator.pop(context);
                 },
                 child: SvgPicture.asset("assets/icons/button_cancle.svg")),

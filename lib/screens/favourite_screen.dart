@@ -17,6 +17,8 @@ class FavouriteScreen extends StatefulWidget {
 class _FavouriteScreenState extends State<FavouriteScreen> {
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -84,18 +86,26 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                             ),
                           ),
                           Positioned.fill(
-                            right: 77,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: UnconstrainedBox(
-                                child: SvgPicture.asset(
-                                  "assets/icons/search.svg",
-                                  fit: BoxFit.fitWidth,
-                                  // allowDrawingOutsideViewBox: true,
-                                  // matchTextDirection: true,
+                              right: 77,
+                              child: myLocale.languageCode=="ar"?Align(
+                                alignment: Alignment.centerRight,
+                                child: UnconstrainedBox(
+                                  child: SvgPicture.asset(
+                                    "assets/icons/search.svg",
+                                  ),
                                 ),
-                              ),
-                            ),
+                              ):
+                              Padding(
+                                padding: const EdgeInsets.only(left:68.0),
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: UnconstrainedBox(
+                                    child: SvgPicture.asset(
+                                      "assets/icons/search.svg",
+                                    ),
+                                  ),
+                                ),
+                              )
                           )
                         ]),
                       ),

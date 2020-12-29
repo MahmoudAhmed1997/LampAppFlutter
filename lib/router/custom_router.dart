@@ -13,8 +13,8 @@ class CustomRouter {
       case homeRoute:
         return MaterialPageRoute(builder: (_) => HomeScreen())
         ;
-      // case splashRoute:
-      //   return MaterialPageRoute(builder: (_) => SplashScreen())  ;
+      case splashRoute:
+        return MaterialPageRoute(builder: (_) => SplashScreen())  ;
     case loginRoute:
       return MaterialPageRoute(builder: (_) => LoginScreen())
       ;

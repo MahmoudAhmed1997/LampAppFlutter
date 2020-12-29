@@ -18,15 +18,17 @@ class _CartsScreenState extends State<CartsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Stack(children: [
-        ListView(
+        Column(
+
           children: [
             Container(
               width: double.infinity,
-              height: 85,
+              height: 90,
               color: Colors.white,
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -42,9 +44,11 @@ class _CartsScreenState extends State<CartsScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                getTranslated(context, "shopping_basket"),
+                                getTranslated(
+                                    context, "shopping_basket"),
                                 style: TextStyle(
-                                    fontSize: 17, color: Color(0xff18304B)),
+                                    fontSize: 17,
+                                    color: Color(0xff18304B)),
                               ),
                             ],
                           ),
@@ -55,12 +59,14 @@ class _CartsScreenState extends State<CartsScreen> {
                             Text(
                               getTranslated(context, "products"),
                               style: TextStyle(
-                                  fontSize: 15, color: Color(0xff7F8FA6)),
+                                  fontSize: 15,
+                                  color: Color(0xff7F8FA6)),
                             ),
                             Text(
                               ":03",
                               style: TextStyle(
-                                  fontSize: 15, color: Color(0xff7F8FA6)),
+                                  fontSize: 15,
+                                  color: Color(0xff7F8FA6)),
                             ),
                           ],
                         ),
@@ -71,60 +77,61 @@ class _CartsScreenState extends State<CartsScreen> {
                 ),
               ),
             ),
-            Container(
-              height: 1000,
-              child: ListView(scrollDirection: Axis.vertical, children: [
-                Container(
-                  height: 310,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Prod(
-                        widthCard: 180,
-                        widthButton: 167,
-                        index: 1,
+
+            Expanded(
+              child: Container(
+                height: 1000,
+                child: Container(
+                  child:
+                      ListView(scrollDirection: Axis.vertical, children: [
+                    Container(
+                      height: 310,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Prod(
+                            widthCard: 180,
+                            widthButton: 167,
+                            index: 1,
+                          ),
+
+                          Prod(
+                            widthCard: 180,
+                            widthButton: 167,
+                            index: 1,
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        width: 12.0,
+                    ),
+                    SizedBox(height: 15,),
+
+                    Container(
+                      height: 310,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Prod(
+                            widthCard: 180,
+                            widthButton: 167,
+                            index: 2,
+                          ),
+
+                          Prod(
+                            widthCard: 180,
+                            widthButton: 167,
+                            index: 2,
+                          ),
+                        ],
                       ),
-                      Prod(
-                        widthCard: 180,
-                        widthButton: 167,
-                        index: 1,
-                      ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 33,
+                    ),
+                  ]),
                 ),
-                SizedBox(
-                  height: 33,
-                ),
-                Container(
-                  height: 310,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Prod(
-                        widthCard: 180,
-                        widthButton: 167,
-                        index: 2,
-                      ),
-                      SizedBox(
-                        width: 12.0,
-                      ),
-                      Prod(
-                        widthCard: 180,
-                        widthButton: 167,
-                        index: 2,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 33,
-                ),
-              ]),
+              ),
             ),
           ],
         ),
@@ -136,7 +143,7 @@ class _CartsScreenState extends State<CartsScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                flex:3,
+                flex: 3,
                 child: Container(
                   width: 200,
                   height: 56,
@@ -151,12 +158,21 @@ class _CartsScreenState extends State<CartsScreen> {
                         getTranslated(context, "total"),
                         style: TextStyle(color: Colors.white, fontSize: 17),
                       ),
-                      Text(
-                        "500 ر.س",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold),
+                      Row(
+                        children: [
+                          Text(
+                            "500 ",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text( getTranslated(context,
+                            "rs",),   style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold),)
+                        ],
                       ),
                     ],
                   ),

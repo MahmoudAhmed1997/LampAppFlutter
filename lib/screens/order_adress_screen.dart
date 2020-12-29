@@ -22,6 +22,7 @@ class OrderAddressScreen extends StatelessWidget {
                   padding: EdgeInsets.only(right: 10,top: 5,left: 10),
 
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
                           width: 130,
@@ -52,6 +53,8 @@ class OrderAddressScreen extends StatelessWidget {
                   padding: EdgeInsets.only(right: 10,top: 5,left: 10),
 
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+
                     children: [
                       Container(
                           width: 130,
@@ -82,9 +85,11 @@ class OrderAddressScreen extends StatelessWidget {
 
                 Divider(),
                 Padding(
-                  padding: EdgeInsets.only(right: 10,top: 5,left: 10),
+                  padding: EdgeInsets.only(right: 15,top: 5,left: 15),
 
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+
                     children: [
                       Container(
                           width: 130,
@@ -114,9 +119,11 @@ class OrderAddressScreen extends StatelessWidget {
                 ),
                 Divider(),
                 Padding(
-                  padding: EdgeInsets.only(right: 10,top: 5,left: 10),
+                  padding: EdgeInsets.only(right: 15,top: 5,left: 15),
 
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+
                     children: [
                       Container(
                           width: 130,
@@ -145,9 +152,11 @@ class OrderAddressScreen extends StatelessWidget {
 
                 Divider(),
                 Padding(
-                  padding: EdgeInsets.only(right: 10,top: 5,left: 10),
+                  padding: EdgeInsets.only(right: 15,top: 5,left: 15),
 
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+
                     children: [
                       Container(
                           width: 130,

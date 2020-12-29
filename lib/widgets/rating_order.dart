@@ -18,7 +18,6 @@ class RatingOrder extends StatelessWidget {
         Center(
           child: Container(
             width: 327,
-
             child: Form(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,26 +43,24 @@ class RatingOrder extends StatelessWidget {
                       getTranslated(context, "rating_help_us"),
                     style:TextStyle(fontSize: 14,fontWeight: FontWeight.normal),textAlign: TextAlign.center,),
                  SizedBox(height: 30,),
-                  Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: SmoothStarRating(
-                      rating: rating,
-                      color: Color(0xffF45540),
-                      isReadOnly: false,
-                      borderColor: Color(0xffF45540),
-                      size: 60,
-                      filledIconData: Icons.star,
-                      halfFilledIconData: Icons.star_half,
-                      defaultIconData: Icons.star_border,
-                      starCount: 5,
-                      allowHalfRating: true,
-                      spacing: 2.0,
+                  SmoothStarRating(
+                    rating: rating,
+                    color: Color(0xffF45540),
+                    isReadOnly: false,
+                    borderColor: Color(0xffF45540),
+                    size: 55,
+                    filledIconData: Icons.star,
+                    halfFilledIconData: Icons.star_half,
+                    defaultIconData: Icons.star_border,
+                    starCount: 5,
+                    allowHalfRating: true,
+                    spacing: 2.0,
 
-                      onRated: (value) {
-                        print("rating value -> $value");
-                        // print("rating value dd -> ${value.truncate()}");
-                      },
-                    ),
+
+                    onRated: (value) {
+                      print("rating value -> $value");
+                      // print("rating value dd -> ${value.truncate()}");
+                    },
                   ),
 
                   Container(
@@ -124,7 +121,7 @@ class RatingOrder extends StatelessWidget {
                       color: Color(0xff00B5F0),
                       child: Text(
                           getTranslated(context, "added_rating"),
-                        style: TextStyle(color: Colors.white,fontSize: 16),
+                        style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.normal),
                       ),
                       onPressed: () {
                         null;
@@ -136,11 +133,28 @@ class RatingOrder extends StatelessWidget {
             ),
           ),
         ),
+
+          myLocale.languageCode=="en"?
           Padding(
-            padding: const EdgeInsets.only(top:20.0,right: 16),
+            padding: const EdgeInsets.only(top: 20.0, right: 16),
             child: Container(
               alignment: Alignment.topRight,
-              child: SvgPicture.asset("assets/icons/button_cancle.svg"),),
+              child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: SvgPicture.asset("assets/icons/button_cancle.svg")),
+            ),
+          ):Padding(
+            padding: const EdgeInsets.only(top: 20.0, left: 16),
+            child: Container(
+              alignment: Alignment.topLeft,
+              child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: SvgPicture.asset("assets/icons/button_cancle.svg")),
+            ),
           )
      ] ),
     ); }

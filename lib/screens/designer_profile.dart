@@ -5,7 +5,7 @@ import 'package:lamp/provider/products.dart';
 import 'package:lamp/screens/test.dart';
 import 'package:lamp/widgets/appbar_widgets.dart';
 import 'package:lamp/widgets/prod.dart';
-import 'package:lamp/widgets/testtt.dart';
+import 'package:lamp/widgets/home_page_designer.dart';
 import 'package:lamp/localization/language_constants.dart';
 
 class DesignerProfile extends StatefulWidget {
@@ -84,7 +84,7 @@ class _DesignerProfileState extends State<DesignerProfile>
                               Row(
                                 children: [
                                   Text(
-                                    "${"250 " + getTranslated(context, "product") + "152" + getTranslated(context, "order")}",
+                                    "${ getTranslated(context, "product") + "250 " + getTranslated(context, "order")+ "152" }",
                                     style: TextStyle(
                                         fontSize: 12,
                                         color: Colors.white,
@@ -205,15 +205,26 @@ class _DesignerProfileState extends State<DesignerProfile>
                             ),
                           ),
                           Positioned.fill(
-                            right: 77,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: UnconstrainedBox(
-                                child: SvgPicture.asset(
-                                  "assets/icons/search.svg",
+                              right: 77,
+                              child: myLocale.languageCode=="ar"?Align(
+                                alignment: Alignment.centerRight,
+                                child: UnconstrainedBox(
+                                  child: SvgPicture.asset(
+                                    "assets/icons/search.svg",
+                                  ),
                                 ),
-                              ),
-                            ),
+                              ):
+                              Padding(
+                                padding: const EdgeInsets.only(left:68.0),
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: UnconstrainedBox(
+                                    child: SvgPicture.asset(
+                                      "assets/icons/search.svg",
+                                    ),
+                                  ),
+                                ),
+                              )
                           )
                         ]),
                       ),

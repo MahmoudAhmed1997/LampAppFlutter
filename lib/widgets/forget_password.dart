@@ -6,6 +6,7 @@ import 'package:lamp/localization/language_constants.dart';
 class ForgetPasswordCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
 
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
@@ -100,17 +101,28 @@ class ForgetPasswordCard extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 20.0, left: 16),
+       myLocale.languageCode=="en"?
+       Padding(
+          padding: const EdgeInsets.only(top: 20.0, right: 16),
           child: Container(
-            alignment: Alignment.topLeft,
+            alignment: Alignment.topRight,
             child: InkWell(
                 onTap: () {
                   Navigator.pop(context);
                 },
                 child: SvgPicture.asset("assets/icons/button_cancle.svg")),
           ),
-        )
+        ):Padding(
+         padding: const EdgeInsets.only(top: 20.0, left: 16),
+         child: Container(
+           alignment: Alignment.topLeft,
+           child: InkWell(
+               onTap: () {
+                 Navigator.pop(context);
+               },
+               child: SvgPicture.asset("assets/icons/button_cancle.svg")),
+         ),
+       )
       ]),
     );
   }

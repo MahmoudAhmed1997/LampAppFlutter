@@ -38,8 +38,23 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
           ],
         ),
         leading:
-        Padding(
+        myLocale.languageCode == "ar"?Padding(
           padding: const EdgeInsets.only(right:16.0),
+          child: Container(
+            height: 38,
+            width: 38,
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child:
+              SvgPicture.asset("assets/icons/button_right.svg"),
+
+            ),
+          ),
+        ):
+        Padding(
+          padding: const EdgeInsets.only(left:16.0),
           child: Container(
             height: 38,
             width: 38,
@@ -47,9 +62,9 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: myLocale.languageCode == "ar"
-                    ? SvgPicture.asset("assets/icons/button_right.svg")
-                    : SvgPicture.asset("assets/icons/button_left.svg")),
+                child:
+                SvgPicture.asset("assets/icons/button_left.svg")
+            ),
           ),
         )
       ),
@@ -77,7 +92,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
 
                   Center(
                       child: Text(
-                        "أدخل كلمة المرور الحالية ومن ثم الجديدة ",
+                          getTranslated(context, "enter_current"),
                         style: TextStyle(
                             color: Color(0xff2B2727),
                             fontSize: 15,
@@ -112,7 +127,8 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                               suffixIcon: UnconstrainedBox(child: ImageIcon(AssetImage("assets/icons/eye_hide.png"),size: 25,)),
                               filled: true,
                               fillColor: Color(0xffFAFAFA),
-                              hintText: "كلمة المرور الحالية",
+                              hintText:getTranslated(context, "current_password"),
+
                               hintStyle: TextStyle(
                                   color: Color(0xff7F8FA6), fontSize: 15),
                               border: OutlineInputBorder(
@@ -150,7 +166,8 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                              suffixIcon: UnconstrainedBox(child: ImageIcon(AssetImage("assets/icons/eye_hide.png"),size: 25,)),
                               filled: true,
                               fillColor: Color(0xffFAFAFA),
-                              hintText: "كلمة المرور الجديدة",
+                              hintText: getTranslated(context, "new_password"),
+
                               hintStyle: TextStyle(
                                   color: Color(0xff7F8FA6), fontSize: 15),
                               border: OutlineInputBorder(
@@ -187,7 +204,8 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                               suffixIcon: UnconstrainedBox(child: ImageIcon(AssetImage("assets/icons/eye_hide.png"),size: 25,)),
                               filled: true,
                               fillColor: Color(0xffFAFAFA),
-                              hintText: "تأكيد كلمة المرور",
+                              hintText:getTranslated(context, "confirm_password"),
+
                               isDense: false,
                               hintStyle: TextStyle(
                                   color: Color(0xff7F8FA6), fontSize: 15),

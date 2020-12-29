@@ -344,11 +344,19 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                                               fontSize: 16,
                                               color: Color(0xff7F8FA6)),
                                         ),
-                                        Text(
-                                          "500 رس",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xff7F8FA6)),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              " 500 ",
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Color(0xff7F8FA6)),
+                                            ),
+                                            Text( getTranslated(context,
+                                              "rs",),   style: TextStyle(
+                                                fontSize: 16,
+                                                color: Color(0xff7F8FA6)),)
+                                          ],
                                         ),
                                       ],
                                     ),
@@ -363,11 +371,19 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                                               fontSize: 16,
                                               color: Color(0xff7F8FA6)),
                                         ),
-                                        Text(
-                                          "500 رس",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xff7F8FA6)),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              " 500 ",
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Color(0xff7F8FA6)),
+                                            ),
+                                            Text( getTranslated(context,
+                                              "rs",),   style: TextStyle(
+                                                fontSize: 16,
+                                                color: Color(0xff7F8FA6)),)
+                                          ],
                                         ),
                                       ],
                                     ),
@@ -382,11 +398,19 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                                               fontSize: 16,
                                               color: Color(0xff7F8FA6)),
                                         ),
-                                        Text(
-                                          "500 رس",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xff7F8FA6)),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              " 500 ",
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Color(0xff7F8FA6)),
+                                            ),
+                                            Text( getTranslated(context,
+                                              "rs",),   style: TextStyle(
+                                                fontSize: 16,
+                                                color: Color(0xff7F8FA6)),)
+                                          ],
                                         ),
                                       ],
                                     ),
@@ -401,12 +425,23 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                                               color: Color(0xff18304B),
                                               fontWeight: FontWeight.bold),
                                         ),
-                                        Text(
-                                          "500 رس",
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              color: Color(0xff18304B),
-                                              fontWeight: FontWeight.bold),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              " 500 ",
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  color: Color(0xff18304B),
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Text( getTranslated(context,
+                                              "rs",),
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  color: Color(0xff18304B),
+                                                  fontWeight: FontWeight.bold),
+                                            )
+                                          ],
                                         ),
                                       ],
                                     ),

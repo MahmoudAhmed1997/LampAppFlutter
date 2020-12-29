@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/screens/favourite_screen.dart';
 import 'package:lamp/widgets/rating_order.dart';
 import 'package:lamp/localization/language_constants.dart';
+import 'package:lamp/widgets/rang_slider.dart';
 
 class OrderInformationScreen extends StatelessWidget {
   static const routeName = '/order_information_screen';
@@ -13,13 +15,78 @@ class OrderInformationScreen extends StatelessWidget {
       Center(
         child: Column(
           children: [
-            // Center(
-            //   child: Container(
-            //       height: 68,
-            //       width: 800,
-            //       child: Image(image: AssetImage("assets/images/preparing.png"),fit: BoxFit.fitWidth,)),
-            // ),
+            Center(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 20.0, left: 20),
+                  child: Text( getTranslated(context, "preparing"),
+                  ),
+                ),
+                SizedBox(height: 12.0,),
+                Padding(
+                  padding: const EdgeInsets.only(right: 17.0, left: 17),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                            height: 11,
+                            width: 11,
+                            child: SvgPicture.asset(
+                              "assets/icons/ellipse.svg",
+                              color: Color(0xff00B5F0),
+                            )),
+                      ),
+                      SvgPicture.asset("assets/icons/line2.svg"),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Container(
+                            height: 11,
+                            width: 11,
+                            child: SvgPicture.asset(
+                              "assets/icons/ellipse.svg",
+                              color: Color(0xff00B5F0),
+                            )),
+                      ),
+                      SvgPicture.asset(
+                        "assets/icons/line2.svg",
+                        color: Color(0xffBFBFBF),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Container(
+                            height: 11,
+                            width: 11,
+                            child: SvgPicture.asset(
+                              "assets/icons/ellipse.svg",
+                              color: Color(0xff7F8FA6),
+                            )),
+                      ),
+                      SvgPicture.asset(
+                        "assets/icons/line2.svg",
+                        color: Color(0xffBFBFBF),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Container(
+                            height: 11,
+                            width: 11,
+                            child: SvgPicture.asset(
+                              "assets/icons/ellipse.svg",
+                              color: Color(0xff7F8FA6),
+                            )),
+                      ),
+                    ],
+                  ),
 
+                ),
+              ],
+            )
+
+
+                ),
+            SizedBox(height: 15.0,),
             Container(
               alignment: AlignmentDirectional.center,
               decoration: BoxDecoration(
@@ -66,11 +133,20 @@ class OrderInformationScreen extends StatelessWidget {
                             )),
                         Container(
                           width: 130,
-                          child: Text(
-                            "500 رس",
-                            style: TextStyle(
-                                color: Color(0xff7F8FA6), fontSize: 15),
-                            textDirection: TextDirection.rtl,
+                          child: Row(
+                            children: [
+                              Text(
+                                " 500 ",
+                                style: TextStyle(
+                                    color: Color(0xff7F8FA6), fontSize: 15),
+                              ),
+                              Text( getTranslated(context,
+                                "rs",),
+                                style: TextStyle(
+                                    color: Color(0xff7F8FA6), fontSize: 15),
+                              )
+
+                            ],
                           ),
                         ),
                       ],
@@ -241,7 +317,7 @@ class OrderInformationScreen extends StatelessWidget {
                           isDismissible: true,
                           context: context,
                           builder: (context) => FractionallySizedBox(
-                                heightFactor: 0.88,
+                                heightFactor: 0.60,
                                 child: RatingOrder(),
                               ));
                     },

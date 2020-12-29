@@ -59,12 +59,25 @@ class ProductCardOrder extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(
-                      "500 رس",
-                      style: TextStyle(
-                          fontSize: 14,
-                          color: Color(0xffF45540),
-                          fontWeight: FontWeight.bold),
+                    Row(
+                      children: [
+                        Text(
+                          " 500 ",
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Color(0xffF45540),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          getTranslated(context,
+                            "rs",),
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Color(0xffF45540),
+                              fontWeight: FontWeight.bold),
+                        ),
+
+                      ],
                     ),
                   ],
                 ),

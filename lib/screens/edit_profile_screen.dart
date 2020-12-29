@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamp/localization/language_constants.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
+import 'package:lamp/widgets/dropdown_countries.dart';
+
 
 class EditProfileScreen extends StatefulWidget {
   static const routeName = '/edit_profile_screen';
@@ -34,13 +36,29 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           children: [
             Text(
               getTranslated(context, "edit_profile"),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal)
 
             ),
           ],
         ),
         leading:
-        Padding(
+        myLocale.languageCode == "ar"?Padding(
           padding: const EdgeInsets.only(right:16.0),
+          child: Container(
+            height: 38,
+            width: 38,
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child:
+              SvgPicture.asset("assets/icons/button_right.svg"),
+
+            ),
+          ),
+        ):
+        Padding(
+          padding: const EdgeInsets.only(left:16.0),
           child: Container(
             height: 38,
             width: 38,
@@ -48,9 +66,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: myLocale.languageCode == "ar"
-                    ? SvgPicture.asset("assets/icons/button_right.svg")
-                    : SvgPicture.asset("assets/icons/button_left.svg")),
+                child:
+                SvgPicture.asset("assets/icons/button_left.svg")
+            ),
           ),
         )
 
@@ -199,40 +217,48 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           SizedBox(
                             height: 13,
                           ),
-                          TextFormField(
-                            key: ValueKey("phone"),
-                            autocorrect: true,
-
-                            textCapitalization: TextCapitalization.words,
-                            enableSuggestions: false,
-                            validator: (value) {
-                              if (value.isEmpty || value.length < 4) {
-                                return 'أدخل على الأقل ٤ حروف';
-                              }
-                              return null;
-                            },
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Color(0xffFAFAFA),
-                              hintText: getTranslated(context, "phone"),
-
-                              isDense: false,
-                              hintStyle: TextStyle(
-                                  color: Color(0xff7F8FA6), fontSize: 15),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  borderSide: BorderSide.none),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                new BorderSide(color: Color(0xff18304B)),
-                                borderRadius: new BorderRadius.circular(12),
+                          Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12.0),
+                                color: Color(0xffFAFAFA),
+                                // border: Border.all(color: Color(0xff18304B))
                               ),
-                            ),
-                            onSaved: (value) {
-                              _userName = value;
-                            },
-                          ),
+                              height: 65,
+                              child: DropdownCountries()),
+                          // TextFormField(
+                          //   key: ValueKey("phone"),
+                          //   autocorrect: true,
+                          //
+                          //   textCapitalization: TextCapitalization.words,
+                          //   enableSuggestions: false,
+                          //   validator: (value) {
+                          //     if (value.isEmpty || value.length < 4) {
+                          //       return 'أدخل على الأقل ٤ حروف';
+                          //     }
+                          //     return null;
+                          //   },
+                          //   keyboardType: TextInputType.text,
+                          //   decoration: InputDecoration(
+                          //     filled: true,
+                          //     fillColor: Color(0xffFAFAFA),
+                          //     hintText: getTranslated(context, "phone"),
+                          //
+                          //     isDense: false,
+                          //     hintStyle: TextStyle(
+                          //         color: Color(0xff7F8FA6), fontSize: 15),
+                          //     border: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(12.0),
+                          //         borderSide: BorderSide.none),
+                          //     focusedBorder: OutlineInputBorder(
+                          //       borderSide:
+                          //       new BorderSide(color: Color(0xff18304B)),
+                          //       borderRadius: new BorderRadius.circular(12),
+                          //     ),
+                          //   ),
+                          //   onSaved: (value) {
+                          //     _userName = value;
+                          //   },
+                          // ),
 
 
                           SizedBox(

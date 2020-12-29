@@ -111,7 +111,7 @@ class _SplashScreenHState extends State<SplashScreenH> {
           return supportedLocales.first;
         },
         onGenerateRoute: CustomRouter.generatedRoute,
-        initialRoute: loginRoute,
+        initialRoute: splashRoute,
       );
     }
   }

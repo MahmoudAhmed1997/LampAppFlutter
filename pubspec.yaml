@@ -147,6 +147,9 @@ flutter:
     - assets/icons/fav.svg
     - assets/icons/favourite.svg
     - assets/icons/eye.png
+    - assets/icons/line1.svg
+    - assets/icons/line2.svg
+    - assets/icons/ellipse.svg
     - assets/icons/ic_arrow_right.svg
     - assets/images/price.svg
     - assets/images/progress1.svg

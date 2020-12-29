@@ -29,9 +29,7 @@ class _HomePageDesignerState extends State<HomePageDesigner> {
                       widthButton: 167,
                       index: index,
                     ),
-                    SizedBox(
-                      width: 12.0,
-                    ),
+
                     Prod(
                       widthCard: 180,
                       widthButton: 167,

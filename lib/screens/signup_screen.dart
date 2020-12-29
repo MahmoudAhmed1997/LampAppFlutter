@@ -30,6 +30,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
 
     void navigateToLogInScreen() {
       Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginScreen()));
@@ -335,14 +337,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ),
         ),
+        myLocale.languageCode=="ar"?
         Container(
           alignment: Alignment.topRight,
-          padding: EdgeInsets.only(top: 35.0, right: 13),
-          child: InkWell(
+          padding: EdgeInsets.only(top: 35.0, right: 12),
+          child:   InkWell(
               onTap: (){
                 Navigator.pop(context);
               },
-              child: SvgPicture.asset("assets/images/right_button.svg")),
+             child: SvgPicture.asset(
+                "assets/images/right_button.svg",
+              )
+          ),
+        ):
+        Container(
+          alignment: Alignment.topLeft,
+          padding: EdgeInsets.only(top: 35.0, left: 12),
+          child:   InkWell(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child:SvgPicture.asset(
+                "assets/images/btn_left.svg",
+              )
+          ),
         ),
       ]),
     );

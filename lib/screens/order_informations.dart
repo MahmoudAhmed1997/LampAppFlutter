@@ -32,25 +32,35 @@ class OrderInformation extends StatelessWidget {
                 ],
               ),
              leading:
-                Padding(
-                  padding: const EdgeInsets.only(right: 16.0),
-                  child: Container(
-                      height: 38,
-                      width: 38,
-                      child:
-                      InkWell(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child:
-                          myLocale.languageCode=="ar"?SvgPicture.asset(
-                              "assets/icons/button_right.svg"):SvgPicture.asset(
-                              "assets/icons/button_left.svg")
+             myLocale.languageCode == "ar"?Padding(
+               padding: const EdgeInsets.only(right:16.0),
+               child: Container(
+                 height: 38,
+                 width: 38,
+                 child: InkWell(
+                   onTap: () {
+                     Navigator.pop(context);
+                   },
+                   child:
+                   SvgPicture.asset("assets/icons/button_right.svg"),
 
-                      ),
-
-                  ),
-                )
+                 ),
+               ),
+             ):
+             Padding(
+               padding: const EdgeInsets.only(left:16.0),
+               child: Container(
+                 height: 38,
+                 width: 38,
+                 child: InkWell(
+                     onTap: () {
+                       Navigator.pop(context);
+                     },
+                     child:
+                     SvgPicture.asset("assets/icons/button_left.svg")
+                 ),
+               ),
+             )
 
             ),
             body: DefaultTabController(
@@ -101,19 +111,17 @@ class OrderInformation extends StatelessWidget {
                       Hero(
                         tag: "ordercard",
                         child: Center(
-                            child: Directionality(
-                                textDirection: TextDirection.rtl,
-                                child: Container(
-                                  color: Color(0xffFDFDFF),
-                                  height: 1000,
-                                  width: 370,
-                                  child: ListView.builder(
-                                    itemCount: 30,
-                                    itemBuilder: (context, index) {
-                                      return ProductCardOrder();
-                                    },
-                                  ),
-                                ))),
+                            child: Container(
+                              color: Color(0xffFDFDFF),
+                              height: 1000,
+                              width: 370,
+                              child: ListView.builder(
+                                itemCount: 30,
+                                itemBuilder: (context, index) {
+                                  return ProductCardOrder();
+                                },
+                              ),
+                            )),
                       ),
                       Padding(
                           padding: const EdgeInsets.only(top:12.0),

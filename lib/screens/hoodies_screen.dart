@@ -68,7 +68,7 @@ class _HoodScreenState extends State<HoodScreen> {
                               "show_all",
                             ),
                             style: TextStyle(
-                                fontSize: 12, color: Color(0xff18304B)),
+                                fontSize: 12, color: Color(0xff18304B),fontWeight: FontWeight.normal),
                           ),
                           SizedBox(width: 6,),
                           myLocale.languageCode=="ar"?Container(

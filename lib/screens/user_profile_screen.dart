@@ -112,7 +112,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         width: 5.0,
                       ),
                       Text(
-                        "١٥",
+                        "15",
                         style: TextStyle(
                             fontSize: 17,
                             color: Color(0xff18304B),
@@ -132,7 +132,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         width: 5.0,
                       ),
                       Text(
-                        "١٥٠",
+                        "150",
                         style: TextStyle(
                             fontSize: 17,
                             color: Color(0xff18304B),
@@ -193,6 +193,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   ),
                   InkWell(
                     onTap: () {
+
                       // showDialog(context: context, child:
                       //       AlertDialog(
                       //

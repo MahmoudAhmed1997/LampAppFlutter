@@ -26,8 +26,23 @@ class AgreementsScreen extends StatelessWidget {
                 ],
               ),
               leading:
-              Padding(
+              myLocale.languageCode == "ar"?Padding(
                 padding: const EdgeInsets.only(right:16.0),
+                child: Container(
+                  height: 38,
+                  width: 38,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child:
+                    SvgPicture.asset("assets/icons/button_right.svg"),
+
+                  ),
+                ),
+              ):
+              Padding(
+                padding: const EdgeInsets.only(left:16.0),
                 child: Container(
                   height: 38,
                   width: 38,
@@ -35,12 +50,11 @@ class AgreementsScreen extends StatelessWidget {
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: myLocale.languageCode == "ar"
-                          ? SvgPicture.asset("assets/icons/button_right.svg")
-                          : SvgPicture.asset("assets/icons/button_left.svg")),
+                      child:
+                      SvgPicture.asset("assets/icons/button_left.svg")
+                  ),
                 ),
               )
-
             ),
             body: Directionality(
                 textDirection: TextDirection.rtl,

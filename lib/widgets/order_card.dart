@@ -73,12 +73,23 @@ class _OrderCardState extends State<OrderCard> {
                         )
                       ],
                     ),
-                    Text(
-                      "500 رس",
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: Color(0xffF45540),
-                          fontWeight: FontWeight.bold),
+                    Row(
+                      children: [
+                        Text(
+                          " 500 ",
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Color(0xffF45540),
+                              fontWeight: FontWeight.bold),
+                        ),    Text(
+                          getTranslated(context,
+                            "rs",),
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Color(0xffF45540),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                     Text(
                       "02.02.2020, 15:30",
@@ -110,14 +121,24 @@ class _OrderCardState extends State<OrderCard> {
               child: Row(
                 children: [
                   Text(
-                  getTranslated(context, "total_price") ,                   style: TextStyle(fontSize: 15, color: Color(0xff18304B)),
+                  getTranslated(context, "total_price") ,
+                    style: TextStyle(fontSize: 15, color: Color(0xff18304B)),
                   ),
                   SizedBox(
                     width: 85,
                   ),
-                  Text(
-                    "500 رس",
-                    style: TextStyle(fontSize: 15, color: Color(0xff7F8FA6)),
+                  Row(
+                    children: [
+                      Text(
+                        " 500 ",
+                        style: TextStyle(fontSize: 15, color: Color(0xff7F8FA6)),
+                      ),
+                      Text(
+                        getTranslated(context,
+                          "rs",),
+                        style: TextStyle(fontSize: 15, color: Color(0xff7F8FA6)),
+                      ),
+                    ],
                   ),
                 ],
               ),

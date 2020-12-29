@@ -127,7 +127,7 @@ class SuccessOrderScreen extends StatelessWidget {
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrderInformation()));
                 },
                 child: Text(
-                    getTranslated(context, "status_request")      ,
+                    getTranslated(context, "status_request") ,
                   style: TextStyle(
                       color: Color(0xff18304B),
                       fontSize: 15,

@@ -10,6 +10,8 @@ class OrdersListScreen extends StatelessWidget {
   Orders orders =Orders();
   @override
   Widget build(BuildContext context) {
+    Locale myLocale = Localizations.localeOf(context);
+
     return  Scaffold(
             appBar: AppBar(
               automaticallyImplyLeading: false,
@@ -62,15 +64,14 @@ class OrdersListScreen extends StatelessWidget {
                               height: 1000,
                               width: 370,
                               child: ListView.builder(
-                                itemCount: orders.order_previos.length,
+                                itemCount: orders.orders_now.length,
                                 itemBuilder: (context,index){
-                                  return OrderCard(text: orders.order_previos[index].status,colorBt: orders.order_previos[index].colorBt,colorTextBt: orders.order_previos[index].colorTextBt,);
+                                  return OrderCard(text: myLocale.languageCode=="en"?orders.orders_now[index].status_en:orders.orders_now[index].status,colorBt: orders.orders_now[index].colorBt,colorTextBt: orders.orders_now[index].colorTextBt,);
                                 },
 
                               ),
                             )),
                       ),
-
                       Hero(
                         tag: "ordercard",
                         child: Center(
@@ -78,14 +79,16 @@ class OrdersListScreen extends StatelessWidget {
                               height: 1000,
                               width: 370,
                               child: ListView.builder(
-                                itemCount: orders.orders_now.length,
+                                itemCount: orders.order_previos.length,
                                 itemBuilder: (context,index){
-                                  return OrderCard(text: orders.orders_now[index].status,colorBt: orders.orders_now[index].colorBt,colorTextBt: orders.orders_now[index].colorTextBt,);
+                                  return OrderCard(text:myLocale.languageCode=="en"? orders.order_previos[index].status_en:orders.order_previos[index].status,colorBt: orders.order_previos[index].colorBt,colorTextBt: orders.order_previos[index].colorTextBt,);
                                 },
 
                               ),
                             )),
                       ),
+
+
                       // Hero(
                       //   tag: "ordercard",
                       //   child: Center(

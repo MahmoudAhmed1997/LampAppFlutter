@@ -15,7 +15,11 @@
     "sizes_available": "المقاسات المتاحة(أمريكي)",
     "suggested_products": "منتجات مقترحة",
     "product": "منتج",
+    "order_al": "الطلب",
     "order": "طلب",
+    "order_ready": "تم تجهيزالطلب و جاري التوصيل",
+    "dis": "خصومات تصل ل 35% على كافة المنتجات",
+    "hour": "منذ ساعة",
     "search_product": "ابحث عن منتج",
     "orders": "الطلبات",
     "shopping_cart": "سلة الشراء",
@@ -45,17 +49,21 @@
     "edit_profile": "تعديل البروفايل",
     "full_name": "الاسم كاملا",
     "email": "البريد الإلكتروني",
+    "email_small": "البريد الإلكتروني",
+
+    "about_app_al": "من نحن",
     "forget_password": "نسيت كلمة المرور؟",
     "city": "المدينة",
     "phone": "00004 025365",
     "change_pass": "تغيير كلمة المرور",
     "active_notify": "تفعيل استقبال الإشعارات",
+    "notify": "الإشعارات",
     "save": "حفظ",
     "policy": "سيايسة الاستخدام",
     "contact_us": "تواصل معنا",
     "agreements": "الشروط والأحكام",
     "about_app": "عن التطبيق",
-    "challenge": "البحث عن التحديات",
+    "challenge": "البحث عن تحديثات",
     "welcome_text": "هلا فيك في متجر لامب",
     "phone_or_number": "رقم الجوال/البريد الإلكتروني",
     "password": "كلمة المرور",
@@ -109,12 +117,12 @@
     "new_delivery_address":"عنوان توصيل جديد",
     "shipping_and_payment":"الشحن والدفع",
     "choose_payment_method":"اختر طريقة الدفع",
-    "request_successful":"تم الطلب بنجاح",
+    "request_successful":"تم الطلب بنجاح!",
     "order_number":"رقم الطلب",
     "thank_choosing_products":"شكرا لاختيارك منتجاتنا",
     "can_track_order":"يمكنك متابعة طلبك من خلال رقم الطلب",
     "expecte_date_receipt":"تاريخ الاستلام المتوقع",
-    "thursday":"الخميس",
+    "thursday":"الخميس :",
     "continuing_shopping":"استمرار التسوق",
     "status_request":"فحص حالة الطلب",
 
@@ -156,7 +164,17 @@
     "recommended":"الأكثر ترشيحاً(recommended)",
     "view_results":"عرض النتائج",
     "by_color":"حسب اللون",
-    "view_by":"عرض حسب"
+    "view_by":"عرض حسب",
+
+
+
+    "mob_num":"رقم الجوال",
+    "choose_region":"اختر المنطقة",
+    "detail_address":"أدخل العنوان بالتفصيل",
+    "build_num":"رقم الشارع،البناية",
+    "enter_current":"أدخل كلمة المرور الحالية ثم الجديدة",
+    "current_password":"كلمة المرور الحالية"
+
 
 
 
