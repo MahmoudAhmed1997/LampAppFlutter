@@ -25,14 +25,9 @@ class _AddressesScreenState extends State<AddressesScreen> {
           automaticallyImplyLeading: false,
           centerTitle: true,
           backgroundColor: Color(0xff00B5F0),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                getTranslated(context, "delivery_addresses"),
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal)
-              ),
-            ],
+          title: Text(
+            getTranslated(context, "delivery_addresses"),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal)
           ),
           leading:
           myLocale.languageCode == "ar"?Padding(

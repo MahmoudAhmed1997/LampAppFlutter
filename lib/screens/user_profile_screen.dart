@@ -26,7 +26,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     Locale _locale = await setLocale(language.languageCode);
     SplashScreenH.setLocale(context, _locale);
   }
-
   void _showSuccessDialog() {
     showTimePicker(context: context, initialTime: TimeOfDay.now());
   }
@@ -34,7 +33,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   @override
   Widget build(BuildContext context) {
     Locale myLocale = Localizations.localeOf(context);
-
+    // List<Language>  list = [];
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       backgroundColor: Color(0xffFDFDFF),
@@ -76,6 +75,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           ),
           Container(
             height: 55.0,
+
             decoration: new BoxDecoration(
               gradient: new LinearGradient(
                 begin: const Alignment(0.0, -2.0),
@@ -88,59 +88,63 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             ),
             child: Padding(
               padding: const EdgeInsets.only(right: 48.0, left: 45),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 3.0),
-                        child: Container(
-                            width: 17,
-                            height: 20,
-                            child: SvgPicture.asset("assets/icons/fav.svg")),
-                      ),
-                      SizedBox(
-                        width: 5.0,
-                      ),
-                      Text(
-                        getTranslated(context, "favourite"),
-                        style:
-                            TextStyle(fontSize: 17, color: Color(0xff18304B)),
-                      ),
-                      SizedBox(
-                        width: 5.0,
-                      ),
-                      Text(
-                        "15",
-                        style: TextStyle(
-                            fontSize: 17,
-                            color: Color(0xff18304B),
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        getTranslated(context, "your_orders"),
-                        style:
-                            TextStyle(fontSize: 17, color: Color(0xff18304B)),
-                      ),
-                      SizedBox(
-                        width: 5.0,
-                      ),
-                      Text(
-                        "150",
-                        style: TextStyle(
-                            fontSize: 17,
-                            color: Color(0xff18304B),
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ],
+              child: Container(
+                width: 350,
+
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 3.0),
+                          child: Container(
+                              width: 17,
+                              height: 20,
+                              child: SvgPicture.asset("assets/icons/fav.svg")),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        Text(
+                          getTranslated(context, "favourite"),
+                          style:
+                              TextStyle(fontSize: 17, color: Color(0xff18304B)),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        Text(
+                          "15",
+                          style: TextStyle(
+                              fontSize: 17,
+                              color: Color(0xff18304B),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          getTranslated(context, "your_orders"),
+                          style:
+                              TextStyle(fontSize: 17, color: Color(0xff18304B)),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        Text(
+                          "150",
+                          style: TextStyle(
+                              fontSize: 17,
+                              color: Color(0xff18304B),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -191,93 +195,150 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   SizedBox(
                     height: 10,
                   ),
-                  InkWell(
-                    onTap: () {
+                 
 
-                      // showDialog(context: context, child:
-                      //       AlertDialog(
-                      //
-                      //        title: Text("Choose Language",textAlign: TextAlign.center,),
-                      //         titleTextStyle: TextStyle(color: Colors.black,fontSize: 18),
-                      //        content: Container(
-                      //          height: 120,
-                      //          child: Column(
-                      //            children: [
-                      //              RaisedButton(child: Text("Arabic",style: TextStyle(color: Colors.black),),onPressed: (){},),
-                      //              RaisedButton(child: Text("English",style: TextStyle(color: Colors.black),),onPressed: (){},),
-                      //            ],
-                      //          ),
-                      //        ),
-                      //      )
-                    },
-                    child: Container(
-                      width: 350,
-                      height: 61,
-                      decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: new LinearGradient(
-                          begin: const Alignment(0.0, -5.0),
-                          end: const Alignment(0.0, 0.1),
-                          colors: <Color>[
-                            Color(0xff03004D).withOpacity(0.1),
-                            Colors.white.withOpacity(0.3)
-                          ],
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                SvgPicture.asset(
-                                  "assets/icons/translate.svg",
-                                  color: Color(0xff18304B),
-                                ),
-                                SizedBox(
-                                  width: 30.0,
-                                ),
-                                Text(
-                                  getTranslated(context, "change_lang"),
-                                  style: TextStyle(
-                                      fontSize: 16, color: Color(0xff18304B)),
-                                ),
+                   InkWell(
+                     onTap: (){
+                      myLocale.languageCode=="en"?
+                      _changeLanguage(Language.languageList().last): _changeLanguage(Language.languageList().first);
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          PageRouteBuilder(pageBuilder: (BuildContext context, Animation animation,
+                              Animation secondaryAnimation) {
+                            return LoginScreen();
+                          }, transitionsBuilder: (BuildContext context, Animation<double> animation,
+                              Animation<double> secondaryAnimation, Widget child) {
+                            return new SlideTransition(
+                              position: new Tween<Offset>(
+                                begin: const Offset(1.0, 0.0),
+                                end: Offset.zero,
+                              ).animate(animation),
+                              child: child,
+                            );
+                          }),
+                              (Route route) => false);
+
+
+                     },
+                     child: Container(
+                          width: 350,
+                          height: 61,
+                          decoration: new BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            gradient: new LinearGradient(
+                              begin: const Alignment(0.0, -5.0),
+                              end: const Alignment(0.0, 0.1),
+                              colors: <Color>[
+                                Color(0xff03004D).withOpacity(0.1),
+                                Colors.white.withOpacity(0.3)
                               ],
                             ),
-                            DropdownButton<Language>(
-                              underline: SizedBox(),
-                              icon:
-                              myLocale.languageCode=="ar"?
-                              SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg"),
-                              onChanged: (Language language) {
-                                _changeLanguage(language);
-                              },
-                              items: Language.languageList()
-                                  .map<DropdownMenuItem<Language>>(
-                                    (e) => DropdownMenuItem<Language>(
-                                      value: e,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text(
-                                            e.flag,
-                                            style: TextStyle(fontSize: 30),
-                                          ),
-                                          Text(e.name)
-                                        ],
-                                      ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/icons/translate.svg",
+                                      color: Color(0xff18304B),
                                     ),
-                                  )
-                                  .toList(),
+                                    SizedBox(
+                                      width: 30.0,
+                                    ),
+                                    Text(
+                                      getTranslated(context, "change_lang"),
+                                      style: TextStyle(
+                                          fontSize: 16, color: Color(0xff18304B)),
+                                    ),
+
+                                  ],
+                                ),
+                                myLocale.languageCode=="ar"?
+                                Row(
+                                  children: [
+                                    Text(" العربية ",style: TextStyle(fontSize: 15,color: Color(0xff18304B)),),
+                                    SvgPicture.asset("assets/images/sau.svg",height: 17,),
+
+                                    SvgPicture.asset("assets/icons/arrow_right.svg"),
+                                  ],
+                                ):Row(
+                                  children: [
+                                    Text(" English ",style: TextStyle(fontSize: 15,color: Color(0xff18304B)),),
+                                    SvgPicture.asset("assets/images/eng.svg",height: 17,),
+
+                                    SvgPicture.asset("assets/icons/ic_arrow_right.svg"),
+                                  ],
+                                )
+                                // DropdownButton(
+                                //   underline: SizedBox(),
+                                //   icon:
+                                //   myLocale.languageCode=="ar"?
+                                //   SvgPicture.asset("assets/icons/arrow_right.svg"):SvgPicture.asset("assets/icons/ic_arrow_right.svg"),
+                                //   onChanged: (Language language) {
+                                //     _changeLanguage(language);
+                                //     Navigator.pushAndRemoveUntil(
+                                //         context,
+                                //         PageRouteBuilder(pageBuilder: (BuildContext context, Animation animation,
+                                //             Animation secondaryAnimation) {
+                                //           return LoginScreen();
+                                //         }, transitionsBuilder: (BuildContext context, Animation<double> animation,
+                                //             Animation<double> secondaryAnimation, Widget child) {
+                                //           return new SlideTransition(
+                                //             position: new Tween<Offset>(
+                                //               begin: const Offset(1.0, 0.0),
+                                //               end: Offset.zero,
+                                //             ).animate(animation),
+                                //             child: child,
+                                //           );
+                                //         }),
+                                //             (Route route) => false);
+
+                                //     // showDialog(context: context, child:
+                                //     // AlertDialog(
+                                //     //
+                                //     // title: Text("Choose Language",textAlign: TextAlign.center,),
+                                //     // titleTextStyle: TextStyle(color: Colors.black,fontSize: 18),
+                                //     // content: Container(
+                                //     // height: 120,
+                                //     // child: Column(
+                                //     // children: [
+                                //     // RaisedButton(child: Text("Arabic",style: TextStyle(color: Colors.black),),onPressed: (){},),
+                                //     // RaisedButton(child: Text("English",style: TextStyle(color: Colors.black),),onPressed: (){},),
+                                //     // ],
+                                //     // ),
+                                //     // ),
+                                //     // );
+                                //   },
+                                //   items: Language.languageList()
+                                //       .map<DropdownMenuItem<Language>>(
+                                //         (e) => DropdownMenuItem<Language>(
+                                //           value: e,
+                                //           child: Row(
+                                //             mainAxisAlignment:
+                                //                 MainAxisAlignment.spaceAround,
+                                //             children: <Widget>[
+                                //               Text(
+                                //                 e.flag,
+                                //                 style: TextStyle(fontSize: 30),
+                                //               ),
+                                //               Text(e.name)
+                                //             ],
+                                //           ),
+                                //         ),
+                                //       )
+                                //       .toList(),
+                                // ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
+                   ),
+
+                  
                   SizedBox(
                     height: 10,
                   ),

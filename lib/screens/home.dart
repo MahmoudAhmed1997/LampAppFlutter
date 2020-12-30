@@ -102,7 +102,7 @@ class _HomeState extends State<Home> {
               color: Color(0xffFFFFFF),
               constraints: BoxConstraints(maxHeight: 150.0),
               child: TabBar(
-                labelStyle: TextStyle(fontSize: 12),
+                labelStyle: TextStyle(fontSize: 12,fontFamily: 'DINNextLTArabic'),
                 labelColor: Color(0xff00B5F0),
                 unselectedLabelColor: Color(0xff7F8FA6),
                 indicatorColor: Color(0xff00B5F0),

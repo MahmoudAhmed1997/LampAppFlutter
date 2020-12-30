@@ -29,15 +29,10 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
         automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Color(0xff00B5F0),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              getTranslated(context, "contact_us"),
+        title: Text(
+          getTranslated(context, "contact_us"),
 
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
-            ),
-          ],
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
         ),
         leading:
         myLocale.languageCode == "ar"?Padding(

@@ -21,17 +21,12 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           automaticallyImplyLeading: false,
           centerTitle: true,
           backgroundColor: Color(0xff00B5F0),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                getTranslated(
-                  context,
-                  "notify",
-                ),
-                style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18),
-              ),
-            ],
+          title: Text(
+            getTranslated(
+              context,
+              "notify",
+            ),
+            style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18),
           ),
           leading: myLocale.languageCode == "ar"
               ? Padding(

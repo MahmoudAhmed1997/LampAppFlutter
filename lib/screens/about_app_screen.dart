@@ -22,14 +22,9 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
         automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Color(0xff00B5F0),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              getTranslated(context, "about_app_al"),
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
-            ),
-          ],
+        title: Text(
+          getTranslated(context, "about_app_al"),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
         ),
         leading:
         myLocale.languageCode == "ar"?Padding(

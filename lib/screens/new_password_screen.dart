@@ -29,14 +29,9 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
         automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Color(0xff00B5F0),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              getTranslated(context, "change_pass")
-              ,style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
-          ],
-        ),
+        title: Text(
+          getTranslated(context, "change_pass")
+          ,style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
         leading:
         myLocale.languageCode == "ar"?Padding(
           padding: const EdgeInsets.only(right:16.0),

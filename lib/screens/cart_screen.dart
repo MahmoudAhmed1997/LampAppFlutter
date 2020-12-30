@@ -104,7 +104,7 @@ class _CartsScreenState extends State<CartsScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 15,),
+                    SizedBox(height: 10,),
 
                     Container(
                       height: 310,
@@ -190,9 +190,9 @@ class _CartsScreenState extends State<CartsScreen> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0)),
                     color: Color(0xff00B5F0),
-                    child: Text(
+                    child:Text(
                       getTranslated(context, "complete_order"),
-                      style: TextStyle(color: Colors.white, fontSize: 14),
+                      style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(

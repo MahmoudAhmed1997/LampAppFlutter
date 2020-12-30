@@ -30,14 +30,9 @@ class _NewDeliveryAddressesScreenState
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Color(0xff00B5F0),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              getTranslated(context, "new_delivery_address"),
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal)
-            ),
-          ],
+        title: Text(
+          getTranslated(context, "new_delivery_address"),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal)
         ),
         leading:
         myLocale.languageCode == "ar"?Padding(

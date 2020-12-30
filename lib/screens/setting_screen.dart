@@ -29,14 +29,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
         automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Color(0xff00B5F0),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              getTranslated(context, "general_setting"),
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
-            ),
-          ],
+        title: Text(
+          getTranslated(context, "general_setting"),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
         ),
         leading:
         myLocale.languageCode == "ar"?Padding(

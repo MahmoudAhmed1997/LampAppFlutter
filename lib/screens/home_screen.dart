@@ -50,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         child: TabBarView(
 
 
+
           controller: tabController,
           physics: NeverScrollableScrollPhysics(),
           children: mainScreens,
@@ -164,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   text: getTranslated(context, "profile"),
                 ),
               ],
-              labelStyle: TextStyle(fontSize: 10),
+              labelStyle: TextStyle(fontSize: 10,fontFamily: 'DINNextLTArabic'),
               labelColor: Color(0xff00B5F0),
               unselectedLabelColor: Color(0xff7F8FA6),
               isScrollable: false,

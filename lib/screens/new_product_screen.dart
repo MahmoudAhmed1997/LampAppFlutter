@@ -137,7 +137,7 @@ class _NewProductsScreenState extends State<NewProductsScreen> {
                   itemCount: 2,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.only(bottom:8.0),
+                      padding: const EdgeInsets.only(bottom: 8.0),
                       child: Container(
                         height: 310,
                         child: Row(
@@ -149,7 +149,6 @@ class _NewProductsScreenState extends State<NewProductsScreen> {
                               widthButton: 167,
                               index: index,
                             ),
-
                             Prod(
                               widthCard: 180,
                               widthButton: 167,
@@ -203,7 +202,6 @@ class _NewProductsScreenState extends State<NewProductsScreen> {
                             children: [
                               Container(
                                   height: 25,
-                                  width: 35,
                                   child: ImageIcon(
                                     AssetImage(
                                       "assets/icons/Filter.png",
@@ -218,6 +216,11 @@ class _NewProductsScreenState extends State<NewProductsScreen> {
                                     ),
                                     color: Colors.white,
                                   )),
+                              Container(
+                                  height: 22,
+                                  child: UnconstrainedBox(
+                                      child: SvgPicture.asset(
+                                          "assets/images/fit.svg"))),
                               Text(
                                 getTranslated(context, "best_seller"),
                                 style: TextStyle(
@@ -257,6 +260,11 @@ class _NewProductsScreenState extends State<NewProductsScreen> {
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 17),
                               ),
+                              Container(
+                                  height: 22,
+                                  child: UnconstrainedBox(
+                                      child: SvgPicture.asset(
+                                          "assets/images/fit.svg"))),
                               Container(
                                   height: 25,
                                   child: ImageIcon(

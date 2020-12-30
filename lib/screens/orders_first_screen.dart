@@ -366,7 +366,7 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                                       children: [
                                         Text(
                                           getTranslated(
-                                              context, "cost_purchases"),
+                                              context, "dis_cou"),
                                           style: TextStyle(
                                               fontSize: 16,
                                               color: Color(0xff7F8FA6)),
@@ -393,7 +393,7 @@ class _OrdersFirstScreenState extends State<OrdersFirstScreen> {
                                       children: [
                                         Text(
                                           getTranslated(
-                                              context, "cost_purchases"),
+                                              context, "q_m"),
                                           style: TextStyle(
                                               fontSize: 16,
                                               color: Color(0xff7F8FA6)),

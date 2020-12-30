@@ -77,12 +77,13 @@
     "send_email": "Enter the email to send the activation code",
 
     "designation_code":"activation code",
-    "set_password":"reset password",
+    "set_password":"Reset password",
     "enter_the_sent_code":"Enter the sent code",
     "new_password_twice":"Then, enter the new password twice",
     "new_password":"new password",
     "confirm_password":"confirm password",
     "designation_code":"activation code",
+    "dis_cou":"coupon discount",
 
 
     "information":"Info",

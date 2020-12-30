@@ -11,23 +11,16 @@ class AgreementsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Locale myLocale = Localizations.localeOf(context);
 
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
+    return  Scaffold(
             appBar: AppBar(
               automaticallyImplyLeading: false,
               centerTitle: true,
               backgroundColor: Color(0xff00B5F0),
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                  getTranslated(context, "agreements")  ,                  style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18),),
-                ],
-              ),
+              title: Text(
+              getTranslated(context, "agreements") ,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18),),
               leading:
               myLocale.languageCode == "ar"?Padding(
-                padding: const EdgeInsets.only(right:16.0),
+                padding:  EdgeInsets.only(right: 16),
                 child: Container(
                   height: 38,
                   width: 38,
@@ -56,14 +49,12 @@ class AgreementsScreen extends StatelessWidget {
                 ),
               )
             ),
-            body: Directionality(
-                textDirection: TextDirection.rtl,
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Text(
-                      "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربىهذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى"
+            body: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                  "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربىهذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى"
 
-                    ,style: TextStyle(fontSize: 15,color: Color(0xff18304B)),),
-                ))));
+                ,style: TextStyle(fontSize: 15,color: Color(0xff18304B)),),
+            ));
   }
 }

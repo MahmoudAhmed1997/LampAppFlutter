@@ -17,18 +17,16 @@ import 'package:lamp/classes/language.dart';
 class DetailsProductScreen extends StatefulWidget {
   static const routeName = '/product_details_screen';
 
-
   @override
   _DetailsProductScreenState createState() => _DetailsProductScreenState();
 }
 
 class _DetailsProductScreenState extends State<DetailsProductScreen> {
-   Locale local;
- // DemoLocalization demoLocalization =DemoLocalization();
-  List _selectedIndexs=[];
-  Products products =Products();
-  int id ;
-
+  Locale local;
+  // DemoLocalization demoLocalization =DemoLocalization();
+  List _selectedIndexs = [];
+  Products products = Products();
+  int id;
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +36,11 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
       backgroundColor: Colors.white,
       body: Stack(children: [
         ListView(children: [
-
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right:8.0,left: 8.0),
+                padding: const EdgeInsets.only(right: 8.0, left: 8.0),
                 child: Container(
                   width: double.infinity,
                   height: 80,
@@ -54,24 +51,27 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
-                          onTap: (){
-                            Navigator.pop(context);
-                          },
-                          child:myLocale.languageCode=="ar"? SvgPicture.asset(
-                            "assets/images/right_button.svg",
-                          ):SvgPicture.asset(
-                            "assets/images/btn_left.svg",
-                          )
-                        ),
-
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: myLocale.languageCode == "ar"
+                                ? SvgPicture.asset(
+                                    "assets/images/right_button.svg",
+                                  )
+                                : SvgPicture.asset(
+                                    "assets/images/btn_left.svg",
+                                  )),
                         Padding(
                           padding: const EdgeInsets.only(top: 8.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                getTranslated(context,
-                                  "details_product_text",),                                  style: TextStyle(
+                                getTranslated(
+                                  context,
+                                  "details_product_text",
+                                ),
+                                style: TextStyle(
                                     fontSize: 18, color: Color(0xff464451)),
                               ),
                             ],
@@ -85,11 +85,9 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
               ),
               Center(
                 child: Container(
-
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Color(0xffF9F9FF)
-                  ),
+                      borderRadius: BorderRadius.circular(15),
+                      color: Color(0xffF9F9FF)),
                   height: 225,
                   width: 352,
                   child: Image.asset(
@@ -99,26 +97,22 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 5, right: 25.0,left:25 ),
+                padding: const EdgeInsets.only(top: 5, right: 25.0, left: 25),
                 child: Container(
                   height: 85,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
                       Container(
-
-                          height: 78,
-                          width:78,
-
-                          decoration: BoxDecoration(
+                        height: 78,
+                        width: 78,
+                        decoration: BoxDecoration(
                             color: Color(0xffF9F9FF),
                             borderRadius: BorderRadius.circular(8.0),
-                            border: Border.all(color: Color(0xffF9F9FF)
-                            )),
-                        child:
-                        Center(
+                            border: Border.all(color: Color(0xffF9F9FF))),
+                        child: Center(
                           child: Image(
-                            height: 61,width: 55,
+                            height: 61, width: 55,
                             fit: BoxFit.cover,
                             image: AssetImage(
                               "assets/images/tsh2.png",
@@ -126,25 +120,20 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                             //color: Colors.grey,
                           ),
                         ),
-
                       ),
                       SizedBox(
                         width: 12.0,
                       ),
                       Container(
-
                         height: 78,
-                        width:78,
-
+                        width: 78,
                         decoration: BoxDecoration(
                             color: Color(0xffF9F9FF),
                             borderRadius: BorderRadius.circular(8.0),
-                            border: Border.all(color: Color(0xffF9F9FF)
-                            )),
-                        child:
-                        Center(
+                            border: Border.all(color: Color(0xffF9F9FF))),
+                        child: Center(
                           child: Image(
-                            height: 61,width: 55,
+                            height: 61, width: 55,
                             fit: BoxFit.cover,
                             image: AssetImage(
                               "assets/images/tsh3.png",
@@ -152,124 +141,137 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                             //color: Colors.grey,
                           ),
                         ),
-
                       ),
-
                     ],
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right:18.0,left: 18),
+                padding: const EdgeInsets.only(right: 18.0, left: 18),
                 child: Text(
-                  getTranslated(context,
-                    "description_product",),
-                  style:
-                      TextStyle(fontSize: 18, color: Color(0xff18304B)),
+                  getTranslated(
+                    context,
+                    "description_product",
+                  ),
+                  style: TextStyle(fontSize: 18, color: Color(0xff18304B)),
                   textAlign: TextAlign.start,
                 ),
               ),
-             myLocale.languageCode=="ar"? Padding(
-                padding: const EdgeInsets.only(right:18.0,left: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          "500 ",
-                          style: TextStyle(
-                              fontSize: 19,
-                              color: Color(0xffF45540),
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          getTranslated(context,
-                            "rs",),
-                          style: TextStyle(
-                              fontSize: 19,
-                              color: Color(0xffF45540),
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      width: 143,
-                      height: 40,
+              myLocale.languageCode == "en"
+                  ? Padding(
+                      padding: const EdgeInsets.only(right: 18.0, left: 16),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SvgPicture.asset("assets/icons/plus.svg"),
-                          Container(
-                              color: Colors.white,
-                              width: 45,
-                              height: 39,
-                              child: Center(
-                                  child: Text(
-                                "02",
+                          Row(
+                            children: [
+                              Text(
+                                "500 ",
                                 style: TextStyle(
-                                    fontSize: 16, color: Color(0xff18304B)),
-                              ))),
-                          SvgPicture.asset("assets/icons/minus.svg"),
+                                    fontSize: 19,
+                                    color: Color(0xffF45540),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                getTranslated(
+                                  context,
+                                  "rs",
+                                ),
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Color(0xffF45540),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            width: 143,
+                            height: 40,
+                            child: Row(
+                              children: [
+                                SvgPicture.asset("assets/icons/minus.svg"),
+
+                                Container(
+                                    color: Colors.white,
+                                    width: 45,
+                                    height: 39,
+                                    child: Center(
+                                        child: Text(
+                                      "02",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Color(0xff18304B)),
+                                    ))),
+                                SvgPicture.asset("assets/icons/plus.svg"),
+
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     )
-                  ],
-                ),
-              ):Padding(
-               padding: const EdgeInsets.only(right:18.0,left: 16),
-               child: Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                 children: [
-                   Container(
-                     width: 143,
-                     height: 40,
-                     child: Row(
-                       children: [
-                         SvgPicture.asset("assets/icons/minus.svg"),
-                         Container(
-                             color: Colors.white,
-                             width: 45,
-                             height: 39,
-                             child: Center(
-                                 child: Text(
-                                   "02",
-                                   style: TextStyle(
-                                       fontSize: 16, color: Color(0xff18304B)),
-                                 ))),
+                  : Padding(
+                      padding: const EdgeInsets.only(right: 18.0, left: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                "500 ",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Color(0xffF45540),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                getTranslated(
+                                  context,
+                                  "rs",
+                                ),
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Color(0xffF45540),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
 
-                         SvgPicture.asset("assets/icons/plus.svg"),
-                       ],
-                     ),
-                   ),
+                          Container(
+                            width: 143,
+                            height: 40,
+                            child: Row(
+                              children: [
+                                SvgPicture.asset("assets/icons/plus.svg"),
 
-                   Row(
-                     children: [
-                       Text(
-                         "500 ",
-                         style: TextStyle(
-                             fontSize: 19,
-                             color: Color(0xffF45540),
-                             fontWeight: FontWeight.bold),
-                       ),
-                       Text(
-                         getTranslated(context,
-                           "rs",),
-                         style: TextStyle(
-                             fontSize: 19,
-                             color: Color(0xffF45540),
-                             fontWeight: FontWeight.bold),
-                       ),
-                     ],
-                   ),
-                 ],
-               ),
-             ),
+                                Container(
+                                    color: Colors.white,
+                                    width: 45,
+                                    height: 39,
+                                    child: Center(
+                                        child: Text(
+                                      "02",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Color(0xff18304B)),
+                                    ))),
+                                SvgPicture.asset("assets/icons/minus.svg"),
+
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
               Divider(),
               Padding(
-                padding: const EdgeInsets.only(top: 21.0,right: 18,left: 18),
+                padding: const EdgeInsets.only(top: 21.0, right: 18, left: 18),
                 child: Text(
-                  getTranslated(context,
-                    "sizes_available",),                      style: TextStyle(fontSize: 16, color: Color(0xff18304B)),
+                  getTranslated(
+                    context,
+                    "sizes_available",
+                  ),
+                  style: TextStyle(fontSize: 16, color: Color(0xff18304B)),
                 ),
               ),
               Padding(
@@ -278,21 +280,18 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                   height: 45,
                   width: double.infinity,
                   child: ListView.builder(
-
                     itemCount: 6,
-
-                    itemBuilder: (context,i){
-                      final _isSelected=_selectedIndexs.contains(i);
+                    itemBuilder: (context, i) {
+                      final _isSelected = _selectedIndexs.contains(i);
 
                       return Padding(
-                        padding: const EdgeInsets.only(left:8.0),
+                        padding: const EdgeInsets.only(left: 8.0),
                         child: GestureDetector(
-                          onTap:(){
-                            setState((){
-                              if(_isSelected){
+                          onTap: () {
+                            setState(() {
+                              if (_isSelected) {
                                 _selectedIndexs.remove(i);
-
-                              }else{
+                              } else {
                                 _selectedIndexs.add(i);
                               }
                             });
@@ -300,20 +299,19 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                           child: Container(
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                border: Border.all(color: _isSelected?Color(0xff00B5F0):Color(0xffE8E8E8))),
+                                border: Border.all(
+                                    color: _isSelected
+                                        ? Color(0xff00B5F0)
+                                        : Color(0xffE8E8E8))),
                             height: 43,
                             width: 68,
-                            child: Center(child: Text(products.products_list[i].size)),
+                            child: Center(
+                                child: Text(products.products_list[i].size)),
                           ),
                         ),
                       );
-
-                  },
-
-                  scrollDirection: Axis.horizontal,
-
-
-
+                    },
+                    scrollDirection: Axis.horizontal,
                   ),
                 ),
               ),
@@ -324,8 +322,11 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      getTranslated(context,
-                        "suggested_products",),                        style: TextStyle(
+                      getTranslated(
+                        context,
+                        "suggested_products",
+                      ),
+                      style: TextStyle(
                           color: Color(0xff18304B),
                           fontSize: 18,
                           fontWeight: FontWeight.bold),
@@ -353,8 +354,8 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                         ),
                         Text(
                           "محمد الخالدي",
-                          style: TextStyle(
-                              fontSize: 15, color: Color(0xff18304B)),
+                          style:
+                              TextStyle(fontSize: 15, color: Color(0xff18304B)),
                         ),
                       ],
                     ),
@@ -398,7 +399,7 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                       index: 3,
                     ),
                     SizedBox(
-                      width:5.0,
+                      width: 5.0,
                     ),
                     Prod(
                       widthCard: 180,
@@ -421,13 +422,12 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                color: Color(0xff00B5F0),
-                margin: EdgeInsets.symmetric(vertical: 10),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
+              Expanded(
+                flex: 5,
                 child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Color(0xff00B5F0)),
                   width: 280,
                   height: 53,
                   child: Row(
@@ -442,10 +442,15 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                             ),
                             color: Colors.white,
                           )),
-                      SizedBox(width: 10,),
+                      SizedBox(
+                        width: 10,
+                      ),
                       Text(
-                        getTranslated(context,
-                          "add_to_cart",),                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        getTranslated(
+                          context,
+                          "add_to_cart",
+                        ),
+                        style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ],
                   ),
@@ -454,14 +459,12 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
               SizedBox(
                 width: 10.0,
               ),
-
-              Card(
-                color: Color(0xff18304B),
-                margin: EdgeInsets.symmetric(vertical: 10),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
+              Expanded(
+                flex: 1,
                 child: Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xff18304B),
+                      borderRadius: BorderRadius.circular(5)),
                   width: 55,
                   height: 55,
                   child: Row(
@@ -480,7 +483,6 @@ class _DetailsProductScreenState extends State<DetailsProductScreen> {
                   ),
                 ),
               ),
-
             ],
           ),
         ),
