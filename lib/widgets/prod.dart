@@ -10,11 +10,16 @@ class Prod extends StatelessWidget {
   final double widthCard;
   final double widthButton;
   final int index;
+  final int id;
+  final String front_img;
+  final String back_img;
 
-  Prod({this.widthCard, this.widthButton, this.index});
+
 
   Products products = Products();
-  Product product = Product();
+
+  Prod({this.widthCard, this.widthButton, this.index, this.id,this.front_img, this.back_img});
+  //Designer product = Designer();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -43,12 +48,14 @@ class Prod extends StatelessWidget {
                 width: double.infinity,
                 child: Container(
                   color: Color(0xffF9F9FF),
-                  child: Image(
-                    fit: BoxFit.contain,
-                    image: AssetImage(
-                      products.products_list[index].imagePath,
-                    ),
-                  ),
+                  child: Image.network(front_img)
+                  
+                  // Image(
+                  //   fit: BoxFit.contain,
+                  //   image: NetworkImage(
+                  //    front_img,
+                  //   ),
+                  // ),
                 ),
               ),
               Expanded(
@@ -73,6 +80,7 @@ class Prod extends StatelessWidget {
                         )),
                       ),
                       Text(
+
                         getTranslated(context, "description_prod"),
                         style: TextStyle(
                             // fontFamily: "assets/fonts/ArbFONTS-DINNextLTArabic-Regular-2.ttf",
@@ -84,7 +92,7 @@ class Prod extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                "500 ",
+                               "30",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Color(0xffF45540),

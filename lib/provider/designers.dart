@@ -2,22 +2,61 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:lamp/provider/product.dart';
+import 'package:http/http.dart' as http;
 
-import 'designer.dart';
+import 'package:lamp/provider/designer.dart';
 
-class Designers {
-  List<Designer> _designer_list = [
-    Designer(id: "a",imagePath: "assets/images/face.png",name: "محمد الخالدي"),
-    Designer(id: "b",imagePath: "assets/images/face2.png",name: "محمد الخالدي"),
-    Designer(id: "c",imagePath: "assets/images/face3.png",name: "محمد الخالدي"),
-    Designer(id: "d",imagePath: "assets/images/face3.png",name: "محمد الخالدي"),
-    Designer(id: "e",imagePath: "assets/images/face3.png",name: "محمد الخالدي"),
+class Designers with ChangeNotifier {
 
+  List<Designer> _designerList = new List<Designer>();
 
-
-  ];
-  List<Designer> get designers_list  {
-    return _designer_list ;
+  List<Designer> get designersList {
+    return _designerList;
   }
-}
 
+  Future<void> fetchAndSetProducts() async {
+    final url = 'http://lampnow.sa.com/api/v1/home';
+    try {
+      final response = await http.get(url);
+      final extractedData = json.decode(response.body)['designers']as List<dynamic>;
+      if (extractedData == null) {
+        return;
+      }
+
+      // final List<Designer> loadedDesigners = [];
+      // _designerList = new List<Designer>();
+      for(var data in extractedData){
+        // loadedDesigners.add(Designer.fromJson(data));
+        // print(Designer.fromJson(data));
+        // _designerList.add(Designer.fromJson(data));
+        _designerList.add( new Designer(id:data['id'], name: data['user']['name'], img:data['img']));
+      }
+
+      // extractedData.forEach((prodId, prodData) {
+      //   _designerList.add(Designer(
+      //     id: prodData['id'],
+      //     name: prodData['user']['name'],
+      //     img: prodData['img'],
+      //   ));
+      // });
+      // designerList = loadedDesigners;
+     notifyListeners();
+
+
+      // print("extractedData: " + extractedData.toString());
+      // print("designerList: " + designerList.toString());
+      //print(designerList.length);
+     // Designer designer = designerList[0];
+     //  for(Designer designer in designerList){
+        // print(designer.name);
+        // print(designer.img);
+      // }
+      // print(loadedDesigners.length);
+      // print(extractedData);
+
+    } catch (error) {
+      throw (error);
+    }
+  }
+
+}

@@ -1,21 +1,33 @@
-import 'package:flutter/cupertino.dart';
-import 'dart:convert';
-class Designer {
-  String id;
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+
+class Designer with ChangeNotifier{
+  int id;
   String name;
-  String imagePath;
+  String img;
 
-
-
-  Designer
-      ({@required this.id,
+  Designer({
+    @required this.id,
     @required this.name,
-    @required this.imagePath,
-
-
+    @required this.img,
   });
 
-//
+  Designer.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['user']['name'];
+    img= json['img'];
+  }
 
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['user']['name'] = this.name;
+    data['img'] = this.img;
+    return data;
+  }
 
+  @override
+  String toString() {
+    return 'id: $id, name: $name, img: $img';
+  }
 }

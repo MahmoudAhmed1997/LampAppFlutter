@@ -99,16 +99,16 @@ class _HoodScreenState extends State<HoodScreen> {
               child: Container(
                 width: double.infinity,
                 height:148 ,
-                child: ListView.builder(
-                  itemCount: designers.designers_list.length,
-                  itemBuilder: (contect,index){
-                    return  DesignerCard(index: index,);
-
-                  },
-                  scrollDirection: Axis.horizontal,
-
-
-                ),
+                // child: ListView.builder(
+                //   itemCount: designers.designers_list.length,
+                //   itemBuilder: (context,index){
+                //     return  DesignerCard();
+                //
+                //   },
+                //   scrollDirection: Axis.horizontal,
+                //
+                //
+                // ),
               ),
             ),
             SizedBox(height: 30,),

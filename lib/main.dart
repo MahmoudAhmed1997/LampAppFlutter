@@ -1,55 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:lamp/provider/designer.dart';
+import 'package:lamp/provider/designers.dart';
+import 'package:provider/provider.dart';
 import 'localization/demo_localization.dart';
 import 'package:lamp/router/custom_router.dart';
 import 'router/route_constants.dart';
 import 'package:lamp/localization/language_constants.dart';
-import 'package:lamp/screens/about_app_screen.dart';
-import 'package:lamp/screens/addresses_screen.dart';
-import 'package:lamp/screens/agreements_screen.dart';
-import 'package:lamp/screens/cart_screen.dart';
-import 'package:lamp/screens/cart_second_screen.dart';
-import 'package:lamp/screens/contact_us_screen.dart';
-import 'package:lamp/screens/designer_profile.dart';
-import 'package:lamp/screens/edit_profile_screen.dart';
-import 'package:lamp/screens/favourite_screen.dart';
-import 'package:lamp/screens/favourite_second_screen.dart';
-import 'package:lamp/screens/fliters_screen.dart';
-import 'package:lamp/screens/home.dart';
-import 'package:lamp/screens/home_screen.dart';
-import 'package:lamp/screens/login_screen.dart';
-import 'package:lamp/screens/new_delivery%20_address.dart';
-import 'package:lamp/screens/new_password_screen.dart';
-import 'package:lamp/screens/new_product_screen.dart';
-import 'package:lamp/screens/notifications_screen.dart';
-import 'package:lamp/screens/order_adress_screen.dart';
-import 'package:lamp/screens/order_information_screen.dart';
-import 'package:lamp/screens/order_informations.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:lamp/screens/orders_list.dart';
-import 'package:lamp/screens/orders_first_screen.dart';
-import 'package:lamp/screens/orders_second_screen.dart';
-import 'package:lamp/screens/orders_third_screen.dart';
-import 'package:lamp/screens/product_detailes.dart';
-import 'package:lamp/screens/receipt_order.dart';
-import 'package:lamp/screens/reset_screen.dart';
-import 'package:lamp/screens/setting_screen.dart';
-import 'package:lamp/screens/signup_screen.dart';
-import 'package:lamp/screens/splash_screen.dart';
-import 'package:lamp/screens/success_order_screen.dart';
-import 'package:lamp/screens/test.dart';
-import 'package:lamp/screens/user_profile_screen.dart';
-import 'package:lamp/widgets/designer_card.dart';
-import 'package:lamp/widgets/prod.dart';
-import 'package:lamp/widgets/rating_order.dart';
-import 'package:lamp/widgets/sliderrr.dart';
-
-void main() => runApp( SplashScreenH());
+import 'package:http/http.dart'as http;
+import 'dart:convert';
+void main() => runApp(SplashScreenH());
 
 class SplashScreenH extends StatefulWidget {
   SplashScreenH({Key key}) : super(key: key);
   static void setLocale(BuildContext context, Locale newLocale) {
-    _SplashScreenHState state = context.findAncestorStateOfType<_SplashScreenHState>();
+    _SplashScreenHState state =
+        context.findAncestorStateOfType<_SplashScreenHState>();
     state.setLocale(newLocale);
   }
 
@@ -59,6 +25,7 @@ class SplashScreenH extends StatefulWidget {
 
 class _SplashScreenHState extends State<SplashScreenH> {
   Locale _locale;
+
   setLocale(Locale locale) {
     setState(() {
       _locale = locale;
@@ -74,48 +41,70 @@ class _SplashScreenHState extends State<SplashScreenH> {
     });
     super.didChangeDependencies();
   }
+  Future _getDate() async {
+    var data = await http.get("http://lampnow.sa.com/api/v1/home");
+    var jsonData = json.decode(data.body);
+    print(jsonData);
 
+    return jsonData;
+  }
   @override
   Widget build(BuildContext context) {
-    if (this._locale == null) {
-      return  Container(
-        child: Center(
-          child:
-          CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue[800])),
+    // if (this._locale == null) {
+    //   return Container(
+    //     child: Center(
+    //       child: CircularProgressIndicator(
+    //           valueColor: AlwaysStoppedAnimation<Color>(Colors.blue[800])),
+    //     ),
+    //   );
+    // } else {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: Designers(),
         ),
-      );
-    } else {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            primarySwatch: Colors.blue, fontFamily: 'DINNextLTArabic'),
-        locale: _locale,
-        supportedLocales: [
-          Locale("en", "US"),
-          Locale("ar", "SA"),
-        ],
-        localizationsDelegates: [
-          DemoLocalization.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        localeResolutionCallback: (locale, supportedLocales) {
-          for (var supportedLocale in supportedLocales) {
-            if (supportedLocale.languageCode == locale.languageCode &&
-                supportedLocale.countryCode == locale.countryCode) {
-              return supportedLocale;
-            }
-          }
-          return supportedLocales.first;
-        },
-        onGenerateRoute: CustomRouter.generatedRoute,
-        initialRoute: splashRoute,
-      );
-    }
+        ChangeNotifierProvider.value(
+          value: Designer(),
+        ),
+      ],
+      child: FutureBuilder(
+        future: _getDate(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if(snapshot.hasData){
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                  primarySwatch: Colors.blue, fontFamily: 'DINNextLTArabic'),
+              locale: _locale,
+              supportedLocales: [
+                Locale("en", "US"),
+                Locale("ar", "SA"),
+              ],
+              localizationsDelegates: [
+                DemoLocalization.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              localeResolutionCallback: (locale, supportedLocales) {
+                for (var supportedLocale in supportedLocales) {
+                  if (supportedLocale.languageCode == locale.languageCode &&
+                      supportedLocale.countryCode == locale.countryCode) {
+                    return supportedLocale;
+                  }
+                }
+                return supportedLocales.first;
+              },
+              onGenerateRoute: CustomRouter.generatedRoute,
+              initialRoute: splashRoute,
+            );
+          }else
+          return Center(child: CircularProgressIndicator());
+        }),
+    );
   }
-}
+//   }
+// }
 // routes: {
 //     EditProfileScreen.routeName: (ctx) => EditProfileScreen(),
 //   CartsScreen.routeName:(ctx) =>CartsScreen(),
@@ -151,4 +140,5 @@ class _SplashScreenHState extends State<SplashScreenH> {
 //   UserProfileScreen.routeName:(ctx) =>UserProfileScreen(),
 //
 //
-// },
+//
+}

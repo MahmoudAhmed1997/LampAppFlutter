@@ -11,7 +11,8 @@ import 'package:lamp/localization/language_constants.dart';
 import 'cart_screen.dart';
 import 'favourite_screen.dart';
 import 'orders_list.dart';
-
+import 'package:lamp/provider/designers.dart';
+import 'package:provider/provider.dart';
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home_screen';
 
@@ -34,6 +35,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    // Provider.of<Designers>(context,listen: false).fetchAndSetProducts();
+    // print("hjk");
+
     tabController = TabController(length: 5, vsync: this);
     tabController.addListener(_handleTabSelection);
   }
