@@ -1,10 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
-import 'package:lamp/provider/product.dart';
 import 'package:http/http.dart' as http;
-
 import 'package:lamp/provider/designer.dart';
+import 'package:lamp/constants.dart' as cons;
 
 class Designers with ChangeNotifier {
 
@@ -14,8 +12,8 @@ class Designers with ChangeNotifier {
     return _designerList;
   }
 
-  Future<void> fetchAndSetProducts() async {
-    final url = 'http://lampnow.sa.com/api/v1/home';
+  Future<void> fetchAndSetDesigners() async {
+    final url = '${cons.Constants.apiUrl}/home';
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body)['designers']as List<dynamic>;
@@ -60,3 +58,4 @@ class Designers with ChangeNotifier {
   }
 
 }
+

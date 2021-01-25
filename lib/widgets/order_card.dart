@@ -15,7 +15,6 @@ class OrderCard extends StatefulWidget {
 
 class _OrderCardState extends State<OrderCard> {
 
-  Orders orders = Orders();
 
   @override
   Widget build(BuildContext context) {

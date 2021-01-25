@@ -9,6 +9,7 @@ import 'package:lamp/screens/new_product_screen.dart';
 import 'package:lamp/screens/reset_screen.dart';
 import 'package:lamp/localization/language_constants.dart';
 import 'package:lamp/screens/notifications_screen.dart';
+import 'package:lamp/screens/policy_usage_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   static const routeName = '/setting_screen';
@@ -167,7 +168,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => AgreementsScreen()));
+                      builder: (context) => PolicyScreen()));
                 },
               ),
             ),

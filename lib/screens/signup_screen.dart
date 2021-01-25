@@ -1,10 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lamp/classes/http_exceptions.dart';
+import 'package:lamp/provider/auth.dart';
+import 'package:lamp/provider/user_api/auth_api/login_api.dart';
+
+import 'package:provider/provider.dart';
 import 'login_screen.dart';
 import 'package:lamp/widgets/bottomAppBarItems.dart';
 import 'agreements_screen.dart';
 import 'package:lamp/localization/language_constants.dart';
+import 'package:lamp/provider/user_api/auth_api/login_api.dart';
+import 'package:lamp/classes/s_helpar.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   static const routeName = '/signup_screen';
@@ -16,21 +24,107 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
+  bool _isLoading = false;
+  String name;
+  String email;
+  String password;
+  String phone;
+  //APIService api = APIService();
   void _toggle() {
     setState(() {
       _obscureText = !_obscureText;
     });
   }
 
-  var _isLogin = true;
-  var _userEmail = '';
-  var _userName = '';
-  var _userPassword = '';
-  var _userPhone = '';
 
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('An Error Occurred!'),
+        content: Text(message),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('Okay'),
+            onPressed: () {
+              Navigator.of(ctx).pop();
+            },
+          )
+        ],
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+     // api.signup("name", "email@gmail.com", "12345678", "966561234551");
+    // requestModel = new SignupRequestModel();
+    // api.login(requestModel);
+
+  }
+  bool validateAndSave(){
+    final form= _formKey.currentState;
+    if(form.validate()){
+      form.save();
+      return true;
+    }
+    return false;
+  }
   @override
   Widget build(BuildContext context) {
     Locale myLocale = Localizations.localeOf(context);
+    Future<void> _submit() async {
+      if (!_formKey.currentState.validate()) {
+        // Invalid!
+        return null;
+      }
+      _formKey.currentState.save();
+      setState(() {
+        _isLoading = true;
+      });
+      try {
+        print(email);
+        print(password);
+        await signupUser(name,password,phone,email);
+        print("00000");
+        //LoginModel loginModel ;
+        // print("token   11111" + map["token"]);
+        // await S_Helper.s_helper
+        //     .addNew("token", map["token"]);
+        // String token =
+        // await S_Helper.s_helper.getValue("token");
+        // print(token);
+        //
+        // // await _prefs.setString('token', map['token']);
+
+        await Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => LoginScreen()));
+      } on HttpException catch (error) {
+        var errorMessage = 'Authentication failed';
+        if (error.toString().contains('EMAIL_EXISTS')) {
+          errorMessage = 'This email address is already in use.';
+        } else if (error.toString().contains('INVALID_EMAIL')) {
+          errorMessage = 'This is not a valid email address';
+        } else if (error.toString().contains('WEAK_PASSWORD')) {
+          errorMessage = 'This password is too weak.';
+        } else if (error.toString().contains('EMAIL_NOT_FOUND')) {
+          errorMessage = 'Could not find a user with that email.';
+        } else if (error.toString().contains('INVALID_PASSWORD')) {
+          errorMessage = 'Invalid password.';
+        }
+        _showErrorDialog(errorMessage);
+      } catch (error) {
+        const errorMessage =
+            'Could not authenticate you. Please try again later.';
+        _showErrorDialog(errorMessage);
+      }
+
+      setState(() {
+        _isLoading = false;
+      });
+    }
 
 
     void navigateToLogInScreen() {
@@ -41,7 +135,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     }
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
-      resizeToAvoidBottomPadding: false,
+     // resizeToAvoidBottomPadding: false,
       body: Stack(fit: StackFit.expand, overflow: Overflow.visible, children: [
         Align(
           alignment: Alignment.bottomCenter,
@@ -52,9 +146,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
         Container(
           child: Padding(
-            padding: const EdgeInsets.only(top: 40.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+            padding: const EdgeInsets.only(top: 40.0,left:20,right: 20 ),
+            child:ListView(
+           //   mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Center(
                     child: Text(
@@ -77,7 +171,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 41.5,
                 ),
                 Container(
-                  height: 432,
+                //  height: 432,
                   width: 327,
                   child: Form(
                     key: _formKey,
@@ -115,10 +209,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   new BorderSide(color: Color(0xff18304B)),
                               borderRadius: new BorderRadius.circular(12),
                             ),
-                          ),
+                          ), onChanged: (value) {
+                          setState(() {
+                            name = value;
+                            print(name);
+                          });
+                        },
                           onSaved: (value) {
-                            _userName = value;
+                            setState(() {
+                              name = value;
+                              print(name);
+                            });
                           },
+
                         ),
                         SizedBox(
                           height: 10,
@@ -173,8 +276,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               borderRadius: new BorderRadius.circular(12),
                             ),
                           ),
+                          onChanged: (value) {
+                            setState(() {
+                              password = value;
+                              print(password);
+                            });
+                          },
                           onSaved: (value) {
-                            _userName = value;
+                            setState(() {
+                              password = value;
+                              print(password);
+                            });
                           },
                           obscureText: _obscureText,
                         ),
@@ -213,8 +325,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               borderRadius: new BorderRadius.circular(12),
                             ),
                           ),
+                          onChanged: (value) {
+                            setState(() {
+                              phone = value;
+                              print(phone);
+                            });
+                          },
                           onSaved: (value) {
-                            _userEmail = value;
+                            setState(() {
+                              phone = value;
+                              print(phone);
+                            });
                           },
                         ),
                         SizedBox(
@@ -252,16 +373,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               borderRadius: new BorderRadius.circular(12),
                             ),
                           ),
+                          onChanged: (value) {
+                            setState(() {
+                              email = value;
+                              print(email);
+                            });
+                          },
                           onSaved: (value) {
-                            _userEmail = value;
+                            setState(() {
+                              email = value;
+                              print(email);
+                            });
                           },
                         ),
                         SizedBox(
                           height: 23.0,
                         ),
                         Container(
-                          width: 327,
                           height: 56,
+                          width: double.infinity,
                           child: RaisedButton(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12.0)),
@@ -270,8 +400,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               getTranslated(context, "create_account"),
                               style: TextStyle(color: Colors.white,fontSize: 16),
                             ),
-                            onPressed: () {
-                              null;
+                            onPressed: () async{
+                             await _submit();
                             },
                           ),
                         ),
@@ -301,7 +431,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 ),
                               )),
                         ),
+                        SizedBox(height: 110,),
+                        Container(
+                          alignment: Alignment.bottomCenter,
+                          padding: EdgeInsets.only(bottom: 33.0),
+                          child: InkWell(
+                            onTap: navigateToAgreements,
+                            child: RichText(
+                              text: TextSpan(
+                                  text:getTranslated(context, "log_in_agreement"),
 
+                                  style: TextStyle(color: Colors.black, fontSize: 14),
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                      text: getTranslated(context, "agreements"),
+
+                                      style: TextStyle(
+                                          color: Color(0xff00B5F0),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold),
+
+                                    )  ,
+                                  ]),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -313,30 +467,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
         ),
 
-        Container(
-          alignment: Alignment.bottomCenter,
-          padding: EdgeInsets.only(bottom: 33.0),
-          child: InkWell(
-            onTap: navigateToAgreements,
-            child: RichText(
-              text: TextSpan(
-                  text:getTranslated(context, "log_in_agreement"),
-
-                  style: TextStyle(color: Colors.black, fontSize: 14),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: getTranslated(context, "agreements"),
-
-                      style: TextStyle(
-                          color: Color(0xff00B5F0),
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold),
-
-                    )  ,
-                  ]),
-            ),
-          ),
-        ),
         myLocale.languageCode=="ar"?
         Container(
           alignment: Alignment.topRight,

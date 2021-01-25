@@ -13,6 +13,7 @@ import 'favourite_screen.dart';
 import 'orders_list.dart';
 import 'package:lamp/provider/designers.dart';
 import 'package:provider/provider.dart';
+import 'package:lamp/screens/orders_list.dart';
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home_screen';
 
@@ -52,9 +53,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       resizeToAvoidBottomInset: true,
       body: PageStorage(
         child: TabBarView(
-
-
-
           controller: tabController,
           physics: NeverScrollableScrollPhysics(),
           children: mainScreens,

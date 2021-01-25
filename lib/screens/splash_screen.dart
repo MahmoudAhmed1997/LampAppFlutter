@@ -19,6 +19,7 @@ import 'package:lamp/widgets/designer_card.dart';
 import 'package:lamp/localization/language_constants.dart';
 import 'package:lamp/widgets/prod.dart';
 import 'package:lamp/localization/language_constants.dart';
+import 'package:lamp/classes/s_helpar.dart';
 
 class SplashScreen extends StatefulWidget {
   static const routeName = '/splash_screen';
@@ -29,18 +30,26 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState() {
-    // TODO: implement initState
-     Future.delayed(
-        Duration(seconds: 3),
-            () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => LoginScreen()),
-        ));
-    super.initState();
-  }
+
+  // setToken()async{
+  //
+  //   String token =await S_Helper.s_helper.getValue("token");
+  //   print(token);
+  // }
+  // void initState() {
+  //   // TODO: implement initState
+  //   setToken();
+  //    Future.delayed(
+  //       Duration(seconds: 3),
+  //           () => Navigator.push(
+  //         context,
+  //         MaterialPageRoute(builder: (context) => LoginScreen()),
+  //       ));
+  //   super.initState();
+  // }
   @override
   Widget build(BuildContext context) {
+
     return
       Directionality(
         textDirection: TextDirection.ltr,

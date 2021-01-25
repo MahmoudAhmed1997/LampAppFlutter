@@ -5,16 +5,28 @@ import 'package:lamp/widgets/checkbox_values.dart';
 import 'package:lamp/widgets/rang_slider.dart';
 import 'package:flutter_range_slider/flutter_range_slider.dart';
 import 'package:lamp/localization/language_constants.dart';
-
-class FiltersProducts extends StatelessWidget {
+import 'package:lamp/provider/settings_api/colors_api.dart';
+import 'package:lamp/provider/settings_api/contactus_type.dart';
+class FiltersProducts extends StatefulWidget {
   static const routeName = '/filters_products';
 
+  @override
+  _FiltersProductsState createState() => _FiltersProductsState();
+}
 
 
+class _FiltersProductsState extends State<FiltersProducts> {
+  ContactUsApi contactUsApi = ContactUsApi();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
   @override
   Widget build(BuildContext context) {
     Locale myLocale = Localizations.localeOf(context);
-
+    ColorsApi colorsApi = ColorsApi();
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       resizeToAvoidBottomPadding: false,
@@ -48,79 +60,26 @@ class FiltersProducts extends StatelessWidget {
                 ),
                 SizedBox(height: 10,),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                        width: 27,
-                        height: 27,
-                        child: RaisedButton(
-                          color: Colors.red,
-                          onPressed: () {},
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                        )),
-                    SizedBox(
-                      width: 13,
-                    ),
-                    Container(
-                        width: 27,
-                        height: 27,
-                        child: RaisedButton(
-                          color: Color(0xff18304B),
-                          onPressed: () {},
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                        )),
-                    SizedBox(
-                      width: 13,
-                    ),
-                    Container(
-                        width: 27,
-                        height: 27,
-                        child: RaisedButton(
-                          color: Color(0xff991FD5),
-                          onPressed: () {},
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                        )),
-                    SizedBox(
-                      width: 13,
-                    ),
-                    Container(
-                        width: 27,
-                        height: 27,
-                        child: RaisedButton(
-                          color: Color(0xff84D467),
-                          onPressed: () {},
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                        )),
-                    SizedBox(
-                      width: 13,
-                    ),
-                    Container(
-                        width: 27,
-                        height: 27,
-                        child: RaisedButton(
-                          color: Color(0xffF45540),
-                          onPressed: () {},
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                        )),
-                    SizedBox(
-                      width: 13,
-                    ),
-                    Container(
-                        width: 27,
-                        height: 27,
-                        child: RaisedButton(
-                          color: Color(0xff00B5F0),
-                          onPressed: () {},
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                        )),
-                  ],
+                Container(
+                  height: 30,
+                  child: ListView.builder(
+                     scrollDirection: Axis.horizontal,
+                    itemCount: 3,
+                    itemBuilder: (context,index){
+                      return  Container(
+                          width: 27,
+                          height: 27,
+                          child: RaisedButton(
+                              color: Colors.blue,
+                              onPressed: () {},
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                            ),
+                          );
+                    },
+
+
+                  ),
                 ),
                 Divider(),
                 Container(child: GetCheckValue()),

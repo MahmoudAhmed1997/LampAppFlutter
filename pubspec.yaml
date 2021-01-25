@@ -41,6 +41,8 @@ dependencies:
   expandable: ^4.1.4
   http:
   provider: ^4.3.3
+  dio: ^3.0.10
+
 
 
 

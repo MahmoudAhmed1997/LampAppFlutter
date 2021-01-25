@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lamp/classes/language.dart';
 import 'package:lamp/provider/designers.dart';
 import 'package:lamp/provider/products.dart';
+import 'package:lamp/provider/settings_api/colors_api.dart';
 import 'package:lamp/screens/new_product_screen.dart';
 import 'package:lamp/widgets/designer_card.dart';
 import 'package:lamp/localization/language_constants.dart';
@@ -13,11 +14,17 @@ import 'package:provider/provider.dart';
 import 'package:provider/provider.dart';
 import 'package:lamp/provider/designer.dart';
 import 'package:http/http.dart' as http;
+import 'package:lamp/provider/settings_api/language_api.dart';
 import 'dart:convert';
 import '../main.dart';
 import 'hoodies_screen.dart';
 import 'package:lamp/provider/new_products.dart';
-
+import 'package:lamp/provider/settings_api/general_settings_api.dart';
+import 'file:///E:/flutter%20sybjects/lamp/lib/provider/orders_api/orders_list_api.dart';
+import 'package:lamp/provider/orders.dart';
+import 'package:lamp/provider/home_api/stores_api.dart';
+import 'package:lamp/provider/orders_api/add_review_api.dart';
+import 'package:lamp/provider/user_api/auth_api/login_api.dart';
 class Home extends StatefulWidget {
   static const routeName = '/home';
 
@@ -30,16 +37,33 @@ class _HomeState extends State<Home> {
   Products pro = Products();
   Designers des = Designers();
   NewProducts newProducts = NewProducts();
-
-
+  ColorsApi colorsApi = ColorsApi();
+  LanguageApi lang = LanguageApi();
+  OrdersListApi ordersListApi = OrdersListApi();
+ // Orders orders = Orders();
+  StoresApi storesApi = StoresApi();
+  Future<StoresApi> fetchStores ;
+  Future<AddReviewApi> setReview;
+  AddReviewApi addReviewApi = AddReviewApi();
   @override
   void initState() {
     super.initState();
-    des.fetchAndSetProducts().then(
+    des.fetchAndSetDesigners().then(
         (value) => print("Home - Designers: " + des.designersList.toString()));
     newProducts.fetchAndSetNewProducts().then((value) =>
         print("Home - NewProducts " + newProducts.newProductList.toString()));
     print( newProducts.newProductList.length);
+
+  //  colorsApi.fetchColors();
+   // lang.fetchLanguage();
+ //  ordersListApi.fetchOrdersListApi();
+  //  fetchStores = storesApi.fetchStores();
+  //  setReview = addReviewApi.setReviewApi(1, 2, 3, "comment");
+   // print("xxxxxxx ${setReview}");
+   // print(api.login("client@lampnow.sa.com", "1234567"));
+
+    // storesApi.fetchStores();
+
   }
 
   @override
@@ -234,7 +258,6 @@ class _HomeState extends State<Home> {
                                 width: double.infinity,
                                 child: ListView.builder(
                                   itemCount: newProducts.newProductList.length,
-
                                   itemBuilder: (context, index) {
                                     return Prod(
                                       id: index,

@@ -7,6 +7,7 @@ import 'package:lamp/widgets/product_card.dart';
 import 'package:lamp/localization/language_constants.dart';
 import 'package:lamp/screens/order_adress_screen.dart';
 import 'new_delivery _address.dart';
+import 'package:lamp/provider/profile_api.dart';
 
 class AddressesScreen extends StatefulWidget {
   static const routeName = '/addresses_screen';
@@ -16,6 +17,14 @@ class AddressesScreen extends StatefulWidget {
 }
 
 class _AddressesScreenState extends State<AddressesScreen> {
+  UserProfile userProfile = UserProfile();
+  Future<UserProfile> fetchData;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchData = userProfile.fetchUserProfile();
+  }
   @override
   Widget build(BuildContext context) {
     Locale myLocale = Localizations.localeOf(context);
@@ -61,18 +70,100 @@ class _AddressesScreenState extends State<AddressesScreen> {
           )
       ),
       body: Stack(overflow: Overflow.visible, fit: StackFit.expand, children: [
-        SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: AddressCardDelivery(),
+        FutureBuilder<UserProfile>(
+          future: fetchData,
+          builder: (context,snapshot){
+            if(snapshot.hasData){
+              return Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: ListView.separated(
+                  separatorBuilder: (BuildContext context, int i) {
+
+                    return SizedBox(height: 5,);
+                  },
+                  scrollDirection: Axis.vertical,
+                  itemCount: 15,
+
+                  itemBuilder: (context, index){
+
+                    return Container(
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Colors.white),
+                      width:348,height:88,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Stack(
+                              children: [
+                                Container(
+                                  child: ImageIcon(
+                                    AssetImage(
+                                        "assets/icons/check_box.png"),
+                                    color: Color(0xff00B5F0),
+                                  ),
+
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.all(7.0),
+                                  child: ImageIcon(
+
+                                    AssetImage(
+                                        "assets/icons/check.png"),
+                                    color: Colors.white,
+                                    size: 10,
+
+
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(width: 10,),
+
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+
+                              children: [
+                                Text(
+                                  snapshot.data.user.name,
+                                  //   getTranslated(context, "home_address"),
+                                  style: TextStyle(fontSize: 16,color: Color(0xff18304B)),),
+                                Text(snapshot.data.user.name,style: TextStyle(color: Color(0xff7F8FA6),fontSize: 13),),
+                              ],)
+                          ],),
+                      ),
+                    );
+
+                  },
+
+
+
                 ),
-              ),
-            ],
-          ),
+              );
+              //   SingleChildScrollView(
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       Padding(
+              //         padding: const EdgeInsets.all(8.0),
+              //         child: Center(
+              //           child: AddressCardDelivery(),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // );
+            }else if(snapshot.hasError){
+              return Text("${snapshot.error}");
+            }
+
+            // By default, show a loading spinner.
+            return Center(child: CircularProgressIndicator());
+          },
+
         ),
         Positioned(
           bottom: 30,
